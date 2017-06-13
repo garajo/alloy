@@ -8,11 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://ssavaraj@bitbucket.it.keysight.com/scm/ksfgui/alloy.git"
+    "url": "https://bitbucket.it.keysight.com/scm/ksfgui/alloy.git"
   },
   "keywords": [
     "alloy"
   ],
-  "author": "KSF GUI",
-  "license": "ISC"
+  "author": "KSF GUI"
 }
