@@ -1,0 +1,17 @@
+{
+  "name": "alloy",
+  "version": "0.0.1",
+  "description": "KSF GUI HTML5 Component and Styling Library",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.it.keysight.com/scm/ksfgui/alloy.git"
+  },
+  "keywords": [
+    "alloy"
+  ],
+  "author": "KSF GUI"
+}
