@@ -25,15 +25,17 @@
         </div>
         <label>Theme Toggle</label>
       </div>
-      <ul class="tabs nav-tabs" data-tabs id="menu-tab-bar">
+      <ul class="tabs tab-bar" data-tabs id="menu-tab-bar">
         <li class="tabs-title"><a href="#tab-containers">Containers</a></li>
         <li class="tabs-title" ><a href="#tab-menus">Menus</a></li>
         <li class="tabs-title"><a href="#tab-buttons">Buttons</a></li>
         <li class="tabs-title"><a href="#tab-text-box">Text Box</a></li>
         <li class="tabs-title"><a href="#tab-checkbox" >Checkbox</a></li>
+        <li class="tabs-title"><a href="#tab-dropdowns">Dropdowns</a></li>
         <li class="tabs-title"><a href="#tab-combobox" >Combo Box</a></li>
         <li class="tabs-title"><a href="#tab-tab-control">Tab Control</a></li>
         <li class="tabs-title is-active" aria-selected="true"><a href="#tab-property-panel">Property Panel & Grid</a></li>
+        <li class="tabs-title"><a href="#tab-tree-view-data-grid">Tree View & Data Grid</a></li>
 
       </ul>
       <div class="top-bar-right">
@@ -492,6 +494,17 @@
             <h5 class="style-guide-label">Graphic - Disabled</h5>
             <button type="button" class="button-standard" disabled><span class="ph-menu-box small"></span>Button</button>
           </div>
+          <div class="columns small-3">
+            <h5 class="style-guide-label">Scrollbar Up/Down</h5>
+            <button type="button" class="button-scroll up"></button>
+            <button type="button" class="button-scroll down"></button>
+            <h5 class="style-guide-label">Scrollbar Up/Down Hover</h5>
+            <button type="button" class="button-scroll up is-hovered"></button>
+            <button type="button" class="button-scroll down is-hovered"></button>
+            <h5 class="style-guide-label">Scrollbar Up/Down Active</h5>
+            <button type="button" class="button-scroll up is-active"></button>
+            <button type="button" class="button-scroll down is-active"></button>
+          </div>
         </div>
       </div>
     </div>
@@ -588,6 +601,106 @@
             <div class="switch">
               <input class="switch-input" id="exampleSwitchCheckedDisabled" type="checkbox" name="exampleSwitchCheckedDisabled" checked disabled>
               <label class="switch-paddle" for="exampleSwitchCheckedDisabled"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tabs-panel" id="tab-dropdowns">
+      <div class="content-container">
+        <div class="row align-center">
+          <div class="columns small-3">
+            <h5 class="style-guide-label">Dropdown</h5>
+            <div class="dropdown-group">
+              <button type="button" class="dropdown button-standard" data-toggle="dropdown">
+                <label>Select one</label>
+              </button>
+              <div class="dropdown-pane bottom" id="dropdown" data-dropdown>
+                <ul class="menu vertical">
+                  <li><a href="#">List Item 1</a></li>
+                  <li class="is-hovered"><a href="#">List Item 2</a></li>
+                  <li><a href="#">List Item 3</a></li>
+                  <li><a href="#">List Item 4</a></li>
+                  <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                </ul>
+              </div>
+            </div>
+            <h5 class="style-guide-label">Dropdown Hover</h5>
+            <div class="dropdown-group">
+              <button type="button" class="dropdown button-standard is-hovered" data-toggle="dropdown-hovered">
+                <label>Select one</label>
+              </button>
+              <div class="dropdown-pane bottom" id="dropdown-hovered" data-dropdown>
+                <ul class="menu vertical">
+                  <li><a href="#">List Item 1</a></li>
+                  <li class="is-hovered"><a href="#">List Item 2</a></li>
+                  <li><a href="#">List Item 3</a></li>
+                  <li><a href="#">List Item 4</a></li>
+                  <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                </ul>
+              </div>
+            </div>
+            <h5 class="style-guide-label">Dropdown Active</h5>
+            <div class="dropdown-group">
+              <button type="button" class="dropdown button-standard is-pressed" data-toggle="dropdown-active">
+                <label>Select one</label>
+              </button>
+              <div class="dropdown-pane bottom is-open" id="dropdown-active" data-dropdown>
+                <ul class="menu vertical">
+                  <li><a href="#">List Item 1</a></li>
+                  <li class="is-hovered"><a href="#">List Item 2</a></li>
+                  <li><a href="#">List Item 3</a></li>
+                  <li><a href="#">List Item 4</a></li>
+                  <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="columns small-3">
+            <h5 class="style-guide-label">Lightweight Dropdown</h5>
+            <div class="dropdown-group">
+              <button type="button" class="dropdown lightweight" data-toggle="dropdown-lightweight">
+                <label>Select one</label>
+              </button>
+              <div class="dropdown-pane bottom" id="dropdown-lightweight" data-dropdown>
+                <ul class="menu vertical">
+                  <li><a href="#">List Item 1</a></li>
+                  <li class="is-hovered"><a href="#">List Item 2</a></li>
+                  <li><a href="#">List Item 3</a></li>
+                  <li><a href="#">List Item 4</a></li>
+                  <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                </ul>
+              </div>
+            </div>
+            <h5 class="style-guide-label">Lightweight Dropdown Hover</h5>
+            <div class="dropdown-group">
+              <button type="button" class="dropdown lightweight is-hovered" data-toggle="dropdown-lightweight-hovered">
+                <label>Select one</label>
+              </button>
+              <div class="dropdown-pane bottom" id="dropdown-lightweight-hovered" data-dropdown>
+                <ul class="menu vertical">
+                  <li><a href="#">List Item 1</a></li>
+                  <li class="is-hovered"><a href="#">List Item 2</a></li>
+                  <li><a href="#">List Item 3</a></li>
+                  <li><a href="#">List Item 4</a></li>
+                  <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                </ul>
+              </div>
+            </div>
+            <h5 class="style-guide-label">Lightweight Dropdown Active</h5>
+            <div class="dropdown-group">
+              <button type="button" class="dropdown lightweight is-pressed" data-toggle="dropdown-lightweight-active">
+                <label>Select one</label>
+              </button>
+              <div class="dropdown-pane bottom is-open" id="dropdown-lightweight-active" data-dropdown>
+                <ul class="menu vertical">
+                  <li><a href="#">List Item 1</a></li>
+                  <li class="is-hovered"><a href="#">List Item 2</a></li>
+                  <li><a href="#">List Item 3</a></li>
+                  <li><a href="#">List Item 4</a></li>
+                  <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -780,7 +893,7 @@
               </div>
             </aside>
           </div>
-          <div class="columns small-6">
+          <div class="columns small-5">
             <h5 class="style-guide-label">Property Grid</h5>
             <aside class="panel grid">
               <h5 class="property-header">Favorite Settings: N5182A/B MXG:1</h5>
@@ -788,76 +901,558 @@
                 <input type="text" class="grid-search" placeholder="Search" />
                 <span class="mag-glass"></span>
               </div>
-              <div class="row">
-                <ul class="property-list">
-                  <li>
-                    <span>System</span>
-                    <ul>
-                      <li>
-                        <span>System Configuration</span>
-                        <ul>
-                          <li>
-                            <span>Transmit Hardware</span>
-                            <ul>
-                              <li>
-                                <span>N5182A/B MXG:1</span>
-                                <ul>
-                                  <li>Unequal Length Adj</li>
-                                  <li>Sample Rate Mode</li>
-                                  <li>Mixed Sample Rate</li>
-                                  <li>Mixed Sample Point</li>
-                                  <li>Mixed Signal Length</li>
+              <ul class="vertical menu tree-view" data-accordion-menu>
+                <li>
+                  <a href="#">System</a>
+                  <ul class="menu vertical nested is-active">
+                    <li>
+                      <a href="#">System Configuration</a>
+                      <ul class="menu vertical nested is-active">
+                        <li>
+                          <a href="#">Transmit Hardware</a>
+                          <ul class="menu vertical nested is-active">
+                            <li>
+                              <a href="#">N5182A/B MXG:1</a>
+                              <ul class="menu vertical nested is-active">
+                                <div class="list-properties">
+                                  <li><a href="#">Unequal Length Adj</a></li>
+                                  <li><a href="#">Sample Rate Mode</a></li>
+                                  <li><a class="darkened" href="#">Mixed Sample Rate</a></li>
+                                  <li><a class="darkened" href="#">Mixed Sample Point</a></li>
+                                  <li><a class="darkened" href="#">Mixed Signal Length</a></li>
+                                </div>
+                                <div class="editable-properties">
                                   <li>
-                                    <span>Corrections</span>
-                                    <ul>
-                                      <li>Pre-Corrections</li>
-                                      <li>Coefficients File</li>
-                                    </ul>
-                                  </li>
-                                  <li>
-                                    <span>Multi Tone:1</span>
-                                    <ul>
-                                      <li>Signal On</li>
-                                      <li>Sample Rate Mult</li>
-                                      <li>Offset Frequency</li>
-                                      <li>Relative Power</li>
-                                      <li>Sample Rate</li>
-                                      <li>Sample Points</li>
-                                      <li>Signal Length</li>
-                                      <li>Repetition Count</li>
-                                    </ul>
-                                  </li>
-                                  <li>
-                                    <span>Transmitter Setup</span>
-                                    <ul>
-                                      <li>
-                                        <span>N5182A/B MXG Settings</span>
-                                        <ul>
-                                          <li>Intrument Address</li>
-                                          <li>Amplitude</li>
+                                    <div class="input-group combo-box">
+                                      <input class="input-group-field" type="text" value="Append Silence">
+                                      <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
+                                      <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
+                                        <ul class="menu vertical">
+                                          <li><a href="#">List Item 1</a></li>
+                                          <li><a href="#">List Item 2</a></li>
+                                          <li><a href="#">List Item 3</a></li>
+                                          <li><a href="#">List Item 4</a></li>
+                                          <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
                                         </ul>
-                                      </li>
-                                    </ul>
+                                      </div>
+                                    </div>
                                   </li>
-                                </ul>
-                              </li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-                <ul class="property-value-list">
-                  <li><button type="button" class="dropdown">Append Silence</button></li>
-                </ul>
-              </div>
+                                  <li>
+                                    <div class="input-group combo-box">
+                                      <input class="input-group-field" type="text" value="Auto (Performance)">
+                                      <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
+                                      <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
+                                        <ul class="menu vertical">
+                                          <li><a href="#">List Item 1</a></li>
+                                          <li><a href="#">List Item 2</a></li>
+                                          <li><a href="#">List Item 3</a></li>
+                                          <li><a href="#">List Item 4</a></li>
+                                          <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li><a class="darkened" href="#">100.00000 MHZ</a></li>
+                                  <li><a class="darkened" href="#">65600</a></li>
+                                  <li><a class="darkened" href="#">656.000000 us</a></li>
+                                </div>
+                                <li>
+                                  <a href="#">Corrections</a>
+                                  <ul class="menu vertical nested is-active">
+                                    <div class="list-properties">
+                                      <li><a href="#">Pre-Corrections</a></li>
+                                      <li><a class="darkened" href="#">Coefficients File</a></li>
+                                    </div>
+                                    <div class="editable-properties">
+                                      <li>
+                                        <div class="input-group combo-box">
+                                          <input class="input-group-field" type="text" value="Append Silence">
+                                          <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
+                                          <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
+                                            <ul class="menu vertical">
+                                              <li><a href="#">List Item 1</a></li>
+                                              <li><a href="#">List Item 2</a></li>
+                                              <li><a href="#">List Item 3</a></li>
+                                              <li><a href="#">List Item 4</a></li>
+                                              <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="input-group">
+                                          <input class="input-group-field" type="text">
+                                          <button type="button" class="button-standard">...</button>
+                                        </div>
+                                      </li>
+                                    </div>
+                                  </ul>
+                                </li>
+                                <li>
+                                  <a href="#">Multi Tone:1</a>
+                                  <ul class="menu vertical nested is-active">
+                                    <div class="list-properties">
+                                      <li><a href="#">Signal On</a></li>
+                                      <li><a href="#">Sample Rate Mult</a></li>
+                                      <li><a href="#">Offset Frequency</a></li>
+                                      <li><a href="#">Relative Power</a></li>
+                                      <li><a class="darkened" href="#">Sample Rate</a></li>
+                                      <li><a class="darkened" href="#">Sample Points</a></li>
+                                      <li><a class="darkened" href="#">Signal Length</a></li>
+                                      <li><a class="darkened" href="#">Repetition Count</a></li>
+                                    </div>
+                                    <div class="editable-properties">
+                                      <li>
+                                        <div class="checkbox">
+                                          <input type="checkbox" /><span></span>
+                                        </div>
+                                      </li>
+                                      <li><a href="#">100.00000</a></li>
+                                      <li><a href="#">0.0000 Hz</a></li>
+                                      <li><a href="#">0.00 dB</a></li>
+                                      <li><a class="darkened" href="#">100.00000 MHZ</a></li>
+                                      <li><a class="darkened" href="#">65600</a></li>
+                                      <li><a class="darkened" href="#">656.000000 us</a></li>
+                                      <li><a class="darkened" href="#">1</a></li>
+                                    </div>
+                                  </ul>
+                                </li>
+                                <li>
+                                  <a href="#">Transmitter Setup</a>
+                                  <ul class="menu vertical nested is-active">
+                                    <li>
+                                      <a href="#">N5182A/B MXG Settings</a>
+                                      <ul class="menu vertical nested is-active">
+                                        <div class="list-properties">
+                                          <li><a href="#">Instrument Address</a></li>
+                                          <li><a href="#">Amplitude</a></li>
+                                        </div>
+                                        <div class="editable-properties">
+                                          <li><a href="#">TCPIPO::111.222.333</a></li>
+                                          <li><a href="#">-10.000 dBm</a></li>
+                                        </div>
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
               <div class="splitter"></div>
               <div class="property">
                 <span class="property-header">Sample Rate Mode</span>
                 <p>Each Sample Rate Mode has relative advantages. Use Auto (Performance) mode when the very best EVM accuracy is required.</p>
               </div>
             </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tabs-panel" id="tab-tree-view-data-grid">
+      <div class="content-container">
+        <div class="row align-center">
+          <div class="columns small-3">
+            <h5 class="style-guide-label">Tree view</h5>
+            <ul class="vertical menu tree-view" data-accordion-menu>
+              <li>
+                <a href="#"><span class="ph-spacer"></span>Level 1, Item 1</a>
+                <ul class="menu vertical nested">
+                  <li>
+                    <a href="#"><span class="ph-spacer"></span>Level 2, Item 1</a>
+                    <ul class="menu vertical nested">
+                      <li>
+                        <a href="#"><span class="ph-spacer"></span>Level 3, Item 1</a>
+                        <ul class="menu vertical nested">
+                          <li><a href="#"><span class="ph-spacer"></span>Level 4, Item 1</a></li>
+                          <li><a href="#"><span class="ph-spacer"></span>Level 4, Item 2</a></li>
+                          <li><a href="#"><span class="ph-spacer"></span>Level 4, Item 3</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a class="is-hovered" href="#"><span class="ph-spacer"></span>Level 1, Item 2</a>
+                <ul class="menu vertical nested is-active">
+                  <li>
+                    <a class="is-focused" href="#"><span class="ph-spacer"></span>Level 2, Item 1</a>
+                    <ul class="menu vertical nested is-active">
+                      <li>
+                        <a class="is-active" href="#"><span class="ph-spacer"></span>Level 3, Item 1</a>
+                        <ul class="menu vertical nested is-active">
+                          <li><a href="#"><span class="ph-spacer"></span>Level 4, Item 1</a></li>
+                          <li><a href="#"><span class="ph-spacer"></span>Level 4, Item 2</a></li>
+                          <li><a href="#"><span class="ph-spacer"></span>Level 4, Item 3</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#"><span class="ph-spacer"></span>Level 1, Item 3</a>
+                <ul class="menu vertical nested">
+                  <li>
+                    <a href="#"><span class="ph-spacer"></span>Level 2, Item 1</a>
+                    <ul class="menu vertical nested">
+                      <li>
+                        <a href="#"><span class="ph-spacer"></span>Level 3, Item 1</a>
+                        <ul class="menu vertical nested">
+                          <li><a href="#"><span class="ph-spacer"></span>Level 4, Item 1</a></li>
+                          <li><a href="#"><span class="ph-spacer"></span>Level 4, Item 2</a></li>
+                          <li><a href="#"><span class="ph-spacer"></span>Level 4, Item 3</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#"><span class="ph-spacer"></span>Level 1, Item 4</a>
+                <ul class="menu vertical nested">
+                  <li>
+                    <a href="#"><span class="ph-spacer"></span>Level 2, Item 1</a>
+                    <ul class="menu vertical nested">
+                      <li>
+                        <a href="#"><span class="ph-spacer"></span>Level 3, Item 1</a>
+                        <ul class="menu vertical nested">
+                          <li><a href="#"><span class="ph-spacer"></span>Level 4, Item 1</a></li>
+                          <li><a href="#"><span class="ph-spacer"></span>Level 4, Item 2</a></li>
+                          <li><a href="#"><span class="ph-spacer"></span>Level 4, Item 3</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="columns small-5">
+            <h5 class="style-guide-label">Data Grid</h5>
+            <div class="data-grid">
+              <table class="head hover">
+                <thead>
+                  <tr>
+                    <th class="checkbox-col">
+                      <div class="checkbox">
+                        <input type="checkbox" /><span></span>
+                      </div>
+                    </th>
+                    <th class="name-col sortable">First Name<span class="arrow up"></span></th>
+                    <th class="name-col sortable">Last Name</th>
+                    <th class="sortable">City</th>
+                  </tr>
+                </thead>
+              </table>
+              <div class="table-container">
+                <table class="hover">
+                  <tbody>
+                    <tr>
+                      <td class="checkbox-col">
+                        <div class="checkbox">
+                          <input type="checkbox" /><span></span>
+                        </div>
+                      </td>
+                      <td class="name-col">Alisha</td>
+                      <td class="name-col highlighted">Rohan</td>
+                      <td>
+                        <div class="input-group combo-box">
+                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
+                          <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
+                            <ul class="menu vertical">
+                              <li><a href="#">List Item 1</a></li>
+                              <li><a href="#">List Item 2</a></li>
+                              <li><a href="#">List Item 3</a></li>
+                              <li><a href="#">List Item 4</a></li>
+                              <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="checkbox-col">
+                        <div class="checkbox">
+                          <input type="checkbox" /><span></span>
+                        </div>
+                      </td>
+                      <td class="name-col">Cherise</td>
+                      <td class="name-col highlighted">Castleberry</td>
+                      <td>
+                        <div class="input-group combo-box">
+                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
+                          <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
+                            <ul class="menu vertical">
+                              <li><a href="#">List Item 1</a></li>
+                              <li><a href="#">List Item 2</a></li>
+                              <li><a href="#">List Item 3</a></li>
+                              <li><a href="#">List Item 4</a></li>
+                              <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="checkbox-col">
+                        <div class="checkbox">
+                          <input type="checkbox" /><span></span>
+                        </div>
+                      </td>
+                      <td class="name-col">Daina</td>
+                      <td class="name-col highlighted">Dauber</td>
+                      <td>
+                        <div class="input-group combo-box">
+                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
+                          <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
+                            <ul class="menu vertical">
+                              <li><a href="#">List Item 1</a></li>
+                              <li><a href="#">List Item 2</a></li>
+                              <li><a href="#">List Item 3</a></li>
+                              <li><a href="#">List Item 4</a></li>
+                              <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="checkbox-col">
+                        <div class="checkbox">
+                          <input type="checkbox" /><span></span>
+                        </div>
+                      </td>
+                      <td class="name-col">Heike</td>
+                      <td class="name-col highlighted">Bugarin</td>
+                      <td>
+                        <div class="input-group combo-box">
+                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
+                          <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
+                            <ul class="menu vertical">
+                              <li><a href="#">List Item 1</a></li>
+                              <li><a href="#">List Item 2</a></li>
+                              <li><a href="#">List Item 3</a></li>
+                              <li><a href="#">List Item 4</a></li>
+                              <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                  <thead>
+                    <tr class="sub-header">
+                      <th colspan="4">Sub-Header</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="checkbox-col">
+                        <div class="checkbox">
+                          <input type="checkbox" /><span></span>
+                        </div>
+                      </td>
+                      <td class="name-col">Krishna</td>
+                      <td class="name-col highlighted">Joynes</td>
+                      <td>
+                        <div class="input-group combo-box">
+                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
+                          <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
+                            <ul class="menu vertical">
+                              <li><a href="#">List Item 1</a></li>
+                              <li><a href="#">List Item 2</a></li>
+                              <li><a href="#">List Item 3</a></li>
+                              <li><a href="#">List Item 4</a></li>
+                              <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="is-hovered">
+                      <td class="checkbox-col">
+                        <div class="checkbox">
+                          <input type="checkbox" /><span></span>
+                        </div>
+                      </td>
+                      <td class="name-col">Pete</td>
+                      <td class="name-col highlighted">Campuzano</td>
+                      <td>
+                        <div class="input-group combo-box">
+                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
+                          <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
+                            <ul class="menu vertical">
+                              <li><a href="#">List Item 1</a></li>
+                              <li><a href="#">List Item 2</a></li>
+                              <li><a href="#">List Item 3</a></li>
+                              <li><a href="#">List Item 4</a></li>
+                              <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="is-active">
+                      <td class="checkbox-col">
+                        <div class="checkbox">
+                          <input type="checkbox" checked /><span></span>
+                        </div>
+                      </td>
+                      <td class="name-col">Shantae</td>
+                      <td class="name-col highlighted">Chagoya</td>
+                      <td>
+                        <div class="input-group combo-box">
+                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
+                          <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
+                            <ul class="menu vertical">
+                              <li><a href="#">List Item 1</a></li>
+                              <li><a href="#">List Item 2</a></li>
+                              <li><a href="#">List Item 3</a></li>
+                              <li><a href="#">List Item 4</a></li>
+                              <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="checkbox-col">
+                        <div class="checkbox">
+                          <input type="checkbox" /><span></span>
+                        </div>
+                      </td>
+                      <td class="name-col">Stefan</td>
+                      <td class="name-col highlighted">Winstead</td>
+                      <td>
+                        <div class="input-group combo-box">
+                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
+                          <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
+                            <ul class="menu vertical">
+                              <li><a href="#">List Item 1</a></li>
+                              <li><a href="#">List Item 2</a></li>
+                              <li><a href="#">List Item 3</a></li>
+                              <li><a href="#">List Item 4</a></li>
+                              <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="checkbox-col">
+                        <div class="checkbox">
+                          <input type="checkbox" /><span></span>
+                        </div>
+                      </td>
+                      <td class="name-col">Krishna</td>
+                      <td class="name-col highlighted">Joynes</td>
+                      <td>
+                        <div class="input-group combo-box">
+                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
+                          <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
+                            <ul class="menu vertical">
+                              <li><a href="#">List Item 1</a></li>
+                              <li><a href="#">List Item 2</a></li>
+                              <li><a href="#">List Item 3</a></li>
+                              <li><a href="#">List Item 4</a></li>
+                              <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="checkbox-col">
+                        <div class="checkbox">
+                          <input type="checkbox" /><span></span>
+                        </div>
+                      </td>
+                      <td class="name-col">Pete</td>
+                      <td class="name-col highlighted">Campuzano</td>
+                      <td>
+                        <div class="input-group combo-box">
+                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
+                          <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
+                            <ul class="menu vertical">
+                              <li><a href="#">List Item 1</a></li>
+                              <li><a href="#">List Item 2</a></li>
+                              <li><a href="#">List Item 3</a></li>
+                              <li><a href="#">List Item 4</a></li>
+                              <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="checkbox-col">
+                        <div class="checkbox">
+                          <input type="checkbox"/><span></span>
+                        </div>
+                      </td>
+                      <td class="name-col">Shantae</td>
+                      <td class="name-col highlighted">Chagoya</td>
+                      <td>
+                        <div class="input-group combo-box">
+                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
+                          <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
+                            <ul class="menu vertical">
+                              <li><a href="#">List Item 1</a></li>
+                              <li><a href="#">List Item 2</a></li>
+                              <li><a href="#">List Item 3</a></li>
+                              <li><a href="#">List Item 4</a></li>
+                              <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="checkbox-col">
+                        <div class="checkbox">
+                          <input type="checkbox" /><span></span>
+                        </div>
+                      </td>
+                      <td class="name-col">Stefan</td>
+                      <td class="name-col highlighted">Winstead</td>
+                      <td>
+                        <div class="input-group combo-box">
+                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
+                          <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
+                            <ul class="menu vertical">
+                              <li><a href="#">List Item 1</a></li>
+                              <li><a href="#">List Item 2</a></li>
+                              <li><a href="#">List Item 3</a></li>
+                              <li><a href="#">List Item 4</a></li>
+                              <li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>

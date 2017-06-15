@@ -120,7 +120,12 @@ $color-palette: (
         button-default-shadow-inset:              rgba($cornflower-blue,0.50),
         button-default-hover-border-inset:        rgba($cornflower-blue,0.08),
         button-default-hover-shadow-inset:        rgba(255,255,255,0.16),
-
+        // -- Dropdown
+        button-dropdown-color:                    $white,
+        // -- Dropdown Lightweight
+        button-dropdown-lightweight-color:        $french-gray,
+        button-dropdown-lightweight-color-hover:  $white,
+        button-dropdown-lightweight-color-active: $cornflower-blue,
 
         // Input
         input-text-border:                        $transparent,
@@ -160,6 +165,23 @@ $color-palette: (
         button-spin-bg-active:                    $cornflower-blue,
         button-spin-opacity-disabled:             0.3,
 
+        // Tree View
+        list-item-color:                          $french-gray,
+        list-item-bg-hover:                       rgba(#E5EEFF,0.08),
+        list-item-bg-focus:                       rgba(#E5EEFF,0.16),
+        list-item-bg-active:                      $jacksons-purple,
+
+        // Data Grid
+        data-grid-border:                         rgba(#E5EEFF,0.16),
+        data-grid-header-top-gradient:            $jaguar,
+        data-grid-header-bottom-gradient:         $black-russian,
+        data-grid-color:                          $french-gray,
+        data-grid-color-highlighted:              #85C2FF,
+        data-grid-row-bg-hover:                   rgba(#E5EEFF,0.08),
+        data-grid-row-bg-active:                  $jacksons-purple,
+        data-grid-row-stripe-bg:                  rgba($white,0.03),
+        data-grid-stripe-border:                  rgba($white,0.06),
+
         // Property Panel
         panel-bg:                                 #2D2D33,
         panel-tabs-shadow:                        rgba(0,0,0,0.4),
@@ -176,13 +198,23 @@ $color-palette: (
         // Property Grid
         grid-title-color:                         $white,
         grid-search-placeholder-color:            $french-gray,
+        grid-item-darkened-opacity:               0.3,
+
+        // Scrollbars
+        scrollbar-track-bg:                       $jaguar,
+        scrollbar-track-border:                   rgba($black,0.40),
+        scrollbar-thumb-bg:                       rgba($mountain-mist,0.50),
+        scrollbar-thumb-bg-hover:                 $mountain-mist,
+        scrollbar-thumb-bg-active:                $white,
+        scrollbar-button-bg-hover:                rgba(#E5EEFF,0.08),
+        scrollbar-button-bg-active:               $cornflower-blue,
 
         // Styleguide
         style-guide-switch-label-color:           $white,
         style-guide-buttons-bg:                   transparent,
         style-guide-label-color:                  $french-gray,
         style-guide-default-bg:                   #1A1A1E,
-
+        style-guide-spacer-bg:                    $shark
 );
 
 // Images & Icons
@@ -211,8 +243,8 @@ $icon-pack: (
         // Dropdowns
         caret-down:                         "#{$dark-icons}/caret-down.png",
         caret-down-hover:                   "#{$dark-icons}/caret-down-hover.png",
-        caret-up:                           "#{$dark-icons}/caret-up.png",
-        caret-up-active:                    "#{$icons}/caret-up-active.png",
+        caret-down-active:                  "#{$dark-icons}/caret-down-hover.png",
+        caret-down-alt-active:              "#{$icons}/caret-down-alt-active.png",
 
         // Quick Access Toolbar
         folder:                             "#{$dark-icons}/folder.png",
@@ -254,6 +286,11 @@ $icon-pack: (
 
         // Property Grid
         mag-glass:                          "#{$dark-icons}/mag-glass.png",
+
+        // Scrollbar
+        scroll-caret-down:                  "#{$dark-icons}/scroll-caret-down.png",
+        scroll-caret-down-hover:            "#{$dark-icons}/scroll-caret-down-hover.png",
+        scroll-caret-down-active:           "#{$dark-icons}/scroll-caret-down-hover.png"
 
 );
 

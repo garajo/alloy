@@ -1,0 +1,63 @@
+* {
+  &::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  &::-webkit-scrollbar-button {
+    &:vertical {
+      &:decrement {
+        @extend .button-scroll.up;
+
+        &:hover {
+          @extend .button-scroll.up:hover;
+        }
+
+        &:active {
+          @extend .button-scroll.up:active;
+        }
+      }
+
+      &:increment {
+        @extend .button-scroll.down;
+
+        &:hover {
+          @extend .button-scroll.down:hover;
+        }
+
+        &:active {
+          @extend .button-scroll.down:active;
+        }
+      }
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    padding: 0 4px;
+
+    border: 1px solid map_get($color-palette, scrollbar-track-border);
+    border-top: none;
+    border-bottom: none;
+
+    background-color: map_get($color-palette, scrollbar-track-bg);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: 1px solid transparent;
+    border-top: none;
+    border-bottom: none;
+    border-radius: 1px;
+
+    box-shadow: inset 0 0 0 4px map_get($color-palette, scrollbar-track-bg);
+
+    background-color: map_get($color-palette, scrollbar-thumb-bg);
+    background-clip: padding-box;
+
+    &:hover {
+      background-color: map_get($color-palette, scrollbar-thumb-bg-hover);
+    }
+
+    &:active {
+      background-color: map_get($color-palette, scrollbar-thumb-bg-active);
+    }
+  }
+}

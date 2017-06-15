@@ -123,6 +123,12 @@ body {
             button-default-shadow-inset:              rgba($cornflower-blue,0.50),
             button-default-hover-border-inset:        $cornflower-blue,
             button-default-hover-shadow-inset:        $cornflower-blue,
+            // -- Dropdown
+            button-dropdown-color:                    $black,
+            // -- Dropdown Lightweight
+            button-dropdown-lightweight-color:        $smoky,
+            button-dropdown-lightweight-color-hover:  $black,
+            button-dropdown-lightweight-color-active: $cornflower-blue,
 
             // Input
             input-text-border:                        $french-gray,
@@ -163,6 +169,23 @@ body {
             button-spin-bg-active:                    $cornflower-blue,
             button-spin-opacity-disabled:             0.36,
 
+            // Tree View
+            list-item-color:                          $smoky,
+            list-item-bg-hover:                       rgba(#6C82A8,0.20),
+            list-item-bg-focus:                       rgba(#6C82A8,0.50),
+            list-item-bg-active:                      $hawkes-blue,
+
+            // Data Grid
+            data-grid-border:                         rgba(#131B40,0.30),
+            data-grid-header-top-gradient:            $zircon,
+            data-grid-header-bottom-gradient:         $quartz,
+            data-grid-color:                          $smoky,
+            data-grid-color-highlighted:              #3D72CC,
+            data-grid-row-bg-hover:                   rgba(#6C82A8,0.20),
+            data-grid-row-bg-active:                  $hawkes-blue,
+            data-grid-row-stripe-bg:                  rgba($black,0.04),
+            data-grid-stripe-border:                  rgba($black,0.06),
+
             // Property Panel
             panel-bg:                                 #F2F4FA,
             panel-tabs-shadow:                        rgba($black,0.20),
@@ -181,11 +204,21 @@ body {
             grid-title-color:                         $black,
             grid-search-placeholder-color:            $smoky,
 
+            // Scrollbars
+            scrollbar-track-bg:                       #D7DAE0,
+            scrollbar-track-border:                   rgba(#131B40,0.30),
+            scrollbar-thumb-bg:                       #717885,
+            scrollbar-thumb-bg-hover:                 $smoky,
+            scrollbar-thumb-bg-active:                $black,
+            scrollbar-button-bg-hover:                rgba(#6C82A8,0.12),
+            scrollbar-button-bg-active:               $cornflower-blue,
+
             // Styleguide
             style-guide-switch-label-color:           $black,
             style-guide-buttons-bg:                   $white,
             style-guide-label-color:                  $smoky,
             style-guide-default-bg:                   #FFFFFE,
+            style-guide-spacer-bg:                    #C5C9CF
     );
 
     // Images & Icons
@@ -214,8 +247,8 @@ body {
             // Dropdowns
             caret-down:                         "#{$light-icons}/caret-down.png",
             caret-down-hover:                   "#{$light-icons}/caret-down-hover.png",
-            // caret-up:                           "#{$light-icons}/caret-up.png",
-            caret-up-active:                    "#{$icons}/caret-up-active.png",
+            caret-down-active:                  "#{$light-icons}/caret-down-active.png",
+            caret-down-alt-active:              "#{$icons}/caret-down-alt-active.png",
 
             // Quick Access Toolbar
             folder:                             "#{$light-icons}/folder.png",
@@ -256,6 +289,11 @@ body {
 
             // Panels
             panel-splitter-cursor-hover:        "#{$icons}/splitter-cursor.png",
+
+            // Scrollbar
+            scroll-caret-down:                  "#{$light-icons}/scroll-caret-down.png",
+            scroll-caret-down-hover:            "#{$light-icons}/scroll-caret-down-hover.png",
+            scroll-caret-down-active:           "#{$light-icons}/scroll-caret-down-active.png"
 
     );
 

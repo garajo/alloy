@@ -39,6 +39,13 @@
   }
 }
 
+.ph-spacer {
+  display: inline-block;
+  @include size(16px);
+
+  background-color: map_get($color-palette, style-guide-spacer-bg);
+}
+
 .logo {
   $icon-width: 21px;
   $height: 16px;
@@ -111,16 +118,12 @@
   display: inline-block;
   @include size($width, $height);
 
-  background: transparent url(map_get($icon-pack, minimize)) no-repeat bottom 8px center / $width $height;
-
+  &,
   &:hover,
   &:active,
-  &is-active {
-    background-position: bottom 7px center;
-  }
-
+  &.is-active,
   &:focus {
-    background-position: bottom 8px center;
+    background: transparent url(map_get($icon-pack, minimize)) no-repeat bottom 8px center / $width $height;
   }
 }
 
@@ -129,11 +132,47 @@
   $height: 7px;
 
   display: inline-block;
+  @include size($width, $height);
 
   &.up {
-    @include size($width, $height);
+    background: transparent url(map_get($icon-pack, caret-down)) no-repeat center center / $width $height;
 
-    background: transparent url(map_get($icon-pack, caret-up)) no-repeat center center / $width $height;
+    transform: rotate(180deg);
+  }
+
+  &.right {
+    background: transparent url(map_get($icon-pack, caret-down)) no-repeat center center / $width $height;
+
+    transform: rotate(-90deg);
+  }
+
+  &.down {
+    background: transparent url(map_get($icon-pack, caret-down)) no-repeat center center / $width $height;
+  }
+
+  &.left {
+    background: transparent url(map_get($icon-pack, caret-down)) no-repeat center center / $width $height;
+
+    transform: rotate(90deg);
+  }
+
+  &:active,
+  &.is-active {
+    &.up {
+      background: transparent url(map_get($icon-pack, caret-down-hover)) no-repeat center center / $width $height;
+    }
+
+    &.right {
+      background: transparent url(map_get($icon-pack, caret-down-hover)) no-repeat center center / $width $height;
+    }
+
+    &.down {
+      background: transparent url(map_get($icon-pack, caret-down-hover)) no-repeat center center / $width $height;
+    }
+
+    &.left {
+      background: transparent url(map_get($icon-pack, caret-down-hover)) no-repeat center center / $width $height;
+    }
   }
 }
 
@@ -257,7 +296,7 @@
 }
 
 .mag-glass {
-  $size: 18px;
+  $size: 20px;
 
   display: inline-block;
   @include size($size);

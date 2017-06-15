@@ -27,7 +27,7 @@ button {
       box-shadow: inset 0 2px 0 0 map_get($color-palette, button-standard-shadow-inset),
                   0 1px 3px 0 map_get($color-palette, button-standard-shadow);
 
-      &:after {
+      &:before {
         content: '';
         display: block;
         position: absolute;
@@ -74,7 +74,7 @@ button {
       box-shadow: inset 0 2px 0 0 map_get($color-palette, button-standard-shadow-inset),
                   0 1px 3px 0 map_get($color-palette, button-standard-shadow);
 
-      &:after {
+      &:before {
         border: 1px solid map_get($color-palette, button-standard-hover-border-inset);
       }
 
@@ -96,7 +96,7 @@ button {
 
       box-shadow: 0 1px 3px 0 map_get($color-palette, button-standard-shadow);
 
-      &:after {
+      &:before {
         border: none;
       }
     }
@@ -112,7 +112,7 @@ button {
       box-shadow: inset 0 2px 0 0 map_get($color-palette, button-standard-active-shadow-inset),
                   0 1px 3px 0 map_get($color-palette, button-standard-shadow);
 
-      &:after {
+      &:before {
         border: 1px solid map_get($color-palette, button-standard-active-border-inset);
       }
 
@@ -123,7 +123,6 @@ button {
     }
 
     color: map_get($color-palette, button-standard-color);
-
   }
 
   &:disabled,
@@ -247,28 +246,18 @@ button {
 .button-minimize {
   @include size(48px, 32px);
 
-  padding: 8px 16px;
+  margin: 1px 0;
+  padding: 7px 16px;
+  border-radius: 2px;
+
+  transition: none;
 
   &,
   * {
     vertical-align: top;
   }
 
-  &:hover,
-  &:active,
-  &.is-active,
   &:focus {
-    height: 30px;
-
-    margin: 1px 0;
-    padding: 7px 16px;
-
-    border-radius: 2px;
-  }
-
-  &:focus {
-    border: none;
-
     background-color: transparent;
   }
 }
@@ -311,7 +300,7 @@ button {
 
 .button-toolbar {
   padding: 11px;
-  border: inset 1px transparent;
+  border: 1px solid transparent;
 
   background: transparent;
 
@@ -348,7 +337,7 @@ button {
 
   &:active,
   &:focus {
-    border: inset 1px map_get($color-palette, button-toolbar-focus-border);
+    border: 1px solid map_get($color-palette, button-toolbar-focus-border);
 
     background-color: map_get($color-palette, button-toolbar-focus-bg);
   }
@@ -464,17 +453,38 @@ button {
 }
 
 button.dropdown {
-  $width: 11px;
-  $height: 7px;
+  $caret-width: 11px;
+  $caret-height: 7px;
+
+  * {
+    vertical-align: middle;
+  }
+
+  span {
+    margin: 0;
+  }
+
+  label {
+    display: inline-block;
+
+    font-size: 14px;
+    line-height: normal;
+  }
 
   &:after {
-    top: 9px;
-    @include size($width, $height);
+    @include size($caret-width, $caret-height);
 
-    margin-left: 6px;
     border: none;
 
-    background: transparent url(map_get($icon-pack, caret-down)) no-repeat center center / $width $height;
+    background: transparent url(map_get($icon-pack, caret-down)) no-repeat center center / $caret-width $caret-height;
+  }
+
+  &.button-toolbar {
+    &:after {
+      top: 9px;
+
+      margin-left: 6px;
+    }
   }
 
   &.arrow-only {
@@ -501,10 +511,46 @@ button.dropdown {
                 background-color 0.25s ease-in-out;
   }
 
+  &.lightweight {
+    padding: 8px 12px;
+    border: none;
+
+    background: transparent;
+
+    &:after {
+      top: 5px;
+
+      margin-left: 8px;
+    }
+
+    label {
+      color: map_get($color-palette, button-dropdown-lightweight-color);
+    }
+  }
+
+  &.button-standard {
+    min-width: 146px;
+
+    padding: 8px 12px;
+    border-radius: 0;
+
+    @if $theme-light == false {
+      box-shadow: inset 0 1px 1px 0 map_get($color-palette, button-standard-shadow-inset),
+                  0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                  0 1px 0 0 map_get($color-palette, button-standard-shadow);
+    }
+
+    text-align: left;
+
+    label {
+      color: map_get($color-palette, button-dropdown-color);
+    }
+  }
+
   &:hover,
   &.is-hovered {
     &:after {
-      background: transparent url(map_get($icon-pack, caret-down-hover)) no-repeat center center / $width $height;
+      background: transparent url(map_get($icon-pack, caret-down-hover)) no-repeat center center / $caret-width $caret-height;
     }
 
     &.dropdown-combo {
@@ -513,17 +559,72 @@ button.dropdown {
       transition: border-color 0.25s ease-in-out,
                   background-color 0.25s ease-in-out;
     }
+
+    &.lightweight {
+      label {
+        color: map_get($color-palette, button-dropdown-lightweight-color-hover);
+      }
+    }
+
+    &.button-standard {
+      @if $theme-light == false {
+        box-shadow: inset 0 1px 1px 0 map_get($color-palette, button-standard-hover-shadow-inset),
+                    0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                    0 1px 0 0 map_get($color-palette, button-standard-shadow);
+      }
+
+      label {
+        color: map_get($color-palette, button-dropdown-color);
+      }
+    }
   }
 
   &:active,
-  &.is-active {
+  &.is-active,
+  &.is-pressed {
     &.dropdown-combo {
       border: 1px solid map_get($color-palette, input-text-border-active);
+      border-left: transparent;
 
       background-color: map_get($color-palette, input-text-border-active);
 
       &:after {
-        background: transparent url(map_get($icon-pack, caret-up-active)) no-repeat center center / $width $height;
+        background: transparent url(map_get($icon-pack, caret-down-active)) no-repeat center center / $caret-width $caret-height;
+
+        transform: rotate(180deg);
+      }
+    }
+
+    &.lightweight {
+      &:after {
+        background: transparent url(map_get($icon-pack, caret-down-alt-active)) no-repeat center center / $caret-width $caret-height;
+
+        transform: rotate(180deg);
+      }
+
+      label {
+        color: map_get($color-palette, button-dropdown-lightweight-color-active);
+      }
+    }
+
+    &.button-standard {
+      @include gradientVertical(map_get($color-palette, button-standard-gradient-top), map_get($color-palette, button-standard-gradient-bottom));
+      background-color: transparent;
+
+      @if $theme-light == true {
+        box-shadow: inset 0 1px 1px 0 map_get($color-palette, button-standard-shadow-inset),
+                    0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                    0 1px 0 0 map_get($color-palette, button-standard-shadow);
+      }
+
+      &:after {
+        background: transparent url(map_get($icon-pack, caret-down-hover)) no-repeat center center / $caret-width $caret-height;
+
+        transform: rotate(180deg);
+      }
+
+      label {
+        color: map_get($color-palette, button-dropdown-color);
       }
     }
   }
@@ -606,5 +707,50 @@ button.dropdown {
     pointer-events: none;
 
     opacity: map_get($color-palette, button-spin-opacity-disabled);
+  }
+}
+
+.button-scroll {
+  $caret-width: 6px;
+  $caret-height: 5px;
+  $size: 16px;
+
+  @include size($size);
+
+  padding: 0;
+  border: 1px solid transparent;
+  border-top: none;
+  border-bottom: none;
+
+  &.up {
+    background: transparent url(map_get($icon-pack, scroll-caret-down)) no-repeat center center / $caret-width $caret-height;
+
+    transform: rotate(180deg);
+  }
+
+  &.down {
+    background: transparent url(map_get($icon-pack, scroll-caret-down)) no-repeat center center / $caret-width $caret-height;
+  }
+
+  &:hover,
+  &.is-hovered {
+    &.up {
+      background: map_get($color-palette, scrollbar-button-bg-hover) url(map_get($icon-pack, scroll-caret-down-hover)) no-repeat center center / $caret-width $caret-height;
+    }
+
+    &.down {
+      background: map_get($color-palette, scrollbar-button-bg-hover) url(map_get($icon-pack, scroll-caret-down-hover)) no-repeat center center / $caret-width $caret-height;
+    }
+  }
+
+  &:active,
+  &.is-active {
+    &.up {
+      background: map_get($color-palette, scrollbar-button-bg-active) url(map_get($icon-pack, scroll-caret-down-active)) no-repeat center center / $caret-width $caret-height;
+    }
+
+    &.down {
+      background: map_get($color-palette, scrollbar-button-bg-active) url(map_get($icon-pack, scroll-caret-down-active)) no-repeat center center / $caret-width $caret-height;
+    }
   }
 }

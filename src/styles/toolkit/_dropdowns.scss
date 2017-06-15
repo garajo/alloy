@@ -1,6 +1,12 @@
+.dropdown-group {
+  position: relative;
+  display: inline-block;
+  width: auto;
+}
+
 .dropdown-pane {
-  left: 0 !important;
-  width: 100%;
+  top: calc(100% + 3px); left: 0 !important;
+  width: auto;
 
   padding: 0;
   border: none;
@@ -8,7 +14,6 @@
   background-color: transparent;
 
   ul.menu {
-    top: calc(100% + 3px);
     width: 100%;
     min-width: 0;
 
@@ -53,7 +58,8 @@
         }
       }
 
-      &:hover {
+      &:hover,
+      &.is-hovered {
         a {
           background-color: map_get($color-palette, menu-hover-bg);
         }
@@ -87,9 +93,5 @@
         }
       }
     }
-  }
-
-  &#combobox-drop-active {
-    top: 33px!important;
   }
 }

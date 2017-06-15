@@ -1,0 +1,80 @@
+ul.tree-view {
+  overflow: hidden;
+
+  padding-left: 16px;
+
+  li {
+    padding-left: 16px;
+
+    a {
+      position: relative;
+      height: 32px;
+
+      padding: 8px 10px;
+
+      color: map_get($color-palette, list-item-color);
+      font-size: 14px;
+      font-weight: normal;
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 12px;
+        left: -14px;
+
+        @extend .caret;
+        @extend .caret.right;
+      }
+
+      &:after {
+        display: none;
+      }
+
+      &:only-child {
+        &:before {
+          visibility: hidden;
+        }
+      }
+
+      * {
+        display: inline-block;
+
+        margin-right: 8px;
+      }
+
+      &:hover,
+      &.is-hovered {
+        background-color: map_get($color-palette, list-item-bg-hover);
+      }
+
+      &:focus,
+      &.is-focused {
+        background-color: map_get($color-palette, list-item-bg-focus);
+      }
+
+      &:active,
+      &.is-active {
+        background-color: map_get($color-palette, list-item-bg-active);
+      }
+    }
+
+    &[aria-expanded="true"] {
+      > a {
+        &:before {
+          top: 12px;  left: -16px;
+
+          @extend .caret.down:active;
+
+          transform: rotate(0deg);
+        }
+      }
+    }
+
+    .nested {
+      margin-left: 0;
+      padding-top: 0;
+      padding-right: 0;
+    }
+  }
+}

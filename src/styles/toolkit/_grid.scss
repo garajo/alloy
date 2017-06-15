@@ -23,16 +23,72 @@ aside {
       }
     }
 
-    ul {
-      padding: 10px;
-      margin: 0;
+    ul.tree-view {
+      padding-left: 0;
 
-      &.property-list {
-        @include flex-grid-column(60%);
+      li {
+        line-height: 23px;
+
+        a {
+          height: 24px;
+
+          padding: 5px 8px 4px;
+
+          font-size: 13px;
+        }
       }
 
-      &.property-value-list {
-        @include flex-grid-column(40%);
+      .list-properties,
+      .editable-properties {
+        display: inline-block;
+        width: 50%;
+
+        padding: 0;
+      }
+
+      .editable-properties {
+        min-width: 40%;
+
+        li {
+          padding-left: 8px;
+
+          input[type="text"] {
+            max-width: calc(100% - 32px);
+            height: 22px;
+
+            padding: 3px 0 3px 8px;
+
+            font-size: 13px;
+          }
+
+          .button-standard {
+            min-width: 19px;
+            min-height: 22px;
+
+            margin-left: 4px;
+            padding: 3px;
+          }
+
+          .input-group {
+            margin: 1px 0 1px 8px;
+          }
+
+          .combo-box {
+            .input-group-field {
+              max-width: calc(100% - 36px);
+            }
+
+            .dropdown-combo {
+              height: 22px;
+
+              padding: 3px 8px;
+            }
+          }
+
+          .checkbox {
+            margin-left: 8px;
+          }
+        }
       }
     }
 

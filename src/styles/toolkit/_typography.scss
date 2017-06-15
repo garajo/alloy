@@ -26,3 +26,7 @@ h5 {
     font-weight: normal;
   }
 }
+
+.darkened {
+  opacity: map_get($color-palette, grid-item-darkened-opacity);
+}

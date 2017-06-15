@@ -1,3 +1,9 @@
+header.top-bar {
+  .tab-bar {
+    margin-top: 32px;
+  }
+}
+
 .tabs-content {
   &.style-guide-content {
     border: none;
@@ -25,10 +31,12 @@
       &#tab-buttons,
       &#tab-text-box,
       &#tab-checkbox,
+      &#tab-dropdowns,
       &#tab-combobox,
       &#tab-tab-control,
-      &#tab-property-panel {
-        min-height: calc(100vh - 65px);
+      &#tab-property-panel,
+      &#tab-tree-view-data-grid {
+        min-height: calc(100vh - 73px);
         max-height: 100%;
 
         background-color: map_get($color-palette, style-guide-default-bg);
@@ -50,6 +58,22 @@
         .panel {
           .property {
             min-height: 175px;
+          }
+        }
+      }
+
+      &#tab-tree-view-data-grid {
+        .data-grid {
+          tr {
+            td {
+              .dropdown-pane {
+                display: none;
+              }
+            }
+          }
+
+          .table-container {
+            height: 384px;
           }
         }
       }
