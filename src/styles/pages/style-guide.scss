@@ -1,0 +1,58 @@
+.tabs-content {
+  &.style-guide-content {
+    border: none;
+
+    .tabs-panel {
+      .content-container {
+        padding: 20px;
+      }
+
+      h5 {
+        margin-bottom: 15px;
+
+        &:not(:first-of-type) {
+          margin-top: 30px;
+        }
+      }
+
+      &#tab-containers {
+        padding: 0;
+
+        background: white;
+      }
+
+      &#tab-menus,
+      &#tab-buttons,
+      &#tab-text-box,
+      &#tab-checkbox,
+      &#tab-combobox,
+      &#tab-tab-control,
+      &#tab-property-panel {
+        min-height: calc(100vh - 65px);
+        max-height: 100%;
+
+        background-color: map_get($color-palette, style-guide-default-bg);
+      }
+
+      &#tab-text-box {
+        .input-group {
+          max-width: 300px;
+        }
+      }
+
+      &#tab-tab-control {
+        .tabs-container.vertical {
+          height: 200px;
+        }
+      }
+
+      &#tab-property-panel {
+        .panel {
+          .property {
+            min-height: 175px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+aside {
+  &.grid {
+    padding: 16px;
+
+    .property-header {
+      margin: 0 0 16px;
+    }
+
+    .search-container {
+      position: relative;
+
+      margin-bottom: 8px;
+
+      .grid-search {
+        max-width: calc(100% - 50px);
+
+        margin: 0 0 0 auto;
+      }
+
+      .mag-glass {
+        position: absolute;
+        top: 7px; right: 10px;
+      }
+    }
+
+    ul {
+      padding: 10px;
+      margin: 0;
+
+      &.property-list {
+        @include flex-grid-column(60%);
+      }
+
+      &.property-value-list {
+        @include flex-grid-column(40%);
+      }
+    }
+
+    .property {
+      padding: 16px 0;
+    }
+  }
+}

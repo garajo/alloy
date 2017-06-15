@@ -1,0 +1,20 @@
+img {
+  @if $theme-light == true {
+    &.dark {
+      display: none;
+    }
+
+    &.light {
+      display: block;
+    }
+
+  } @else {
+    &.dark {
+      display: block;
+    }
+
+    &.light {
+      display: none;
+    }
+  }
+}

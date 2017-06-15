@@ -1,0 +1,261 @@
+// Flags
+$theme-light:           false;
+
+// Colors
+$french-gray:           #B8BABF;
+$mountain-mist:         #919499;
+$paynes-gray:           #424347;
+$shark:                 #34343B;
+$jaguar:                #2A2A30;
+$black-russian:         #25252B;
+$dark-jungle:           #1B1B1F;
+
+$cornflower-blue:       #4C8EFF;
+$jacksons-purple:       #2E4585;
+
+$transparent-lightest:  rgba(229,238,255,0.05);
+$transparent-lighter:   rgba(229,238,255,0.08);
+$transparent-light:     rgba(229,238,255,0.11);
+$transparent:           rgba(229,238,255,0.30);
+$transparent-dark:      rgba(229,238,255,0.50);
+
+$color-palette: (
+        primary-lightest:                         $french-gray,
+        primary-lighter:                          $mountain-mist,
+        primary-light:                            $paynes-gray,
+        primary:                                  $shark,
+        primary-dark:                             $jaguar,
+        primary-darker:                           $black-russian,
+        primary-darkest:                          $dark-jungle,
+
+        secondary:                                $cornflower-blue,
+        secondary-dark:                           $jacksons-purple,
+
+        // Containers
+        header-bg:                                $paynes-gray,
+        header-text:                              $white,
+        section-bg:                               $french-gray,
+
+        // Title Bar
+        title-bar-gradient-top:                   $jaguar,
+        title-bar-gradient-bottom:                $black-russian,
+        title-bar-border-bottom:                  rgba(0,0,0,0.60),
+        title-bar-box-shadow:                     rgba(0,0,0,0.45),
+        text-title-color:                         $white,
+        button-close-x-hover-bg:                  #E03030,
+        button-close-x-active-bg:                 #541313,
+        button-close-x-active-box-shadow:         #2B0A0A,
+        button-min-max-hover-bg:                  $transparent-lighter,
+        button-min-max-active-bg:                 rgba(0,0,0,0.10),
+        button-min-max-active-box-shadow:         rgba(0,0,0,0.30),
+
+        // Menus
+        menu-title-color:                         $french-gray,
+        menu-title-hover-bg:                      $transparent-lighter,
+        menu-title-active-bg:                     $jaguar,
+        menu-border-active:                       rgba(0,0,0,0.30),
+        menu-border-inset-active:                 rgba(255,255,255,0.08),
+        menu-shadow-active:                       rgba(0,0,0,0.50),
+        menu-shadow-inset-active:                 rgba(255,255,255,0.08),
+        menu-text-active-color:                   $white,
+        menu-text-color:                          $white,
+        menu-divider-color:                       $black,
+        menu-hover-bg:                            $transparent-lighter,
+        menu-active-bg:                           $cornflower-blue,
+
+        // Tabs
+        tab-bar-bg:                               $jaguar,
+        tab-bar-border:                           rgba($black,0.40),
+        tab-bar-shadow:                           rgba($white,0.08),
+        tab-bg-hover:                             rgba(#E5EEFF,0.08),
+        tab-text-color-hover:                     $french-gray,
+        tab-text-color-active:                    $white,
+        // -- Nav Tabs
+        nav-tab-title-active-gradient-top:        #48484F,
+        nav-tab-title-active-gradient-bottom:     #414147,
+        nav-tab-border-active:                    rgba(0,0,0,0.60),
+        nav-tab-bar-gradient-top:                 #414147,
+        nav-tab-bar-gradient-bottom:              #3B3B41,
+        nav-tab-text-color:                       $white,
+        nav-tab-with-icon-text-color:             $french-gray,
+        nav-tab-with-icon-text-color-active:      $white,
+
+        // Toolbar
+        toolbar-shadow-inset-top:                 rgba(255,255,255,0.08),
+        toolbar-shadow-inset-bottom:              rgba(0,0,0,0.30),
+        toolbar-shadow:                           rgba(0,0,0,0.50),
+        toolbar-group-separator:                  rgba(0,0,0,0.40),
+        button-toolbar-label-color:               $white,
+        button-toolbar-hover-bg:                  $transparent-lighter,
+        button-toolbar-focus-bg:                  rgba(0,0,0,0.10),
+        button-toolbar-focus-border:              rgba(0,0,0,0.30),
+        button-split-group-hover-bg:              $transparent-lightest,
+        button-split-group-divider:               rgba(255,255,255,0.16),
+
+        // Quick Access Toolbar
+        button-quick-access-hover-bg:             $transparent-lighter,
+        button-quick-access-active-border:        rgba(0,0,0,0.10),
+        button-quick-access-active-bg:            rgba(0,0,0,0.30),
+        button-group-box-border:                  rgba(229,238,255,0.16),
+        button-group-box-bg:                      rgba(0,0,0,0.10),
+
+        // Buttons
+        // -- Standard
+        button-standard-color:                    $white,
+        button-standard-gradient-top:             $shark,
+        button-standard-gradient-bottom:          $jaguar,
+        button-standard-shadow-inset:             rgba(255,255,255,0.08),
+        button-standard-shadow:                   rgba(0,0,0,0.25),
+        button-standard-hover-gradient-top:       #3F3F46,
+        button-standard-hover-gradient-bottom:    #36373D,
+        button-standard-hover-shadow-inset:       rgba(255,255,255,0.16),
+        button-standard-pressed-bg:               $cornflower-blue,
+        button-standard-pressed-color:            $white,
+        button-standard-active-bg:                $jacksons-purple,
+        button-standard-active-shadow-inset:      rgba(255,255,255,0.16),
+        button-standard-disabled-opacity:         0.3,
+        button-standard-disabled-text-color:      $white,
+        // -- Default
+        button-default-border-inset:              rgba($cornflower-blue,0.50),
+        button-default-shadow-inset:              rgba($cornflower-blue,0.50),
+        button-default-hover-border-inset:        rgba($cornflower-blue,0.08),
+        button-default-hover-shadow-inset:        rgba(255,255,255,0.16),
+
+
+        // Input
+        input-text-border:                        $transparent,
+        input-text-bg:                            rgba($black,0.20),
+        input-text-color:                         $white,
+        input-text-border-hover:                  $mountain-mist,
+        input-text-border-active:                 $cornflower-blue,
+        input-text-bg-active:                     rgba(#212733,0.60),
+        input-text-bg-error:                      #2B0A0A,
+        input-text-border-error:                  #E03030,
+        input-text-highlight-bg:                  $jacksons-purple,
+        // -- Radios
+        radio-border:                             $french-gray,
+        radio-border-hover:                       $white,
+        radio-checked-bg:                         $cornflower-blue,
+        radio-disabled:                           rgba($mountain-mist,0.30),
+        // -- Switch
+        switch-border:                            $french-gray,
+        switch-bg:                                rgba(0,0,0,0.2),
+        switch-thumb-bg:                          $mountain-mist,
+        switch-border-hover:                      $white,
+        switch-border-checked:                    $cornflower-blue,
+        switch-bg-checked:                        $cornflower-blue,
+        switch-thumb-checked-bg:                  $white,
+        switch-disabled-opacity:                  0.3,
+        // -- Combo box
+        button-dropdown-combo-bg:                 rgba(0,0,0,0.20),
+        button-dropdown-combo-bg-hover:           rgba(#E5EEFF,0.08),
+        button-dropdown-combo-border:             $transparent,
+        button-dropdown-combo-border-hover:       $mountain-mist,
+        // -- Spin
+        button-spin-gradient-top:                 $shark,
+        button-spin-gradient-bottom:              $jaguar,
+        button-spin-border:                       $transparent,
+        button-spin-gradient-top-hover:           #3F3F46,
+        button-spin-gradient-bottom-hover:        #36373D,
+        button-spin-bg-active:                    $cornflower-blue,
+        button-spin-opacity-disabled:             0.3,
+
+        // Property Panel
+        panel-bg:                                 #2D2D33,
+        panel-tabs-shadow:                        rgba(0,0,0,0.4),
+        panel-tab-bar-bg:                         $black-russian,
+        panel-header-color:                       $white,
+        panel-border:                             rgba(0,0,0,0.4),
+        panel-top-border:                         rgba($white,0.08),
+        panel-splitter-bg:                        rgba(#E5EEFF,0.16),
+        panel-splitter-border:                    rgba($black,0.40),
+        panel-splitter-bg-hover:                  rgba(#E5EEFF,0.30),
+        panel-splitter-border-hover:              rgba(#E5EEFF,0.08),
+        panel-separator:                          rgba(#E5EEFF,0.16),
+
+        // Property Grid
+        grid-title-color:                         $white,
+        grid-search-placeholder-color:            $french-gray,
+
+        // Styleguide
+        style-guide-switch-label-color:           $white,
+        style-guide-buttons-bg:                   transparent,
+        style-guide-label-color:                  $french-gray,
+        style-guide-default-bg:                   #1A1A1E,
+
+);
+
+// Images & Icons
+$img:                   "../images";
+$icons:                 "#{$img}/icons";
+$dark-icons:            "#{$img}/dark/icons";
+
+
+$icon-pack: (
+        // Title Bar
+        logo:                               "#{$icons}/logo.png",
+        logo-full:                          "#{$dark-icons}/logo-full.png",
+        close-x:                            "#{$icons}/close-x.png",
+        close-x-hover:                      "#{$icons}/close-x.png",
+        close-x-active:                     "#{$icons}/close-x.png",
+        maximize:                           "#{$dark-icons}/maximize.png",
+        minimize:                           "#{$dark-icons}/minimize.png",
+
+        // Menus
+        ph-menu-box:                        "#{$dark-icons}/ph-menu-box.png",
+
+        // Toolbar
+        ph-toolbar-box:                     "#{$dark-icons}/ph-toolbar-box.png",
+        ph-toolbar-box-active:              "#{$dark-icons}/ph-toolbar-box-active.png",
+
+        // Dropdowns
+        caret-down:                         "#{$dark-icons}/caret-down.png",
+        caret-down-hover:                   "#{$dark-icons}/caret-down-hover.png",
+        caret-up:                           "#{$dark-icons}/caret-up.png",
+        caret-up-active:                    "#{$icons}/caret-up-active.png",
+
+        // Quick Access Toolbar
+        folder:                             "#{$dark-icons}/folder.png",
+        save:                               "#{$dark-icons}/save.png",
+        undo:                               "#{$dark-icons}/undo.png",
+        redo:                               "#{$dark-icons}/redo.png",
+        stop:                               "#{$icons}/stop.png",
+        play:                               "#{$icons}/play.png",
+        ellipses:                           "#{$dark-icons}/ellipses.png",
+        download:                           "#{$dark-icons}/download.png",
+        remove:                             "#{$dark-icons}/remove.png",
+        target:                             "#{$dark-icons}/target.png",
+        property:                           "#{$dark-icons}/property.png",
+
+        // Input
+        error:                              "#{$icons}/error.png",
+        // -- Checkboxes
+        checkbox:                           "#{$dark-icons}/checkbox.png",
+        checkbox-hover:                     "#{$dark-icons}/checkbox-hover.png",
+        checkbox-checked:                   "#{$dark-icons}/checkbox-checked.png",
+        checkbox-disabled:                  "#{$dark-icons}/checkbox-disabled.png",
+        checkbox-checked-disabled:          "#{$dark-icons}/checkbox-checked-disabled.png",
+        // -- Radio
+        radio:                              "#{$dark-icons}/radio.png",
+        radio-hover:                        "#{$dark-icons}/radio-hover.png",
+        radio-checked:                      "#{$dark-icons}/radio-checked.png",
+        radio-disabled:                     "#{$dark-icons}/radio-disabled.png",
+        radio-checked-disabled:             "#{$dark-icons}/radio-checked-disabled.png",
+        // -- Combo Box
+        check:                              "#{$dark-icons}/check.png",
+        // -- Spin Box
+        arrow-up:                           "#{$dark-icons}/arrow-up.png",
+        arrow-up-active:                    "#{$dark-icons}/arrow-up-active.png",
+        arrow-down:                         "#{$dark-icons}/arrow-down.png",
+        arrow-down-active:                  "#{$dark-icons}/arrow-down-active.png",
+
+        // Property Panels
+        panel-splitter-cursor-hover:        "#{$icons}/splitter-cursor.png",
+
+        // Property Grid
+        mag-glass:                          "#{$dark-icons}/mag-glass.png",
+
+);
+
+@import "../toolkit/_styles";
+@import "../pages/style-guide";

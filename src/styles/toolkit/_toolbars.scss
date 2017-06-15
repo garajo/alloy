@@ -1,0 +1,40 @@
+.quick-access-toolbar {
+  position: absolute;
+  bottom: 56px;
+
+  button {
+    vertical-align: top;
+  }
+
+  .button-group {
+    display: inline-flex;
+  }
+
+  &.primary {
+    left: 0;
+  }
+
+  &.secondary {
+    right: 0;
+  }
+
+  &.theme-switch {
+    top: 35px;
+    left: 20px;
+
+    .switch {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    &>label {
+      display: inline-block;
+      vertical-align: top;
+
+      margin-left: 10px;
+
+      line-height: 19px;
+      color: map_get($color-palette, style-guide-switch-label-color)
+    }
+  }
+}

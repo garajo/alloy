@@ -1,0 +1,610 @@
+button {
+  @extend .button;
+
+  margin: 0;
+
+  &,
+  * {
+    font-family: $body-font-family;
+  }
+}
+
+.button-standard {
+  &,
+  &:focus {
+    position: relative;
+    min-width: 80px;
+    min-height: 32px;
+    vertical-align: middle;
+
+    padding: 8px 12px;
+    border: none;
+    border-radius: 1px;
+
+    @include gradientVertical(map_get($color-palette, button-standard-gradient-top), map_get($color-palette, button-standard-gradient-bottom));
+
+    @if $theme-light == true {
+      box-shadow: inset 0 2px 0 0 map_get($color-palette, button-standard-shadow-inset),
+                  0 1px 3px 0 map_get($color-palette, button-standard-shadow);
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+
+        border: solid 1px map_get($color-palette, button-standard-border);
+      }
+    } @else {
+      box-shadow: inset 0 2px 0 0 map_get($color-palette, button-standard-shadow-inset),
+                  0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                  0 1px 0 0 map_get($color-palette, button-standard-shadow);
+    }
+
+    color: map_get($color-palette, button-standard-color);
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+
+  span {
+    display: inline-block;
+    vertical-align: top;
+
+    margin: 2px 10px 0 0;
+  }
+
+  &,
+  &:hover,
+  &.is-hovered,
+  &:focus,
+  &.is-pressed,
+  &:active,
+  &.is-active,
+  &:disabled,
+  &.is-disabled {
+    background-color: transparent;
+  }
+
+  &:hover,
+  &.is-hovered {
+    @include gradientVertical(map_get($color-palette, button-standard-hover-gradient-top), map_get($color-palette, button-standard-hover-gradient-bottom));
+
+    @if $theme-light == true {
+      box-shadow: inset 0 2px 0 0 map_get($color-palette, button-standard-shadow-inset),
+                  0 1px 3px 0 map_get($color-palette, button-standard-shadow);
+
+      &:after {
+        border: 1px solid map_get($color-palette, button-standard-hover-border-inset);
+      }
+
+    } @else {
+      box-shadow: inset 0 1px 1px 0 map_get($color-palette, button-standard-hover-shadow-inset),
+                0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                0 1px 0 0 map_get($color-palette, button-standard-shadow);
+    }
+
+    color: map_get($color-palette, button-standard-color);
+  }
+
+  &:active,
+  &.is-pressed {
+    background: map_get($color-palette, button-standard-pressed-bg);
+
+    @if $theme-light == true {
+      border: none;
+
+      box-shadow: 0 1px 3px 0 map_get($color-palette, button-standard-shadow);
+
+      &:after {
+        border: none;
+      }
+    }
+
+    color: map_get($color-palette, button-standard-pressed-color);
+  }
+
+
+  &.is-active {
+    background: map_get($color-palette, button-standard-active-bg);
+
+    @if $theme-light == true {
+      box-shadow: inset 0 2px 0 0 map_get($color-palette, button-standard-active-shadow-inset),
+                  0 1px 3px 0 map_get($color-palette, button-standard-shadow);
+
+      &:after {
+        border: 1px solid map_get($color-palette, button-standard-active-border-inset);
+      }
+
+    } @else {
+      box-shadow: inset 0 1px 0 0 map_get($color-palette, button-standard-active-shadow-inset),
+                  0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                  0 1px 0 0 map_get($color-palette, button-standard-shadow);
+    }
+
+    color: map_get($color-palette, button-standard-color);
+
+  }
+
+  &:disabled,
+  &.is-disabled {
+    opacity: map_get($color-palette, button-standard-disabled-opacity);
+
+    color: map_get($color-palette, button-standard-disabled-text-color);
+
+    pointer-events: none;
+  }
+}
+
+.button-default {
+  @extend .button-standard;
+
+  position: relative;
+
+  @if $theme-light == true {
+    box-shadow: inset 0 0 4px 0 map_get($color-palette, button-default-shadow-inset),
+                inset 0 2px 0 0 map_get($color-palette, button-standard-shadow-inset),
+                0 1px 3px 0 map_get($color-palette, button-standard-shadow);
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+
+      border: solid 1px map_get($color-palette, button-default-border-inset);
+    }
+  } @else {
+    border: solid 1px map_get($color-palette, button-default-border-inset);
+
+    box-shadow: inset 0 0 4px 0 map_get($color-palette, button-default-shadow-inset),
+                inset 0 1px 1px 0 map_get($color-palette, button-standard-shadow-inset),
+                0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                0 1px 0 0 map_get($color-palette, button-standard-shadow);
+  }
+
+  &:hover,
+  &.is-hovered {
+    @if $theme-light == true {
+      box-shadow: inset 0 0 4px 0 map_get($color-palette, button-default-hover-shadow-inset),
+                  inset 0 2px 0 0 map_get($color-palette, button-standard-shadow-inset),
+                  0 1px 3px 0 map_get($color-palette, button-standard-shadow);
+
+      &:after {
+        border: 1px solid map_get($color-palette, button-default-hover-border-inset);
+      }
+    } @else {
+      border: solid 1px map_get($color-palette, button-default-border-inset);
+
+      box-shadow: inset 0 0 4px 0 map_get($color-palette, button-default-shadow-inset),
+                  inset 0 1px 1px 0 map_get($color-palette, button-default-hover-shadow-inset),
+                  0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                  0 1px 0 0 map_get($color-palette, button-standard-shadow);
+    }
+  }
+
+  &:focus,
+  &.is-pressed,
+  &:active,
+  &.is-active,
+  &:disabled,
+  &.is-disabled {
+    @if $theme-light == false {
+      border: none;
+    }
+  }
+
+  &:active,
+  &.is-pressed {
+    @if $theme-light == true {
+      box-shadow: 0 1px 3px 0 map_get($color-palette, button-standard-shadow);
+
+      &:after {
+        border: none;
+      }
+    } @else {
+      box-shadow: inset 0 1px 1px 0 map_get($color-palette, button-standard-shadow-inset),
+                  0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                  0 1px 0 0 map_get($color-palette, button-standard-shadow);
+    }
+  }
+
+  &.is-active {
+    @if $theme-light == true {
+      box-shadow: inset 0 2px 0 0 map_get($color-palette, button-standard-active-shadow-inset),
+                  0 1px 3px 0 map_get($color-palette, button-standard-shadow);
+
+      &:after {
+        border: 1px solid map_get($color-palette, button-standard-active-border-inset);
+      }
+
+    } @else {
+      box-shadow: inset 0 1px 0 0 map_get($color-palette, button-standard-active-shadow-inset),
+                  0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                  0 1px 0 0 map_get($color-palette, button-standard-shadow);
+    }
+  }
+
+  &:disabled,
+  &.is-disabled {
+    @if $theme-light == true {
+      box-shadow: inset 0 2px 0 0 map_get($color-palette, button-standard-shadow-inset),
+                  0 1px 3px 0 map_get($color-palette, button-standard-shadow);
+
+      &:after {
+        border: solid 1px map_get($color-palette, button-standard-border);
+      }
+    } @else {
+      box-shadow: inset 0 1px 1px 0 map_get($color-palette, button-standard-shadow-inset),
+                  0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                  0 1px 0 0 map_get($color-palette, button-standard-shadow);
+    }
+  }
+}
+
+.button-close-x,
+.button-maximize,
+.button-minimize {
+  @include size(48px, 32px);
+
+  padding: 8px 16px;
+
+  &,
+  * {
+    vertical-align: top;
+  }
+
+  &:hover,
+  &:active,
+  &.is-active,
+  &:focus {
+    height: 30px;
+
+    margin: 1px 0;
+    padding: 7px 16px;
+
+    border-radius: 2px;
+  }
+
+  &:focus {
+    border: none;
+
+    background-color: transparent;
+  }
+}
+
+.button-close-x {
+  @extend .close-x;
+
+  &:hover {
+    background-color: map_get($color-palette, button-close-x-hover-bg);
+  }
+
+  &:active,
+  &.is-active,
+  &:focus {
+    background-color: map_get($color-palette, button-close-x-active-bg);
+    box-shadow: inset 0 0 0 1px map_get($color-palette, button-close-x-active-box-shadow);
+  }
+}
+
+.button-maximize {
+  @extend .maximize;
+}
+
+.button-minimize {
+  @extend .minimize;
+}
+
+.button-maximize,
+.button-minimize {
+  &:hover {
+    background-color: map_get($color-palette, button-min-max-hover-bg);
+  }
+
+  &:active,
+  &.active {
+    background-color: map_get($color-palette, button-min-max-active-bg);
+    box-shadow: inset 0 0 0 1px map_get($color-palette, button-min-max-active-box-shadow);
+  }
+}
+
+.button-toolbar {
+  padding: 11px;
+  border: inset 1px transparent;
+
+  background: transparent;
+
+  * {
+    vertical-align: middle;
+  }
+
+  span {
+    margin: 0;
+  }
+
+  label {
+    display: inline-block;
+
+    margin-left: 8px;
+
+    color: map_get($color-palette, button-toolbar-label-color);
+    font-size: 14px;
+    line-height: normal;
+  }
+
+  &:hover,
+  &.is-hovered,
+  &:active,
+  &:focus,
+  &.is-active {
+    border-radius: 2px;
+  }
+
+  &:hover,
+  &.is-hovered {
+    background-color: map_get($color-palette, button-toolbar-hover-bg);
+  }
+
+  &:active,
+  &:focus {
+    border: inset 1px map_get($color-palette, button-toolbar-focus-border);
+
+    background-color: map_get($color-palette, button-toolbar-focus-bg);
+  }
+
+  &.is-active {
+    .ph-toolbar-box {
+      $size: 24px;
+
+      background: url(map_get($icon-pack, ph-toolbar-box-active)) no-repeat center center / $size;
+    }
+  }
+}
+
+.split-button-group {
+  button {
+    padding-right: 6px;
+
+    &:first-of-type {
+      @include border-right-radius(0);
+    }
+  }
+
+  &:hover {
+    .button-toolbar {
+      border: inset 1px transparent;
+
+      background-color: map_get($color-palette, button-split-group-hover-bg);
+
+      &:hover,
+      &.is-hovered {
+        background-color: map_get($color-palette, button-toolbar-hover-bg);
+      }
+
+      &.arrow-only {
+        border-left: 1px solid map_get($color-palette, button-split-group-divider);
+      }
+    }
+  }
+}
+
+.button-caret-up {
+  @extend .button-toolbar;
+  @extend .caret.up;
+}
+
+.button-quick-access {
+  height: 32px;
+
+  padding: 8px 15px;
+  border: inset 1px transparent;
+
+  background-color: transparent;
+
+  &:hover,
+  &:active,
+  &.is-active {
+    height: 30px;
+
+    margin: 1px 0;
+    padding: 7px 15px;
+
+    border-radius: 2px;
+  }
+
+  &:hover,
+  &.is-hovered {
+    background-color: map_get($color-palette, button-quick-access-hover-bg);
+  }
+
+  &:active,
+  &:focus,
+  &.is-active {
+    position:relative;
+
+    border: inset 1px solid map_get($color-palette, button-quick-access-active-border);
+
+    background-color: map_get($color-palette, button-quick-access-active-bg);
+  }
+}
+
+.button-group-box {
+  @extend .button-group;
+
+  margin: 0;
+  border: inset 1px map_get($color-palette, button-group-box-border);
+  border-bottom: none;
+
+  background-color: map_get($color-palette, button-group-box-bg);
+
+  &:first-child {
+    &:not(:only-child) {
+      margin-right: 11px;
+    }
+  }
+
+  &:not(:first-child) {
+    margin-left: 11px;
+  }
+
+  &:not(:last-child) {
+    margin-right: -4px;
+  }
+
+  button {
+    &,
+    &:hover,
+    &:active,
+    &:focus,
+    &.is-active {
+      border-radius: 0;
+    }
+  }
+}
+
+button.dropdown {
+  $width: 11px;
+  $height: 7px;
+
+  &:after {
+    top: 9px;
+    @include size($width, $height);
+
+    margin-left: 6px;
+    border: none;
+
+    background: transparent url(map_get($icon-pack, caret-down)) no-repeat center center / $width $height;
+  }
+
+  &.arrow-only {
+    padding: 11px 6px;
+    @include border-left-radius(0);
+    @include border-right-radius(2px);
+
+    &:after {
+      top: 0;
+
+      margin: 0;
+    }
+  }
+
+  &.dropdown-combo {
+    padding: 8px;
+    border: 1px solid map_get($color-palette, button-dropdown-combo-border);
+    border-left: transparent;
+    border-radius: 0;
+
+    background-color: map_get($color-palette, button-dropdown-combo-bg);
+
+    transition: border-color 0.25s ease-in-out,
+                background-color 0.25s ease-in-out;
+  }
+
+  &:hover,
+  &.is-hovered {
+    &:after {
+      background: transparent url(map_get($icon-pack, caret-down-hover)) no-repeat center center / $width $height;
+    }
+
+    &.dropdown-combo {
+      background-color: map_get($color-palette, button-dropdown-combo-bg-hover);
+
+      transition: border-color 0.25s ease-in-out,
+                  background-color 0.25s ease-in-out;
+    }
+  }
+
+  &:active,
+  &.is-active {
+    &.dropdown-combo {
+      border: 1px solid map_get($color-palette, input-text-border-active);
+
+      background-color: map_get($color-palette, input-text-border-active);
+
+      &:after {
+        background: transparent url(map_get($icon-pack, caret-up-active)) no-repeat center center / $width $height;
+      }
+    }
+  }
+}
+
+.spin {
+  position: relative;
+  width: 24px;
+
+  &,
+  &:focus {
+    padding: 13px 7px;
+    border: 1px solid map_get($color-palette, button-spin-border);
+
+    @include gradientVertical(map_get($color-palette, button-spin-gradient-top), map_get($color-palette, button-spin-gradient-bottom));
+    background-color: transparent !important;
+
+    &:after {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      @include size(100%);
+    }
+  }
+
+  &,
+  &:disabled,
+  &.is-disabled {
+    &.up {
+      &:after {
+        @extend .arrow.up;
+      }
+    }
+
+    &.down {
+      &:after {
+        @extend .arrow.down;
+      }
+    }
+  }
+
+  &:hover,
+  &.is-hovered {
+    @include gradientVertical(map_get($color-palette, button-spin-gradient-top-hover), map_get($color-palette, button-spin-gradient-bottom-hover));
+  }
+
+  &:hover,
+  &.is-hovered {
+    &.up {
+      &:after {
+        @extend .arrow.up:hover;
+      }
+    }
+
+    &.down {
+      &:after {
+        @extend .arrow.down:hover;
+      }
+    }
+  }
+
+  &:active,
+  &.is-pressed {
+    &.up {
+      &:after {
+        @extend .arrow.up:active;
+      }
+    }
+
+    &.down {
+      &:after {
+        @extend .arrow.down:active;
+      }
+    }
+  }
+
+  &:disabled,
+  &.is-disabled {
+    pointer-events: none;
+
+    opacity: map_get($color-palette, button-spin-opacity-disabled);
+  }
+}

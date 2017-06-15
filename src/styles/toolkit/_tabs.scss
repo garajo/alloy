@@ -1,0 +1,322 @@
+ul.tabs {
+  @extend ul.dropdown.menu;
+
+  &.tab-bar {
+    border: none;
+    border-bottom: 1px solid map_get($color-palette, tab-bar-border);
+
+    background-color: map_get($color-palette, tab-bar-bg);
+    box-shadow: 0 1px 0 0 map_get($color-palette, tab-bar-shadow);
+
+    > li {
+      max-height: 40px;
+
+      &,
+      &:hover,
+      &:active,
+      &.is-active {
+        a {
+          height: 40px;
+          min-width: 80px;
+
+          margin: 0;
+          padding: 12px;
+          border: none;
+          border-right: 1px solid map_get($color-palette, tab-bar-border);
+          border-radius: 0;
+
+          text-align: center;
+        }
+      }
+
+      &:hover,
+      &.is-hovered {
+        a {
+          background-color: map_get($color-palette, tab-bg-hover);
+
+          color: map_get($color-palette, tab-text-color-hover);
+        }
+      }
+
+      &:active,
+      &.is-active {
+        a {
+          background-color: map_get($color-palette, panel-bg);
+          box-shadow: inset 0 1px 0 0 map_get($color-palette, tab-bar-shadow);
+
+          color: map_get($color-palette, tab-text-color-active);
+          font-weight: normal;
+
+          &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: auto; bottom: -2px; left: 0;
+            @include size(100%, 2px);
+
+            border: none;
+
+            background-color: map_get($color-palette, panel-bg);
+          }
+        }
+      }
+    }
+  }
+
+  &.nav-tabs {
+    margin: 32px 0 1px;
+    border: none;
+
+    li.tabs-title {
+      a {
+        margin-top: 1px;
+        border: 1px solid transparent;
+        border-bottom: none;
+      }
+
+      &,
+      &:hover,
+      &:active,
+      &.is-active {
+        a {
+          padding: 8px 16px 10px
+        }
+      }
+
+      &:hover,
+      &.is-hovered {
+        a {
+          margin-top: 2px;
+          padding-top: 7px;
+
+          color: map_get($color-palette, menu-title-color);
+        }
+      }
+
+      &:active,
+      &.is-active {
+        &,
+        &:hover,
+        &.is-hovered {
+          a {
+            position: relative;
+            height: 32px;
+
+            margin-top: 1px;
+            padding-top: 8px;
+            border: 1px solid map_get($color-palette, nav-tab-border-active);
+            border-bottom: none;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+
+            @include gradientVertical(map_get($color-palette, nav-tab-title-active-gradient-top), map_get($color-palette, nav-tab-title-active-gradient-bottom));
+            background-color: transparent;
+            box-shadow: inset 0 1px 0 0 map_get($color-palette, menu-border-inset-active);
+
+            color: map_get($color-palette, menu-text-active-color);
+            font-weight: 500;
+
+            &:after {
+              display: block;
+              content: '';
+              position: absolute;
+              top: auto; right: 0; bottom: -2px; left: 0;
+              height: 2px;
+
+              border: none;
+
+              background-color: map_get($color-palette, nav-tab-bar-gradient-top);
+              box-shadow: none;
+            }
+          }
+        }
+      }
+    }
+
+    &.has-icons {
+      li.tabs-title {
+        min-width: 80px;
+        max-height: 56px;
+
+        text-align: center;
+
+        a {
+          height: 53px;
+
+          color: map_get($color-palette, nav-tab-with-icon-text-color);
+          font-size: 11px;
+
+          span {
+            display: block;
+
+            margin: 0 auto 7px;
+
+            opacity: 0.70;
+          }
+        }
+
+        &:hover,
+        &.is-hovered {
+          a {
+            margin-top: 3px;
+            padding-top: 6px;
+          }
+        }
+
+        &:active,
+        &.is-active {
+          &,
+          &:hover {
+            a {
+              position: relative;
+              height: 56px;
+
+              margin-top: 1px;
+              padding-top: 8px;
+
+              color: map_get($color-palette, nav-tab-with-icon-text-color-active);
+
+              span {
+                opacity: 1;
+              }
+
+              .ph-toolbar-box {
+                @if $theme-light == true {
+                  background: transparent url(map_get($icon-pack, ph-toolbar-tab-box-active)) no-repeat center center / 24px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.tabs-content {
+  display: block;
+  width: 100%;
+
+  border: none;
+
+  background-color: map_get($color-palette, panel-bg);
+  box-shadow: inset 0 1px 0 0 map_get($color-palette, tab-bar-shadow);
+
+  color: map_get($color-palette, menu-title-color);
+
+  &.toolbar {
+    width: 100%;
+
+    border: none;
+
+    @if $theme-light == true {
+      @include gradientVertical3x(map_get($color-palette, nav-tab-bar-gradient-top), map_get($color-palette, nav-tab-bar-gradient-mid), map_get($color-palette, nav-tab-bar-gradient-bottom), 0%, 92%, 100%);
+    } @else {
+      @include gradientVertical(map_get($color-palette, nav-tab-bar-gradient-top), map_get($color-palette, nav-tab-bar-gradient-bottom));
+    }
+
+    box-shadow: inset 0 1px 0 0 map_get($color-palette, toolbar-shadow-inset-top),
+                inset 0 -1px 0 0 map_get($color-palette, toolbar-shadow-inset-bottom),
+                0 2px 6px 0 map_get($color-palette, toolbar-shadow);
+
+    color: map_get($color-palette, nav-tab-text-color);
+
+    .tabs-panel {
+      $panel-height: 56px;
+
+      position: relative;
+      max-height: $panel-height;
+
+      padding: 0;
+
+      &>.button-group {
+        display: inline-flex;
+
+        padding: 4px 0;
+      }
+
+      .divider {
+        display: inline-block;
+        @include size(1px, $panel-height);
+        vertical-align: top;
+
+        margin: 0 12px;
+
+        background-color: map_get($color-palette, toolbar-group-separator);
+      }
+
+      .button-caret-up {
+        position: absolute;
+        right: 16px; bottom: 12px;
+      }
+    }
+
+    &.no-tabs {
+      .tabs-panel {
+        display: block;
+      }
+    }
+  }
+}
+
+.tabs-container {
+  border: 1px solid map_get($color-palette, tab-bar-border);
+
+  &.vertical {
+    display: flex;
+
+    ul.tabs {
+      flex-basis: 0;
+      -ms-flex: 0 1 auto;
+
+      &.tab-bar {
+        width: auto;
+        height: 100%;
+
+        border-right: 1px solid map_get($color-palette, tab-bar-border);
+        border-bottom: none;
+
+        box-shadow: none;
+
+        > li {
+          width: 100%;
+
+          &,
+          &:hover,
+          &:active,
+          &.is-active {
+            a {
+              padding: 12px 16px;
+              border-right: none;
+              border-bottom: 1px solid map_get($color-palette, tab-bar-border);
+
+              text-align: left;
+              white-space: nowrap;
+            }
+          }
+
+          &:active,
+          &.is-active {
+            a {
+              box-shadow: inset 0 1px 0 0 map_get($color-palette, tab-bar-shadow);
+
+              &:after {
+                top: 0; right: -1px; bottom: 0; left: auto;
+                @include size(2px, 100%);
+
+                box-shadow: inset 0 1px 0 0 map_get($color-palette, tab-bar-shadow);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .tabs-content {
+      box-shadow: inset 0 1px 0 0 map_get($color-palette, tab-bar-shadow);
+
+      // IE 11 Hack to force auto flex sizing
+      -ms-flex: 0 1 1000%;
+    }
+  }
+}
