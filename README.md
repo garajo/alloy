@@ -11,4 +11,18 @@ Alloy (KSF GUI HTML5 Component and Styling Library)
         only the styling of various HTML5 elements as per the Caranu guidelines and does not include any reusable HTML5 components
         as a whole. Future releases would add new components to the library.
 
+## Bundler
+    Webpack- webpack.config.js
+
+## Output files
+    dist/scripts --> bundle.js (Javascript files bundled)
+    dist/styles --> bundle.css (Compiled and bundled .scss files to css)
+
+## Sample application
+    index.html
+    Running the sample application: npm run dev
+
+    Building & serving the application: npm start --> http://localhost:9000
+
+
 
