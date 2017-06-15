@@ -22,7 +22,7 @@ Alloy (KSF GUI HTML5 Component and Styling Library)
     index.html
     Running the sample application: npm run dev
 
-    Building & serving the application: npm start --> http://localhost:9000
+    Building & serving the application: npm start (Will automatically open up the browser at http://localhost:9000 after build)
 
 
 
