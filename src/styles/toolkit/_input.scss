@@ -295,6 +295,10 @@ input[type="radio"] + span {
     }
   }
 
+  .dropdown-pane.is-open {
+    width: 100%;
+  }
+
   &:hover,
   &.is-hovered {
     transition: border-color 0.25s ease-in-out;

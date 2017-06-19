@@ -16,7 +16,7 @@
   cursor: url(map_get($icon-pack, panel-splitter-cursor-hover)) 7.5 8, pointer;
 
   transition: border 0.25s ease-in-out,
-  background-color 0.25s ease-in-out;
+              background-color 0.25s ease-in-out;
 
   &:hover,
   &.is-hovered {
@@ -35,6 +35,18 @@
   }
 
   &.vertical {
+    width: 4px;
+    height: 100%;
 
+    border: 1px solid map_get($color-palette, panel-splitter-border);
+
+    cursor: url(map_get($icon-pack, panel-splitter-vertical-cursor-hover)) 8 7.5, pointer;
+
+    &:hover,
+    &.is-hovered {
+      &:after {
+        border: 2px solid map_get($color-palette, panel-splitter-border-hover);
+      }
+    }
   }
 }

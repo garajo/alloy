@@ -292,7 +292,7 @@ button {
   }
 
   &:active,
-  &.active {
+  &.is-active {
     background-color: map_get($color-palette, button-min-max-active-bg);
     box-shadow: inset 0 0 0 1px map_get($color-palette, button-min-max-active-box-shadow);
   }
@@ -500,7 +500,7 @@ button.dropdown {
   }
 
   &.dropdown-combo {
-    padding: 8px;
+    padding: 7px 8px 8px;
     border: 1px solid map_get($color-palette, button-dropdown-combo-border);
     border-left: transparent;
     border-radius: 0;

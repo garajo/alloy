@@ -83,3 +83,31 @@
     font-style: $style;
   }
 }
+
+@mixin ellipses {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Recursively offsets nested unordered lists for the Property grid
+@mixin nested-offset($depth: 1, $max-depth: 10, $offset: 16px) {
+  .nested {
+    .list-properties {
+      li {
+        padding-left: $offset * ($depth + 1);
+      }
+    }
+
+    li {
+      a {
+        margin-left: $offset * ($depth + 1);
+      }
+    }
+
+    @if $depth < $max-depth {
+      @include nested-offset($depth + 1);
+    }
+  }
+}

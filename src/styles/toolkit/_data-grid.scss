@@ -29,6 +29,8 @@
         th {
           padding: 11px 13px 10px 0;
 
+          @include gradientVertical(map_get($color-palette, data-grid-header-top-gradient), map_get($color-palette, data-grid-header-bottom-gradient));
+
           color: map_get($color-palette, data-grid-color);
           font-size: 13px;
           font-weight: 700;

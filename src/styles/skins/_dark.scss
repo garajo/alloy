@@ -215,6 +215,7 @@ $color-palette: (
         style-guide-label-color:                  $french-gray,
         style-guide-default-bg:                   #1A1A1E,
         style-guide-spacer-bg:                    $shark
+
 );
 
 // Images & Icons
@@ -225,72 +226,73 @@ $dark-icons:            "#{$img}/dark/icons";
 
 $icon-pack: (
         // Title Bar
-        logo:                               "#{$icons}/logo.png",
-        logo-full:                          "#{$dark-icons}/logo-full.png",
-        close-x:                            "#{$icons}/close-x.png",
-        close-x-hover:                      "#{$icons}/close-x.png",
-        close-x-active:                     "#{$icons}/close-x.png",
-        maximize:                           "#{$dark-icons}/maximize.png",
-        minimize:                           "#{$dark-icons}/minimize.png",
+        logo:                                 "#{$icons}/logo.png",
+        logo-full:                            "#{$dark-icons}/logo-full.png",
+        close-x:                              "#{$icons}/close-x.png",
+        close-x-hover:                        "#{$icons}/close-x.png",
+        close-x-active:                       "#{$icons}/close-x.png",
+        maximize:                             "#{$dark-icons}/maximize.png",
+        minimize:                             "#{$dark-icons}/minimize.png",
 
         // Menus
-        ph-menu-box:                        "#{$dark-icons}/ph-menu-box.png",
+        ph-menu-box:                          "#{$dark-icons}/ph-menu-box.png",
 
         // Toolbar
-        ph-toolbar-box:                     "#{$dark-icons}/ph-toolbar-box.png",
-        ph-toolbar-box-active:              "#{$dark-icons}/ph-toolbar-box-active.png",
+        ph-toolbar-box:                       "#{$dark-icons}/ph-toolbar-box.png",
+        ph-toolbar-box-active:                "#{$dark-icons}/ph-toolbar-box-active.png",
 
         // Dropdowns
-        caret-down:                         "#{$dark-icons}/caret-down.png",
-        caret-down-hover:                   "#{$dark-icons}/caret-down-hover.png",
-        caret-down-active:                  "#{$dark-icons}/caret-down-hover.png",
-        caret-down-alt-active:              "#{$icons}/caret-down-alt-active.png",
+        caret-down:                           "#{$dark-icons}/caret-down.png",
+        caret-down-hover:                     "#{$dark-icons}/caret-down-hover.png",
+        caret-down-active:                    "#{$dark-icons}/caret-down-hover.png",
+        caret-down-alt-active:                "#{$icons}/caret-down-alt-active.png",
 
         // Quick Access Toolbar
-        folder:                             "#{$dark-icons}/folder.png",
-        save:                               "#{$dark-icons}/save.png",
-        undo:                               "#{$dark-icons}/undo.png",
-        redo:                               "#{$dark-icons}/redo.png",
-        stop:                               "#{$icons}/stop.png",
-        play:                               "#{$icons}/play.png",
-        ellipses:                           "#{$dark-icons}/ellipses.png",
-        download:                           "#{$dark-icons}/download.png",
-        remove:                             "#{$dark-icons}/remove.png",
-        target:                             "#{$dark-icons}/target.png",
-        property:                           "#{$dark-icons}/property.png",
+        folder:                               "#{$dark-icons}/folder.png",
+        save:                                 "#{$dark-icons}/save.png",
+        undo:                                 "#{$dark-icons}/undo.png",
+        redo:                                 "#{$dark-icons}/redo.png",
+        stop:                                 "#{$icons}/stop.png",
+        play:                                 "#{$icons}/play.png",
+        ellipses:                             "#{$dark-icons}/ellipses.png",
+        download:                             "#{$dark-icons}/download.png",
+        remove:                               "#{$dark-icons}/remove.png",
+        target:                               "#{$dark-icons}/target.png",
+        property:                             "#{$dark-icons}/property.png",
 
         // Input
-        error:                              "#{$icons}/error.png",
+        error:                                "#{$icons}/error.png",
         // -- Checkboxes
-        checkbox:                           "#{$dark-icons}/checkbox.png",
-        checkbox-hover:                     "#{$dark-icons}/checkbox-hover.png",
-        checkbox-checked:                   "#{$dark-icons}/checkbox-checked.png",
-        checkbox-disabled:                  "#{$dark-icons}/checkbox-disabled.png",
-        checkbox-checked-disabled:          "#{$dark-icons}/checkbox-checked-disabled.png",
+        checkbox:                             "#{$dark-icons}/checkbox.png",
+        checkbox-hover:                       "#{$dark-icons}/checkbox-hover.png",
+        checkbox-checked:                     "#{$dark-icons}/checkbox-checked.png",
+        checkbox-disabled:                    "#{$dark-icons}/checkbox-disabled.png",
+        checkbox-checked-disabled:            "#{$dark-icons}/checkbox-checked-disabled.png",
         // -- Radio
-        radio:                              "#{$dark-icons}/radio.png",
-        radio-hover:                        "#{$dark-icons}/radio-hover.png",
-        radio-checked:                      "#{$dark-icons}/radio-checked.png",
-        radio-disabled:                     "#{$dark-icons}/radio-disabled.png",
-        radio-checked-disabled:             "#{$dark-icons}/radio-checked-disabled.png",
+        radio:                                "#{$dark-icons}/radio.png",
+        radio-hover:                          "#{$dark-icons}/radio-hover.png",
+        radio-checked:                        "#{$dark-icons}/radio-checked.png",
+        radio-disabled:                       "#{$dark-icons}/radio-disabled.png",
+        radio-checked-disabled:               "#{$dark-icons}/radio-checked-disabled.png",
         // -- Combo Box
-        check:                              "#{$dark-icons}/check.png",
+        check:                                "#{$dark-icons}/check.png",
         // -- Spin Box
-        arrow-up:                           "#{$dark-icons}/arrow-up.png",
-        arrow-up-active:                    "#{$dark-icons}/arrow-up-active.png",
-        arrow-down:                         "#{$dark-icons}/arrow-down.png",
-        arrow-down-active:                  "#{$dark-icons}/arrow-down-active.png",
+        arrow-up:                             "#{$dark-icons}/arrow-up.png",
+        arrow-up-active:                      "#{$dark-icons}/arrow-up-active.png",
+        arrow-down:                           "#{$dark-icons}/arrow-down.png",
+        arrow-down-active:                    "#{$dark-icons}/arrow-down-active.png",
 
         // Property Panels
-        panel-splitter-cursor-hover:        "#{$icons}/splitter-cursor.png",
+        panel-splitter-cursor-hover:          "#{$icons}/splitter-cursor.png",
+        panel-splitter-vertical-cursor-hover: "#{$icons}/splitter-vertical-cursor.png",
 
         // Property Grid
-        mag-glass:                          "#{$dark-icons}/mag-glass.png",
+        mag-glass:                            "#{$dark-icons}/mag-glass.png",
 
         // Scrollbar
-        scroll-caret-down:                  "#{$dark-icons}/scroll-caret-down.png",
-        scroll-caret-down-hover:            "#{$dark-icons}/scroll-caret-down-hover.png",
-        scroll-caret-down-active:           "#{$dark-icons}/scroll-caret-down-hover.png"
+        scroll-caret-down:                    "#{$dark-icons}/scroll-caret-down.png",
+        scroll-caret-down-hover:              "#{$dark-icons}/scroll-caret-down-hover.png",
+        scroll-caret-down-active:             "#{$dark-icons}/scroll-caret-down-hover.png"
 
 );
 

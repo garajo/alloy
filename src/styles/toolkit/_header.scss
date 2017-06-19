@@ -13,7 +13,7 @@
 
     @include gradientVertical(map_get($color-palette, title-bar-gradient-top), map_get($color-palette, title-bar-gradient-bottom));
     box-shadow: inset 0 -1px 0 0 map_get($color-palette, title-bar-border-bottom),
-    0 2px 6px 0 map_get($color-palette, title-bar-box-shadow);
+                0 2px 6px 0 map_get($color-palette, title-bar-box-shadow);
 
     .top-bar-title {
 
@@ -45,6 +45,4 @@
       box-shadow: none;
     }
   }
-
-  @import "_nav";
 }

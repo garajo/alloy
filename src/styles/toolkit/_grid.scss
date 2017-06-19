@@ -1,5 +1,7 @@
 aside {
   &.grid {
+    width: 417px;
+
     padding: 16px;
 
     .property-header {
@@ -23,54 +25,86 @@ aside {
       }
     }
 
+
     ul.tree-view {
+      position: relative;
+
+      margin-bottom: 20px;
       padding-left: 0;
 
       li {
+        overflow-x: hidden;
         line-height: 23px;
+
+        padding-left: 0;
+
+        @include ellipses;
 
         a {
           height: 24px;
 
+          margin-left: 16px;
           padding: 5px 8px 4px;
 
           font-size: 13px;
         }
+
+        @include nested-offset;
       }
 
       .list-properties,
       .editable-properties {
         display: inline-block;
-        width: 50%;
 
         padding: 0;
+
+        li {
+          a {
+            margin-left: 0 !important;
+          }
+        }
+      }
+
+      .list-properties {
+        width: 60%;
       }
 
       .editable-properties {
+        $offset: 8px;
+        $height: 22px;
+
+        width: 40%;
         min-width: 40%;
 
+        padding-left: $offset;
+
         li {
-          padding-left: 8px;
+
+          padding-left: 0;
+
+          a {
+            margin-left: 0 !important;
+          }
 
           input[type="text"] {
             max-width: calc(100% - 32px);
-            height: 22px;
+            height: $height;
 
-            padding: 3px 0 3px 8px;
+            padding: 3px $offset;
 
             font-size: 13px;
           }
 
           .button-standard {
             min-width: 19px;
-            min-height: 22px;
+            min-height: $height;
 
             margin-left: 4px;
             padding: 3px;
           }
 
           .input-group {
-            margin: 1px 0 1px 8px;
+            margin: 1px 0 1px $offset;
           }
 
           .combo-box {
@@ -79,16 +113,36 @@ aside {
             }
 
             .dropdown-combo {
-              height: 22px;
+              height: $height;
 
-              padding: 3px 8px;
+              padding: 3px $offset;
             }
           }
 
           .checkbox {
-            margin-left: 8px;
+            margin: 5px 0 5px $offset;
           }
         }
+      }
+    }
+
+    .splitter:not(.vertical) {
+      width: calc(100% + 32px);
+
+      margin: 0 -16px;
+    }
+
+    .splitter.vertical {
+      position: absolute;
+      top: 8px; left: calc(60% + 4px); bottom: 0;
+      z-index: 1;
+
+      opacity: 0;
+
+      transition: opacity 0.25s ease-in-out;
+
+      &:hover {
+        opacity: 1;
       }
     }
 
