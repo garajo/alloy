@@ -5,7 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
     context: path.resolve(__dirname, 'src'),
-    entry: './app.js',
+    entry: {
+        app: './app.js',
+        vendor: ['jquery', 'foundation-sites']
+    },
     output: {
         filename: './scripts/bundle.js',
         path: path.resolve(__dirname + '/dist'),
@@ -47,7 +50,12 @@ const config = {
             hash: true,
             template: './index.html'
         }),
-        new ExtractTextPlugin({ filename: "./styles/bundle.css", allChunks: true })
+        new ExtractTextPlugin({ filename: "./styles/bundle.css", allChunks: true }),
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: './scripts/vendor.js', minChunks: 'Infinity' }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        })
     ]
 };
 
