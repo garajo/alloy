@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const config = {
     context: path.resolve(__dirname, 'src'),
     entry: {
-        app: './app.js',
+        app: ['./app.js', './styles/main.scss'],
         vendor: ['jquery', 'foundation-sites']
     },
     output: {
