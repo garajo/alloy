@@ -1,0 +1,137 @@
+.data-grid {
+  border: 1px inset map_get($color-palette, data-grid-border);
+
+  table {
+    margin-bottom: 0;
+    border: none;
+    border-collapse: collapse;
+
+    &.head {
+      border-bottom: 1px inset map_get($color-palette, data-grid-border);
+    }
+
+    .checkbox-col {
+      width: 40px;
+
+      padding-left: 13px;
+    }
+
+    .name-col {
+      width: 110px;
+    }
+
+    thead {
+      border: none;
+
+      @include gradientVertical(map_get($color-palette, data-grid-header-top-gradient), map_get($color-palette, data-grid-header-bottom-gradient));
+
+      tr {
+        th {
+          padding: 11px 13px 10px 0;
+
+          @include gradientVertical(map_get($color-palette, data-grid-header-top-gradient), map_get($color-palette, data-grid-header-bottom-gradient));
+
+          color: map_get($color-palette, data-grid-color);
+          font-size: 13px;
+          font-weight: 700;
+
+          .arrow {
+            display: inline-block;
+            vertical-align: middle;
+
+            margin: -1px 0 0 6px;
+          }
+        }
+
+        &.sub-header {
+          border: 1px solid map_get($color-palette, data-grid-border);
+          border-left: none;
+          border-right: none;
+
+          &,
+          &:hover,
+          &.is-hovered,
+          &:active,
+          &.is-active {
+            @include gradientVertical(map_get($color-palette, data-grid-header-top-gradient), map_get($color-palette, data-grid-header-bottom-gradient));
+          }
+
+          th {
+            padding: 2px 13px 3px;
+
+            font-size: 12px;
+            font-weight: 500;
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    tbody {
+      border: none;
+
+      tr {
+        td {
+          padding: 10px 13px 10px 0;
+
+          color: map_get($color-palette, data-grid-color);
+          font-size: 13px;
+          font-weight: normal;
+
+          .combo-box {
+            margin: -4px 0;
+          }
+
+          &.highlighted {
+            color: map_get($color-palette, data-grid-color-highlighted);
+          }
+        }
+
+        &:hover,
+        &.is-hovered {
+          background-color: map_get($color-palette, data-grid-row-bg-hover);
+        }
+
+        &:focus,
+        &:active,
+        &.is-active {
+          background-color: map_get($color-palette, data-grid-row-bg-active);
+        }
+      }
+    }
+
+    &:not(.unstriped) {
+      tbody {
+        tr {
+          &:nth-of-type(2n) {
+            border: 1px inset map_get($color-palette, data-grid-stripe-border);
+            border-right: none;
+            border-left: none;
+
+            background-color: map_get($color-palette, data-grid-row-stripe-bg);
+
+            &:hover,
+            &.is-hovered {
+              background-color: map_get($color-palette, data-grid-row-bg-hover);
+            }
+
+            &:focus,
+            &:active,
+            &.is-active {
+              background-color: map_get($color-palette, data-grid-row-bg-active);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .table-container {
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    thead {
+      display: table-row-group;
+    }
+  }
+}

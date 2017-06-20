@@ -1,0 +1,304 @@
+body {
+  &.light {
+    // Flags
+    $theme-light:           true;
+
+    // Colors
+    $catskill-white:        #F1F2F9;
+    $selago:                #EDEFFA;
+    $zircon:                #DFE1EB;
+    $quartz:                #DADDED;
+    $blue-haze:             #BCBECC;
+    $french-gray:           #B8BBC2;
+    $smoky:                 #5E6166;
+
+    $hawkes-blue:           #D1E0FB;
+    $cornflower-blue:       #4C8EFF;
+
+    $transparent-light:     rgba(19,27,64,0.15);
+    $transparent:           rgba(19,27,64,0.20);
+    $transparent-dark:      rgba(19,27,64,0.30);
+
+    $color-palette: (
+            primary-lightest:                         $catskill-white,
+            primary-lighter:                          $selago,
+            primary-light:                            $zircon,
+            primary:                                  $quartz,
+            primary-dark:                             $blue-haze,
+            primary-darker:                           $french-gray,
+            primary-darkest:                          $smoky,
+
+            secondary:                                $cornflower-blue,
+            secondary-dark:                           $hawkes-blue,
+
+            // Containers
+            header-bg:                                $blue-haze,
+            header-text:                              $black,
+            section-bg:                               $selago,
+
+            // Title Bar
+            title-bar-gradient-top:                   $zircon,
+            title-bar-gradient-bottom:                $quartz,
+            title-bar-border-bottom:                  $transparent-dark,
+            title-bar-box-shadow:                     rgba(0,0,0,0.18),
+            text-title-color:                         $black,
+            button-close-x-hover-bg:                  #E03030,
+            button-close-x-active-bg:                 #B02626,
+            button-close-x-active-box-shadow:         #5E1414,
+            button-min-max-hover-bg:                  rgba(108,130,168,0.12),
+            button-min-max-active-bg:                 rgba(108,130,168,0.12),
+            button-min-max-active-box-shadow:         rgba(19,27,64,0.20),
+
+            // Menus
+            menu-title-color:                         $smoky,
+            menu-title-hover-bg:                      rgba(108,130,168,0.12),
+            menu-title-active-bg:                     $selago,
+            menu-border-active:                       rgba(19,27,64,0.30),
+            menu-border-inset-active:                 transparent,
+            menu-shadow-active:                       rgba(0,0,0,0.30),
+            menu-shadow-inset-active:                 $white,
+            menu-text-active-color:                   $black,
+            menu-text-color:                          $black,
+            menu-divider-color:                       $black,
+            menu-hover-bg:                            rgba(108,130,168,0.20),
+            menu-active-bg:                           $cornflower-blue,
+
+            // Tabs
+            tab-bar-bg:                               #E6E8F0,
+            tab-bar-border:                           rgba(#131B40,0.30),
+            tab-bar-shadow:                           $white,
+            tab-bg-hover:                             rgba(#6C82A8,0.12),
+            tab-text-color-hover:                     $smoky,
+            tab-text-color-active:                    $black,
+            // -- Nav Tabs
+            nav-tab-title-active-gradient-top:        #F5F6FC,
+            nav-tab-title-active-gradient-bottom:     $catskill-white,
+            nav-tab-border-active:                    rgba(19,27,64,0.20),
+            nav-tab-bar-gradient-top:                 $catskill-white,
+            nav-tab-bar-gradient-mid:                 $zircon,
+            nav-tab-bar-gradient-bottom:              #D0D1DB,
+            nav-tab-text-color:                       $smoky,
+            nav-tab-with-icon-text-color:             $smoky,
+            nav-tab-with-icon-text-color-active:      $black,
+
+            // Toolbar
+            toolbar-shadow-inset-top:                 $white,
+            toolbar-shadow-inset-bottom:              rgba(19,27,64,0.30),
+            toolbar-shadow:                           rgba(0,0,0,0.18),
+            toolbar-group-separator:                  rgba(19,27,64,0.30),
+            button-toolbar-label-color:               $smoky,
+            button-toolbar-hover-bg:                  rgba(108,130,168,0.20),
+            button-toolbar-focus-bg:                  rgba(108,130,168,0.20),
+            button-toolbar-focus-border:              rgba(19,27,64,0.20),
+            button-split-group-hover-bg:              rgba(108,130,168,0.08),
+            button-split-group-divider:               rgba(19,27,64,0.20),
+
+            // Quick Access Toolbar
+            button-quick-access-hover-bg:             rgba(108,130,168,0.12),
+            button-quick-access-active-border:        rgba(19,27,64,0.20),
+            button-quick-access-active-bg:            rgba(108,130,168,0.12),
+            button-group-box-border:                  rgba(19,27,64,0.15),
+            button-group-box-bg:                      rgba(255,255,255,0.20),
+
+            // Buttons
+            // -- Standard
+            button-standard-color:                    $black,
+            button-standard-gradient-top:             $selago,
+            button-standard-gradient-bottom:          $zircon,
+            button-standard-border:                   rgba(0,0,0,0.13),
+            button-standard-shadow-inset:             rgba(255,255,255,0.70),
+            button-standard-shadow:                   rgba(0,0,0,0.12),
+            button-standard-hover-gradient-top:       #EDF4FF,
+            button-standard-hover-gradient-bottom:    #CDDFFF,
+            button-standard-hover-border-inset:       rgba($cornflower-blue,0.30),
+            button-standard-pressed-bg:               $cornflower-blue,
+            button-standard-pressed-color:            $white,
+            button-standard-active-bg:                $hawkes-blue,
+            button-standard-active-border-inset:      rgba(0,0,0,0.15),
+            button-standard-active-shadow-inset:      rgba(255,255,255,0.40),
+            button-standard-disabled-opacity:         0.52,
+            button-standard-disabled-text-color:      rgba($black,0.36),
+            // -- Default
+            button-default-border-inset:              $cornflower-blue,
+            button-default-shadow-inset:              rgba($cornflower-blue,0.50),
+            button-default-hover-border-inset:        $cornflower-blue,
+            button-default-hover-shadow-inset:        $cornflower-blue,
+            // -- Dropdown
+            button-dropdown-color:                    $black,
+            // -- Dropdown Lightweight
+            button-dropdown-lightweight-color:        $smoky,
+            button-dropdown-lightweight-color-hover:  $black,
+            button-dropdown-lightweight-color-active: $cornflower-blue,
+
+            // Input
+            input-text-border:                        $french-gray,
+            input-text-bg:                            rgba(#F0F1F7,0.80),
+            input-text-color:                         $black,
+            input-text-border-hover:                  #919499,
+            input-text-border-active:                 $cornflower-blue,
+            input-text-bg-active:                     rgba($cornflower-blue,0.12),
+            input-text-bg-error:                      #F7EBEB,
+            input-text-border-error:                  #E03030,
+            input-text-highlight-bg:                  #2E4585,
+            input-text-highlight-color:               $white,
+            // -- Radios
+            radio-border:                             #8A93A3,
+            radio-border-hover:                       $smoky,
+            radio-checked-bg:                         $cornflower-blue,
+            radio-disabled:                           rgba(#8a93a3,0.52),
+            // -- Switch
+            switch-border:                            #8A93A3,
+            switch-bg:                                transparent,
+            switch-thumb-bg:                          #8A93A3,
+            switch-border-hover:                      $black,
+            switch-border-checked:                    $cornflower-blue,
+            switch-bg-checked:                        $cornflower-blue,
+            switch-thumb-checked-bg:                  $white,
+            switch-disabled-opacity:                  0.52,
+            // -- Combo box
+            button-dropdown-combo-bg:                 rgba(#F0F1F7,0.80),
+            button-dropdown-combo-bg-hover:           rgba(#6C82A8,0.20),
+            button-dropdown-combo-border:             $french-gray,
+            button-dropdown-combo-border-hover:       #8A93A3,
+            // -- Spin
+            button-spin-gradient-top:                 $selago,
+            button-spin-gradient-bottom:              $zircon,
+            button-spin-border:                       $french-gray,
+            button-spin-gradient-top-hover:           #EDF4FF,
+            button-spin-gradient-bottom-hover:        #CDDFFF,
+            button-spin-bg-active:                    $cornflower-blue,
+            button-spin-opacity-disabled:             0.36,
+
+            // Tree View
+            list-item-color:                          $smoky,
+            list-item-bg-hover:                       rgba(#6C82A8,0.20),
+            list-item-bg-focus:                       rgba(#6C82A8,0.50),
+            list-item-bg-active:                      $hawkes-blue,
+
+            // Data Grid
+            data-grid-border:                         rgba(#131B40,0.30),
+            data-grid-header-top-gradient:            $zircon,
+            data-grid-header-bottom-gradient:         $quartz,
+            data-grid-color:                          $smoky,
+            data-grid-color-highlighted:              #3D72CC,
+            data-grid-row-bg-hover:                   rgba(#6C82A8,0.20),
+            data-grid-row-bg-active:                  $hawkes-blue,
+            data-grid-row-stripe-bg:                  rgba($black,0.04),
+            data-grid-stripe-border:                  rgba($black,0.06),
+
+            // Property Panel
+            panel-bg:                                 #F2F4FA,
+            panel-tabs-shadow:                        rgba($black,0.20),
+            panel-tab-bar-bg:                         #E6E8F0,
+            panel-header-color:                       $black,
+            panel-border:                             rgba(#131B40,0.30),
+            panel-border-left:                        #898B95,
+            panel-top-border:                         $white,
+            panel-splitter-bg:                        #DFE3EB,
+            panel-splitter-border:                    rgba(#131B40,0.30),
+            panel-splitter-bg-hover:                  #DFE3EB,
+            panel-splitter-border-hover:              rgba(#6C82A8,0.12),
+            panel-separator:                          rgba(#131B40,0.30),
+
+            // Property Grid
+            grid-title-color:                         $black,
+            grid-search-placeholder-color:            $smoky,
+
+            // Scrollbars
+            scrollbar-track-bg:                       #D7DAE0,
+            scrollbar-track-border:                   rgba(#131B40,0.30),
+            scrollbar-thumb-bg:                       #717885,
+            scrollbar-thumb-bg-hover:                 $smoky,
+            scrollbar-thumb-bg-active:                $black,
+            scrollbar-button-bg-hover:                rgba(#6C82A8,0.12),
+            scrollbar-button-bg-active:               $cornflower-blue,
+
+            // Styleguide
+            style-guide-switch-label-color:           $black,
+            style-guide-buttons-bg:                   $white,
+            style-guide-label-color:                  $smoky,
+            style-guide-default-bg:                   #FFFFFE,
+            style-guide-spacer-bg:                    #C5C9CF
+    );
+
+    // Images & Icons
+    $img:                         "../images";
+    $icons:                       "#{$img}/icons";
+    $light-icons:                 "#{$img}/light/icons";
+
+    $icon-pack: (
+            // Title Bar
+            logo:                                 "#{$icons}/logo.png",
+            logo-full:                            "#{$light-icons}/logo-full.png",
+            close-x:                              "#{$light-icons}/close-x.png",
+            close-x-hover:                        "#{$icons}/close-x.png",
+            close-x-active:                       "#{$icons}/close-x.png",
+            maximize:                             "#{$light-icons}/maximize.png",
+            minimize:                             "#{$light-icons}/minimize.png",
+
+            // Menus
+            ph-menu-box:                          "#{$light-icons}/ph-menu-box.png",
+
+            // Toolbar
+            ph-toolbar-box:                       "#{$light-icons}/ph-toolbar-box.png",
+            ph-toolbar-box-active:                "#{$light-icons}/ph-toolbar-box-active.png",
+            ph-toolbar-tab-box-active:            "#{$light-icons}/ph-toolbar-tab-box-active.png",
+
+            // Dropdowns
+            caret-down:                           "#{$light-icons}/caret-down.png",
+            caret-down-hover:                     "#{$light-icons}/caret-down-hover.png",
+            caret-down-active:                    "#{$light-icons}/caret-down-active.png",
+            caret-down-alt-active:                "#{$icons}/caret-down-alt-active.png",
+
+            // Quick Access Toolbar
+            folder:                               "#{$light-icons}/folder.png",
+            save:                                 "#{$light-icons}/save.png",
+            undo:                                 "#{$light-icons}/undo.png",
+            redo:                                 "#{$light-icons}/redo.png",
+            stop:                                 "#{$icons}/stop.png",
+            play:                                 "#{$icons}/play.png",
+            ellipses:                             "#{$light-icons}/ellipses.png",
+            download:                             "#{$light-icons}/download.png",
+            remove:                               "#{$light-icons}/remove.png",
+            target:                               "#{$light-icons}/target.png",
+            property:                             "#{$light-icons}/property.png",
+
+            // Input
+            error:                                "#{$icons}/error.png",
+            // -- Checkboxes
+            checkbox:                             "#{$light-icons}/checkbox.png",
+            checkbox-hover:                       "#{$light-icons}/checkbox-hover.png",
+            checkbox-checked:                     "#{$light-icons}/checkbox-checked.png",
+            checkbox-disabled:                    "#{$light-icons}/checkbox-disabled.png",
+            checkbox-checked-disabled:            "#{$light-icons}/checkbox-checked-disabled.png",
+            // -- Radio
+            radio:                                "#{$light-icons}/radio.png",
+            radio-hover:                          "#{$light-icons}/radio-hover.png",
+            radio-checked:                        "#{$light-icons}/radio-checked.png",
+            radio-disabled:                       "#{$light-icons}/radio-disabled.png",
+            radio-checked-disabled:               "#{$light-icons}/radio-checked-disabled.png",
+            // -- Combo Box
+            check:                                "#{$light-icons}/check.png",
+            // -- Spin Box
+            arrow-up:                             "#{$light-icons}/arrow-up.png",
+            arrow-up-hover:                       "#{$light-icons}/arrow-up-hover.png",
+            arrow-up-active:                      "#{$light-icons}/arrow-up-active.png",
+            arrow-down:                           "#{$light-icons}/arrow-down.png",
+            arrow-down-hover:                     "#{$light-icons}/arrow-down-hover.png",
+            arrow-down-active:                    "#{$light-icons}/arrow-down-active.png",
+
+            // Panels
+            panel-splitter-cursor-hover:          "#{$icons}/splitter-cursor.png",
+            panel-splitter-vertical-cursor-hover: "#{$icons}/splitter-vertical-cursor.png",
+
+            // Scrollbar
+            scroll-caret-down:                    "#{$light-icons}/scroll-caret-down.png",
+            scroll-caret-down-hover:              "#{$light-icons}/scroll-caret-down-hover.png",
+            scroll-caret-down-active:             "#{$light-icons}/scroll-caret-down-active.png"
+
+    );
+
+    @import "../toolkit/_styles";
+    @import "../pages/style-guide";
+  }
+}

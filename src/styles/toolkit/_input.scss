@@ -1,0 +1,366 @@
+.input-group {
+  position: relative;
+}
+
+input[type="text"] {
+  position: relative;
+  height: 32px;
+
+  padding-left: 12px;
+  border: 1px solid map_get($color-palette, input-text-border);
+
+  background-color: map_get($color-palette, input-text-bg);
+
+  color: map_get($color-palette, input-text-color);
+  font-family: $body-font-family;
+  font-size: 14px;
+  font-weight: normal;
+
+  @include placeholder-color(map_get($color-palette, input-text-color));
+
+  transition: border-color 0.25s ease-in-out;
+
+  &,
+  &:hover,
+  &.is-hovered,
+  &:focus,
+  &.is-focused,
+  &:active,
+  &.is-active {
+    box-shadow: none;
+  }
+
+  &:hover,
+  &.is-hovered {
+    border: 1px solid map_get($color-palette, input-text-border);
+  }
+
+  &:focus,
+  &.is-focused,
+  &:active,
+  &.is-active {
+    border: 1px solid map_get($color-palette, input-text-border-active);
+
+    background-color: map_get($color-palette, input-text-bg-active);
+
+    caret-color: map_get($color-palette, input-text-border-active);
+  }
+
+  &.has-error {
+    border: 1px solid map_get($color-palette, input-text-border-error);
+
+    background-color: map_get($color-palette, input-text-bg-error);
+
+    caret-color: map_get($color-palette, input-text-border-error);
+
+    &+.error {
+      display: block;
+      position: absolute;
+      top: 8px; right: -24px;
+    }
+  }
+
+  &.grid-search {
+    padding-right: 34px;
+
+    @include placeholder-font(map_get($color-palette, grid-search-placeholder-color), 14px, italic);
+  }
+}
+
+input[type="number"] {
+  @extend input[type="text"];
+
+  height: 30px;
+
+  -moz-appearance: textfield;
+
+  &::-webkit-inner-spin-button {
+    display: none;
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+
+}
+
+input[type="checkbox"] + span,
+input[type="radio"] + span {
+  display:inline-block;
+  vertical-align: top;
+}
+
+.checkbox {
+  $size: 14px;
+
+  &,
+  * {
+    @include size($size);
+  }
+
+  input[type="checkbox"] {
+    &+ span {
+      margin: 0;
+
+      background: transparent url(map_get($icon-pack, checkbox)) no-repeat center center / $size;
+    }
+
+    &:hover + span,
+    &.is-hovered + span {
+      background: transparent url(map_get($icon-pack, checkbox-hover)) no-repeat center center / $size;
+    }
+
+    &:checked + span {
+      background: transparent url(map_get($icon-pack, checkbox-checked)) no-repeat center center / $size;
+    }
+
+    &:disabled + span {
+      background: transparent url(map_get($icon-pack, checkbox-disabled)) no-repeat center center / $size;
+
+      pointer-events: none;
+    }
+
+    &:checked:disabled + span {
+      background: transparent url(map_get($icon-pack, checkbox-checked-disabled)) no-repeat center center / $size;
+    }
+  }
+}
+
+.radio {
+  $size: 16px;
+
+  &,
+  * {
+    @include size($size);
+  }
+
+  input[type="radio"] {
+    position: relative;
+
+    &+ span {
+      display: inline-block;
+
+      margin: 0;
+      border: 1px solid map_get($color-palette, radio-border);
+
+      background: none;
+
+      &,
+      &:after {
+        border-radius: 50%;
+      }
+    }
+
+    &:hover + span,
+    &.is-hovered + span,
+    &:checked + span {
+      border-color: map_get($color-palette, radio-border-hover);
+    }
+
+    &:checked + span,
+    &:checked:disabled + span{
+      &:after {
+        $size: 8px;
+        $offset: 4px;
+
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: $offset; left: $offset;
+        @include size($size);
+
+        border-radius: 50%;
+      }
+    }
+
+    &:checked + span {
+      &:after {
+        background-color: map_get($color-palette, radio-checked-bg);
+      }
+    }
+
+    &:disabled + span {
+      border-color: map_get($color-palette, radio-disabled);
+
+      pointer-events: none;
+    }
+
+    &:checked:disabled + span {
+      &:after {
+        background-color: map_get($color-palette, radio-disabled);
+      }
+    }
+  }
+}
+
+.checkbox,
+.radio {
+  position: relative;
+
+  cursor: pointer;
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    position: absolute;
+
+    margin-bottom: 0;
+
+    opacity: 0;
+
+    cursor: pointer;
+  }
+}
+
+.switch {
+  $width: 44px;
+  $height: 16px;
+
+
+  @include size($width, $height);
+
+  margin: 0;
+
+  .switch-paddle {
+    @include size($width, $height);
+
+    border: 1px solid map_get($color-palette, switch-border);
+    border-radius: 32px;
+
+    background: map_get($color-palette, switch-bg);
+
+    &:after {
+      top: 2px; left: 2px;
+      width: 19px;
+      height: 10px;
+
+      border-radius: 16px;
+
+      background: map_get($color-palette, switch-thumb-bg);
+    }
+  }
+
+  &:hover,
+  &.is-hovered {
+    .switch-paddle {
+      border: 1px solid map_get($color-palette, switch-border-hover);
+    }
+  }
+
+  .switch-input {
+    &:checked~.switch-paddle,
+    &.is-checked~.switch-paddle {
+      border: 1px solid map_get($color-palette, switch-border-checked);
+
+      background: map_get($color-palette, switch-bg-checked);
+
+      &:after {
+        left: 21px;
+
+        background: map_get($color-palette, switch-thumb-checked-bg);
+      }
+    }
+
+    &:disabled~.switch-paddle,
+    &:checked:disabled~.switch-paddle,
+    &.is-checked:disabled~.switch-paddle {
+      opacity: map_get($color-palette, switch-disabled-opacity);
+    }
+  }
+}
+
+.combo-box {
+  .input-group-field {
+    border: 1px solid map_get($color-palette, button-dropdown-combo-border);
+    border-right: transparent;
+
+    background-color: map_get($color-palette, button-dropdown-combo-bg);
+
+    &:focus,
+    &.is-focused,
+    &:active,
+    &.is-active {
+      &+ .dropdown-combo {
+        border: 1px solid map_get($color-palette, input-text-border-active);
+
+        background-color: map_get($color-palette, input-text-border-active);
+      }
+
+      &::selection {
+        background-color: map_get($color-palette, input-text-highlight-bg);
+
+        @if $theme-light == true {
+          color: map_get($color-palette, input-text-highlight-color);
+        }
+      }
+    }
+  }
+
+  .dropdown-pane.is-open {
+    width: 100%;
+  }
+
+  &:hover,
+  &.is-hovered {
+    transition: border-color 0.25s ease-in-out;
+
+    .input-group-field {
+      border: 1px solid map_get($color-palette, button-dropdown-combo-border-hover);
+
+      &:focus,
+      &.is-focused,
+      &:active,
+      &.is-active {
+        border: 1px solid map_get($color-palette, input-text-border-active);
+      }
+    }
+
+    .dropdown-combo {
+      border: 1px solid map_get($color-palette, button-dropdown-combo-border-hover);
+      border-left: transparent;
+    }
+  }
+
+  &.spin-box {
+    border: 1px solid map_get($color-palette, button-spin-border);
+
+    .input-group-field,
+    .spin {
+      &,
+      &:hover,
+      &.is-hovered,
+      &:focus,
+      &:active,
+      &.is-pressed {
+        border: none;
+      }
+    }
+
+    .spin {
+      &,
+      &:focus,
+      &:active,
+      &.is-pressed {
+        border-left: 1px solid map_get($color-palette, button-spin-border);
+      }
+    }
+
+    &:hover,
+    &.is-hovered {
+      border: 1px solid map_get($color-palette, button-spin-border);
+
+      .input-group-field {
+        &,
+        &:focus,
+        &:active,
+        &.is-pressed {
+          border: none;
+        }
+      }
+
+      .spin {
+        border-left: 1px solid map_get($color-palette, button-spin-border);
+      }
+    }
+  }
+}
+

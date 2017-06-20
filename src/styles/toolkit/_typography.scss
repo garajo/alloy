@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,500,700');
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.app-title {
+  display: inline-block;
+  vertical-align: middle;
+
+  color: map_get($color-palette, text-title-color);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.property-header {
+  color: map_get($color-palette, panel-header-color);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+h5 {
+  &.style-guide-label {
+    color: map_get($color-palette, style-guide-label-color);
+    font-size: 13px;
+    font-weight: normal;
+  }
+}
+
+.darkened {
+  opacity: map_get($color-palette, grid-item-darkened-opacity);
+}

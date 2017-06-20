@@ -1,0 +1,113 @@
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin iconStates ($icon, $x: '', $y: $x) {
+  background: transparent url(#{$icon}.png) no-repeat center / $x $y;
+
+  &:hover {
+    background: transparent url(#{$icon}-hover.png) no-repeat center / $x $y;
+  }
+
+  &:active,
+  &:focus {
+    background: transparent url(#{$icon}-active.png) no-repeat center / $x $y;
+  }
+}
+
+@mixin gradientVertical ($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Opera 12
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: no-repeat;
+}
+
+@mixin gradientVertical3x ($start-color: #555, $mid-color: #444, $end-color: #333, $start-percent: 0%, $mid-percent: 50%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $mid-color $mid-percent, $end-color $end-percent);  // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(top, $start-color $start-percent, $mid-color $mid-percent, $end-color $end-percent);  // Opera 12
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $mid-color $mid-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: no-repeat;
+}
+
+@mixin border-top-radius ($radius: 0) {
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+}
+
+@mixin border-bottom-radius ($radius: 0) {
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin border-left-radius ($radius: 0) {
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin border-right-radius ($radius: 0) {
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+
+@mixin placeholder-color($color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+
+  &:-moz-placeholder {
+    color: $color;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+@mixin placeholder-font($color, $size, $style) {
+  &::-webkit-input-placeholder {
+    color: $color;
+    font-size: $size;
+    font-style: $style;
+  }
+
+  &:-moz-placeholder {
+    color: $color;
+    font-size: $size;
+    font-style: $style;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+    font-size: $size;
+    font-style: $style;
+  }
+}
+
+@mixin ellipses {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Recursively offsets nested unordered lists for the Property grid
+@mixin nested-offset($depth: 1, $max-depth: 10, $offset: 16px) {
+  .nested {
+    .list-properties {
+      li {
+        padding-left: $offset * ($depth + 1);
+      }
+    }
+
+    li {
+      a {
+        margin-left: $offset * ($depth + 1);
+      }
+    }
+
+    @if $depth < $max-depth {
+      @include nested-offset($depth + 1);
+    }
+  }
+}

@@ -1,0 +1,210 @@
+#containers {
+  section {
+    height: calc(100vh - 1px);
+
+    &:not(:last-of-type) {
+      margin-bottom: 20px;
+    }
+
+    .section-label {
+      position: relative;
+      top: 50%;
+
+      transform: translateY(-50%);
+    }
+
+    header,
+    footer {
+      @include flex-grid-column(12, 0);
+
+      background-color: map-get($color-palette, header-bg);
+
+      .section-label {
+        color: map-get($color-palette, header-text);
+      }
+    }
+
+    header {
+      &:not(.top-bar) {
+        height: 60px;
+      }
+    }
+
+    aside {
+      @include flex-grid-column;
+
+      height: calc(100% - 84px);
+
+      background-color: map-get($color-palette, section-bg);
+    }
+
+    main {
+      @include flex-grid-column(6);
+
+      .row {
+        height: 100%;
+
+        .columns {
+          margin-bottom: map-get($grid-column-gutter, small) / 2;
+
+          background-color: map-get($color-palette, section-bg);
+
+          header {
+            width: 100%;
+            height: 20px;
+
+            background-color: map-get($color-palette, header-bg);
+          }
+
+          @include breakpoint(medium) {
+            margin-bottom: map-get($grid-column-gutter, medium) / 2;
+          }
+        }
+      }
+    }
+
+    footer {
+      height: 24px;
+    }
+
+    &.basic {
+      main {
+        .row {
+          .columns {
+            &:first-of-type {
+              margin-top: map-get($grid-column-gutter, small) / 2;
+            }
+
+            @include breakpoint(medium) {
+              &:first-of-type {
+                margin-top: map-get($grid-column-gutter, medium) / 2;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.compressed {
+      main {
+        padding: 0 map-get($grid-column-gutter, small) / 2;
+
+        .row {
+          &:first-of-type {
+            .columns {
+              &:first-of-type {
+                margin-top: map-get($grid-column-gutter, small) / 2;
+              }
+
+              @include breakpoint(medium) {
+                margin-bottom: map-get($grid-column-gutter, small) / 2;
+
+                &:first-of-type {
+                  margin-top: map-get($grid-column-gutter, small) / 2;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.multi {
+      main {
+        @include flex-grid-column(12);
+
+        height: calc(100% - 84px);
+
+        .row {
+          height: 50%;
+
+          .half-column {
+            @include flex-grid-column(6, 0);
+
+            margin-bottom: map-get($grid-column-gutter, small) / 2;
+
+            background-color: map-get($color-palette, section-bg);
+
+            &:first-of-type {
+              margin-right: map-get($grid-column-gutter, small) / 2;
+            }
+
+            @include breakpoint(medium) {
+              @include grid-row-size(calc(50% - 8px));
+
+              margin-bottom: map-get($grid-column-gutter, medium) / 2;
+
+              &:first-of-type {
+                margin-right: map-get($grid-column-gutter, medium) / 2;
+              }
+            }
+          }
+
+          &:first-of-type {
+            .half-column {
+              margin-top: map-get($grid-column-gutter, small) / 2;
+
+              @include breakpoint(medium) {
+                margin-top: map-get($grid-column-gutter, medium) / 2;
+              }
+            }
+          }
+        }
+      }
+
+      &.compressed {
+        @include breakpoint(medium) {
+          main {
+            padding: 0 map-get($grid-column-gutter, small) / 2;
+
+            .row {
+              .half-column {
+                @include grid-row-size(calc(50% - 3px));
+
+                margin-bottom: map-get($grid-column-gutter, small) / 2;
+
+                &:first-of-type {
+                  margin-right: map-get($grid-column-gutter, small) / 2;
+                }
+              }
+
+              &:first-of-type {
+                .half-column {
+                  margin-top: map-get($grid-column-gutter, small) / 2;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.single {
+      main {
+        @include flex-grid-column(12);
+
+        height: calc(100% - 84px);
+
+        .row {
+          height: 100%;
+
+          .columns {
+            margin-top: map-get($grid-column-gutter, small) / 2;
+
+            @include breakpoint(medium) {
+              margin-top: map-get($grid-column-gutter, medium) / 2;
+            }
+          }
+        }
+      }
+
+      &.compressed {
+        @include breakpoint(medium) {
+          main {
+            padding: 0 map-get($grid-column-gutter, small) / 2;
+          }
+        }
+      }
+    }
+  }
+}
