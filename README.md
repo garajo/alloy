@@ -24,5 +24,9 @@ Alloy (KSF GUI HTML5 Component and Styling Library)
 
     Building & serving the application: npm start (Will automatically open up the browser at http://localhost:9000 after build)
 
+## Installation of module
+
+    npm install @ksf/alloy
+
 
 
