@@ -1,6 +1,6 @@
 {
-  "name": "alloy",
-  "version": "1.0.0",
+  "name": "@ksf/alloy",
+  "version": "0.0.1",
   "description": "KSF GUI HTML5 Component and Styling Library",
   "main": "index.html",
   "dependencies": {
@@ -19,10 +19,6 @@
     "tslint": "^5.4.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack -d --progress --colors | npm run dev",
-    "build": "webpack -p",
-    "dev": "webpack-dev-server --open"
   },
   "repository": {
     "type": "git",
