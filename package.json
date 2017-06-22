@@ -16,6 +16,7 @@
     "eslint-plugin-node": "^5.0.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
+    "sass-lint": "^1.10.2",
     "tslint": "^5.4.3"
   },
   "scripts": {
