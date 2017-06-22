@@ -5,6 +5,7 @@ dist
 tmp
 out-tsc
 install-images
+css
 
 # dependencies
 node_modules
