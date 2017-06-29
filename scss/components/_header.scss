@@ -37,6 +37,31 @@ header.top-bar {
     }
   }
 
+    .title-bar-section {
+    @include flex;
+    @include flex-grid-column(100%, 0);
+    @include flex-align(justify);
+
+    background-color: map_get($color-palette, title-bar-gradient-bottom);
+    position: relative;
+
+
+    .top-bar-title {
+
+      margin: 0 0 0 12px;
+
+      .logo {
+        @include flex-grid-column(shrink, 0);
+
+        vertical-align: middle;
+      }
+    }
+
+    .top-bar-right {
+      @include flex-grid-column(shrink, 0);
+    }
+  }
+
   &.kiosk {
     .top-bar-title {
       > .menu {
