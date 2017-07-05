@@ -262,6 +262,11 @@ ul.tabs {
     border: none;
 
     .tabs-panel {
+      min-height: calc(100vh - 73px);
+      max-height: 100%;
+
+      background-color: map_get($color-palette, style-guide-default-bg);
+
       .content-container {
         padding: 20px;
       }
@@ -280,20 +285,6 @@ ul.tabs {
         background: white;
       }
 
-      &#tab-menus,
-      &#tab-buttons,
-      &#tab-text-box,
-      &#tab-checkbox,
-      &#tab-dropdowns,
-      &#tab-combobox,
-      &#tab-tab-control,
-      &#tab-property-panel,
-      &#tab-tree-view-data-grid {
-        min-height: calc(100vh - 73px);
-        max-height: 100%;
-
-        background-color: map_get($color-palette, style-guide-default-bg);
-      }
 
       &#tab-text-box {
         .input-group {

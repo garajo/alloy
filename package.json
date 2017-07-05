@@ -4,8 +4,11 @@
   "description": "KSF GUI HTML5 Component and Styling Library",
   "main": "index.html",
   "dependencies": {
-    "jquery": "^3.2.1",
-    "foundation-sites": "^6.3.1"
+    "@angular/common": "^4.2.4",
+    "@angular/core": "^4.2.4",
+    "@angular/platform-browser": "^4.2.4",
+    "foundation-sites": "^6.3.1",
+    "jquery": "^3.2.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -18,8 +21,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "tslint": "^5.4.3"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://bitbucket.it.keysight.com/scm/ksfgui/alloy.git"
