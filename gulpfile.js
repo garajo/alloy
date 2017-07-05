@@ -5,6 +5,10 @@ var gulp = require('gulp'),
   ngc = require('@angular/compiler-cli/src/main').main,
   rollup = require('gulp-rollup'),
   rename = require('gulp-rename'),
+  sass = require('gulp-sass'),
+  cleanCSS = require('gulp-clean-css'),
+  sourcemaps = require('gulp-sourcemaps'),
+  rename = require("gulp-rename"),
   del = require('del'),
   runSequence = require('run-sequence'),
   inlineResources = require('./tools/gulp/inline-resources');
@@ -18,7 +22,7 @@ const distFolder = path.join(rootFolder, 'dist');
 /**
  * 1. Delete /dist folder
  */
-gulp.task('clean:dist', function () {
+gulp.task('clean:dist', function() {
 
   // Delete contents but not dist folder to avoid broken npm links
   // when dist directory is removed while npm link references it.
@@ -30,7 +34,7 @@ gulp.task('clean:dist', function () {
  *    then it's likely that a node_modules folder exists. Ignore this folder
  *    when copying to /.tmp.
  */
-gulp.task('copy:source', function () {
+gulp.task('copy:source', function() {
   return gulp.src([`${srcFolder}/**/*`, `!${srcFolder}/node_modules`])
     .pipe(gulp.dest(tmpFolder));
 });
@@ -39,7 +43,7 @@ gulp.task('copy:source', function () {
  * 3. Inline template (.html) and style (.css) files into the the component .ts files.
  *    We do this on the /.tmp folder to avoid editing the original /src files
  */
-gulp.task('inline-resources', function () {
+gulp.task('inline-resources', function() {
   return Promise.resolve()
     .then(() => inlineResources(tmpFolder));
 });
@@ -49,10 +53,10 @@ gulp.task('inline-resources', function () {
  * 4. Run the Angular compiler, ngc, on the /.tmp folder. This will output all
  *    compiled modules to the /build folder.
  */
-gulp.task('ngc', function () {
+gulp.task('ngc', function() {
   return ngc({
-    project: `${tmpFolder}/tsconfig.es5.json`
-  })
+      project: `${tmpFolder}/tsconfig.es5.json`
+    })
     .then((exitCode) => {
       if (exitCode === 1) {
         // This error is caught in the 'compile' task by the runSequence method callback
@@ -66,9 +70,9 @@ gulp.task('ngc', function () {
  * 5. Run rollup inside the /build folder to generate our Flat ES module and place the
  *    generated file into the /dist folder
  */
-gulp.task('rollup:fesm', function () {
+gulp.task('rollup:fesm', function() {
   return gulp.src(`${buildFolder}/**/*.js`)
-  // transform the files here.
+    // transform the files here.
     .pipe(rollup({
 
       // Bundle's entry point
@@ -99,9 +103,9 @@ gulp.task('rollup:fesm', function () {
  * 6. Run rollup inside the /build folder to generate our UMD module and place the
  *    generated file into the /dist folder
  */
-gulp.task('rollup:umd', function () {
+gulp.task('rollup:umd', function() {
   return gulp.src(`${buildFolder}/**/*.js`)
-  // transform the files here.
+    // transform the files here.
     .pipe(rollup({
 
       // Bundle's entry point
@@ -147,53 +151,73 @@ gulp.task('rollup:umd', function () {
 /**
  * 7. Compile CSS out of SCSS
  */
-gulp.task('sass:build', function () {
-  gulp.src(`${srcFolder}/**/*.scss`)
+gulp.task('sass:build', function() {
+  gulp.src(`${srcFolder}/scss/**/*.scss`)
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(`${distFolder}`));
+    .pipe(gulp.dest(`${buildFolder}/css`));
 });
 
 /**
- * 8. Copy all the files from /build to /dist, except .js files. We ignore all .js from /build
+ * 8. Minify CSS and create sourcemaps
+ */
+gulp.task('css:minify', function() {
+  return gulp.src([`${buildFolder}/css/*.css`, `!${buildFolder}/css/*.min.css`])
+    .pipe(sourcemaps.init())
+    .pipe(cleanCSS({
+      compatibility: 'ie9',
+      debug: false
+    }, function(details) {
+      console.log('[css:minify]', details.name + ': ' + details.stats.originalSize);
+      console.log('[css:minify]', details.name + ': ' + details.stats.minifiedSize);
+    }))
+    .pipe(sourcemaps.write())
+    .pipe(rename(function(path) {
+      path.extname = ".min.css";
+    }))
+    .pipe(gulp.dest(`${buildFolder}/css`));
+});
+
+/**
+ * 9. Copy all the files from /build to /dist, except .js files. We ignore all .js from /build
  *    because with don't need individual modules anymore, just the Flat ES module generated
  *    on step 5.
  */
-gulp.task('copy:build', function () {
+gulp.task('copy:build', function() {
   return gulp.src([`${buildFolder}/**/*`, `!${buildFolder}/**/*.js`])
     .pipe(gulp.dest(distFolder));
 });
 
 /**
- * 9. Copy package.json from /src to /dist
+ * 10. Copy package.json from /src to /dist
  */
-gulp.task('copy:manifest', function () {
+gulp.task('copy:manifest', function() {
   return gulp.src([`${srcFolder}/package.json`])
     .pipe(gulp.dest(distFolder));
 });
 
 /**
- * 10. Copy README.md from / to /dist
+ * 11. Copy README.md from / to /dist
  */
-gulp.task('copy:readme', function () {
+gulp.task('copy:readme', function() {
   return gulp.src([path.join(rootFolder, 'README.MD')])
     .pipe(gulp.dest(distFolder));
 });
 
 /**
- * 11. Delete /.tmp folder
+ * 12. Delete /.tmp folder
  */
-gulp.task('clean:tmp', function () {
+gulp.task('clean:tmp', function() {
   return deleteFolders([tmpFolder]);
 });
 
 /**
- * 12. Delete /build folder
+ * 13. Delete /build folder
  */
-gulp.task('clean:build', function () {
+gulp.task('clean:build', function() {
   return deleteFolders([buildFolder]);
 });
 
-gulp.task('compile', function () {
+gulp.task('compile', function() {
   runSequence(
     'clean:dist',
     'copy:source',
@@ -207,7 +231,7 @@ gulp.task('compile', function () {
     'copy:readme',
     'clean:build',
     'clean:tmp',
-    function (err) {
+    function(err) {
       if (err) {
         console.log('ERROR:', err.message);
         deleteFolders([distFolder, tmpFolder, buildFolder]);
@@ -220,7 +244,7 @@ gulp.task('compile', function () {
 /**
  * Watch for any change in the /src folder and compile files
  */
-gulp.task('watch', function () {
+gulp.task('watch', function() {
   gulp.watch(`${srcFolder}/**/*`, ['compile']);
 });
 
