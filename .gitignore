@@ -8,6 +8,8 @@
 # compiled output
 dist
 tmp
+.tmp
+build
 out-tsc
 install-images
 css

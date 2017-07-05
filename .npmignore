@@ -8,6 +8,8 @@ src/*.d.ts
 # compiled output
 dist
 tmp
+.tmp
+build
 out-tsc
 install-images
 

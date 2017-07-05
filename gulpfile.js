@@ -152,7 +152,7 @@ gulp.task('rollup:umd', function() {
  * 7. Compile CSS out of SCSS
  */
 gulp.task('sass:build', function() {
-  gulp.src(`${srcFolder}/scss/**/*.scss`)
+  return gulp.src(`${srcFolder}/scss/**/*.scss`)
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(`${buildFolder}/css`));
 });
@@ -226,6 +226,7 @@ gulp.task('compile', function() {
     'rollup:fesm',
     'rollup:umd',
     'sass:build',
+    'css:minify',
     'copy:build',
     'copy:manifest',
     'copy:readme',
