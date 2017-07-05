@@ -7,7 +7,6 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   sass = require('gulp-sass'),
   cleanCSS = require('gulp-clean-css'),
-  sourcemaps = require('gulp-sourcemaps'),
   rename = require("gulp-rename"),
   del = require('del'),
   runSequence = require('run-sequence'),
@@ -158,11 +157,10 @@ gulp.task('sass:build', function() {
 });
 
 /**
- * 8. Minify CSS and create sourcemaps
+ * 8. Minify CSS
  */
 gulp.task('css:minify', function() {
   return gulp.src([`${buildFolder}/css/*.css`, `!${buildFolder}/css/*.min.css`])
-    .pipe(sourcemaps.init())
     .pipe(cleanCSS({
       compatibility: 'ie9',
       debug: false
@@ -170,7 +168,6 @@ gulp.task('css:minify', function() {
       console.log('[css:minify]', details.name + ': ' + details.stats.originalSize);
       console.log('[css:minify]', details.name + ': ' + details.stats.minifiedSize);
     }))
-    .pipe(sourcemaps.write())
     .pipe(rename(function(path) {
       path.extname = ".min.css";
     }))
