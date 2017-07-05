@@ -18,3 +18,6 @@ Alloy (KSF GUI HTML5 Component and Styling Library)
 ## Example Apps
     - `./examples/html-layout-app` - Pure HTML example
     - `./examples/angular-layout-app` - Angular based example
+
+## SCSS to CSS
+    - gulp sass
