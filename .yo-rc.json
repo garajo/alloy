@@ -1,0 +1,7 @@
+{
+  "generator-angular2-library": {
+    "promptValues": {
+      "gitRepositoryUrl": "ssh://git@bitbucket.it.keysight.com:7999/ksfgui/alloy.git"
+    }
+  }
+}

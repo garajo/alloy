@@ -1,0 +1,26 @@
+{
+  "name": "@ksf/alloy",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@bitbucket.it.keysight.com:7999/ksfgui/alloy.git"
+  },
+  "author": {
+    "name": "Roman Minkin",
+    "email": "roman.minkin@keysight.com"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "",
+  "bugs": {
+    "url": "ssh://git@bitbucket.it.keysight.com:7999/ksfgui/alloy.git/issues"
+  },
+  "module": "@ksf/alloy.js",
+  "typings": "@ksf/alloy.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
