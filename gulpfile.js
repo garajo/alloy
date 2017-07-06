@@ -1,10 +1,11 @@
 'use strict';
 
-var gulp = require('gulp'),
+const
+  fs= require('fs'),
+  gulp = require('gulp'),
   path = require('path'),
   ngc = require('@angular/compiler-cli/src/main').main,
   rollup = require('gulp-rollup'),
-  rename = require('gulp-rename'),
   sass = require('gulp-sass'),
   cleanCSS = require('gulp-clean-css'),
   rename = require("gulp-rename"),
@@ -188,6 +189,20 @@ gulp.task('copy:build', function() {
  * 10. Copy package.json from /src to /dist
  */
 gulp.task('copy:manifest', function() {
+  const packageRoot = require(`${rootFolder}/package.json`);
+  let packageSrc = require(`${srcFolder}/package.json`)
+
+  packageSrc.version = packageRoot.version;
+  packageSrc.description =  packageRoot.description;
+  packageSrc.keywords =  packageRoot.keywords;
+  packageSrc.license =  packageRoot.license;
+  packageSrc.author =  packageRoot.author;
+
+  // Making sure we update verison of actuall lib package.json
+  fs.writeFile(`${srcFolder}/package.json`, JSON.stringify(packageSrc, null, 2) + '\n', 'utf8', (err) => {
+    if (err) throw err;
+  });
+
   return gulp.src([`${srcFolder}/package.json`])
     .pipe(gulp.dest(distFolder));
 });

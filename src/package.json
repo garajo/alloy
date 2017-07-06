@@ -1,6 +1,7 @@
 {
   "name": "@ksf/alloy",
-  "version": "0.1.0",
+  "version": "1.2.3",
+  "description": "KSF GUI HTML5 Component and Styling Library",
   "repository": {
     "type": "git",
     "url": "ssh://git@bitbucket.it.keysight.com:7999/ksfgui/alloy.git"
@@ -10,12 +11,11 @@
     "email": "roman.minkin@keysight.com"
   },
   "keywords": [
-    "angular"
+    "angular",
+    "ksf",
+    "alloy"
   ],
   "license": "",
-  "bugs": {
-    "url": "ssh://git@bitbucket.it.keysight.com:7999/ksfgui/alloy.git/issues"
-  },
   "module": "@ksf/alloy.js",
   "typings": "@ksf/alloy.d.ts",
   "peerDependencies": {
