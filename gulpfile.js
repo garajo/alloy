@@ -176,9 +176,16 @@ gulp.task('css:minify', function() {
     .pipe(gulp.dest(`${tmpFolder}/css`));
 });
 
+/**
+ * 9. Copy SCSS from /.tmp to /build directory
+ */
+gulp.task('copy:sass', function() {
+  return gulp.src(`${tmpFolder}/scss/**/*`)
+    .pipe(gulp.dest(`${buildFolder}/scss`));
+});
 
 /**
- * 9. Copy CSS from /.tmp to /build directory
+ * 10. Copy CSS from /.tmp to /build directory
  */
 gulp.task('copy:css', function() {
   return gulp.src(`${tmpFolder}/css/*.css`)
@@ -187,7 +194,7 @@ gulp.task('copy:css', function() {
 
 
 /**
- * 10. Copy images from /.tmp to /build directory
+ * 11. Copy images from /.tmp to /build directory
  */
 gulp.task('copy:images', function() {
   return gulp.src(`${tmpFolder}/images/**/*`)
@@ -195,7 +202,7 @@ gulp.task('copy:images', function() {
 });
 
 /**
- * 11. Copy all the files from /build to /dist, except .js files. We ignore all .js from /build
+ * 12. Copy all the files from /build to /dist, except .js files. We ignore all .js from /build
  *    because with don't need individual modules anymore, just the Flat ES module generated
  *    on step 5.
  */
@@ -205,7 +212,7 @@ gulp.task('copy:build', function() {
 });
 
 /**
- * 12. Copy package.json from /src to /dist
+ * 13. Copy package.json from /src to /dist
  */
 gulp.task('copy:manifest', function() {
   return gulp.src([`${srcFolder}/package.json`])
@@ -213,7 +220,7 @@ gulp.task('copy:manifest', function() {
 });
 
 /**
- * 13. Copy README.md from / to /dist
+ * 14. Copy README.md from / to /dist
  */
 gulp.task('copy:readme', function() {
   return gulp.src([path.join(rootFolder, 'README.MD')])
@@ -221,21 +228,21 @@ gulp.task('copy:readme', function() {
 });
 
 /**
- * 14. Delete /.tmp folder
+ * 15. Delete /.tmp folder
  */
 gulp.task('clean:tmp', function() {
   return deleteFolders([tmpFolder]);
 });
 
 /**
- * 15. Delete /build folder
+ * 16. Delete /build folder
  */
 gulp.task('clean:build', function() {
   return deleteFolders([buildFolder]);
 });
 
 /**
- * 15. Update package.json
+ * 17. Update package.json
  */
 gulp.task('update:manifest', function() {
   const packageRoot = require(`${rootFolder}/package.json`);
@@ -266,6 +273,7 @@ gulp.task('compile', function() {
     'ngc',
     'rollup:fesm',
     'rollup:umd',
+    'copy:sass',
     'copy:images',
     'copy:build',
     'copy:manifest',
