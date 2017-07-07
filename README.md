@@ -9,7 +9,7 @@ The logic implemented as an Angular library.
 
 This library is based on [generator-angular2-library](https://github.com/jvandemo/generator-angular2-library) which aligns with the [official Angular Package Format v4.0](https://goo.gl/AMOU5G) and automatically generates a `Flat ES Module`, a `UMD bundle`, a single `metadata.json` and type definitions to make your library ready for AOT compilation by the consuming Angular application.
 
-Watch [Jason Aden's talk](https://www.youtube.com/watch?v=unICbsPGFIA) to learn more about the [Angular Package Format]((https://goo.gl/AMOU5G)).
+Watch [Jason Aden's talk](https://www.youtube.com/watch?v=unICbsPGFIA) to learn more about the [Angular Package Format](https://goo.gl/AMOU5G).
 
 ## Installation and Consuming the library
 
