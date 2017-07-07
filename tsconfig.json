@@ -12,6 +12,9 @@
     "types": []
   },
   "exclude": [
+    ".tmp",
+    "build",
+    "dist",
     "examples"
   ]
 }

@@ -1,20 +1,18 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { AlloyDropdownModule } from './dropdown'
+import { AlloyStyleModule } from './style'
+
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [
-  ],
-  exports: [
-  ]
+    imports: [
+    ],
+    declarations: [
+    ],
+    exports: [
+        AlloyStyleModule,
+        AlloyDropdownModule
+    ]
 })
-export class SampleModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: SampleModule,
-      providers: []
-    };
-  }
+export class AlloyModule {
 }

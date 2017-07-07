@@ -59,8 +59,8 @@ export class AppModule { }
 ```
 
 ## Example Apps
-    - `./examples/html-layout-app` - Pure HTML example
-    - `./examples/angular-layout-app` - Angular based example
+- `./examples/html-layout-app` - Pure HTML example
+- `./examples/angular-layout-app` - Angular based example
 
 
 ## Development and Releasing

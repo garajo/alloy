@@ -154,14 +154,14 @@ gulp.task('rollup:umd', function() {
 gulp.task('sass:build', function() {
   return gulp.src(`${srcFolder}/scss/**/*.scss`)
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(`${buildFolder}/css`));
+    .pipe(gulp.dest(`${tmpFolder}/css`));
 });
 
 /**
  * 8. Minify CSS
  */
 gulp.task('css:minify', function() {
-  return gulp.src([`${buildFolder}/css/*.css`, `!${buildFolder}/css/*.min.css`])
+  return gulp.src([`${tmpFolder}/css/*.css`, `!${tmpFolder}/css/*.min.css`])
     .pipe(cleanCSS({
       compatibility: 'ie9',
       debug: false
@@ -172,6 +172,11 @@ gulp.task('css:minify', function() {
     .pipe(rename(function(path) {
       path.extname = ".min.css";
     }))
+    .pipe(gulp.dest(`${tmpFolder}/css`));
+});
+
+gulp.task('copy:css', function() {
+  return gulp.src(`${tmpFolder}/css/*.css`)
     .pipe(gulp.dest(`${buildFolder}/css`));
 });
 
@@ -233,12 +238,13 @@ gulp.task('compile', function() {
   runSequence(
     'clean:dist',
     'copy:source',
+    'sass:build',
+    'css:minify',
+    'copy:css',
     'inline-resources',
     'ngc',
     'rollup:fesm',
     'rollup:umd',
-    'sass:build',
-    'css:minify',
     'copy:build',
     'copy:manifest',
     'copy:readme',
