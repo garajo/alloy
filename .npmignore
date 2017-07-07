@@ -1,8 +1,15 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# TypeScript
+src/*.js
+src/*.map
+src/*.d.ts
+
 # compiled output
 dist
 tmp
+.tmp
+build
 out-tsc
 install-images
 
@@ -17,6 +24,13 @@ node_modules
 *.launch
 .settings/
 *.sublime-workspace
+
+# IDE - JetBrains
+.idea
+.project
+.settings
+.idea/*
+*.iml
 
 # IDE - VSCode
 .vscode/*
@@ -41,3 +55,7 @@ e2e/*.map
 # System Files
 .DS_Store
 Thumbs.db
+Desktop.ini
+
+# Ngc generated files
+**/*.ngfactory.ts
