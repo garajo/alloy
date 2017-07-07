@@ -9,7 +9,9 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "images",
+        { "glob": "**/*", "input": "../node_modules/@ksf/alloy/images", "output": "./images/" }
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,7 +21,6 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "../../../scss/alloy.scss",
         "styles.scss"
       ],
       "scripts": [],

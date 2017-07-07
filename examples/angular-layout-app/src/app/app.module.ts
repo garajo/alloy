@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { DropdownModule } from '@ksf/alloy'
+import { AlloyModule } from '@ksf/alloy';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +15,7 @@ import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-pa
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DropdownModule
+    AlloyModule
   ],
   providers: [],
   bootstrap: [AppComponent]

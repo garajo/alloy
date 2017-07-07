@@ -8,6 +8,7 @@ export * from './dropdown'
   imports: [
   ],
   declarations: [
+    AlloyDropdown
   ],
   exports: [
     AlloyDropdown

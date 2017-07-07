@@ -164,7 +164,8 @@ gulp.task('css:minify', function() {
   return gulp.src([`${tmpFolder}/css/*.css`, `!${tmpFolder}/css/*.min.css`])
     .pipe(cleanCSS({
       compatibility: 'ie9',
-      debug: false
+      debug: false,
+      level: 2
     }, function(details) {
       console.log('[css:minify]', details.name + ': ' + details.stats.originalSize);
       console.log('[css:minify]', details.name + ': ' + details.stats.minifiedSize);
@@ -177,15 +178,24 @@ gulp.task('css:minify', function() {
 
 
 /**
- * 9. Copy CSSfrom /.tmp to /build directory
+ * 9. Copy CSS from /.tmp to /build directory
  */
 gulp.task('copy:css', function() {
   return gulp.src(`${tmpFolder}/css/*.css`)
     .pipe(gulp.dest(`${buildFolder}/css`));
 });
 
+
 /**
- * 10. Copy all the files from /build to /dist, except .js files. We ignore all .js from /build
+ * 10. Copy images from /.tmp to /build directory
+ */
+gulp.task('copy:images', function() {
+  return gulp.src(`${tmpFolder}/images/**/*`)
+    .pipe(gulp.dest(`${buildFolder}/images`));
+});
+
+/**
+ * 11. Copy all the files from /build to /dist, except .js files. We ignore all .js from /build
  *    because with don't need individual modules anymore, just the Flat ES module generated
  *    on step 5.
  */
@@ -195,9 +205,39 @@ gulp.task('copy:build', function() {
 });
 
 /**
- * 11. Copy package.json from /src to /dist
+ * 12. Copy package.json from /src to /dist
  */
 gulp.task('copy:manifest', function() {
+  return gulp.src([`${srcFolder}/package.json`])
+    .pipe(gulp.dest(distFolder));
+});
+
+/**
+ * 13. Copy README.md from / to /dist
+ */
+gulp.task('copy:readme', function() {
+  return gulp.src([path.join(rootFolder, 'README.MD')])
+    .pipe(gulp.dest(distFolder));
+});
+
+/**
+ * 14. Delete /.tmp folder
+ */
+gulp.task('clean:tmp', function() {
+  return deleteFolders([tmpFolder]);
+});
+
+/**
+ * 15. Delete /build folder
+ */
+gulp.task('clean:build', function() {
+  return deleteFolders([buildFolder]);
+});
+
+/**
+ * 15. Update package.json
+ */
+gulp.task('update:manifest', function() {
   const packageRoot = require(`${rootFolder}/package.json`);
   let packageSrc = require(`${srcFolder}/package.json`)
 
@@ -212,30 +252,7 @@ gulp.task('copy:manifest', function() {
     if (err) throw err;
   });
 
-  return gulp.src([`${srcFolder}/package.json`])
-    .pipe(gulp.dest(distFolder));
-});
-
-/**
- * 12. Copy README.md from / to /dist
- */
-gulp.task('copy:readme', function() {
-  return gulp.src([path.join(rootFolder, 'README.MD')])
-    .pipe(gulp.dest(distFolder));
-});
-
-/**
- * 13. Delete /.tmp folder
- */
-gulp.task('clean:tmp', function() {
-  return deleteFolders([tmpFolder]);
-});
-
-/**
- * 14. Delete /build folder
- */
-gulp.task('clean:build', function() {
-  return deleteFolders([buildFolder]);
+  return;
 });
 
 gulp.task('compile', function() {
@@ -249,11 +266,12 @@ gulp.task('compile', function() {
     'ngc',
     'rollup:fesm',
     'rollup:umd',
+    'copy:images',
     'copy:build',
     'copy:manifest',
     'copy:readme',
-    'clean:build',
-    'clean:tmp',
+    // 'clean:build',
+    // 'clean:tmp',
     function(err) {
       if (err) {
         console.log('ERROR:', err.message);
@@ -273,7 +291,7 @@ gulp.task('watch', function() {
 
 gulp.task('clean', ['clean:dist', 'clean:tmp', 'clean:build']);
 
-gulp.task('build', ['clean', 'compile']);
+gulp.task('build', ['clean', 'update:manifest', 'compile']);
 gulp.task('build:watch', ['build', 'watch']);
 gulp.task('default', ['build:watch']);
 

@@ -17,9 +17,8 @@
       "dom"
     ],
     "paths": {
-      "@ksf/alloy": [
-        "../../../"
-      ]
+      "@angular/*": ["./node_modules/@angular/*"],
+      "@ksf/alloy": ["../../dist/"]
     }
   }
 }

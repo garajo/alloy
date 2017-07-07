@@ -5,16 +5,14 @@ import { AlloyStyle } from './style'
 export * from './style'
 
 @NgModule({
-  imports: [
-  ],
-  declarations: [
-  ],
-  exports: [
-    AlloyStyle
-  ]
+    imports: [
+    ],
+    declarations: [
+        AlloyStyle
+    ],
+    exports: [
+        AlloyStyle
+    ]
 })
-
 export class AlloyStyleModule {
 }
-
-

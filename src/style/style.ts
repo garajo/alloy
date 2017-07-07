@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'html',
+  selector: 'alloy,[alloy]',
   template: '<ng-content></ng-content>',
-  styleUrls: []
+  styleUrls: ['./style.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AlloyStyle {
   constructor() {
