@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const config = {
   context: path.resolve(__dirname),
   entry: {
-    app: ['./app.js', path.resolve(__dirname, '../../scss/alloy.scss')],
+    app: ['./app.js', path.resolve(__dirname, '../../src/scss/alloy.scss')],
     vendor: ['jquery', 'foundation-sites']
   },
   output: {
