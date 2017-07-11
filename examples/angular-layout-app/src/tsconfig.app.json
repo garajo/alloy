@@ -6,8 +6,7 @@
     "baseUrl": "",
     "types": [],
     "paths": {
-      "@angular/*": ["../node_modules/@angular/*"],
-      "@ksf/alloy": ["../../../dist/"]
+      "@angular/*": ["../node_modules/@angular/*"]
     }
   },
   "exclude": [
