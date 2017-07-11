@@ -58,9 +58,9 @@ import { AlloyDropdownModule, AlloyInputModule } from '@ksf/alloy';
 export class AppModule { }
 ```
 
-## Example Apps
-- `./examples/html-layout-app` - Pure HTML example
-- `./examples/angular-layout-app` - Angular based example
+## Demo Apps
+- `./demos/html` - Pure HTML demo app
+- `./demos/angular` - Angular demo app
 
 
 ## Development and Releasing
