@@ -1,21 +1,17 @@
 import { NgModule } from '@angular/core';
 
-import { AlloyDropdown } from './dropdown'
-
-export * from './dropdown'
+import { AlloyDropdown } from './dropdown';
 
 @NgModule({
-  imports: [
-  ],
-  declarations: [
-    AlloyDropdown
-  ],
-  exports: [
-    AlloyDropdown
-  ]
+    imports: [
+    ],
+    declarations: [
+        AlloyDropdown
+    ],
+    exports: [
+        AlloyDropdown
+    ]
 })
+export class AlloyDropdownModule { }
 
-export class AlloyDropdownModule {
-}
-
-
+export { AlloyDropdown } from './dropdown';

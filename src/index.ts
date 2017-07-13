@@ -1,21 +1,20 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AlloyDropdownModule } from './dropdown'
-import { AlloyStyleModule } from './style'
+import { AlloyDropdownModule } from './dropdown/index';
+import { AlloyStyleModule } from './style/index';
 
-export { AlloyDropdownModule } from './dropdown'
-export { AlloyStyleModule } from './style'
+
+const ALLOY_MODULES = [
+    AlloyStyleModule,
+    AlloyDropdownModule
+]
 
 @NgModule({
-    imports: [
-    ],
-    declarations: [
-    ],
-    exports: [
-        AlloyStyleModule,
-        AlloyDropdownModule
-    ]
+    imports: ALLOY_MODULES,
+    exports: ALLOY_MODULES
 })
-export class AlloyModule {
-}
+export class AlloyModule {}
+
+export * from './dropdown/index';
+export * from './style/index';

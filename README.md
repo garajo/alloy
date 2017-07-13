@@ -65,16 +65,32 @@ export class AppModule { }
 
 ## Development and Releasing
 
+1. Generate the library distribution directory including all `*.js`, `*.d.ts` and `*.metadata.json` files:
+```bash
+$ npm run build
+```
+1.1 For continuous development you can run build task in a watch mode for changes detection and re-building
+```bash
+$ npm run build:watch
+```
+
+2 Link `dist` folder
+```bash
+$ cd ./dist & npm link
+```
+1.2 Make sure Alloy is linked in this project `@ks`
+```bash
+$ cd ./demos/angular/
+$ npm link @ksf/alloy
+```
+
+
 1. Make changes to files in source folder `./src`
 2. Lint all the files:
 ```bash
 $ npm run lint
 ```
 
-3. Generate the library distribution directory including all `*.js`, `*.d.ts` and `*.metadata.json` files:
-```bash
-$ npm run build
-```
 
 4. Publish library to Artifactory NPM by publishing the contents of the `dist` directory:
 ```bash

@@ -16,10 +16,10 @@
     "alloy"
   ],
   "license": "",
-  "module": "@ksf/alloy.js",
-  "typings": "@ksf/alloy.d.ts",
+  "module": "alloy.js",
+  "typings": "alloy.d.ts",
   "peerDependencies": {
-    "@angular/core": "^4.0.0",
+    "@angular/core": "^4.2.5",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   }

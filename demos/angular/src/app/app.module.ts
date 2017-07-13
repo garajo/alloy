@@ -15,7 +15,7 @@ import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-pa
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AlloyModule
+    AlloyModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

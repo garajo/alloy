@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 
 import { AlloyStyle } from './style'
 
-export * from './style'
-
 @NgModule({
     imports: [
     ],
@@ -14,5 +12,6 @@ export * from './style'
         AlloyStyle
     ]
 })
-export class AlloyStyleModule {
-}
+export class AlloyStyleModule {}
+
+export { AlloyStyle } from './style';

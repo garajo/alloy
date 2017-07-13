@@ -6,7 +6,9 @@
     "baseUrl": "",
     "types": [],
     "paths": {
-      "@angular/*": ["../node_modules/@angular/*"]
+      "@angular/*": ["../node_modules/@angular/*"],
+      "rxjs": ["../node_modules/rxjs"],
+      "zone.js": ["../node_modules/zone.js"]
     }
   },
   "exclude": [
