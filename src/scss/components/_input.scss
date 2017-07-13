@@ -46,6 +46,14 @@ input[type="text"] {
     caret-color: map_get($color-palette, input-text-border-active);
   }
 
+  &:disabled {
+    opacity: map_get($color-palette, input-text-disabled-opacity);
+
+    color: map_get($color-palette, input-text-disabled-color);
+
+    pointer-events: none;
+  }
+
   &.has-error {
     border: 1px solid map_get($color-palette, input-text-border-error);
 
