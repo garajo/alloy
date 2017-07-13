@@ -47,9 +47,9 @@ input[type="text"] {
   }
 
   &:disabled {
-    opacity: map_get($color-palette, input-disabled-opacity);
+    opacity: map_get($color-palette, input-text-disabled-opacity);
 
-    color: map_get($color-palette, input-disabled-text-color);
+    color: map_get($color-palette, input-text-disabled-color);
 
     pointer-events: none;
   }
