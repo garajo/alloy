@@ -16,12 +16,10 @@ $ npm install
 2. Make sure you have either Alloy library build, for more information see root lavel `README.md` section **Development**:
 2.1 Make sure `dist` root folder is linked
 ```bash
-$ cd ./dist
-$ npm link
+$ npm link dist
 ```
-2.2 Make sure Alloy is linked in this project `@ks`
+2.2 Make sure Alloy is linked in this project
 ```bash
-$ cd ./demos/angular/
 $ npm link @ksf/alloy
 ```
 3. Run the project

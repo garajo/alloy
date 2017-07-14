@@ -63,34 +63,50 @@ export class AppModule { }
 - `./demos/angular` - Angular demo app
 
 
-## Development and Releasing
-
-1. Generate the library distribution directory including all `*.js`, `*.d.ts` and `*.metadata.json` files:
+## Development
+1. Install dependencies
+```bash
+$ npm install
+```
+2. Generate the library distribution directory including all `*.js`, `*.d.ts` and `*.metadata.json` files:
 ```bash
 $ npm run build
 ```
-1.1 For continuous development you can run build task in a watch mode for changes detection and re-building
+2.1 For continuous development you can run build task in a watch mode for changes detection and re-building
 ```bash
 $ npm run build:watch
 ```
 
-2 Link `dist` folder
+3. Link `dist` folder
 ```bash
-$ cd ./dist & npm link
+$ npm link dist
 ```
-1.2 Make sure Alloy is linked in this project `@ks`
+
+4. Set up and run Angular Demo App
+4.1 Open a new terminal window and navigate to the demo app (so you can run both library and the demo app in the `watch` mode)
 ```bash
-$ cd ./demos/angular/
+$ cd ./demos/angular
+```
+4.2 Install dependencies
+```bash
+$ npm install
+```
+4.3 Link Alloy library
+```bash
 $ npm link @ksf/alloy
 ```
+4.3 Run the app (runs in the `watch` mode with changes detection the source code)
+```bash
+$ npm start
+```
 
+5. Now you can make changes to the library and observe them in the angular demo app
 
-1. Make changes to files in source folder `./src`
-2. Lint all the files:
+## Publishing
+1. Make sure all the files are linted:
 ```bash
 $ npm run lint
 ```
-
 
 4. Publish library to Artifactory NPM by publishing the contents of the `dist` directory:
 ```bash
