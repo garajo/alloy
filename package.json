@@ -9,7 +9,7 @@
     "docs:build": "compodoc -p tsconfig.json -n @ksf/alloy -d docs --hideGenerator",
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
-    "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
+    "lint": "tslint --type-check --project ./src/tsconfig.es5.json -c tslint.json src/**/*.ts --fix",
     "test": "tsc && karma start"
   },
   "repository": {
@@ -62,7 +62,7 @@
     "rxjs": "^5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
-    "typescript": "~2.2.0",
+    "typescript": "^2.4.1",
     "zone.js": "^0.8.4"
   },
   "engines": {

@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 
-import { AlloyStyles } from './styles'
+import { AlloyStylesComponent } from './styles';
 
 @NgModule({
     imports: [
     ],
     declarations: [
-        AlloyStyles
+        AlloyStylesComponent
     ],
     exports: [
-        AlloyStyles
+        AlloyStylesComponent
     ]
 })
 export class AlloyStylesModule {}
 
-export { AlloyStyles } from './styles';
+export { AlloyStylesComponent } from './styles';

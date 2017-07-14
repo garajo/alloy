@@ -19,7 +19,7 @@ import { Component } from '@angular/core';
     </div>`,
   styleUrls: ['./dropdown.scss']
 })
-export class AlloyDropdown {
+export class AlloyDropdownComponent {
   constructor() {
   }
 }

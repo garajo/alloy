@@ -6,4 +6,4 @@ import { Component, ViewEncapsulation } from '@angular/core';
     styleUrls: ['./styles.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class AlloyStyles {}
+export class AlloyStylesComponent {}
