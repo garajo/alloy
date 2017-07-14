@@ -67,5 +67,8 @@
   },
   "engines": {
     "node": ">=6.0.0"
+  },
+  "publishConfig": {
+    "registry": "http://artifactory.it.keysight.com:8081/artifactory/api/npm/npm-local-ksf/"
   }
 }
