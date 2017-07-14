@@ -79,7 +79,7 @@ $ npm run build:watch
 
 3. Link `dist` folder
 ```bash
-$ npm link dist
+$ cd ./dist && npm link
 ```
 
 4. Set up and run Angular Demo App

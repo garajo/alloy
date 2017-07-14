@@ -16,7 +16,7 @@ $ npm install
 2. Make sure you have either Alloy library build, for more information see root lavel `README.md` section **Development**:
 2.1 Make sure `dist` root folder is linked
 ```bash
-$ npm link dist
+$ cd ./dist && npm link
 ```
 2.2 Make sure Alloy is linked in this project
 ```bash
