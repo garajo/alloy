@@ -253,6 +253,7 @@ gulp.task('update:manifest', function() {
   packageSrc.keywords =  packageRoot.keywords;
   packageSrc.license =  packageRoot.license;
   packageSrc.author =  packageRoot.author;
+  packageSrc.private =  packageRoot.private;
 
   // Making sure we update verison of actuall lib package.json
   fs.writeFile(`${srcFolder}/package.json`, JSON.stringify(packageSrc, null, 2) + '\n', 'utf8', (err) => {

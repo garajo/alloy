@@ -26,6 +26,7 @@
     "alloy"
   ],
   "license": "",
+  "private": true,
   "devDependencies": {
     "@angular/common": "^4.2.5",
     "@angular/compiler": "^4.2.5",
