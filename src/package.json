@@ -23,5 +23,7 @@
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },
-  "private": true
+  "publishConfig": {
+    "registry": "http://artifactory.it.keysight.com:8081/artifactory/api/npm/npm-local-ksf/"
+  }
 }
