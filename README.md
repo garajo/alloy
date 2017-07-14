@@ -19,17 +19,6 @@ You can install Alloy library by running:
 $ npm install @ksf/alloy --save
 ```
 
-### Using CSS styling only
-
-```
-./node_modules/@ksf/alloy/css/alloy.css
-```
-or
-```
-./node_modules/@ksf/alloy/css/alloy.min.css
-
-```
-
 ### Using Alloy as an Angular library
 
 Import Alloy Modules into your `AppModule`:
@@ -82,6 +71,17 @@ Now to include all the Alloy styles just add `<alloy-styles></alloy-styles>` to 
 <div class="tabs-content content">
   <router-outlet></router-outlet>
 </div>
+```
+
+### Using CSS styling (for example for `.angular-cli.json`)
+
+```
+./node_modules/@ksf/alloy/css/alloy.css
+```
+or
+```
+./node_modules/@ksf/alloy/css/alloy.min.css
+
 ```
 
 ## Demo Apps
