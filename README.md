@@ -41,21 +41,47 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Importing Alloy modules
-import { AlloyDropdownModule, AlloyInputModule } from '@ksf/alloy';
+import {
+    AlloyStylesModule,
+    AlloyDropdownModule
+} from '@ksf/alloy';
+
+/**
+ * NgModule that includes all Alloy modules that are required to serve the demo app.
+ * This approach allows to perform tree shaking.
+ */
+@NgModule({
+    exports: [
+        AlloyStylesModule,
+        AlloyDropdownModule
+    ]
+})
+export class AlloyModule { }
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AlloyDropdownModule,
-    AlloyInputModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        AlloyModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
+```
+
+Now to include all the Alloy styles just add `<alloy-styles></alloy-styles>` to the top of your root `app.component.html`
+```html
+<alloy-styles></alloy-styles>
+
+<header>
+  ...
+</header>
+<div class="tabs-content content">
+  <router-outlet></router-outlet>
+</div>
 ```
 
 ## Demo Apps

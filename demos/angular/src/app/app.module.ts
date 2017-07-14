@@ -7,6 +7,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-page.component';
 
+/**
+ * NgModule that includes all Alloy modules that are required to serve the demo app.
+ * This approach allows to perform tree shaking.
+ */
+@NgModule({
+  exports: [
+    AlloyStylesModule,
+  ]
+})
+export class AlloyDemoModule {}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +26,7 @@ import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-pa
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AlloyStylesModule,
+    AlloyDemoModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
