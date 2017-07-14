@@ -28,7 +28,8 @@ const config = {
   },
   devServer: {
     contentBase: process.cwd(),
-    compress: true,
+    inline: true,
+    hot: true,
     port: 9000,
     publicPath: '/'
   },

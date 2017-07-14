@@ -1,21 +1,8 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of Angular Material.
+ */
 
-import { AlloyDropdownModule } from './dropdown'
-import { AlloyStyleModule } from './style'
-
-export { AlloyDropdownModule } from './dropdown'
-export { AlloyStyleModule } from './style'
-
-@NgModule({
-    imports: [
-    ],
-    declarations: [
-    ],
-    exports: [
-        AlloyStyleModule,
-        AlloyDropdownModule
-    ]
-})
-export class AlloyModule {
-}
+export * from './styles/index';
+export * from './dropdown/index';

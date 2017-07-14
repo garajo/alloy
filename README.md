@@ -19,17 +19,6 @@ You can install Alloy library by running:
 $ npm install @ksf/alloy --save
 ```
 
-### Using CSS styling only
-
-```
-./node_modules/@ksf/alloy/css/alloy.css
-```
-or
-```
-./node_modules/@ksf/alloy/css/alloy.min.css
-
-```
-
 ### Using Alloy as an Angular library
 
 Import Alloy Modules into your `AppModule`:
@@ -41,39 +30,108 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Importing Alloy modules
-import { AlloyDropdownModule, AlloyInputModule } from '@ksf/alloy';
+import {
+    AlloyStylesModule,
+    AlloyDropdownModule
+} from '@ksf/alloy';
+
+/**
+ * NgModule that includes all Alloy modules that are required to serve the demo app.
+ * This approach allows to perform tree shaking.
+ */
+@NgModule({
+    exports: [
+        AlloyStylesModule,
+        AlloyDropdownModule
+    ]
+})
+export class AlloyModule { }
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AlloyDropdownModule,
-    AlloyInputModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        AlloyModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
 ```
 
-## Example Apps
-- `./examples/html-layout-app` - Pure HTML example
-- `./examples/angular-layout-app` - Angular based example
+Now to include all the Alloy styles just add `<alloy-styles></alloy-styles>` to the top of your root `app.component.html`
+```html
+<alloy-styles></alloy-styles>
 
-
-## Development and Releasing
-
-1. Make changes to files in source folder `./src`
-2. Lint all the files:
-```bash
-$ npm run lint
+<header>
+  ...
+</header>
+<div class="tabs-content content">
+  <router-outlet></router-outlet>
+</div>
 ```
 
-3. Generate the library distribution directory including all `*.js`, `*.d.ts` and `*.metadata.json` files:
+### Using CSS styling (for example for `.angular-cli.json`)
+
+```
+./node_modules/@ksf/alloy/css/alloy.css
+```
+or
+```
+./node_modules/@ksf/alloy/css/alloy.min.css
+
+```
+
+## Demo Apps
+- `./demos/html` - Pure HTML demo app
+- `./demos/angular` - Angular demo app
+
+
+## Development
+1. Install dependencies
+```bash
+$ npm install
+```
+2. Generate the library distribution directory including all `*.js`, `*.d.ts` and `*.metadata.json` files:
 ```bash
 $ npm run build
+```
+2.1 For continuous development you can run build task in a watch mode for changes detection and re-building
+```bash
+$ npm run build:watch
+```
+
+3. Link `dist` folder
+```bash
+$ cd ./dist && npm link
+```
+
+4. Set up and run Angular Demo App
+4.1 Open a new terminal window and navigate to the demo app (so you can run both library and the demo app in the `watch` mode)
+```bash
+$ cd ./demos/angular
+```
+4.2 Install dependencies
+```bash
+$ npm install
+```
+4.3 Link Alloy library
+```bash
+$ npm link @ksf/alloy
+```
+4.3 Run the app (runs in the `watch` mode with changes detection the source code)
+```bash
+$ npm start
+```
+
+5. Now you can make changes to the library and observe them in the angular demo app
+
+## Publishing
+1. Make sure all the files are linted:
+```bash
+$ npm run lint
 ```
 
 4. Publish library to Artifactory NPM by publishing the contents of the `dist` directory:

@@ -7,7 +7,8 @@
     "types": [],
     "paths": {
       "@angular/*": ["../node_modules/@angular/*"],
-      "@ksf/alloy": ["../../../dist/"]
+      "rxjs": ["../node_modules/rxjs"],
+      "zone.js": ["../node_modules/zone.js"]
     }
   },
   "exclude": [
