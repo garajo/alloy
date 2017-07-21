@@ -1,11 +1,27 @@
 <div class="tabs-panel is-active">
 	<div class="content-container">
 		<div class="row align-center">
-			<div class="columns small-3">
-				<alloy-dropdown>
-					<alloy-option>1</alloy-option>
-					<alloy-option>2</alloy-option>
+			<div class="columns small-2">
+				<alloy-dropdown [(ngModel)]="selectedOption">
+					 <alloy-option *ngFor="let mood of modules" [value]="mood.value">
+					    {{ mood.name }}
+					  </alloy-option>
 				</alloy-dropdown>
+			</div>
+			<div class="columns small-2">
+				<div>
+					Selected value:<br>
+					<code>'{{selectedOption}}'</code>
+				</div>
+			</div>
+			<div class="columns small-8">
+				<pre ngNonBindable>
+&lt;alloy-dropdown [(ngModel)]=&quot;selectedOption&quot;&gt;
+    &lt;alloy-option *ngFor=&quot;let mood of modules&quot; [value]=&quot;mood.value&quot;&gt;
+        {{ mood.name }}
+    &lt;/alloy-option&gt;
+&lt;/alloy-dropdown&gt;
+				</pre>
 			</div>
 		</div>
 <!-- 		<div class="row align-center">

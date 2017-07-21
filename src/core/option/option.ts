@@ -9,7 +9,7 @@ import {
     Inject,
     Optional,
 } from '@angular/core';
-import { ENTER, SPACE } from '../keycodes/keycodes';
+import { ENTER, SPACE } from '../keyboard/keycodes';
 import { coerceBooleanProperty } from '@angular/cdk';
 
 /**
