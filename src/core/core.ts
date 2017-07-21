@@ -12,6 +12,6 @@ import { AlloyOptionModule } from './option/index';
     AlloyOptionModule,
   ],
 })
-export class MdCoreModule {}
+export class AlloyCoreModule {}
 
 export * from './option/index';
