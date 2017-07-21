@@ -2,7 +2,7 @@
 	<div class="content-container">
 		<div class="row align-center">
 			<div class="columns small-2">
-				<alloy-dropdown [(ngModel)]="selectedOption">
+				<alloy-dropdown [(ngModel)]="selectedOption" [placeholder]="'Select one'">
 					 <alloy-option *ngFor="let mood of modules" [value]="mood.value">
 					    {{ mood.name }}
 					  </alloy-option>

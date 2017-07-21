@@ -597,6 +597,9 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
         if (wasSelected !== this._selectionModel.isSelected(option)) {
             this._propagateChanges();
         }
+
+        this._placeholder = option.viewValue;
+        this._changeDetectorRef.markForCheck();
     }
 
     /**
