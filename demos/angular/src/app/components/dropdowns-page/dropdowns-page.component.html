@@ -1,124 +1,63 @@
 <div class="tabs-panel is-active">
 	<div class="content-container">
 		<div class="row align-center">
-			<div class="columns small-2">
-				<alloy-dropdown [(ngModel)]="selectedOption" [placeholder]="'Select one'">
-					 <alloy-option *ngFor="let mood of modules" [value]="mood.value">
-					    {{ mood.name }}
+			<div class="columns small-12">
+				<h3>Simple Dropdown</h3>
+				<br>
+			</div>
+		</div>
+		<div class="row align-center">
+			<div class="columns">
+				<alloy-dropdown [(ngModel)]="selectedValue" [placeholder]="placeholder">
+					 <alloy-option *ngFor="let module of modules" [value]="module.value">
+					    {{ module.name }}
 					  </alloy-option>
 				</alloy-dropdown>
 			</div>
-			<div class="columns small-2">
+			<div class="columns">
 				<div>
-					Selected value:<br>
-					<code>'{{selectedOption}}'</code>
+					<h5>Selected value</h5>
+					<span>"{{selectedValue}}"</span>
+				</div>
+				<br>
+				<div>
+					<h5>Placeholder</h5>
+					<div class="input-group">
+						<input type="text" [(ngModel)]="placeholder">
+					</div>
+				</div>
+				<br>
+				<div>
+					<div>
+					<h5>Elements</h5>
+					<a (click)="add()">Add</a>
+					</div>
+					<div *ngFor="let module of modules" class="input-group">
+						<input type="text" [(ngModel)]="module.value" placeholder="value">
+						<input type="text" [(ngModel)]="module.name" placeholder="name">
+						&nbsp;<a (click)="remove(module)">X</a>
+					</div>
 				</div>
 			</div>
-			<div class="columns small-8">
+			<div class="columns small-7">
 				<pre ngNonBindable>
-&lt;alloy-dropdown [(ngModel)]=&quot;selectedOption&quot;&gt;
-    &lt;alloy-option *ngFor=&quot;let mood of modules&quot; [value]=&quot;mood.value&quot;&gt;
-        {{ mood.name }}
+&lt;alloy-dropdown [(ngModel)]=&quot;selectedValue&quot;&gt;
+    &lt;alloy-option *ngFor=&quot;let m of modules&quot; [value]=&quot;m.value&quot;&gt;
+        {{ m.name }}
     &lt;/alloy-option&gt;
 &lt;/alloy-dropdown&gt;
 				</pre>
+				<br>
+				<div>
+					<pre>{{modules | json}}</pre>
+				</div>
 			</div>
 		</div>
-<!-- 		<div class="row align-center">
-			<div class="columns small-3">
-				<h5 class="style-guide-label">Dropdown</h5>
-				<div class="dropdown-group">
-					<button type="button" class="dropdown button-standard" data-toggle="dropdown">
-					<label>Select one</label>
-					</button>
-					<div class="dropdown-pane bottom is-open">
-						<ul class="menu vertical">
-							<li><a href="#">List Item 1</a></li>
-							<li class="is-hovered"><a href="#">List Item 2</a></li>
-							<li><a href="#">List Item 3</a></li>
-							<li><a href="#">List Item 4</a></li>
-							<li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
-						</ul>
-					</div>
-				</div>
-				<h5 class="style-guide-label">Dropdown Hover</h5>
-				<div class="dropdown-group">
-					<button type="button" class="dropdown button-standard is-hovered" data-toggle="dropdown-hovered">
-					<label>Select one</label>
-					</button>
-					<div class="dropdown-pane bottom" data-dropdown>
-						<ul class="menu vertical">
-							<li><a href="#">List Item 1</a></li>
-							<li class="is-hovered"><a href="#">List Item 2</a></li>
-							<li><a href="#">List Item 3</a></li>
-							<li><a href="#">List Item 4</a></li>
-							<li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
-						</ul>
-					</div>
-				</div>
-				<h5 class="style-guide-label">Dropdown Active</h5>
-				<div class="dropdown-group">
-					<button type="button" class="dropdown button-standard is-pressed" data-toggle="dropdown-active">
-					<label>Select one</label>
-					</button>
-					<div class="dropdown-pane bottom is-open" data-dropdown>
-						<ul class="menu vertical">
-							<li><a href="#">List Item 1</a></li>
-							<li class="is-hovered"><a href="#">List Item 2</a></li>
-							<li><a href="#">List Item 3</a></li>
-							<li><a href="#">List Item 4</a></li>
-							<li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
-						</ul>
-					</div>
-				</div>
+		<div class="row align-center">
+			<div class="columns small-4">
 			</div>
-			<div class="columns small-3">
-				<h5 class="style-guide-label">Lightweight Dropdown</h5>
-				<div class="dropdown-group">
-					<button type="button" class="dropdown lightweight" data-toggle="dropdown-lightweight">
-					<label>Select one</label>
-					</button>
-					<div class="dropdown-pane bottom" data-dropdown>
-						<ul class="menu vertical">
-							<li><a href="#">List Item 1</a></li>
-							<li class="is-hovered"><a href="#">List Item 2</a></li>
-							<li><a href="#">List Item 3</a></li>
-							<li><a href="#">List Item 4</a></li>
-							<li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
-						</ul>
-					</div>
-				</div>
-				<h5 class="style-guide-label">Lightweight Dropdown Hover</h5>
-				<div class="dropdown-group">
-					<button type="button" class="dropdown lightweight is-hovered" data-toggle="dropdown-lightweight-hovered">
-					<label>Select one</label>
-					</button>
-					<div class="dropdown-pane bottom" data-dropdown>
-						<ul class="menu vertical">
-							<li><a href="#">List Item 1</a></li>
-							<li class="is-hovered"><a href="#">List Item 2</a></li>
-							<li><a href="#">List Item 3</a></li>
-							<li><a href="#">List Item 4</a></li>
-							<li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
-						</ul>
-					</div>
-				</div>
-				<h5 class="style-guide-label">Lightweight Dropdown Active</h5>
-				<div class="dropdown-group">
-					<button type="button" class="dropdown lightweight is-pressed" data-toggle="dropdown-lightweight-active">
-					<label>Select one</label>
-					</button>
-					<div class="dropdown-pane bottom is-open" data-dropdown>
-						<ul class="menu vertical">
-							<li><a href="#">List Item 1</a></li>
-							<li class="is-hovered"><a href="#">List Item 2</a></li>
-							<li><a href="#">List Item 3</a></li>
-							<li><a href="#">List Item 4</a></li>
-							<li class="has-icon"><a href="#"><i class="check"></i>List Item 5</a></li>
-						</ul>
-					</div>
-				</div>
+			<div class="columns small-8">
 			</div>
-		</div> -->
+		</div>
 	</div>
 </div>
