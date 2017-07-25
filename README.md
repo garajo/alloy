@@ -11,6 +11,13 @@ This library is based on [generator-angular2-library](https://github.com/jvandem
 
 Watch [Jason Aden's talk](https://www.youtube.com/watch?v=unICbsPGFIA) to learn more about the [Angular Package Format](https://goo.gl/AMOU5G).
 
+## Implementation status
+List of components and implementation states with comments:
+
+| Name            | dir          | docs                                                                               | Comments                                  |
+| --------------- | ------------ | ---------------------------------------------------------------------------------- | ----------------------------------------- |
+| dropdown        | [src/dropdown](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/dropdown) | [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/dropdown) | Major functionality implemented|
+
 ## Installation and Consuming the library
 
 You can install Alloy library by running:

@@ -1,0 +1,10 @@
+<div class="dropdown-group">
+    <button type="button" class="dropdown button-standard" (click)="toggle()" #trigger>
+    <label>{{placeholder}}</label>
+    </button>
+    <div class="dropdown-pane bottom" [ngClass]="{'is-open': panelOpen}">
+        <ul class="menu vertical">
+            <ng-content></ng-content>
+        </ul>
+    </div>
+</div>

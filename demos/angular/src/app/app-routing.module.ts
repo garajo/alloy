@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-page.component'
+import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-page.component';
 
 
 const routes: Routes = [

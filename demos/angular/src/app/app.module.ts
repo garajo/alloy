@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-import { AlloyStylesModule } from '@ksf/alloy';
+import {
+  AlloyStylesModule,
+  AlloyDropdownModule,
+} from '@ksf/alloy';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +18,7 @@ import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-pa
 @NgModule({
   exports: [
     AlloyStylesModule,
+    AlloyDropdownModule,
   ]
 })
 export class AlloyDemoModule {}
@@ -26,6 +31,7 @@ export class AlloyDemoModule {}
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     AlloyDemoModule,
   ],
   providers: [],
