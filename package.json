@@ -1,6 +1,6 @@
 {
   "name": "@ksf/alloy",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "KSF GUI HTML5 Component and Styling Library",
   "scripts": {
     "build": "gulp build",
