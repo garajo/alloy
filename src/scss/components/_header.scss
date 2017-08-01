@@ -1,6 +1,7 @@
 header.top-bar {
   .tab-bar {
-    margin: 32px 0 0 auto;
+    // margin: 32px 0 0 auto;  // foundation-sites@6.4.x
+    margin: 32px 0 auto;       // foundation-sites@6.3.1
   }
 }
 

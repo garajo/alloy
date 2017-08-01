@@ -280,6 +280,11 @@ ul.tabs {
         }
       }
 
+      // foundation-sites@6.3.1, needs to be removed in 6.4.x
+      &.is-active {
+        display: block;
+      }
+
       &#tab-containers {
         padding: 0;
 
