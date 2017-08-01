@@ -6,8 +6,6 @@ import { AlloyOptionModule } from './option/index';
   imports: [
     AlloyOptionModule,
   ],
-  declarations: [
-  ],
   exports: [
     AlloyOptionModule,
   ],

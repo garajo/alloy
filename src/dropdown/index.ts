@@ -2,19 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AlloyDropdown } from './dropdown';
-import { AlloyOptionModule } from '../core';
+import { AlloyOptionModule } from '../core/option/index';
 
 @NgModule({
     imports: [
         CommonModule,
-        AlloyOptionModule,
-    ],
-    declarations: [
-        AlloyDropdown,
+        AlloyOptionModule
     ],
     exports: [
         AlloyDropdown,
-        AlloyOptionModule,
+        AlloyOptionModule
+    ],
+    declarations: [
+        AlloyDropdown
     ]
 })
 export class AlloyDropdownModule { }

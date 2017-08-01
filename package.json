@@ -1,6 +1,6 @@
 {
   "name": "@ksf/alloy",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "KSF GUI HTML5 Component and Styling Library",
   "scripts": {
     "build": "gulp build",
@@ -41,12 +41,14 @@
     "codelyzer": "~2.0.0",
     "core-js": "^2.4.1",
     "del": "^2.2.2",
+    "filesize": "^3.5.10",
     "foundation-sites": "6.3.1",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.5.0",
     "gulp-rename": "^1.2.2",
     "gulp-rollup": "^2.11.0",
     "gulp-sass": "^3.1.0",
+    "gulp-util": "^3.0.8",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
     "karma": "~1.4.1",

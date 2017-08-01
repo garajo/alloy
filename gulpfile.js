@@ -2,8 +2,10 @@
 
 const
   fs= require('fs'),
-  gulp = require('gulp'),
   path = require('path'),
+  gulp = require('gulp'),
+  gutil = require('gulp-util'),
+  filesize = require('filesize'),
   ngc = require('@angular/compiler-cli/src/main').main,
   rollup = require('gulp-rollup'),
   sass = require('gulp-sass'),
@@ -18,6 +20,25 @@ const srcFolder = path.join(rootFolder, 'src');
 const tmpFolder = path.join(rootFolder, '.tmp');
 const buildFolder = path.join(rootFolder, 'build');
 const distFolder = path.join(rootFolder, 'dist');
+
+const external = [
+  '@angular/core',
+  '@angular/common',
+  '@angular/forms',
+  '@angular/cdk',
+  'rxjs/observable/merge',
+  'rxjs/Subject'
+]
+
+// Suppress `The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten` message.
+// There are hundreds of them. Angular team says to ignore it.
+// https://github.com/rollup/rollup/wiki/Troubleshooting#this-is-undefined
+const onwarn =function (warning) {
+  if (warning.code === 'THIS_IS_UNDEFINED') {
+      return;
+  }
+  console.error(warning.message);
+}
 
 /**
  * 1. Delete /dist folder
@@ -87,14 +108,13 @@ gulp.task('rollup:fesm', function() {
 
       // A list of IDs of modules that should remain external to the bundle
       // See https://github.com/rollup/rollup/wiki/JavaScript-API#external
-      external: [
-        '@angular/core',
-        '@angular/common'
-      ],
+      external: external,
 
       // Format of generated bundle
       // See https://github.com/rollup/rollup/wiki/JavaScript-API#format
-      format: 'es'
+      format: 'es',
+
+      onwarn: onwarn,
     }))
     .pipe(gulp.dest(distFolder));
 });
@@ -120,10 +140,7 @@ gulp.task('rollup:umd', function() {
 
       // A list of IDs of modules that should remain external to the bundle
       // See https://github.com/rollup/rollup/wiki/JavaScript-API#external
-      external: [
-        '@angular/core',
-        '@angular/common'
-      ],
+      external: external,
 
       // Format of generated bundle
       // See https://github.com/rollup/rollup/wiki/JavaScript-API#format
@@ -139,10 +156,15 @@ gulp.task('rollup:umd', function() {
       moduleName: '@ksf/alloy',
 
       // See https://github.com/rollup/rollup/wiki/JavaScript-API#globals
-      globals: {
-        typescript: 'ts'
-      }
+      globals: Object.assign({
+          typescript: 'ts'
+        },
+          // Suppress `o name was provided for external module '@angular/core' in options.globals – guessing '_angular_core'` message.
+          // by converting externals to a map like {'@angular/core': '_angular_core'}
+          Object.assign(...external.map(d => ({[d]: d.replace(/\W/g, '_')})))
+      ),
 
+      onwarn: onwarn,
     }))
     .pipe(rename('alloy.umd.js'))
     .pipe(gulp.dest(distFolder));
@@ -167,8 +189,14 @@ gulp.task('css:minify', function() {
       debug: false,
       level: 2
     }, function(details) {
-      console.log('[css:minify]', details.name + ': ' + details.stats.originalSize);
-      console.log('[css:minify]', details.name + ': ' + details.stats.minifiedSize);
+      gutil.log(
+        ' '.repeat(9),
+        gutil.colors.green(details.name),
+        filesize(details.stats.originalSize),
+        '->',
+        filesize(details.stats.minifiedSize),
+        '(' + (details.stats.efficiency).toFixed(2) * 100 + '%)'
+        )
     }))
     .pipe(rename(function(path) {
       path.extname = ".min.css";

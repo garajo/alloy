@@ -4,9 +4,9 @@
   "license": "",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --poll=10000",
-    "build": "ng build",
-    "build:watch": "ng build --poll=10000",
+    "start": "ng serve --poll=20000 --aot --prod",
+    "build": "ng build --aot --prod",
+    "build:watch": "ng build --poll=20000 --aot --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

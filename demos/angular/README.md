@@ -26,4 +26,6 @@ $ npm link @ksf/alloy
 ```bash
 npm start
 ```
-after you run the command the project will be running in development mode and will detect changes in both it's and Alloy source code and restart automatically.
+After you run the command the project will be built and ran in `production` mode (`--aot --prod`) with changes detection in both it's own and Alloy source code.
+The reason it runs in production is to test `AOT` compiler which is cranky for `import/export/providers` statements.
+It's better to test `AOT` by default to catch compilation error earlier.

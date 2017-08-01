@@ -21,7 +21,7 @@ import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-pa
     AlloyDropdownModule,
   ]
 })
-export class AlloyDemoModule {}
+export class AlloyDemoModule { }
 
 @NgModule({
   declarations: [
