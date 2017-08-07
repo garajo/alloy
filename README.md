@@ -47,8 +47,8 @@ import {
     AlloyDropdownModule
 } from '@ksf/alloy';
 
-/**
- * NgModule that includes all Alloy modules that are required to serve the demo app.
+/*
+ * NgModule which includes all Alloy modules that are required to serve the demo app.
  * This approach allows to perform tree shaking.
  */
 @NgModule({
