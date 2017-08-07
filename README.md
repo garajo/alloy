@@ -3,6 +3,11 @@ Alloy
 
 ##### KSF GUI HTML5 Component and Styling Library
 
+---
+[Issues Tracker](https://jira.it.keysight.com/projects/ALLOY){:target="_blank"} | [Confluence Page](https://confluence.it.keysight.com/display/KsfGui/About+Alloy){:target="_blank"} | [Caranu Style Guide](https://confluence.it.keysight.com/display/guiGuild/Visual+Style+Guide+-+Both+Schemes+-+Updated){:target="_blank"}
+
+---
+
 This library contains commonly used KSF GUI HTML5 components with the official [Caranu styling](https://confluence.it.keysight.com/display/guiGuild/Visual+Style+Guide+-+Both+Schemes+-+Updated?preview=/39592284/39592281/Keysight-Style_Guide2.pdf).
 The logic implemented as an Angular library.
 
