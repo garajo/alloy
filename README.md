@@ -4,7 +4,7 @@ Alloy
 ##### KSF GUI HTML5 Component and Styling Library
 
 ---
-[Issues Tracker](https://jira.it.keysight.com/projects/ALLOY){:target="_blank"} | [Confluence Page](https://confluence.it.keysight.com/display/KsfGui/About+Alloy){:target="_blank"} | [Caranu Style Guide](https://confluence.it.keysight.com/display/guiGuild/Visual+Style+Guide+-+Both+Schemes+-+Updated){:target="_blank"}
+[Issues Tracker](https://jira.it.keysight.com/projects/ALLOY) | [Confluence Page](https://confluence.it.keysight.com/display/KsfGui/About+Alloy) | [Caranu Style Guide](https://confluence.it.keysight.com/display/guiGuild/Visual+Style+Guide+-+Both+Schemes+-+Updated)
 
 ---
 
