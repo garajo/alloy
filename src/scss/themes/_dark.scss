@@ -19,6 +19,11 @@ $transparent-light:     rgba(229,238,255,0.11);
 $transparent:           rgba(229,238,255,0.30);
 $transparent-dark:      rgba(229,238,255,0.50);
 
+body {
+	background:	        $black;
+	color:	            $french-gray;
+}
+
 $color-palette: (
         primary-lightest:                         $french-gray,
         primary-lighter:                          $mountain-mist,

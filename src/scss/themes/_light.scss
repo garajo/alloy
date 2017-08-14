@@ -19,6 +19,9 @@ body {
     $transparent:           rgba(19,27,64,0.20);
     $transparent-dark:      rgba(19,27,64,0.30);
 
+    background:             $white;
+    color:                  $smoky;
+
     $color-palette: (
             primary-lightest:                         $catskill-white,
             primary-lighter:                          $selago,
