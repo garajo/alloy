@@ -1,3 +1,5 @@
+@import '../sass-image';
+
 // Flags
 $theme-light:           false;
 
@@ -226,80 +228,88 @@ $color-palette: (
 );
 
 // Images & Icons
-$img:                   "../images";
-$icons:                 "#{$img}/icons";
-$dark-icons:            "#{$img}/dark/icons";
+//JEFF_NOTE This path was a relative path to Foundation sites from the perspective of the Alloy repo. Once deployed it is still valid if a consumer only uses
+// the alloy.min.css/alloy.css as it would get its relative paths correct. However, if a consumer needs access to the Alloy or Foundation variables/mixins etc.
+// they may need to @import the alloy.scss file which traverses it's dependencies and fails on this path during the build.
+// Given this new path relative to the root of node_modules it will work in both the runtime/dist/css way as well as the build/scss approach if needed.
+// The ultimate goal is to reduce the number of consumers that have to use/references our mixins/sass variables but there will always be some use of them.
+// Always try and reference from the node_modules root.
+// $img:                   "../images";
+// $img:                   "../images";
 
+// Relative to `./src/images`
+$icons:                 "icons";
+$dark-icons:            "dark/icons";
 
 $icon-pack: (
         // Title Bar
-        logo:                                 "#{$icons}/logo.png",
-        logo-full:                            "#{$dark-icons}/logo-full.png",
-        close-x:                              "#{$icons}/close-x.png",
-        close-x-hover:                        "#{$icons}/close-x.png",
-        close-x-active:                       "#{$icons}/close-x.png",
-        maximize:                             "#{$dark-icons}/maximize.png",
-        minimize:                             "#{$dark-icons}/minimize.png",
+        logo:                                 inline-image("#{$icons}/logo.png"),
+        logo-full:                            inline-image("#{$dark-icons}/logo-full.png"),
+        close-x:                              inline-image("#{$icons}/close-x.png"),
+        close-x-hover:                        inline-image("#{$icons}/close-x.png"),
+        close-x-active:                       inline-image("#{$icons}/close-x.png"),
+        maximize:                             inline-image("#{$dark-icons}/maximize.png"),
+        minimize:                             inline-image("#{$dark-icons}/minimize.png"),
 
         // Menus
-        ph-menu-box:                          "#{$dark-icons}/ph-menu-box.png",
+        ph-menu-box:                          inline-image("#{$dark-icons}/ph-menu-box.png"),
 
         // Toolbar
-        ph-toolbar-box:                       "#{$dark-icons}/ph-toolbar-box.png",
-        ph-toolbar-box-active:                "#{$dark-icons}/ph-toolbar-box-active.png",
+        ph-toolbar-box:                       inline-image("#{$dark-icons}/ph-toolbar-box.png"),
+        ph-toolbar-box-active:                inline-image("#{$dark-icons}/ph-toolbar-box-active.png"),
 
         // Dropdowns
-        caret-down:                           "#{$dark-icons}/caret-down.png",
-        caret-down-hover:                     "#{$dark-icons}/caret-down-hover.png",
-        caret-down-active:                    "#{$dark-icons}/caret-down-hover.png",
-        caret-down-alt-active:                "#{$icons}/caret-down-alt-active.png",
+        caret-down:                           inline-image("#{$dark-icons}/caret-down.png"),
+        caret-down-hover:                     inline-image("#{$dark-icons}/caret-down-hover.png"),
+        caret-down-active:                    inline-image("#{$dark-icons}/caret-down-hover.png"),
+        caret-down-alt-active:                inline-image("#{$icons}/caret-down-alt-active.png"),
 
         // Quick Access Toolbar
-        folder:                               "#{$dark-icons}/folder.png",
-        save:                                 "#{$dark-icons}/save.png",
-        undo:                                 "#{$dark-icons}/undo.png",
-        redo:                                 "#{$dark-icons}/redo.png",
-        stop:                                 "#{$icons}/stop.png",
-        play:                                 "#{$icons}/play.png",
-        ellipses:                             "#{$dark-icons}/ellipses.png",
-        download:                             "#{$dark-icons}/download.png",
-        remove:                               "#{$dark-icons}/remove.png",
-        target:                               "#{$dark-icons}/target.png",
-        property:                             "#{$dark-icons}/property.png",
+        folder:                               inline-image("#{$dark-icons}/folder.png"),
+        save:                                 inline-image("#{$dark-icons}/save.png"),
+        undo:                                 inline-image("#{$dark-icons}/undo.png"),
+        redo:                                 inline-image("#{$dark-icons}/redo.png"),
+        stop:                                 inline-image("#{$icons}/stop.png"),
+        play:                                 inline-image("#{$icons}/play.png"),
+        ellipses:                             inline-image("#{$dark-icons}/ellipses.png"),
+        download:                             inline-image("#{$dark-icons}/download.png"),
+        remove:                               inline-image("#{$dark-icons}/remove.png"),
+        target:                               inline-image("#{$dark-icons}/target.png"),
+        property:                             inline-image("#{$dark-icons}/property.png"),
 
         // Input
-        error:                                "#{$icons}/error.png",
+        error:                                inline-image("#{$icons}/error.png"),
         // -- Checkboxes
-        checkbox:                             "#{$dark-icons}/checkbox.png",
-        checkbox-hover:                       "#{$dark-icons}/checkbox-hover.png",
-        checkbox-checked:                     "#{$dark-icons}/checkbox-checked.png",
-        checkbox-disabled:                    "#{$dark-icons}/checkbox-disabled.png",
-        checkbox-checked-disabled:            "#{$dark-icons}/checkbox-checked-disabled.png",
+        checkbox:                             inline-image("#{$dark-icons}/checkbox.png"),
+        checkbox-hover:                       inline-image("#{$dark-icons}/checkbox-hover.png"),
+        checkbox-checked:                     inline-image("#{$dark-icons}/checkbox-checked.png"),
+        checkbox-disabled:                    inline-image("#{$dark-icons}/checkbox-disabled.png"),
+        checkbox-checked-disabled:            inline-image("#{$dark-icons}/checkbox-checked-disabled.png"),
         // -- Radio
-        radio:                                "#{$dark-icons}/radio.png",
-        radio-hover:                          "#{$dark-icons}/radio-hover.png",
-        radio-checked:                        "#{$dark-icons}/radio-checked.png",
-        radio-disabled:                       "#{$dark-icons}/radio-disabled.png",
-        radio-checked-disabled:               "#{$dark-icons}/radio-checked-disabled.png",
+        radio:                                inline-image("#{$dark-icons}/radio.png"),
+        radio-hover:                          inline-image("#{$dark-icons}/radio-hover.png"),
+        radio-checked:                        inline-image("#{$dark-icons}/radio-checked.png"),
+        radio-disabled:                       inline-image("#{$dark-icons}/radio-disabled.png"),
+        radio-checked-disabled:               inline-image("#{$dark-icons}/radio-checked-disabled.png"),
         // -- Combo Box
-        check:                                "#{$dark-icons}/check.png",
+        check:                                inline-image("#{$dark-icons}/check.png"),
         // -- Spin Box
-        arrow-up:                             "#{$dark-icons}/arrow-up.png",
-        arrow-up-active:                      "#{$dark-icons}/arrow-up-active.png",
-        arrow-down:                           "#{$dark-icons}/arrow-down.png",
-        arrow-down-active:                    "#{$dark-icons}/arrow-down-active.png",
+        arrow-up:                             inline-image("#{$dark-icons}/arrow-up.png"),
+        arrow-up-active:                      inline-image("#{$dark-icons}/arrow-up-active.png"),
+        arrow-down:                           inline-image("#{$dark-icons}/arrow-down.png"),
+        arrow-down-active:                    inline-image("#{$dark-icons}/arrow-down-active.png"),
 
         // Property Panels
-        panel-splitter-cursor-hover:          "#{$icons}/splitter-cursor.png",
-        panel-splitter-vertical-cursor-hover: "#{$icons}/splitter-vertical-cursor.png",
+        panel-splitter-cursor-hover:          inline-image("#{$icons}/splitter-cursor.png"),
+        panel-splitter-vertical-cursor-hover: inline-image("#{$icons}/splitter-vertical-cursor.png"),
 
         // Property Grid
-        mag-glass:                            "#{$dark-icons}/mag-glass.png",
+        mag-glass:                            inline-image("#{$dark-icons}/mag-glass.png"),
 
         // Scrollbar
-        scroll-caret-down:                    "#{$dark-icons}/scroll-caret-down.png",
-        scroll-caret-down-hover:              "#{$dark-icons}/scroll-caret-down-hover.png",
-        scroll-caret-down-active:             "#{$dark-icons}/scroll-caret-down-hover.png"
+        scroll-caret-down:                    inline-image("#{$dark-icons}/scroll-caret-down.png"),
+        scroll-caret-down-hover:              inline-image("#{$dark-icons}/scroll-caret-down-hover.png"),
+        scroll-caret-down-active:             inline-image("#{$dark-icons}/scroll-caret-down-hover.png")
 
 );
 

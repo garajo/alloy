@@ -1,3 +1,5 @@
+@import '../sass-image';
+
 body {
   &.light {
     // Flags
@@ -227,82 +229,90 @@ body {
     );
 
     // Images & Icons
-    $img:                         "../images";
-    $icons:                       "#{$img}/icons";
-    $light-icons:                 "#{$img}/light/icons";
+    //JEFF_NOTE This path was a relative path to Foundation sites from the perspective of the Alloy repo. Once deployed it is still valid if a consumer only uses
+    // the alloy.min.css/alloy.css as it would get its relative paths correct. However, if a consumer needs access to the Alloy or Foundation variables/mixins etc.
+    // they may need to @import the alloy.scss file which traverses it's dependencies and fails on this path during the build.
+    // Given this new path relative to the root of node_modules it will work in both the runtime/dist/css way as well as the build/scss approach if needed.
+    // The ultimate goal is to reduce the number of consumers that have to use/references our mixins/sass variables but there will always be some use of them.
+    // Always try and reference from the node_modules root.
+    // $img:                         "../images";
+
+    // Relative to `./src/images`
+    $icons:                       "icons";
+    $light-icons:                 "light/icons";
 
     $icon-pack: (
             // Title Bar
-            logo:                                 "#{$icons}/logo.png",
-            logo-full:                            "#{$light-icons}/logo-full.png",
-            close-x:                              "#{$light-icons}/close-x.png",
-            close-x-hover:                        "#{$icons}/close-x.png",
-            close-x-active:                       "#{$icons}/close-x.png",
-            maximize:                             "#{$light-icons}/maximize.png",
-            minimize:                             "#{$light-icons}/minimize.png",
+            logo:                                 inline-image("#{$icons}/logo.png"),
+            logo-full:                            inline-image("#{$light-icons}/logo-full.png"),
+            close-x:                              inline-image("#{$light-icons}/close-x.png"),
+            close-x-hover:                        inline-image("#{$icons}/close-x.png"),
+            close-x-active:                       inline-image("#{$icons}/close-x.png"),
+            maximize:                             inline-image("#{$light-icons}/maximize.png"),
+            minimize:                             inline-image("#{$light-icons}/minimize.png"),
 
             // Menus
-            ph-menu-box:                          "#{$light-icons}/ph-menu-box.png",
+            ph-menu-box:                          inline-image("#{$light-icons}/ph-menu-box.png"),
 
             // Toolbar
-            ph-toolbar-box:                       "#{$light-icons}/ph-toolbar-box.png",
-            ph-toolbar-box-active:                "#{$light-icons}/ph-toolbar-box-active.png",
-            ph-toolbar-tab-box-active:            "#{$light-icons}/ph-toolbar-tab-box-active.png",
+            ph-toolbar-box:                       inline-image("#{$light-icons}/ph-toolbar-box.png"),
+            ph-toolbar-box-active:                inline-image("#{$light-icons}/ph-toolbar-box-active.png"),
+            ph-toolbar-tab-box-active:            inline-image("#{$light-icons}/ph-toolbar-tab-box-active.png"),
 
             // Dropdowns
-            caret-down:                           "#{$light-icons}/caret-down.png",
-            caret-down-hover:                     "#{$light-icons}/caret-down-hover.png",
-            caret-down-active:                    "#{$light-icons}/caret-down-active.png",
-            caret-down-alt-active:                "#{$icons}/caret-down-alt-active.png",
+            caret-down:                           inline-image("#{$light-icons}/caret-down.png"),
+            caret-down-hover:                     inline-image("#{$light-icons}/caret-down-hover.png"),
+            caret-down-active:                    inline-image("#{$light-icons}/caret-down-active.png"),
+            caret-down-alt-active:                inline-image("#{$icons}/caret-down-alt-active.png"),
 
             // Quick Access Toolbar
-            folder:                               "#{$light-icons}/folder.png",
-            save:                                 "#{$light-icons}/save.png",
-            undo:                                 "#{$light-icons}/undo.png",
-            redo:                                 "#{$light-icons}/redo.png",
-            stop:                                 "#{$icons}/stop.png",
-            play:                                 "#{$icons}/play.png",
-            ellipses:                             "#{$light-icons}/ellipses.png",
-            download:                             "#{$light-icons}/download.png",
-            remove:                               "#{$light-icons}/remove.png",
-            target:                               "#{$light-icons}/target.png",
-            property:                             "#{$light-icons}/property.png",
+            folder:                               inline-image("#{$light-icons}/folder.png"),
+            save:                                 inline-image("#{$light-icons}/save.png"),
+            undo:                                 inline-image("#{$light-icons}/undo.png"),
+            redo:                                 inline-image("#{$light-icons}/redo.png"),
+            stop:                                 inline-image("#{$icons}/stop.png"),
+            play:                                 inline-image("#{$icons}/play.png"),
+            ellipses:                             inline-image("#{$light-icons}/ellipses.png"),
+            download:                             inline-image("#{$light-icons}/download.png"),
+            remove:                               inline-image("#{$light-icons}/remove.png"),
+            target:                               inline-image("#{$light-icons}/target.png"),
+            property:                             inline-image("#{$light-icons}/property.png"),
 
             // Input
-            error:                                "#{$icons}/error.png",
+            error:                                inline-image("#{$icons}/error.png"),
             // -- Checkboxes
-            checkbox:                             "#{$light-icons}/checkbox.png",
-            checkbox-hover:                       "#{$light-icons}/checkbox-hover.png",
-            checkbox-checked:                     "#{$light-icons}/checkbox-checked.png",
-            checkbox-disabled:                    "#{$light-icons}/checkbox-disabled.png",
-            checkbox-checked-disabled:            "#{$light-icons}/checkbox-checked-disabled.png",
+            checkbox:                             inline-image("#{$light-icons}/checkbox.png"),
+            checkbox-hover:                       inline-image("#{$light-icons}/checkbox-hover.png"),
+            checkbox-checked:                     inline-image("#{$light-icons}/checkbox-checked.png"),
+            checkbox-disabled:                    inline-image("#{$light-icons}/checkbox-disabled.png"),
+            checkbox-checked-disabled:            inline-image("#{$light-icons}/checkbox-checked-disabled.png"),
             // -- Radio
-            radio:                                "#{$light-icons}/radio.png",
-            radio-hover:                          "#{$light-icons}/radio-hover.png",
-            radio-checked:                        "#{$light-icons}/radio-checked.png",
-            radio-disabled:                       "#{$light-icons}/radio-disabled.png",
-            radio-checked-disabled:               "#{$light-icons}/radio-checked-disabled.png",
+            radio:                                inline-image("#{$light-icons}/radio.png"),
+            radio-hover:                          inline-image("#{$light-icons}/radio-hover.png"),
+            radio-checked:                        inline-image("#{$light-icons}/radio-checked.png"),
+            radio-disabled:                       inline-image("#{$light-icons}/radio-disabled.png"),
+            radio-checked-disabled:               inline-image("#{$light-icons}/radio-checked-disabled.png"),
             // -- Combo Box
-            check:                                "#{$light-icons}/check.png",
+            check:                                inline-image("#{$light-icons}/check.png"),
             // -- Spin Box
-            arrow-up:                             "#{$light-icons}/arrow-up.png",
-            arrow-up-hover:                       "#{$light-icons}/arrow-up-hover.png",
-            arrow-up-active:                      "#{$light-icons}/arrow-up-active.png",
-            arrow-down:                           "#{$light-icons}/arrow-down.png",
-            arrow-down-hover:                     "#{$light-icons}/arrow-down-hover.png",
-            arrow-down-active:                    "#{$light-icons}/arrow-down-active.png",
+            arrow-up:                             inline-image("#{$light-icons}/arrow-up.png"),
+            arrow-up-hover:                       inline-image("#{$light-icons}/arrow-up-hover.png"),
+            arrow-up-active:                      inline-image("#{$light-icons}/arrow-up-active.png"),
+            arrow-down:                           inline-image("#{$light-icons}/arrow-down.png"),
+            arrow-down-hover:                     inline-image("#{$light-icons}/arrow-down-hover.png"),
+            arrow-down-active:                    inline-image("#{$light-icons}/arrow-down-active.png"),
 
             // Panels
-            panel-splitter-cursor-hover:          "#{$icons}/splitter-cursor.png",
-            panel-splitter-vertical-cursor-hover: "#{$icons}/splitter-vertical-cursor.png",
+            panel-splitter-cursor-hover:          inline-image("#{$icons}/splitter-cursor.png"),
+            panel-splitter-vertical-cursor-hover: inline-image("#{$icons}/splitter-vertical-cursor.png"),
 
             // Property Grid
-            mag-glass:                            "#{$light-icons}/mag-glass.png",
+            mag-glass:                            inline-image("#{$light-icons}/mag-glass.png"),
 
             // Scrollbar
-            scroll-caret-down:                    "#{$light-icons}/scroll-caret-down.png",
-            scroll-caret-down-hover:              "#{$light-icons}/scroll-caret-down-hover.png",
-            scroll-caret-down-active:             "#{$light-icons}/scroll-caret-down-active.png"
+            scroll-caret-down:                    inline-image("#{$light-icons}/scroll-caret-down.png"),
+            scroll-caret-down-hover:              inline-image("#{$light-icons}/scroll-caret-down-hover.png"),
+            scroll-caret-down-active:             inline-image("#{$light-icons}/scroll-caret-down-active.png")
 
     );
 

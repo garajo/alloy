@@ -4,7 +4,7 @@
   display: inline-block;
   @include size($size);
 
-  background: transparent url(map_get($icon-pack, ph-menu-box)) no-repeat center center / $size;
+  background: transparent map_get($icon-pack, ph-menu-box) no-repeat center center / $size;
 
   &.small {
     $size: 11px;
@@ -21,10 +21,10 @@
   display: inline-block;
   @include size($size);
 
-  background: transparent url(map_get($icon-pack, ph-toolbar-box)) no-repeat center center / $size;
+  background: transparent map_get($icon-pack, ph-toolbar-box) no-repeat center center / $size;
 
   &.is-active {
-    background: transparent url(map_get($icon-pack, ph-toolbar-box-active)) no-repeat center center / $size;
+    background: transparent map_get($icon-pack, ph-toolbar-box-active) no-repeat center center / $size;
   }
 
   &.small {
@@ -34,7 +34,7 @@
 
       @include size($size);
 
-      background: transparent url(map_get($icon-pack, ph-toolbar-box-active)) no-repeat center center / $size;
+      background: transparent map_get($icon-pack, ph-toolbar-box-active) no-repeat center center / $size;
     }
   }
 }
@@ -56,7 +56,7 @@
 
   margin: 7px 12px 7px 0;
 
-  background: transparent url(map_get($icon-pack, logo-full)) no-repeat left center / $bg-width $height;
+  background: transparent map_get($icon-pack, logo-full) no-repeat left center / $bg-width $height;
 
   &.full {
     width: $bg-width;
@@ -83,16 +83,16 @@
   display: inline-block;
   @include size($size);
 
-  background: transparent url(map_get($icon-pack, close-x)) no-repeat center center / $size;
+  background: transparent map_get($icon-pack, close-x) no-repeat center center / $size;
 
   &:hover {
-    background: transparent url(map_get($icon-pack, close-x-hover)) no-repeat center center / $size;
+    background: transparent map_get($icon-pack, close-x-hover) no-repeat center center / $size;
   }
 
   &:active,
   &.is-active,
   &:focus {
-    background: transparent url(map_get($icon-pack, close-x-active)) no-repeat center center / $size;
+    background: transparent map_get($icon-pack, close-x-active) no-repeat center center / $size;
   }
 }
 
@@ -107,7 +107,7 @@
   &:active,
   &.is-active,
   &:focus {
-    background: transparent url(map_get($icon-pack, maximize)) no-repeat center center / $size;
+    background: transparent map_get($icon-pack, maximize) no-repeat center center / $size;
   }
 }
 
@@ -123,7 +123,7 @@
   &:active,
   &.is-active,
   &:focus {
-    background: transparent url(map_get($icon-pack, minimize)) no-repeat bottom 8px center / $width $height;
+    background: transparent map_get($icon-pack, minimize) no-repeat bottom 8px center / $width $height;
   }
 }
 
@@ -135,23 +135,23 @@
   @include size($width, $height);
 
   &.up {
-    background: transparent url(map_get($icon-pack, caret-down)) no-repeat center center / $width $height;
+    background: transparent map_get($icon-pack, caret-down) no-repeat center center / $width $height;
 
     transform: rotate(180deg);
   }
 
   &.right {
-    background: transparent url(map_get($icon-pack, caret-down)) no-repeat center center / $width $height;
+    background: transparent map_get($icon-pack, caret-down) no-repeat center center / $width $height;
 
     transform: rotate(-90deg);
   }
 
   &.down {
-    background: transparent url(map_get($icon-pack, caret-down)) no-repeat center center / $width $height;
+    background: transparent map_get($icon-pack, caret-down) no-repeat center center / $width $height;
   }
 
   &.left {
-    background: transparent url(map_get($icon-pack, caret-down)) no-repeat center center / $width $height;
+    background: transparent map_get($icon-pack, caret-down) no-repeat center center / $width $height;
 
     transform: rotate(90deg);
   }
@@ -159,19 +159,19 @@
   &:active,
   &.is-active {
     &.up {
-      background: transparent url(map_get($icon-pack, caret-down-hover)) no-repeat center center / $width $height;
+      background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $width $height;
     }
 
     &.right {
-      background: transparent url(map_get($icon-pack, caret-down-hover)) no-repeat center center / $width $height;
+      background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $width $height;
     }
 
     &.down {
-      background: transparent url(map_get($icon-pack, caret-down-hover)) no-repeat center center / $width $height;
+      background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $width $height;
     }
 
     &.left {
-      background: transparent url(map_get($icon-pack, caret-down-hover)) no-repeat center center / $width $height;
+      background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $width $height;
     }
   }
 }
@@ -183,47 +183,47 @@
   @include size($size);
 
   &.folder {
-    background: transparent url(map_get($icon-pack, folder)) no-repeat center center / 13px 17px;
+    background: transparent map_get($icon-pack, folder) no-repeat center center / 13px 17px;
   }
 
   &.save {
-    background: transparent url(map_get($icon-pack, save)) no-repeat center center / 14px;
+    background: transparent map_get($icon-pack, save) no-repeat center center / 14px;
   }
 
   &.undo {
-    background: transparent url(map_get($icon-pack, undo)) no-repeat center center / 15px 16px;
+    background: transparent map_get($icon-pack, undo) no-repeat center center / 15px 16px;
   }
 
   &.redo {
-    background: transparent url(map_get($icon-pack, redo)) no-repeat center center / 15px 16px;
+    background: transparent map_get($icon-pack, redo) no-repeat center center / 15px 16px;
   }
 
   &.play {
-    background: transparent url(map_get($icon-pack, play)) no-repeat center center / 12px 16px;
+    background: transparent map_get($icon-pack, play) no-repeat center center / 12px 16px;
   }
 
   &.stop {
-    background: transparent url(map_get($icon-pack, stop)) no-repeat center center / 14px;
+    background: transparent map_get($icon-pack, stop) no-repeat center center / 14px;
   }
 
   &.ellipses {
-    background: transparent url(map_get($icon-pack, ellipses)) no-repeat center center / 12px 2px;
+    background: transparent map_get($icon-pack, ellipses) no-repeat center center / 12px 2px;
   }
 
   &.download {
-    background: transparent url(map_get($icon-pack, download)) no-repeat center center / 16px 15px;
+    background: transparent map_get($icon-pack, download) no-repeat center center / 16px 15px;
   }
 
   &.remove {
-    background: transparent url(map_get($icon-pack, remove)) no-repeat center center / 16px 15px;
+    background: transparent map_get($icon-pack, remove) no-repeat center center / 16px 15px;
   }
 
   &.target {
-    background: transparent url(map_get($icon-pack, target)) no-repeat center center / 14px;
+    background: transparent map_get($icon-pack, target) no-repeat center center / 14px;
   }
 
   &.property {
-    background: transparent url(map_get($icon-pack, property)) no-repeat center center / 16px;
+    background: transparent map_get($icon-pack, property) no-repeat center center / 16px;
   }
 }
 
@@ -233,7 +233,7 @@
   display: none;
   @include size($size);
 
-  background: transparent url(map_get($icon-pack, error)) no-repeat center center / $size;
+  background: transparent map_get($icon-pack, error) no-repeat center center / $size;
 }
 
 .check {
@@ -243,7 +243,7 @@
   display: inline-block;
   @include size($width, $height);
 
-  background: transparent url(map_get($icon-pack, check)) no-repeat center center / $width $height;
+  background: transparent map_get($icon-pack, check) no-repeat center center / $width $height;
 }
 
 .arrow {
@@ -256,11 +256,11 @@
     @include size($width, $height);
 
     &.up {
-      background: transparent url(map_get($icon-pack, arrow-up)) no-repeat center center / $width $height;
+      background: transparent map_get($icon-pack, arrow-up) no-repeat center center / $width $height;
     }
 
     &.down {
-      background: transparent url(map_get($icon-pack, arrow-down)) no-repeat center center / $width $height;
+      background: transparent map_get($icon-pack, arrow-down) no-repeat center center / $width $height;
     }
   }
 
@@ -268,17 +268,17 @@
   &.is-hovered {
     &.up {
       @if $theme-light == true {
-        background: transparent url(map_get($icon-pack, arrow-up-hover)) no-repeat center center / $width $height;
+        background: transparent map_get($icon-pack, arrow-up-hover) no-repeat center center / $width $height;
       } @else {
-        background: transparent url(map_get($icon-pack, arrow-up-active)) no-repeat center center / $width $height;
+        background: transparent map_get($icon-pack, arrow-up-active) no-repeat center center / $width $height;
       }
     }
 
     &.down {
       @if $theme-light == true {
-        background: transparent url(map_get($icon-pack, arrow-down-hover)) no-repeat center center / $width $height;
+        background: transparent map_get($icon-pack, arrow-down-hover) no-repeat center center / $width $height;
       } @else {
-        background: transparent url(map_get($icon-pack, arrow-down-active)) no-repeat center center / $width $height;
+        background: transparent map_get($icon-pack, arrow-down-active) no-repeat center center / $width $height;
       }
     }
   }
@@ -286,11 +286,11 @@
   &:active,
   &.is-pressed {
     &.up {
-      background: map_get($color-palette, button-spin-bg-active) url(map_get($icon-pack, arrow-up-active)) no-repeat center center / $width $height;
+      background: map_get($color-palette, button-spin-bg-active) map_get($icon-pack, arrow-up-active) no-repeat center center / $width $height;
     }
 
     &.down {
-      background: map_get($color-palette, button-spin-bg-active) url(map_get($icon-pack, arrow-down-active)) no-repeat center center / $width $height;
+      background: map_get($color-palette, button-spin-bg-active) map_get($icon-pack, arrow-down-active) no-repeat center center / $width $height;
     }
   }
 }
@@ -301,5 +301,5 @@
   display: inline-block;
   @include size($size);
 
-  background: transparent url(map_get($icon-pack, mag-glass)) no-repeat center center / $size;
+  background: transparent map_get($icon-pack, mag-glass) no-repeat center center / $size;
 }

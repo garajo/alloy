@@ -1,6 +1,8 @@
+@import '../node_modules/foundation-sites/scss/util/util';
 @import '_settings.scss';
 
-@import "_foundation.scss";
+@import '../node_modules/foundation-sites/scss/foundation.scss';
+@import '_foundation.scss';
 
-@import "themes/_dark.scss";
-@import "themes/_light.scss";
+@import 'themes/_dark.scss';
+@import 'themes/_light.scss';

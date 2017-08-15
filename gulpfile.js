@@ -11,12 +11,16 @@ const
   sass = require('gulp-sass'),
   cleanCSS = require('gulp-clean-css'),
   rename = require("gulp-rename"),
+  sassImage = require('gulp-sass-image'),
+  gnf = require('gulp-npm-files'),
   del = require('del'),
   runSequence = require('run-sequence'),
   inlineResources = require('./tools/gulp/inline-resources');
 
 const rootFolder = path.join(__dirname);
 const srcFolder = path.join(rootFolder, 'src');
+const srcImagesFolder = path.join(srcFolder, 'images');
+const srcSCSSFolder = path.join(srcFolder, 'scss');
 const tmpFolder = path.join(rootFolder, '.tmp');
 const buildFolder = path.join(rootFolder, 'build');
 const distFolder = path.join(rootFolder, 'dist');
@@ -39,6 +43,20 @@ const onwarn =function (warning) {
   }
   console.error(warning.message);
 }
+
+
+/**
+ * 0. Generate helper SASS file fir better images inlining in `scss` files
+ *    Allows to impoer `scss ` files from dist foler with out issues with images path resolution
+ */
+gulp.task('sass:images', function () {
+    return gulp.src(`${srcImagesFolder}/**/*.+(jpeg|jpg|png|gif|svg)`)
+        .pipe(sassImage({
+            images_path: srcImagesFolder,
+            css_path: `${tmpFolder}/css`
+        }))
+        .pipe(gulp.dest(srcSCSSFolder));
+});
 
 /**
  * 1. Delete /dist folder
@@ -174,8 +192,8 @@ gulp.task('rollup:umd', function() {
  * 7. Compile CSS out of SCSS
  */
 gulp.task('sass:build', function() {
-  return gulp.src(`${srcFolder}/scss/**/*.scss`)
-    .pipe(sass().on('error', sass.logError))
+  return gulp.src(`${tmpFolder}/scss/**/*.scss`)
+    .pipe(sass({ errLogToConsole: true }).on('error', sass.logError))
     .pipe(gulp.dest(`${tmpFolder}/css`));
 });
 
@@ -222,11 +240,11 @@ gulp.task('copy:css', function() {
 
 
 /**
- * 11. Copy images from /.tmp to /build directory
+ * 11. Copy .npmignore from root to /dist directory
  */
-gulp.task('copy:images', function() {
-  return gulp.src(`${tmpFolder}/images/**/*`)
-    .pipe(gulp.dest(`${buildFolder}/images`));
+gulp.task('copy:npmignore', function() {
+  return gulp.src(`${rootFolder}/.npmignore`)
+    .pipe(gulp.dest(`${distFolder}`));
 });
 
 /**
@@ -291,10 +309,28 @@ gulp.task('update:manifest', function() {
   return;
 });
 
+
+/**
+ * Copy dependencies to build/node_modules/ by by
+ * value in './package.json' file
+ */
+gulp.task('copy:dependencies:tmp', function() {
+  return gulp
+    .src(gnf(null, `${srcFolder}/package.json`), {base:'./'})
+    .pipe(gulp.dest(tmpFolder));
+});
+gulp.task('copy:dependencies:dist', function() {
+  return gulp
+    .src(gnf(null, `${srcFolder}/package.json`), {base:'./'})
+    .pipe(gulp.dest(distFolder));
+});
+
 gulp.task('compile', function() {
   runSequence(
+    'sass:images',
     'clean:dist',
     'copy:source',
+    'copy:dependencies:tmp',
     'sass:build',
     'css:minify',
     'copy:css',
@@ -303,8 +339,9 @@ gulp.task('compile', function() {
     'rollup:fesm',
     'rollup:umd',
     'copy:sass',
-    'copy:images',
     'copy:build',
+    'copy:npmignore',
+    'copy:dependencies:dist',
     'copy:manifest',
     'copy:readme',
     'clean:build',

@@ -346,7 +346,7 @@ button {
     .ph-toolbar-box {
       $size: 24px;
 
-      background: url(map_get($icon-pack, ph-toolbar-box-active)) no-repeat center center / $size;
+      background: map_get($icon-pack, ph-toolbar-box-active) no-repeat center center / $size;
     }
   }
 }
@@ -476,7 +476,7 @@ button.dropdown {
 
     border: none;
 
-    background: transparent url(map_get($icon-pack, caret-down)) no-repeat center center / $caret-width $caret-height;
+    background: transparent (map_get($icon-pack, caret-down)) no-repeat center center / $caret-width $caret-height;
   }
 
   &.button-toolbar {
@@ -550,7 +550,7 @@ button.dropdown {
   &:hover,
   &.is-hovered {
     &:after {
-      background: transparent url(map_get($icon-pack, caret-down-hover)) no-repeat center center / $caret-width $caret-height;
+      background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $caret-width $caret-height;
     }
 
     &.dropdown-combo {
@@ -589,7 +589,7 @@ button.dropdown {
       background-color: map_get($color-palette, input-text-border-active);
 
       &:after {
-        background: transparent url(map_get($icon-pack, caret-down-active)) no-repeat center center / $caret-width $caret-height;
+        background: transparent map_get($icon-pack, caret-down-active) no-repeat center center / $caret-width $caret-height;
 
         transform: rotate(180deg);
       }
@@ -597,7 +597,7 @@ button.dropdown {
 
     &.lightweight {
       &:after {
-        background: transparent url(map_get($icon-pack, caret-down-alt-active)) no-repeat center center / $caret-width $caret-height;
+        background: transparent map_get($icon-pack, caret-down-alt-active) no-repeat center center / $caret-width $caret-height;
 
         transform: rotate(180deg);
       }
@@ -618,7 +618,7 @@ button.dropdown {
       }
 
       &:after {
-        background: transparent url(map_get($icon-pack, caret-down-hover)) no-repeat center center / $caret-width $caret-height;
+        background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $caret-width $caret-height;
 
         transform: rotate(180deg);
       }
@@ -723,34 +723,34 @@ button.dropdown {
   border-bottom: none;
 
   &.up {
-    background: transparent url(map_get($icon-pack, scroll-caret-down)) no-repeat center center / $caret-width $caret-height;
+    background: transparent map_get($icon-pack, scroll-caret-down) no-repeat center center / $caret-width $caret-height;
 
     transform: rotate(180deg);
   }
 
   &.down {
-    background: transparent url(map_get($icon-pack, scroll-caret-down)) no-repeat center center / $caret-width $caret-height;
+    background: transparent map_get($icon-pack, scroll-caret-down) no-repeat center center / $caret-width $caret-height;
   }
 
   &:hover,
   &.is-hovered {
     &.up {
-      background: map_get($color-palette, scrollbar-button-bg-hover) url(map_get($icon-pack, scroll-caret-down-hover)) no-repeat center center / $caret-width $caret-height;
+      background: map_get($color-palette, scrollbar-button-bg-hover) map_get($icon-pack, scroll-caret-down-hover) no-repeat center center / $caret-width $caret-height;
     }
 
     &.down {
-      background: map_get($color-palette, scrollbar-button-bg-hover) url(map_get($icon-pack, scroll-caret-down-hover)) no-repeat center center / $caret-width $caret-height;
+      background: map_get($color-palette, scrollbar-button-bg-hover) map_get($icon-pack, scroll-caret-down-hover) no-repeat center center / $caret-width $caret-height;
     }
   }
 
   &:active,
   &.is-active {
     &.up {
-      background: map_get($color-palette, scrollbar-button-bg-active) url(map_get($icon-pack, scroll-caret-down-active)) no-repeat center center / $caret-width $caret-height;
+      background: map_get($color-palette, scrollbar-button-bg-active) map_get($icon-pack, scroll-caret-down-active) no-repeat center center / $caret-width $caret-height;
     }
 
     &.down {
-      background: map_get($color-palette, scrollbar-button-bg-active) url(map_get($icon-pack, scroll-caret-down-active)) no-repeat center center / $caret-width $caret-height;
+      background: map_get($color-palette, scrollbar-button-bg-active) map_get($icon-pack, scroll-caret-down-active) no-repeat center center / $caret-width $caret-height;
     }
   }
 }

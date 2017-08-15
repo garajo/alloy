@@ -13,7 +13,7 @@
 
   background-color: map_get($color-palette, panel-splitter-bg);
 
-  cursor: url(map_get($icon-pack, panel-splitter-cursor-hover)) 7.5 8, pointer;
+  cursor: map_get($icon-pack, panel-splitter-cursor-hover) 7.5 8, pointer;
 
   transition: border 0.25s ease-in-out,
               background-color 0.25s ease-in-out;
@@ -40,7 +40,7 @@
 
     border: 1px solid map_get($color-palette, panel-splitter-border);
 
-    cursor: url(map_get($icon-pack, panel-splitter-vertical-cursor-hover)) 8 7.5, pointer;
+    cursor: map_get($icon-pack, panel-splitter-vertical-cursor-hover) 8 7.5, pointer;
 
     &:hover,
     &.is-hovered {

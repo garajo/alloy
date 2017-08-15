@@ -110,26 +110,26 @@ input[type="radio"] + span {
     &+ span {
       margin: 0;
 
-      background: transparent url(map_get($icon-pack, checkbox)) no-repeat center center / $size;
+      background: transparent map_get($icon-pack, checkbox) no-repeat center center / $size;
     }
 
     &:hover + span,
     &.is-hovered + span {
-      background: transparent url(map_get($icon-pack, checkbox-hover)) no-repeat center center / $size;
+      background: transparent map_get($icon-pack, checkbox-hover) no-repeat center center / $size;
     }
 
     &:checked + span {
-      background: transparent url(map_get($icon-pack, checkbox-checked)) no-repeat center center / $size;
+      background: transparent map_get($icon-pack, checkbox-checked) no-repeat center center / $size;
     }
 
     &:disabled + span {
-      background: transparent url(map_get($icon-pack, checkbox-disabled)) no-repeat center center / $size;
+      background: transparent map_get($icon-pack, checkbox-disabled) no-repeat center center / $size;
 
       pointer-events: none;
     }
 
     &:checked:disabled + span {
-      background: transparent url(map_get($icon-pack, checkbox-checked-disabled)) no-repeat center center / $size;
+      background: transparent map_get($icon-pack, checkbox-checked-disabled) no-repeat center center / $size;
     }
   }
 }

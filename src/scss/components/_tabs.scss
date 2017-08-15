@@ -183,7 +183,7 @@ ul.tabs {
 
               .ph-toolbar-box {
                 @if $theme-light == true {
-                  background: transparent url(map_get($icon-pack, ph-toolbar-tab-box-active)) no-repeat center center / 24px;
+                  background: transparent map_get($icon-pack, ph-toolbar-tab-box-active) no-repeat center center / 24px;
                 }
               }
             }
