@@ -228,15 +228,6 @@ $color-palette: (
 );
 
 // Images & Icons
-//JEFF_NOTE This path was a relative path to Foundation sites from the perspective of the Alloy repo. Once deployed it is still valid if a consumer only uses
-// the alloy.min.css/alloy.css as it would get its relative paths correct. However, if a consumer needs access to the Alloy or Foundation variables/mixins etc.
-// they may need to @import the alloy.scss file which traverses it's dependencies and fails on this path during the build.
-// Given this new path relative to the root of node_modules it will work in both the runtime/dist/css way as well as the build/scss approach if needed.
-// The ultimate goal is to reduce the number of consumers that have to use/references our mixins/sass variables but there will always be some use of them.
-// Always try and reference from the node_modules root.
-// $img:                   "../images";
-// $img:                   "../images";
-
 // Relative to `./src/images`
 $icons:                 "icons";
 $dark-icons:            "dark/icons";

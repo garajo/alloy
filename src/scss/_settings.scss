@@ -41,11 +41,6 @@
 //  36. Tooltip
 //  37. Top Bar
 
-//JEFF_NOTE This path was a relative path to Foundation sites from the perspective of the Alloy repo. Once it was deployed it was no longer valid as it was
-// moved further down in the directory structure when installed as an node package. Install location is /node_modules/@ksf/Alloy/scss
-// Use the tilda ~ notation to always find the node_modules root
-// @import $foundation + '/scss/util/util';
-
 // 1. Global
 // ---------
 
