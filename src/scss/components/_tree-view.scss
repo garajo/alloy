@@ -48,13 +48,15 @@ ul.tree-view {
         background-color: map_get($color-palette, list-item-bg-hover);
       }
 
-      &:focus,
-      &.is-focused {
+
+      &.sel-inactive {
         background-color: map_get($color-palette, list-item-bg-focus);
       }
 
+      &:focus,
       &:active,
-      &.is-active {
+      &.is-active,
+      &.is-focused {
         background-color: map_get($color-palette, list-item-bg-active);
       }
     }
