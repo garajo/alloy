@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class DropdownsPageComponent implements OnInit {
     private id: number = 0;
 
+    disabled = false;
     selectedValue: string;
     placeholder: string = 'Select One';
 

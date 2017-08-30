@@ -1,5 +1,5 @@
 <div class="dropdown-group">
-    <button type="button" class="dropdown button-standard" (click)="toggle()" #trigger>
+    <button type="button" class="dropdown button-standard" [disabled]='disabled' (click)="toggle()" #trigger>
     <label>{{placeholder}}</label>
     </button>
     <div class="dropdown-pane bottom" [ngClass]="{'is-open': panelOpen}">

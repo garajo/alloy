@@ -8,7 +8,7 @@
 		</div>
 		<div class="row align-center">
 			<div class="columns">
-				<alloy-dropdown [(ngModel)]="selectedValue" [placeholder]="placeholder">
+				<alloy-dropdown [(ngModel)]="selectedValue" [placeholder]="placeholder" [disabled]="disabled">
 					<alloy-option *ngFor="let module of modules" [value]="module.value">
 						{{ module.name }}
 					</alloy-option>

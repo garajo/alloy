@@ -94,12 +94,12 @@ export class AlloyDropdownChange {
     selector: 'alloy-dropdown',
     templateUrl: './dropdown.html',
     styleUrls: ['./dropdown.scss'],
-    inputs: ['color', 'disabled'],
+    inputs: ['color'],
     encapsulation: ViewEncapsulation.None,
 })
 export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     ControlValueAccessor {
-    private disabled: boolean;
+    private _disabled: boolean;
 
     /** Whether or not the overlay panel is open. */
     private _panelOpen = false;
@@ -203,6 +203,13 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
 
     /** Classes to be passed to the select panel. Supports the same syntax as `ngClass`. */
     @Input() panelClass: string | string[] | Set<string> | { [key: string]: any };
+
+    /** Whether the component is disabled. */
+    @Input()
+    get disabled() { return this._disabled; }
+    set disabled(value: boolean) {
+        this._disabled = value;
+    }
 
     /** Placeholder to be shown if no value has been selected. */
     @Input()
