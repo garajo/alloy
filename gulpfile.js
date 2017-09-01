@@ -29,7 +29,10 @@ const external = [
   '@angular/core',
   '@angular/common',
   '@angular/forms',
-  '@angular/cdk',
+  '@angular/cdk/keycodes',
+  '@angular/cdk/coercion',
+  '@angular/cdk/a11y',
+  '@angular/cdk/rxjs',
   'rxjs/observable/merge',
   'rxjs/Subject'
 ]

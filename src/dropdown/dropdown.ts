@@ -17,7 +17,7 @@ import {
     ChangeDetectorRef
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import {coerceBooleanProperty} from '@angular/cdk';
+import {coerceBooleanProperty} from '@angular/cdk/coercion';
 
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';

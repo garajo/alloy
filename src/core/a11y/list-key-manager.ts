@@ -6,6 +6,4 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-export {CanDisable, ListKeyManager} from '@angular/cdk';
-
-
+export {ListKeyManager, ListKeyManagerOption} from '@angular/cdk/a11y';

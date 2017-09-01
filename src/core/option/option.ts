@@ -10,7 +10,7 @@ import {
     Optional,
 } from '@angular/core';
 import { ENTER, SPACE } from '../keyboard/keycodes';
-import { coerceBooleanProperty } from '@angular/cdk';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 /**
  * Option IDs need to be unique across components, so this counter exists outside of
