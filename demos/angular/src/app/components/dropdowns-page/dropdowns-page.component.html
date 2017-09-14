@@ -1,8 +1,9 @@
 <div class="tabs-panel is-active">
+    <!-- Simple Dropdown -- Lightweight -->
 	<div class="content-container">
 		<div class="row align-center">
 			<div class="columns small-12">
-				<h3>Simple Dropdown</h3>
+				<h3>Simple Dropdown -- Lightweight</h3>
 				<br>
 			</div>
 		</div>
@@ -58,5 +59,127 @@
 			<div class="columns small-8">
 			</div>
 		</div>
-	</div>
+    </div>
+    <!-- Simple Dropdown - Alternate -->
+    <div class="content-container">
+            <div class="row align-center">
+                <div class="columns small-12">
+                    <h3>Simple Dropdown -- Alternate</h3>
+                    <br>
+                </div>
+            </div>
+            <div class="row align-center">
+                <div class="columns">
+                    <alloy-dropdown [(ngModel)]="alt_selectedValue" [placeholder]="placeholder" [disabled]="disabled" [alternate_style]="true">
+                        <alloy-option *ngFor="let module of alt_modules" [value]="module.value">
+                            {{ module.name }}
+                        </alloy-option>
+                    </alloy-dropdown>
+                </div>
+                <div class="columns">
+                    <div>
+                        <h5>Selected value</h5>
+                        <span>"{{alt_selectedValue}}"</span>
+                    </div>
+                    <br>
+                    <div>
+                        <h5>Placeholder</h5>
+                        <div class="input-group">
+                            <input type="text" [(ngModel)]="placeholder">
+                        </div>
+                    </div>
+                    <br>
+                    <div>
+                        <div>
+                            <h5>Elements</h5>
+                            <a (click)="add()">Add</a>
+                        </div>
+                        <div *ngFor="let module of alt_modules" class="input-group">
+                            <input type="text" [(ngModel)]="module.value" placeholder="value">
+                            <input type="text" [(ngModel)]="module.name" placeholder="name">
+                            &nbsp;<a (click)="remove(module)">X</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns small-7">
+                    <pre ngNonBindable>
+    &lt;alloy-dropdown [(ngModel)]=&quot;selectedValue&quot; [alternate]=&quot;true&quot;&gt;
+        &lt;alloy-option *ngFor=&quot;let m of alt_modules&quot; [value]=&quot;m.value&quot;&gt;
+            {{ m.name }}
+        &lt;/alloy-option&gt;
+    &lt;/alloy-dropdown&gt;
+                    </pre>
+                    <br>
+                    <div>
+                    <pre>{{alt_modules | json}}</pre>
+                </div>
+            </div>
+            <div class="row align-center">
+                <div class="columns small-4">
+                </div>
+                <div class="columns small-8">
+                </div>
+            </div>
+        </div>
+    <!-- Icon Dropdown -- Lightweight -->
+    <div class="content-container">
+            <div class="row align-center">
+                <div class="columns small-12">
+                    <h3>Icon Dropdown</h3>
+                    <br>
+                </div>
+            </div>
+            <div class="row align-center">
+                <div class="columns">
+                    <alloy-dropdown [(ngModel)]="icon_selectedValue" [disabled]="disabled" [icon]="profImage">
+                        <alloy-option *ngFor="let module of icon_modules" [value]="module.value">
+                            {{ module.name }}
+                        </alloy-option>
+                    </alloy-dropdown>
+                </div>
+                <div class="columns">
+                    <div>
+                        <h5>Selected value</h5>
+                        <span>"{{icon_selectedValue}}"</span>
+                    </div>
+                    <br>
+                    <div>
+                        <h5>Placeholder</h5>
+                        <div class="input-group">
+                            <input type="text" [(ngModel)]="placeholder">
+                        </div>
+                    </div>
+                    <br>
+                    <div>
+                        <div>
+                            <h5>Elements</h5>
+                            <a (click)="add()">Add</a>
+                        </div>
+                        <div *ngFor="let module of icon_modules" class="input-group">
+                            <input type="text" [(ngModel)]="module.value" placeholder="value">
+                            <input type="text" [(ngModel)]="module.name" placeholder="name">
+                            &nbsp;<a (click)="remove(module)">X</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns small-7">
+                    <pre ngNonBindable>
+    &lt;alloy-dropdown [(ngModel)]=&quot;selectedValue&quot; [icon]=&quot;profImage&quot;&gt;
+        &lt;alloy-option *ngFor=&quot;let m of icon_modules&quot; [value]=&quot;m.value&quot;&gt;
+            {{ m.name }}
+        &lt;/alloy-option&gt;
+    &lt;/alloy-dropdown&gt;
+                    </pre>
+                    <br>
+                    <div>
+                    <pre>{{icon_modules | json}}</pre>
+                </div>
+            </div>
+            <div class="row align-center">
+                <div class="columns small-4">
+                </div>
+                <div class="columns small-8">
+                </div>
+            </div>
+        </div>
 </div>

@@ -455,6 +455,8 @@ button {
 button.dropdown {
   $caret-width: 11px;
   $caret-height: 7px;
+  $icon-width: 24px;
+  $icon-height: 24px;
 
   * {
     vertical-align: middle;
@@ -469,6 +471,21 @@ button.dropdown {
 
     font-size: 14px;
     line-height: normal;
+  }
+
+  img {
+    line-height: normal;
+    width: $icon-width;
+    height: $icon-height;
+  }
+
+  &.button-icon {
+    min-width: 0 !important;
+    max-width: 48;
+  }
+
+  &.button-icon:after {
+    margin-left: 8px;
   }
 
   &:after {

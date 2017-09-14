@@ -122,6 +122,12 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     /** The placeholder displayed in the trigger of the select. */
     private _placeholder: string;
 
+    /** Property for icon imported by 'require' stmt. Needs to be that for browser to digest it */
+    private _icon: any;
+
+    /** A boolean determining visual state (lightweight or alternate) for styling */
+    private _alternate_style: boolean;
+
     /** Whether the component is in multiple selection mode. */
     private _multiple: boolean = false;
 
@@ -219,6 +225,18 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
 
         // Must wait to record the trigger width to ensure placeholder width is included.
         Promise.resolve(null).then(() => this._setTriggerWidth());
+    }
+
+    @Input()
+    get icon() { return this._icon; }
+    set icon(value: any) {
+        this._icon = value;
+    }
+
+    @Input()
+    get alternate_style() { return this._alternate_style; }
+    set alternate_style(value: boolean) {
+        this._alternate_style = value;
     }
 
     /** Whether the component is required. */

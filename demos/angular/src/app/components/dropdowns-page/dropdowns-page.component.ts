@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare function require(name: string): string;
 
 @Component({
     selector: 'app-dropdowns-page',
@@ -6,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./dropdowns-page.component.scss']
 })
 export class DropdownsPageComponent implements OnInit {
-    private id: number = 0;
+    private id = 0;
+    public profImage = require('../../../assets/userProfLogo.png');
 
     disabled = false;
     selectedValue: string;
-    placeholder: string = 'Select One';
+    alt_selectedValue: string;
+    icon_selectedValue: string;
+    placeholder = 'Select One';
 
 
     modules = [
@@ -19,6 +23,17 @@ export class DropdownsPageComponent implements OnInit {
         { value: 'cf-2', name: 'Carrier Frequency' }
     ];
 
+    alt_modules = [
+        { value: 'wf-0', name: 'Waveform Filename' },
+        { value: 'wl-1', name: 'Waveform Length' },
+        { value: 'cf-2', name: 'Carrier Frequency' }
+    ];
+
+    icon_modules = [
+        { value: 'edit_prof', name: 'Edit Profile' },
+        { value: 'view_sett', name: 'View Settings' },
+        { value: 'log_out', name: 'Log Out' }
+    ];
 
     add() {
         this.modules.push({value: `${this.id}`, name: `Name ${this.id}`});
@@ -32,7 +47,7 @@ export class DropdownsPageComponent implements OnInit {
 
         console.log('id', id);
 
-        if (id >=0) {
+        if (id >= 0) {
             this.modules.splice(id, 1);
         }
     }
