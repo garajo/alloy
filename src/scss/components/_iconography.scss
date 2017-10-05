@@ -303,3 +303,13 @@
 
   background: transparent map_get($icon-pack, mag-glass) no-repeat center center / $size;
 }
+
+.clear {
+    $size: 20px;
+  
+    display: inline-block;
+    @include size($size);
+  
+    background: transparent map_get($icon-pack, clear) no-repeat center center / $size;
+  }
+  

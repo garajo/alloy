@@ -299,7 +299,8 @@ body {
             panel-splitter-vertical-cursor-hover: inline-image("#{$icons}/splitter-vertical-cursor.png"),
 
             // Property Grid
-            mag-glass:                            inline-image("#{$light-icons}/mag-glass.png"),
+            mag-glass:                            inline-image("#{$light-icons}/mag-glass.svg"),
+            clear:                                inline-image("#{$icons}/clear.svg"),
 
             // Scrollbar
             scroll-caret-down:                    inline-image("#{$light-icons}/scroll-caret-down.png"),

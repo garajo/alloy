@@ -70,6 +70,7 @@ input[type="text"] {
 
   &.grid-search {
     padding-right: 34px;
+    font-size: 13px;
 
     @include placeholder-font(map_get($color-palette, grid-search-placeholder-color), 14px, italic);
   }

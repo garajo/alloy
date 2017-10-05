@@ -295,7 +295,8 @@ $icon-pack: (
         panel-splitter-vertical-cursor-hover: inline-image("#{$icons}/splitter-vertical-cursor.png"),
 
         // Property Grid
-        mag-glass:                            inline-image("#{$dark-icons}/mag-glass.png"),
+        mag-glass:                            inline-image("#{$dark-icons}/mag-glass.svg"),
+        clear:                                inline-image("#{$icons}/clear.svg"),
 
         // Scrollbar
         scroll-caret-down:                    inline-image("#{$dark-icons}/scroll-caret-down.png"),

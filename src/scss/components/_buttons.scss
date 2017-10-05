@@ -54,6 +54,10 @@ button {
     margin: 2px 10px 0 0;
   }
 
+  label {
+    cursor: inherit;
+  }
+
   &,
   &:hover,
   &.is-hovered,
@@ -298,7 +302,7 @@ button {
   }
 }
 
-.button-toolbar {
+.button-toolbar, .button-toolbar:focus {
   padding: 11px;
   border: 1px solid transparent;
 
@@ -320,12 +324,12 @@ button {
     color: map_get($color-palette, button-toolbar-label-color);
     font-size: 14px;
     line-height: normal;
+    cursor: inherit;
   }
 
   &:hover,
   &.is-hovered,
   &:active,
-  &:focus,
   &.is-active {
     border-radius: 2px;
   }
@@ -335,8 +339,7 @@ button {
     background-color: map_get($color-palette, button-toolbar-hover-bg);
   }
 
-  &:active,
-  &:focus {
+  &:active {
     border: 1px solid map_get($color-palette, button-toolbar-focus-border);
 
     background-color: map_get($color-palette, button-toolbar-focus-bg);
@@ -383,7 +386,7 @@ button {
   @extend .caret.up;
 }
 
-.button-quick-access {
+.button-quick-access, .button-quick-access:focus {
   height: 32px;
 
   padding: 8px 15px;
@@ -408,7 +411,6 @@ button {
   }
 
   &:active,
-  &:focus,
   &.is-active {
     position:relative;
 
@@ -471,6 +473,7 @@ button.dropdown {
 
     font-size: 14px;
     line-height: normal;
+    cursor: inherit;
   }
 
   img {

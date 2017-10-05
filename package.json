@@ -1,6 +1,6 @@
 {
   "name": "@ksf/alloy",
-  "version": "0.0.10-alpha",
+  "version": "0.0.10-alpha.1",
   "description": "KSF GUI HTML5 Component and Styling Library",
   "scripts": {
     "build": "gulp build",
@@ -49,7 +49,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-rollup": "^2.11.0",
     "gulp-sass": "^3.1.0",
-    "gulp-sass-image": "^1.0.3",
+    "gulp-sass-image": "git+https://github.com/RomanMinkin/gulp-sass-image.git#fix/inlinedsvg-and-imageurl",
     "gulp-util": "^3.0.8",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
