@@ -1,4 +1,160 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,500,700');
+// Shouldn't use a CDN which requires public internet access which many of Keysight customers won't have
+// @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,500,700');
+
+// Need to use the designated Keysight standard Roboto fonts with the weights built into them. 
+// Distinct weighted fonts
+// Roboto Condensed fonts: Regular = 400 weight, Bold = 700 weight
+// Roboto fonts: Regular = 400 weight, Medium = 500 weight, Bold = 700 weight
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+// eot = Embedded OpenType. Older stuff. I believe it was mostly for IE.
+// woff2 = even better than woff. Has better compression/speed. Super modern broswers are all moving to it (latest chrome, firefox etc.)
+// woff = most modern(ish) browsers have moved to it. Better compression/speed.
+// ttf = TrueType font. Most are getting away from this. Mostly used currently by Safari/Android as their latest font solution.
+// svg = scalar vector graphics
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+
+//@include font-face('Roboto-Regular', '/node_modules/kul-caranu/assets/fonts/roboto-v16-latin-regular', null, null, woff);
+
+// The font-face mixin from above if used properly will expand to the following format
+
+// @font-face {
+//   font-family: 'Roboto-Regular';
+//   src: url('/node_modules/kul-caranu/assets/fonts/Roboto-Regular') format('woff');
+// }
+//.Roboto-Regular-Class {font-family: 'Roboto-Regular';}
+
+
+//JEFF_TODO Need to figure out how to embed the 5 different flavors of the Robot fonts (Regular, Medium, Bold, Condensed Regular, Condensed Bold)
+// Stop gap is to have an angular-cli glob copy the fonts from this package to the assets/fonts staging area in the consuming projects
+// Then this scss font-face code can scoop them up and use them from assets/fonts staging area
+
+/* roboto-regular (weight = 400) - latin */
+@font-face {
+  //Important this is the name that will be used to leverage from HTML
+  font-family: 'Roboto';
+  font-style: normal;
+  //Shouldn't be setting the font weight explicitly. The regular font itself has been created with a 400 weight
+  //font-weight: 400;
+  src: url('/fonts/roboto-v16-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Roboto'), local('Roboto-Regular'),
+       url('/fonts/roboto-v16-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/roboto-v16-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/roboto-v16-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/roboto-v16-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/roboto-v16-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
+/* roboto-regular-medium (weight = 500) - latin */
+@font-face {
+  //Important this is the name that will be used to leverage from HTML
+  font-family: 'Roboto Medium';
+  font-style: normal;
+  //Shouldn't be setting the font weight explicitly. The medium font itself has been created with a 500 weight
+  //font-weight: 500;
+  src: url('/fonts/roboto-v16-latin-500.eot'); /* IE9 Compat Modes */
+  src: local('Roboto Medium'), local('Roboto-Medium'),
+       url('/fonts/roboto-v16-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/roboto-v16-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/roboto-v16-latin-500.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/roboto-v16-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/roboto-v16-latin-500.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
+/* roboto-regular-bold (wieght = 700) - latin */
+@font-face {
+  //Important this is the name that will be used to leverage from HTML
+  font-family: 'Roboto Bold';
+  font-style: normal;
+  //Shouldn't be setting the font weight explicitly. The medium font itself has been created with a 700 weight
+  //font-weight: 700;
+  src: url('/fonts/roboto-v16-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Roboto Bold'), local('Roboto-Bold'),
+       url('/fonts/roboto-v16-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/roboto-v16-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/roboto-v16-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/roboto-v16-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/roboto-v16-latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
+
+
+/* roboto-condensed-regular (weight = 400) - latin */
+@font-face {
+  //Important this is the name that will be used to leverage from HTML
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  //Shouldn't be setting the font weight explicitly. The medium font itself has been created with a 400 weight
+  //font-weight: 400;
+  src: url('/fonts/roboto-condensed-v14-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Roboto Condensed'), local('RobotoCondensed-Regular'),
+       url('/fonts/roboto-condensed-v14-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/roboto-condensed-v14-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/roboto-condensed-v14-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/roboto-condensed-v14-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/roboto-condensed-v14-latin-regular.svg#RobotoCondensed') format('svg'); /* Legacy iOS */
+}
+
+/* roboto-condensed-bold (weight = 700) - latin */
+@font-face {
+  //Important this is the name that will be used to leverage from HTML
+  font-family: 'Roboto Condensed Bold';
+  font-style: normal;
+  //Shouldn't be setting the font weight explicitly. The medium font itself has been created with a 700 weight
+  //font-weight: 700;
+  src: url('/fonts/roboto-condensed-v14-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'),
+       url('/fonts/roboto-condensed-v14-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/roboto-condensed-v14-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/roboto-condensed-v14-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/roboto-condensed-v14-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/roboto-condensed-v14-latin-700.svg#RobotoCondensed') format('svg'); /* Legacy iOS */
+}
+
+
 
 .uppercase {
   text-transform: uppercase;
@@ -10,13 +166,13 @@
 
   color: map_get($color-palette, text-title-color);
   font-size: 14px;
-  font-weight: 500;
+  font-family: "Roboto Medium";
 }
 
 .property-header {
   color: map_get($color-palette, panel-header-color);
   font-size: 13px;
-  font-weight: 500;
+  font-family: "Roboto Medium";
 }
 
 h5 {

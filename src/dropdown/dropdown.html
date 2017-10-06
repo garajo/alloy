@@ -1,10 +1,10 @@
 <div class="dropdown-group">
-    <button type="button" [ngClass]="{'button-icon': icon, 'lightweight': !alternate_style, 'button-standard': alternate_style}"
+    <button type="button" [ngClass]="{'button-icon': icon, 'lightweight': !alternate_style, 'button-standard': alternate_style, 'is-open': panelOpen}"
       class="dropdown" [disabled]='disabled' (click)="toggle()" #trigger>
         <label *ngIf="!icon">{{placeholder}}</label>
         <img *ngIf="icon" src="{{ icon }}">
     </button>
-    <div class="dropdown-pane bottom" [ngClass]="{'is-open': panelOpen}">
+    <div class="dropdown-pane bottom" [ngClass]="{'is-open': panelOpen, 'right-align': right_align, 'left-align': !right_align}">
         <ul class="menu vertical">
             <ng-content></ng-content>
         </ul>

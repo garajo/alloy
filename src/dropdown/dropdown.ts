@@ -14,7 +14,8 @@ import {
     AfterContentInit,
     ViewEncapsulation,
     EventEmitter,
-    ChangeDetectorRef
+    ChangeDetectorRef,
+    HostListener
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import {coerceBooleanProperty} from '@angular/cdk/coercion';
@@ -99,6 +100,8 @@ export class AlloyDropdownChange {
 })
 export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     ControlValueAccessor {
+
+
     private _disabled: boolean;
 
     /** Whether or not the overlay panel is open. */
@@ -124,6 +127,9 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
 
     /** Property for icon imported by 'require' stmt. Needs to be that for browser to digest it */
     private _icon: any;
+
+    /** Property for right alignment of dd pane */
+    private _rightAlign: boolean;
 
     /** A boolean determining visual state (lightweight or alternate) for styling */
     private _alternate_style: boolean;
@@ -227,13 +233,23 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
         Promise.resolve(null).then(() => this._setTriggerWidth());
     }
 
+    /** Icon input to show icon as button dropdown instead of text */
     @Input()
     get icon() { return this._icon; }
     set icon(value: any) {
         this._icon = value;
     }
 
+    /** Input boolean to align the pane with the right side of the button */
     @Input()
+    get right_align() { return this._rightAlign; }
+    set right_align(value: any) {
+        this._rightAlign = value;
+    }
+
+    /** Change to the alternate style of dd according to Caranu spec */
+    @Input()
+    // todo: fix this naming style to alternateStyle
     get alternate_style() { return this._alternate_style; }
     set alternate_style(value: boolean) {
         this._alternate_style = value;
@@ -284,22 +300,30 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     /** Event emitted when the selected value has been changed by the user. */
     @Output() change: EventEmitter<AlloyDropdownChange> = new EventEmitter<AlloyDropdownChange>();
 
+
+    public eRef: ElementRef;
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
         private elementRef: ElementRef,
         @Self() @Optional() public _control: NgControl,
         @Attribute('tabindex') tabIndex: string,
         ) {
-
+        this.eRef = elementRef;
         if (this._control) {
             this._control.valueAccessor = this;
         }
-
         this._tabIndex = parseInt(tabIndex) || 0;
     }
 
     ngOnInit() {
         this._selectionModel = new SelectionModel<AlloyOption>(this.multiple, undefined, false);
+    }
+
+    @HostListener('document:click', ['$event'])
+    handleClickOutsideDropdown(event) {
+        if (!this.eRef.nativeElement.contains(event.target)){
+            this.close();
+        }
     }
 
     ngAfterContentInit() {

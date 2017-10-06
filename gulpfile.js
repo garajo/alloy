@@ -241,6 +241,14 @@ gulp.task('copy:css', function() {
     .pipe(gulp.dest(`${buildFolder}/css`));
 });
 
+/**
+ * 10.5 Copy Font files from /.tmp to /build directory
+ */
+gulp.task('copy:fonts', function () {
+  return gulp.src(`${tmpFolder}/fonts/**/*`)
+    .pipe(gulp.dest(`${buildFolder}/fonts`));
+});
+
 
 /**
  * 11. Copy .npmignore from root to /dist directory
@@ -342,6 +350,7 @@ gulp.task('compile', function() {
     'rollup:fesm',
     'rollup:umd',
     'copy:sass',
+    'copy:fonts',
     'copy:build',
     'copy:npmignore',
     'copy:dependencies:dist',

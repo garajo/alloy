@@ -5,13 +5,23 @@
 }
 
 .dropdown-pane {
-  top: calc(100% + 3px); left: 0 !important;
+  top: calc(100% + 3px);
   width: auto;
 
   padding: 0;
   border: none;
 
   background-color: transparent;
+
+  &.right-align {
+    // Right now this is specific to dd's with an icon button, not dynamic enough to fit
+    // all dd's right now. 12px = width between caret and right edge
+    right: 12px !important;
+  }
+
+  &.left-align {
+    left: 0px !important;
+  }
 
   ul.menu {
     display: block;
@@ -55,7 +65,7 @@
 
         color: map_get($color-palette, menu-text-color);
         font-size: 14px;
-        font-weight: 400;
+        font-family: "Roboto";
 
         &:after {
           display: none;

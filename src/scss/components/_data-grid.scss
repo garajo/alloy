@@ -33,7 +33,7 @@
 
           color: map_get($color-palette, data-grid-color);
           font-size: 13px;
-          font-weight: 700;
+          font-family: 'Roboto Bold';
 
           .arrow {
             display: inline-block;
@@ -60,7 +60,7 @@
             padding: 2px 13px 3px;
 
             font-size: 12px;
-            font-weight: 500;
+            font-family: 'Roboto Medium';
             text-align: left;
           }
         }

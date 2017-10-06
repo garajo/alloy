@@ -601,6 +601,7 @@ button.dropdown {
 
   &:active,
   &.is-active,
+  &.is-open,
   &.is-pressed {
     &.dropdown-combo {
       border: 1px solid map_get($color-palette, input-text-border-active);
