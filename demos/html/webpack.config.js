@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
   context: path.resolve(__dirname),
@@ -60,6 +61,9 @@ const config = {
           limit: 10000
         }
       }]
+    }, {
+      test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+      loader: 'file-loader?name=fonts/[name].[ext]'
     }]
   },
   plugins: [
@@ -115,7 +119,11 @@ const config = {
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
-    })
+    }),
+    new CopyWebpackPlugin([{
+      from: './node_modules/@ksf/alloy/fonts',
+      to: 'fonts'
+    }])
   ]
 };
 
