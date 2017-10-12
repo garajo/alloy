@@ -2,6 +2,10 @@
   position: relative;
   display: inline-block;
   width: auto;
+
+  button {
+    transition: none;
+  }
 }
 
 .dropdown-pane {
