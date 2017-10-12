@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
   context: path.resolve(__dirname),
@@ -42,13 +41,11 @@ const config = {
   module: {
     rules: [{
       test: /\.css$/,
-      loader: 'style-loader!css-loader'
+      loader: ['style-loader', 'css-loader']
     }, {
       test: /\.scss$/,
       exclude: /node_modules/,
-      use: ExtractTextPlugin.extract({
-        use: ['css-loader', 'sass-loader', 'resolve-url-loader']
-      })
+      loaders: ['style-loader', 'css-loader', 'sass-loader?sourceMap']
     }, {
       test: /\.js$/,
       exclude: /node_modules/,
@@ -63,7 +60,7 @@ const config = {
       }]
     }, {
       test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-      loader: 'file-loader?name=fonts/[name].[ext]'
+      loader: 'file-loader?name=/fonts/[name].[ext]'
     }]
   },
   plugins: [
@@ -108,7 +105,7 @@ const config = {
       chunks: ['app-scss-import', 'vendor']
     }),
     new ExtractTextPlugin({
-      filename: './styles/bundle.css',
+      filename: './bundle.css',
       allChunks: true
     }),
     new webpack.optimize.CommonsChunkPlugin({
@@ -120,10 +117,6 @@ const config = {
       $: 'jquery',
       jQuery: 'jquery'
     }),
-    new CopyWebpackPlugin([{
-      from: './node_modules/@ksf/alloy/fonts',
-      to: 'fonts'
-    }])
   ]
 };
 

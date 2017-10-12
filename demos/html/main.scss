@@ -1,1 +1,5 @@
+// Setting Alloy's fonts path so webpack underneath angular-cli can resolve and copy font files over
+$alloy-font-path: '~@ksf/alloy/fonts';
+
+// Importing Alloy styles
 @import '~@ksf/alloy/scss/alloy.scss';

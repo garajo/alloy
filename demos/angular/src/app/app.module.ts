@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import {
-  AlloyStylesModule,
   AlloyDropdownModule,
 } from '@ksf/alloy';
 
@@ -17,7 +16,6 @@ import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-pa
  */
 @NgModule({
   exports: [
-    AlloyStylesModule,
     AlloyDropdownModule,
   ]
 })

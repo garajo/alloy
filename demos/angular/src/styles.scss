@@ -1,4 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
-// Commented because we use AlloyStylesModule as Alloy styles provider
-// @import '~@ksf/alloy/scss/alloy.scss';
+// Because angular-cli has an open bug which prevents loading npm linked styles correctly https://github.com/angular/angular-cli/issues/3500
+// We need to explicitly specify Alloy fonts path
+//
+// In the real projet you would want to load alloy styles in your project's `.angular-cli.json` file like:
+//
+// "apps": [{
+//     ...
+//     "styles": [
+//          "../node_modules/@ksf/alloy/scss/alloy.scss",
+//          "styles.scss"
+//     ]
+//     ...
+// }]
+
+// Setting Alloy's fonts path so webpack underneath angular-cli can resolve and copy font files over
+$alloy-font-path: '~@ksf/alloy/fonts';
+
+// Importing Alloy styles
+@import '~@ksf/alloy/scss/alloy.scss';

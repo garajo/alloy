@@ -33,68 +33,64 @@ $ npm install @ksf/alloy --save
 
 ### Using Alloy as an Angular library
 
-Import Alloy Modules into your `AppModule`:
+1. Import Alloy Modules into your `AppModule`:
+    ```typescript
+    import { BrowserModule } from '@angular/platform-browser';
+    import { NgModule } from '@angular/core';
 
-```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+    import { AppComponent } from './app.component';
 
-import { AppComponent } from './app.component';
-
-// Importing Alloy modules
-import {
-    AlloyStylesModule,
-    AlloyDropdownModule
-} from '@ksf/alloy';
-
-/*
- * NgModule which includes all Alloy modules that are required to serve the demo app.
- * This approach allows to perform tree shaking.
- */
-@NgModule({
-    exports: [
-        AlloyStylesModule,
+    // Importing Alloy modules
+    import {
         AlloyDropdownModule
-    ]
-})
-export class AlloyModule { }
+    } from '@ksf/alloy';
 
-@NgModule({
-    declarations: [
-        AppComponent
-    ],
-    imports: [
-        BrowserModule,
-        AlloyModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
-})
-export class AppModule { }
-```
+    /*
+     * NgModule which includes all Alloy modules that are required to serve the demo app.
+     * This approach allows to perform tree shaking.
+     */
+    @NgModule({
+        exports: [
+            AlloyDropdownModule
+        ]
+    })
+    export class AlloyModule { }
 
-Now to include all the Alloy styles just add `<alloy-styles></alloy-styles>` to the top of your root `app.component.html`
-```html
-<alloy-styles></alloy-styles>
+    @NgModule({
+        declarations: [
+            AppComponent
+        ],
+        imports: [
+            BrowserModule,
+            AlloyModule
+        ],
+        providers: [],
+        bootstrap: [AppComponent]
+    })
+    export class AppModule { }
+    ```
+2. import Alloy style (including fonts). There are two ways
+2.1 By using SASS `@import` in your project's `src/styles.scss`:
+    ```scss
+    // Setting Alloy's fonts path so webpack underneath angular-cli can resolve and copy font files over
+    $alloy-font-path: '~@ksf/alloy/fonts';
 
-<header>
-  ...
-</header>
-<div class="tabs-content content">
-  <router-outlet></router-outlet>
-</div>
-```
-
-### Using CSS styling (for example for `.angular-cli.json`)
-
-```
-./node_modules/@ksf/alloy/css/alloy.css
-```
-or
-```
-./node_modules/@ksf/alloy/css/alloy.min.css
-
-```
+    // Importing Alloy styles
+    @import '~@ksf/alloy/scss/alloy.scss';
+    ```
+2.2 By importing styles in `.angular-cli.json`. Based on your project set up either `alloy.css`, `alloy.min.css` or `alloy.scss` can be used.
+    ```json
+    {
+      "apps": [
+        {
+          "styles": [
+            "../node_modules/@ksf/alloy/css/alloy.css",
+            "styles.css"
+          ]
+        }
+      ]
+    }
+    ```
 
 ## Demo Apps
 - `./demos/html` - Pure HTML demo app

@@ -8,11 +8,6 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-        {
-            "glob": "**/*",
-            "input": "../node_modules/@ksf/alloy/fonts",
-            "output": "./fonts/"
-        },
         "assets",
         "favicon.ico"
       ],
