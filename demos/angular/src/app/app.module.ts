@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import {
   AlloyDropdownModule,
+  AlloyCheckboxModule,
 } from '@ksf/alloy';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-page.component';
+import { CheckboxPageComponent } from './components/checkbox-page/checkbox-page.component';
 
 /**
  * NgModule that includes all Alloy modules that are required to serve the demo app.
@@ -17,6 +19,7 @@ import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-pa
 @NgModule({
   exports: [
     AlloyDropdownModule,
+    AlloyCheckboxModule,
   ]
 })
 export class AlloyDemoModule { }
@@ -25,6 +28,7 @@ export class AlloyDemoModule { }
   declarations: [
     AppComponent,
     DropdownsPageComponent,
+    CheckboxPageComponent,
   ],
   imports: [
     BrowserModule,

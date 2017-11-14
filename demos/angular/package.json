@@ -4,12 +4,13 @@
   "license": "",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --poll=20000 --aot --prod",
+    "start": "ng serve --poll=20000 --aot --prod -o",
     "build": "ng build --aot --prod",
     "build:watch": "ng build --poll=20000 --aot --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "demo": "cd ../.. && npm install && npm run build && cd ./dist && npm link && cd ../demos/angular && npm install && npm link @ksf/alloy && npm start"
   },
   "private": true,
   "dependencies": {

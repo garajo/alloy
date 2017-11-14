@@ -7,3 +7,5 @@
 export * from './core';
 
 export * from './dropdown/index';
+
+export * from './checkbox/index';

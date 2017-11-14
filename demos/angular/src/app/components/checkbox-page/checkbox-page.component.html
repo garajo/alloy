@@ -1,0 +1,39 @@
+<div class="tabs-panel is-active">
+    <!-- Simple Checkbox -->
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h3>Simple Checkbox</h3>
+                <br>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <alloy-checkbox [label]="placeholder" [disabled]="disabled" [checked]="checked">
+                </alloy-checkbox>
+            </div>
+            <div class="columns">
+                <div>
+                    <h5>Checkbox States</h5>
+                    <div>
+                        <button id="checked" type="button" class="button-standard" (click)="toggleChecked()" [ngClass]="{'clicked': checked}">Checked</button>
+                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled()" [ngClass]="{'clicked': disabled}">Disabled</button>
+                    </div>
+                </div>
+            </div>
+            <div class="columns small-7">
+                <pre ngNonBindable>
+&lt;alloy-checkbox [label]=&quot;placeholder&quot; [disabled]=&quot;disabled&quot; 
+    [checked]=&quot;checked&quot;&gt;
+&lt;/alloy-checkbox&gt;
+                </pre>
+            </div>
+            <div class="row align-center">
+                <div class="columns small-4">
+                </div>
+                <div class="columns small-8">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

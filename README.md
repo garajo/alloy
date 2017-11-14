@@ -21,7 +21,8 @@ List of components and implementation states with comments:
 
 | Name            | dir          | docs                                                                               | Comments                                  |
 | --------------- | ------------ | ---------------------------------------------------------------------------------- | ----------------------------------------- |
-| dropdown        | [src/dropdown](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/dropdown) | [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/dropdown) | Major functionality implemented|
+| dropdown        | [src/dropdown](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/dropdown) | [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/dropdown/README.md) | Major functionality implemented|
+| checkbox        | [src/checkbox](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/checkbox) | [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/checkbox/README.md) | Major functionality implemented|
 
 ## Installation and Consuming the library
 
