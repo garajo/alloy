@@ -29,7 +29,7 @@ List of components and implementation states with comments:
 You can install Alloy library by running:
 
 ```bash
-$ npm install @ksf/alloy --save
+$ npm install @keysight/alloy --save
 ```
 
 ### Using Alloy as an Angular library
@@ -44,7 +44,7 @@ $ npm install @ksf/alloy --save
     // Importing Alloy modules
     import {
         AlloyDropdownModule
-    } from '@ksf/alloy';
+    } from '@keysight/alloy';
 
     /*
      * NgModule which includes all Alloy modules that are required to serve the demo app.
@@ -74,10 +74,10 @@ $ npm install @ksf/alloy --save
 2.1 By using SASS `@import` in your project's `src/styles.scss`:
     ```scss
     // Setting Alloy's fonts path so webpack underneath angular-cli can resolve and copy font files over
-    $alloy-font-path: '~@ksf/alloy/fonts';
+    $alloy-font-path: '~@keysight/alloy/fonts';
 
     // Importing Alloy styles
-    @import '~@ksf/alloy/scss/alloy.scss';
+    @import '~@keysight/alloy/scss/alloy.scss';
     ```
 2.2 By importing styles in `.angular-cli.json`. Based on your project set up either `alloy.css`, `alloy.min.css` or `alloy.scss` can be used.
     ```json
@@ -85,7 +85,7 @@ $ npm install @ksf/alloy --save
       "apps": [
         {
           "styles": [
-            "../node_modules/@ksf/alloy/css/alloy.css",
+            "../node_modules/@keysight/alloy/css/alloy.css",
             "styles.css"
           ]
         }
@@ -128,7 +128,7 @@ $ npm install
 ```
 4.3 Link Alloy library
 ```bash
-$ npm link @ksf/alloy
+$ npm link @keysight/alloy
 ```
 4.3 Run the app (runs in the `watch` mode with changes detection the source code)
 ```bash

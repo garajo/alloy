@@ -29,7 +29,7 @@ $ cd ./dist && npm link
 ```
 2.2 Make sure Alloy is linked in this project
 ```bash
-$ npm link @ksf/alloy
+$ npm link @keysight/alloy
 ```
 3. Run the project
 ```bash

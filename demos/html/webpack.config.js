@@ -21,8 +21,8 @@ const config = {
   },
   resolve: {
     alias: {
-      'alloy-scss': '@ksf/alloy/scss/alloy.scss',
-      'alloy-css': '@ksf/alloy/css/alloy.css',
+      'alloy-scss': '@keysight/alloy/scss/alloy.scss',
+      'alloy-css': '@keysight/alloy/css/alloy.css',
       'jquery': 'jquery',
       'foundation-sites': 'foundation-sites'
     },

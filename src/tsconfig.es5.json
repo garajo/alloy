@@ -22,7 +22,7 @@
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
     "flatModuleOutFile": "alloy.js",
-    "flatModuleId": "@ksf/alloy"
+    "flatModuleId": "@keysight/alloy"
   },
   "files": [
     "./index.ts"

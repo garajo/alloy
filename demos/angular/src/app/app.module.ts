@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import {
   AlloyDropdownModule,
   AlloyCheckboxModule,
-} from '@ksf/alloy';
+} from '@keysight/alloy';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

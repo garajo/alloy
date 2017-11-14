@@ -1,12 +1,12 @@
 {
-  "name": "@ksf/alloy",
-  "version": "0.0.11",
+  "name": "@keysight/alloy",
+  "version": "0.1.0",
   "description": "KSF GUI HTML5 Component and Styling Library",
   "scripts": {
     "build": "gulp build",
     "build:watch": "gulp",
     "docs": "npm run docs:build",
-    "docs:build": "compodoc -p tsconfig.json -n @ksf/alloy -d docs --hideGenerator",
+    "docs:build": "compodoc -p tsconfig.json -n @keysight/alloy -d docs --hideGenerator",
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
     "lint": "tslint --type-check --project ./src/tsconfig.es5.json -c tslint.json src/**/*.ts --fix",

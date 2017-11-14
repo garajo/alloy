@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "demo": "cd ../.. && npm install && npm run build && cd ./dist && npm link && cd ../demos/angular && npm install && npm link @ksf/alloy && npm start"
+    "demo": "cd ../.. && npm install && npm run build && cd ./dist && npm link && cd ../demos/angular && npm install && npm link @keysight/alloy && npm start"
   },
   "private": true,
   "dependencies": {

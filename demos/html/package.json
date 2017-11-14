@@ -25,7 +25,7 @@
     "start": "webpack -d --progress --colors | npm run dev",
     "build": "webpack -p",
     "dev": "webpack-dev-server --open",
-    "demo": "cd ../.. && npm install && npm run build && cd ./dist && npm link && cd ../demos/html && npm install && npm link @ksf/alloy && npm start"
+    "demo": "cd ../.. && npm install && npm run build && cd ./dist && npm link && cd ../demos/html && npm install && npm link @keysight/alloy && npm start"
   },
   "author": "KSF GUI"
 }
