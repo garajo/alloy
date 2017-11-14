@@ -10,7 +10,8 @@
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
     "lint": "tslint --type-check --project ./src/tsconfig.es5.json -c tslint.json src/**/*.ts --fix",
-    "test": "tsc && karma start"
+    "test": "tsc && karma start",
+    "publish:ci": "npm run build && cd ./dist && npm publish"
   },
   "repository": {
     "type": "git",
