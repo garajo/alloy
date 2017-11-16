@@ -1,0 +1,21 @@
+<svg attr.height="{{height}}px" attr.width="{{width}}px" 
+    enable-background="new 0 0 32.00 32.00" version="1.1"  
+    viewBox="0 0 32.00 32.00" 
+    xml:space="preserve" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:cc="http://creativecommons.org/ns#" 
+    xmlns:dc="http://purl.org/dc/elements/1.1/" 
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <!--<metadata><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/><dc:title/></cc:Work></rdf:RDF></metadata>-->
+    <g fill="none">
+        <path d="m7.05 24.475l-4.5 0.0078v-16h7.2783" stroke="#fff"/>
+        <path d="m22.55 18.041v6.4418l-10.232 0.0061-2.8125 4.4115-2.9005-4.6337" stroke="#fff"/>
+        <ellipse cx="19.5" cy="10.6" rx="10" ry="8" stroke="#4C8EFF" stroke-linejoin="round"/>
+    </g>
+    <text *ngIf="!largeCount" id="number-text" x="12.067797" y="14.508474" fill="#4c8eff" font-family="Roboto" font-size="40px" letter-spacing="0px" word-spacing="0px" style="line-height:1.25" xml:space="preserve">
+        <tspan x="12.067797" y="14.508474" fill="#4c8eff" font-size="10.667px">{{ count }}</tspan>
+    </text>
+    <text *ngIf="largeCount" id="overflow-text" x="13.386459" y="11.385005" fill="#4c8eff" font-family="Roboto" font-size="40px" letter-spacing="0px" word-spacing="0px" style="line-height:1.25" xml:space="preserve">
+        <tspan x="13.386459" y="11.385005" fill="#4c8eff" font-size="16px">...</tspan>
+    </text>
+</svg>
