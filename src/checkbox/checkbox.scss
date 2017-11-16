@@ -1,6 +1,14 @@
+.checkbox-icon {
+    height: 24px;
+    width: 24px;
+    margin-left: 5px;
+    padding: 2px 0px 2px 2px;
+    cursor: default;
+    float: left;
+}
+
 .checkbox-label {
     font-family: 'Roboto';
-    font-weight: normal;
     font-size: 14px;
     color: rgba(184, 186, 191, 1);
     vertical-align: middle;

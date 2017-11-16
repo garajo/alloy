@@ -12,12 +12,33 @@ binding to it. Similarly you can check a checkbox using the `checked` boolean at
 </alloy-checkbox>
 ```
 
-### Placeholder binding
+### Label binding
 
-You can bind a placeholder to a dynamic value by id adding `[placeholder]` binding.
+You can bind a label to a dynamic value by adding `[label]` binding.
 
 *my-comp.html*
 ```html
 <alloy-checkbox [label]="placeholder" [disabled]="disabled" [checked]="checked">
+</alloy-checkbox>
+```
+
+### Icon binding
+
+You can bind an icon to a dynamic value by adding `[icon]` binding.
+
+*my-comp.html*
+```html
+<alloy-checkbox [icon]="iconSrc.svg" [disabled]="disabled" [checked]="checked">
+</alloy-checkbox>
+```
+
+### Mixed binding
+
+You can bind both a label as well as an icon to the checkbox by adding both `[label]` and `[icon]` bindings.
+The icon will appear to the left of the label.
+
+*my-comp.html*
+```html
+<alloy-checkbox [icon]="iconSrc.svg" [label]="placeholder" [disabled]="disabled" [checked]="checked">
 </alloy-checkbox>
 ```

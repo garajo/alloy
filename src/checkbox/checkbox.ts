@@ -22,6 +22,9 @@ export class AlloyCheckbox {
     /** Checkbox label */
     private _label = '';
 
+    /** Checkbox icon */
+    private _iconSource = '';
+
     /** Input boolean to check the checkbox */
     @Input()
     get checked() { return this._isChecked; }
@@ -41,5 +44,22 @@ export class AlloyCheckbox {
     get label() { return this._label; }
     set label(value: string) {
         this._label = value;
+    }
+
+    /** Checkbox icon to be shown */
+    @Input()
+    get icon() { return this._iconSource; }
+    set icon(value: string) {
+        this._iconSource = value;
+    }
+
+    /** Determines whether icon needs to be displayed */
+    showIcon() : boolean {
+        return this._iconSource !== '';
+    }
+
+    /** Determines whether label needs to be displayed */
+    showLabel() : boolean {
+        return this._label !== '';
     }
 }

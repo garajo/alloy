@@ -9,21 +9,95 @@
         </div>
         <div class="row align-center">
             <div class="columns">
-                <alloy-checkbox [label]="placeholder" [disabled]="disabled" [checked]="checked">
+                <alloy-checkbox [label]="placeholder" [disabled]="disabledSimple" [checked]="checkedSimple">
                 </alloy-checkbox>
             </div>
             <div class="columns">
                 <div>
                     <h5>Checkbox States</h5>
                     <div>
-                        <button id="checked" type="button" class="button-standard" (click)="toggleChecked()" [ngClass]="{'clicked': checked}">Checked</button>
-                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled()" [ngClass]="{'clicked': disabled}">Disabled</button>
+                        <button id="checked" type="button" class="button-standard" (click)="toggleCheckedSimple()" [ngClass]="{'clicked': checkedSimple}">Checked</button>
+                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledSimple()" [ngClass]="{'clicked': disabledSimple}">Disabled</button>
                     </div>
                 </div>
             </div>
             <div class="columns small-7">
                 <pre ngNonBindable>
 &lt;alloy-checkbox [label]=&quot;placeholder&quot; [disabled]=&quot;disabled&quot; 
+    [checked]=&quot;checked&quot;&gt;
+&lt;/alloy-checkbox&gt;
+                </pre>
+            </div>
+            <div class="row align-center">
+                <div class="columns small-4">
+                </div>
+                <div class="columns small-8">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Icon Checkbox -->
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h3>Icon Checkbox</h3>
+                <br>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <alloy-checkbox [disabled]="disabledIcon" [checked]="checkedIcon" [icon]="iconSrc">
+                </alloy-checkbox>
+            </div>
+            <div class="columns">
+                <div>
+                    <h5>Checkbox States</h5>
+                    <div>
+                        <button id="checked" type="button" class="button-standard" (click)="toggleCheckedIcon()" [ngClass]="{'clicked': checkedIcon}">Checked</button>
+                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledIcon()" [ngClass]="{'clicked': disabledIcon}">Disabled</button>
+                    </div>
+                </div>
+            </div>
+            <div class="columns small-7">
+                <pre ngNonBindable>
+    &lt;alloy-checkbox [icon]=&quot;iconSrc&quot; [disabled]=&quot;disabled&quot; 
+        [checked]=&quot;checked&quot;&gt;
+    &lt;/alloy-checkbox&gt;
+                    </pre>
+            </div>
+            <div class="row align-center">
+                <div class="columns small-4">
+                </div>
+                <div class="columns small-8">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mixed Checkbox -->
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h3>Mixed Checkbox</h3>
+                <br>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <alloy-checkbox [label]="placeholder" [icon]="iconSrc" [disabled]="disabledMixed" [checked]="checkedMixed">
+                </alloy-checkbox>
+            </div>
+            <div class="columns">
+                <div>
+                    <h5>Checkbox States</h5>
+                    <div>
+                        <button id="checked" type="button" class="button-standard" (click)="toggleCheckedMixed()" [ngClass]="{'clicked': checkedMixed}">Checked</button>
+                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledMixed()" [ngClass]="{'clicked': disabledMixed}">Disabled</button>
+                    </div>
+                </div>
+            </div>
+            <div class="columns small-7">
+                <pre ngNonBindable>
+&lt;alloy-checkbox [label]=&quot;placeholder&quot; [icon]=&quot;iconSrc&quot; [disabled]=&quot;disabled&quot; 
     [checked]=&quot;checked&quot;&gt;
 &lt;/alloy-checkbox&gt;
                 </pre>

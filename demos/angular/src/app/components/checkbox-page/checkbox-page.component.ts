@@ -8,18 +8,39 @@ declare function require(name: string): string;
 })
 export class CheckboxPageComponent implements OnInit {
 
-    disabled = false;
-    checked = false;
+    disabledSimple = false;
+    checkedSimple = false;
+    disabledIcon = false;
+    checkedIcon = false;
+    disabledMixed = false;
+    checkedMixed = false;
     placeholder = 'This is a checkbox';
+    iconSrc = '../../assets/userProfLogo.png';
 
     constructor() { }
 
-    toggleDisabled() {
-        this.disabled = !this.disabled;
+    toggleDisabledSimple() {
+        this.disabledSimple = !this.disabledSimple;
     }
 
-    toggleChecked() {
-        this.checked = !this.checked;
+    toggleCheckedSimple() {
+        this.checkedSimple = !this.checkedSimple;
+    }
+
+    toggleDisabledIcon() {
+        this.disabledIcon = !this.disabledIcon;
+    }
+
+    toggleCheckedIcon() {
+        this.checkedIcon = !this.checkedIcon;
+    }
+
+    toggleDisabledMixed() {
+        this.disabledMixed = !this.disabledMixed;
+    }
+
+    toggleCheckedMixed() {
+        this.checkedMixed = !this.checkedMixed;
     }
 
     ngOnInit() {
