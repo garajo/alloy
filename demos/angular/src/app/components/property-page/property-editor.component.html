@@ -1,0 +1,15 @@
+<div class="row align-center">
+  <div class="columns" style="padding:20px;">
+    <h3>Simple Property Grid</h3>
+    <div class="columns" style="padding:20px">
+        <alloy-property-grid
+          [gridOption]="gridOption"
+          [nodeModel]="rowData"
+          [styledControls]='editors'
+          [validators]='validators'
+          [validatorMessages]='validatorMessages'
+          (updateDataEvent)='onUpdate($event)'>
+        </alloy-property-grid>
+    </div>
+  </div>
+</div>

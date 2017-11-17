@@ -186,3 +186,33 @@ h5 {
 .darkened {
   opacity: map_get($color-palette, grid-item-darkened-opacity);
 }
+
+//JEFF_LABELS Added these 3 classes to at least have a class/style for the 3 main Caranu spec defined text combinations
+
+//See page 26 of the Caranu spec. 
+//Use this class for when you have a "Main Instructions" scenario as described by the spec. 
+.alloy-main-instructions-font
+{
+    font-family: "Roboto Medium";
+    font-size: 15px;
+    font-weight: normal;
+}
+
+//See page 26 of the Caranu spec. 
+//Use this class for when you have a "Body/Content Area" scenario as described by the spec.
+.alloy-body-content-font
+{
+    font-family: "Roboto";
+    font-size: 13px;
+    font-weight: normal;
+}
+
+//See the Caranu spec for all the various control definitions. Most are set to 14px Roboto regular/normal. 
+//We provide this class for all the scenarios where you have a custom control that needs correct font properties
+//matching essentially what all other controls are doing. 
+.alloy-controls-font
+{
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: normal;
+}

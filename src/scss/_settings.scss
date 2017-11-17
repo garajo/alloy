@@ -1,3 +1,10 @@
+//********** JEFF_IMPORTANT ********** This file has been copied over from the original _settings file from the Foundation 6.3.1 npm package.
+// It is copied here into the Alloy project to have some buffer/separation from Foundation churn *BUT* this file will need to be manually re-copied when newer versions of Foundation are snapped to
+// There is only one change in this file and it is the internal relative reference to the util/_util.scss file on or around line #50 below.
+// It has been commented out here and directly referenced in the Alloy.scss file so all the paths would work. 
+// If you need to update/overrride/tweak/clobber Foundation default var values then do them in the _settings_alloy_override.scss file
+// *DO NOT* make your changes in this file or they will be WIPED OUT when a new version of Foundation is snapped to and this file gets reset
+
 //  Foundation for Sites Settings
 //  -----------------------------
 //
@@ -41,6 +48,9 @@
 //  36. Tooltip
 //  37. Top Bar
 
+// JEFF_IMPORTANT This is the only thing we've changed in this file from the original Foundatio _settings.scss file
+//@import 'util/util';
+
 // 1. Global
 // ---------
 
@@ -50,30 +60,28 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-        primary: #1779ba,
-        secondary: #767676,
-        success: #3adb76,
-        warning: #ffae00,
-        alert: #cc4b37,
+  primary: #1779ba,
+  secondary: #767676,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #cc4b37,
 );
-
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
-$black: #000000;
-$white: #FFFFFF;
+$black: #0a0a0a;
+$white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Roboto', sans-serif;
-$body-font-family-condensed: 'Roboto Condensed', sans-serif;
+$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
-$global-margin: 16px;
-$global-padding: 16px;
+$global-margin: 1rem;
+$global-padding: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
 $global-radius: 0;
 $global-text-direction: ltr;
-$global-flexbox: true;
+$global-flexbox: false;
 $print-transparent-backgrounds: true;
 
 @include add-foundation-colors;
@@ -82,11 +90,11 @@ $print-transparent-backgrounds: true;
 // --------------
 
 $breakpoints: (
-        small: 0,
-        medium: 640px,
-        large: 1024px,
-        xlarge: 1200px,
-        xxlarge: 1440px,
+  small: 0,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px,
 );
 $print-breakpoint: large;
 $breakpoint-classes: (small medium large);
@@ -97,8 +105,8 @@ $breakpoint-classes: (small medium large);
 $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: (
-        small: 12px,
-        medium: 32px,
+  small: 20px,
+  medium: 30px,
 );
 $grid-column-align-edge: true;
 $block-grid-max: 8;
@@ -114,22 +122,22 @@ $header-color: inherit;
 $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
-        small: (
-                'h1': ('font-size': 24),
-                'h2': ('font-size': 20),
-                'h3': ('font-size': 19),
-                'h4': ('font-size': 18),
-                'h5': ('font-size': 17),
-                'h6': ('font-size': 16),
-        ),
-        medium: (
-                'h1': ('font-size': 48),
-                'h2': ('font-size': 40),
-                'h3': ('font-size': 31),
-                'h4': ('font-size': 25),
-                'h5': ('font-size': 20),
-                'h6': ('font-size': 16),
-        ),
+  small: (
+    'h1': ('font-size': 24),
+    'h2': ('font-size': 20),
+    'h3': ('font-size': 19),
+    'h4': ('font-size': 18),
+    'h5': ('font-size': 17),
+    'h6': ('font-size': 16),
+  ),
+  medium: (
+    'h1': ('font-size': 48),
+    'h2': ('font-size': 40),
+    'h3': ('font-size': 31),
+    'h4': ('font-size': 25),
+    'h5': ('font-size': 20),
+    'h6': ('font-size': 16),
+  ),
 );
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
@@ -243,7 +251,7 @@ $breadcrumbs-item-slash: true;
 // ----------
 
 $button-padding: 0.85em 1em;
-$button-margin: 0 0 0 0;
+$button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
@@ -251,10 +259,10 @@ $button-color: $white;
 $button-color-alt: $black;
 $button-radius: $global-radius;
 $button-sizes: (
-        tiny: 0.6rem,
-        small: 0.75rem,
-        default: 0.9rem,
-        large: 1.25rem,
+  tiny: 0.6rem,
+  small: 0.75rem,
+  default: 0.9rem,
+  large: 1.25rem,
 );
 $button-palette: $foundation-palette;
 $button-opacity-disabled: 0.25;
@@ -265,8 +273,8 @@ $button-transition: background-color 0.25s ease-out, color 0.25s ease-out;
 // 12. Button Group
 // ----------------
 
-$buttongroup-margin: 0;
-$buttongroup-spacing: 0;
+$buttongroup-margin: 1rem;
+$buttongroup-spacing: 1px;
 $buttongroup-child-selector: '.button';
 $buttongroup-expand-max: 6;
 $buttongroup-radius-on-each: true;
@@ -301,16 +309,16 @@ $card-margin: $global-margin;
 
 $closebutton-position: right top;
 $closebutton-offset-horizontal: (
-        small: 0.66rem,
-        medium: 1rem,
+  small: 0.66rem,
+  medium: 1rem,
 );
 $closebutton-offset-vertical: (
-        small: 0.33em,
-        medium: 0.5rem,
+  small: 0.33em,
+  medium: 0.5rem,
 );
 $closebutton-size: (
-        small: 1.5em,
-        medium: 2em,
+  small: 1.5em,
+  medium: 2em,
 );
 $closebutton-lineheight: 1;
 $closebutton-color: $dark-gray;
@@ -335,9 +343,9 @@ $dropdown-font-size: 1rem;
 $dropdown-width: 300px;
 $dropdown-radius: $global-radius;
 $dropdown-sizes: (
-        tiny: 100px,
-        small: 200px,
-        large: 400px,
+  tiny: 100px,
+  small: 200px,
+  large: 400px,
 );
 
 // 18. Dropdown Menu
@@ -493,8 +501,8 @@ $progress-radius: $global-radius;
 
 $responsive-embed-margin-bottom: rem-calc(16);
 $responsive-embed-ratios: (
-        default: 4 by 3,
-        widescreen: 16 by 9,
+  default: 4 by 3,
+  widescreen: 16 by 9,
 );
 
 // 29. Reveal
@@ -542,7 +550,7 @@ $switch-paddle-transition: all 0.25s ease-out;
 // 32. Table
 // ---------
 
-$table-background: transparent;
+$table-background: $white;
 $table-color-scale: 5%;
 $table-border: 1px solid smart-scale($table-background, $table-color-scale);
 $table-padding: rem-calc(8 10 10);
@@ -620,3 +628,4 @@ $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
 $topbar-input-width: 200px;
 $topbar-unstack-breakpoint: medium;
+

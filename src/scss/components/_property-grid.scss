@@ -1,0 +1,339 @@
+
+//JEFF_TODO This editor specific styling needs to be moved back over to swivel
+.ag-grid-editable-properties
+{
+    //Add this so the error image could be absolute distance from the input given this common parent
+    position: relative;
+    //Added this so the child control won't take up the whole width (in case there are multiple controls that need to share the linear space: Example textbox + error icon, textbox + ellipses button)
+    display: inline-block;
+
+    $offset: 8px;
+    $height: 22px;
+
+    input[type="text"] 
+    {
+        height: $height;
+
+        padding: 3px $offset;
+
+        font-size: 13px;
+
+        // Added this has-error section all just to get down to the error image and center it in a smaller 22px high textbox in a property grid (versus a 32px high normal textbox)
+        &.has-error 
+        {
+            border: 1px solid map_get($color-palette, input-text-border-error);
+
+            background-color: map_get($color-palette, input-text-bg-error);
+
+            caret-color: map_get($color-palette, input-text-border-error);
+
+            &+.error {
+            display: block;
+            position: absolute;
+            //All of this has-error and sibling error overrid is to get the vertical alignmnent correct. Error image is 16px tall, TextBox in property grid is 22px. 22-16 = 6 /2 = 3px vertical shift to get it centered.
+            top: 3px; right: -24px;
+            }
+        }
+    }
+
+    // From original Alloy style for vanilla (non ag-grid) Property Grid. See src\components\_grid.scss file
+    // All of these are how other controls can be auto styled that are children of this ag-grid editable-properties style
+
+    // .button-standard {
+    // min-width: 19px;
+    // min-height: $height;
+
+    // margin-left: 4px;
+    // padding: 3px;
+    // }
+
+    // .input-group {
+    // margin: 1px 0 1px $offset;
+    // }
+
+    // .combo-box {
+
+    // .input-group-field {
+    //     max-width: calc(100% - 36px);
+    // }
+
+    // .dropdown-combo {
+    //     height: $height;
+
+    //     padding: 3px $offset;
+    // }
+    // }
+
+    // .checkbox {
+    // margin: 5px 0 5px $offset;
+    // }
+
+}
+
+//*** Alloy overrides to vanilla Ag-Grid styling****
+
+@import './ag-grid';
+@import './theme-dark';
+
+/* csslint allow: known-properties, important */
+
+.ag-dark {
+    // from _grid.scss $height
+    line-height: 22px;
+    font-family: $body-font-family;
+
+    // from _grid.scss input text line height
+    font-size: 13px;
+
+    color: map_get($color-palette, list-item-color);
+ }
+
+.ag-dark .ag-root {
+    border: transparent;
+}
+
+// F12 debug tools revealed this was the class/style combination for text inputs in the non-editing static state
+// When one clicks in the text input to start editing mode then it appears our dynamic editor is instantiated and put in-line (which is a normal alloy based text input)
+// Also found this in the ag grid theme-dark.css file ... line 445
+.ag-dark input {
+    //Map the ag grid class combination to the correct alloy properties. They will color theme switch as appropriate
+    //These represent overrides to what was found in the theme-dark.css file. The other properties seem to pick up the normal input text styling from alloy
+
+    // We want editable text fields to have transparent borders and backgrounds until hovered, focused, clicked
+    border-color: transparent; 
+    background-color: transparent;
+    // JEFF_TODO The color (text color) would normally "inherit" the appropriate text color
+    // from the Alloy top level color property set on the body HTML tag. 
+    // But since this .ag-dark input combination is explicitly overriding it in the
+    // theme-dark.css we need to clobber it yet again with what we (Alloy) want
+    // For now the only var I could find that has the right text color in both light/dark schemes
+    // is this grid-search-placeholder-color var. Need to add a new one to Alloy that 
+    // conceptually/semantically describes editable text fields text.
+    color: map_get($color-palette, grid-search-placeholder-color);
+}
+
+// Similar to the ag-dark input combination except for selects (combos) not text input
+// Trying to be  a good citizen and also ensure these look good; map to alloy equivalents
+.ag-dark select {
+    //Map the ag grid class combination to the correct alloy properties. They will color theme switch as appropriate
+    //These represent overrides to what was found in the theme-dark.css file.
+
+    background-color: map_get($color-palette, input-text-bg);
+    color: map_get($color-palette, input-text-color);
+}
+
+
+.ag-dark .ag-cell-no-focus {
+    border: 0px;
+}
+
+
+
+// Careful examination in the debugger showed that this style was NOT being overriden, but we needed
+// to avoid editing behavior (via a double click) from shifting the cell up.
+// There is interaction between this style, and the various focus styles.
+.ag-dark  .ag-cell-inline-editing  {
+    padding: 2px;
+    /* compensate for the transparent borders; */
+    padding-left: 1px;
+}
+
+.ag-dark .ag-ltr .ag-cell-no-focus {
+    // Change all the borders to zero width, to avoid "jumping"
+    border: 0px;
+}
+
+.ag-dark .ag-body {
+    background-color: map_get($color-palette, panel-bg);
+}
+
+.ag-dark .ag-row-odd {
+    background-color: map_get($color-palette, panel-bg);
+}
+
+.ag-dark .ag-row-even {
+    background-color: map_get($color-palette, panel-bg);
+}
+
+// JEFF This has been validated as correct. 
+// This ag-grid class combination originally puts a grey border on a grid cell when it is in the focus state.
+// We want to remove it as the Caranu spec doesn't seem to have any kind of border treatment for rows/columns/cell in the property grid
+.ag-dark .ag-cell-focus {
+    border: 0px solid transparent
+}
+
+// JEFF This has been validated as correct. Property grid should use treeview styling for its rows.
+// This hover color should match Caranu spec. pg. 96 (light theme) & pg. 54 (dark theme)  for row hover background color which it does
+.ag-cell-no-focus:hover {
+    background-color: map_get($color-palette, list-item-bg-hover);
+}
+
+// Not tested, since we don't have disabled props yet.
+.griddarkened {
+    opacity: map_get($color-palette, propgrid-item-darkened-opacity);
+}
+
+.ag-ltr .ag-cell-no-focus:disabled {
+    @extend .griddarkened;
+ }
+
+ // Not tested, since we don't have disabled props yet.
+ .ag-cell-readonly {
+     @extend .griddarkened;
+  }
+
+// Start name only highlight experiment
+    // This was an attempt to only highlight the group-value box.
+    // (IOW, not the entire cell, but just the text in the textbox.)
+    // The ":focus" is unsuccessful,
+    // but hover works.  Why is that?
+
+    // Testing reveals that the span never gets a focus, and hence is not styled.
+    // If I manually force the focus (via F12 tools), this style does work.
+    // Hence, the style itself if correct, we are just not getting the focus.
+    // See https://stackoverflow.com/questions/20583790/style-span-when-focused-on-form-input for
+    // a discussion about this.  Note the approach they use (where they style a preceding element) is not
+    // available to us.
+
+
+    // span.ag-group-value:focus {
+    //     background-color:  green;
+    // }
+
+    // .ag-group-value:focus {
+    //     //background-color: map-get($color-palette, list-item-bg-active);
+    //     background-color:  green;
+    // }
+
+    // .ag-group-value:hover {
+    //     //background-color: map-get($color-palette, list-item-bg-active);
+    //     background-color:  red;
+    // }
+
+    // .ag-group-value:active {
+    //     //background-color: map-get($color-palette, list-item-bg-active);
+    //     background-color:  red;
+    // }
+// End name only highlight experiment
+
+
+// The carets are defined in
+// ...\alloy\src\scss\components\_iconography.scss
+
+// todo:  Some contention here between the expanders spec, and the Alloy demo.
+// The expander spec says to highlight the expander, yet the Alloy demo did NOT.
+// The code here for active and hover would give it a slightly different appearance.
+.ag-icon-expanded {
+
+  //From line #130 of _iconography.scss of Alloy. The definition of Caret itself had to be copied here in
+  //line for it to work without having to resort to using !important to force things
+  $width: 11px;
+  $height: 7px;
+  display: inline-block;
+  @include size($width, $height);
+  background: transparent map_get($icon-pack, caret-down) no-repeat center center / $width $height;
+  transform: rotate(-90deg);
+
+  // Gee we wish this would work. Its the same code. However, using the @extend inheritance approach seems to move the order of precedence down so that "something" is
+  // wrong with the Caranu caret icons that we bring in. It does find and use the Alloy caret png files but they seemed to be stretched/scaled in a weird way. So it does
+  // find the pngs but something else gets lost in translation when using @extend.
+  // NOTE: This DOES work if you pepper the actual .caret class with !important statement on its background property
+
+//   @extend .caret;
+//   @extend .caret.right;
+}
+
+// .ag-icon-expanded:active {
+//     @extend .caret:active;
+//     @extend .caret.right;
+// }
+
+// .ag-icon-expanded:hover {
+//     @extend .caret:active;
+//     @extend .caret.right;
+// }
+
+.ag-icon-contracted 
+{
+  //From line #130 of _iconography.scss of Alloy. The definition of Caret itself had to be copied here in
+  //line for it to work without having to resort to using !important to force things
+  $width: 11px;
+  $height: 7px;
+  display: inline-block;
+  @include size($width, $height);
+  background: transparent map_get($icon-pack, caret-down) no-repeat center center / $width $height;
+
+  // Gee we wish this would work. Its the same code. However, using the @extend inheritance approach seems to move the order of precedence down so that "something" is
+  // wrong with the Caranu caret icons that we bring in. It does find and use the Alloy caret png files but they seemed to be stretched/scaled in a weird way. So it does
+  // find the pngs but something else gets lost in translation when using @extend.
+  // NOTE: This DOES work if you pepper the actual .caret class with !important statement on its background property
+  
+//   @extend .caret;
+//   @extend .caret.down;
+}
+
+// .ag-icon-contracted:active {
+//     @extend .caret:active;
+//     @extend .caret.down;
+// }
+
+// .ag-icon-contracted:hover {
+//     @extend .caret:active;
+//     @extend .caret.down;
+// }
+
+
+// ag-grid uses this style to swap between light and dark representation.
+// Since we are using our own icons (see above), we need to disable this styling.
+// Just putting in a blank style does NOT work.
+// Instead, we use the unset feature.
+// See https://developer.mozilla.org/en-US/docs/Web/CSS/unset
+.ag-dark .ag-icon {
+    -webkit-filter: unset;
+    filter: unset;
+}
+
+// scroll bar settings because ag-grid sets scroll bar to 2 pixels wide - this
+// fixed that back to the alloy definition
+.ag-dark ::-webkit-scrollbar {
+    // @extend ::-webkit-scrollbar;  // JEFF_TODO this only works if !important is added to the scrollbars.scss webkit-scrollbar
+
+    // JEFF_TODO the following is the copy from the _scrollbars.scss file
+    width: 16px;
+}
+
+.ag-dark ::-webkit-scrollbar-track {
+    // @extend ::-webkit-scrollbar-track; // JEFF_TODO this is the preferred way, but even the !important isn't working for this
+
+    // JEFF_TODO the following is the copy from the _scrollbars.scss file
+    padding: 0 4px;
+
+    border: 1px solid map_get($color-palette, scrollbar-track-border);
+    border-top: none;
+    border-bottom: none;
+
+    background-color: map_get($color-palette, scrollbar-track-bg);
+}
+
+.ag-dark ::-webkit-scrollbar-thumb {
+    // @extend ::-webkit-scrollbar-thumb;  // JEFF_TODO this is the preferred way, but even the !important isn't working for this
+
+    // JEFF_TODO the following is the copy from the _scrollbars.scss file
+    border: 1px solid transparent;
+    border-top: none;
+    border-bottom: none;
+    border-radius: 1px;
+
+    box-shadow: inset 0 0 0 4px map_get($color-palette, scrollbar-track-bg);
+
+    background-color: map_get($color-palette, scrollbar-thumb-bg);
+    background-clip: padding-box;
+
+    &:hover {
+      background-color: map_get($color-palette, scrollbar-thumb-bg-hover);
+    }
+
+    &:active {
+      background-color: map_get($color-palette, scrollbar-thumb-bg-active);
+    }
+}

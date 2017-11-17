@@ -7,6 +7,14 @@ input[type="text"] {
   height: 32px;
 
   padding-left: 12px;
+  
+  // This fixes an issue in Firefox where it would clip text that go below the baseline (e.g., letters like p, y, g, etc)
+  // Apparently Firefox will not display text in input elements outside of the content box.
+  // This change makes the content-box 30px high and padding 0px instead of the content box being 14px (same as font size) and top/bottom padding 8px each.
+  // The font size stays at 14px, the total input box height stays at 32px, the border size stays at 1px.
+  padding-top: 0px;
+  padding-bottom: 0px;
+
   border: 1px solid map_get($color-palette, input-text-border);
 
   background-color: map_get($color-palette, input-text-bg);
@@ -32,7 +40,7 @@ input[type="text"] {
 
   &:hover,
   &.is-hovered {
-    border: 1px solid map_get($color-palette, input-text-border);
+    border: 1px solid map_get($color-palette, input-text-border-hover);
   }
 
   &:focus,

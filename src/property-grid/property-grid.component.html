@@ -1,0 +1,13 @@
+<div [ngStyle]="getStyles()" 
+    *ngIf="rowData.length > 0">    
+    <ag-grid-angular style="width: 100%; height: 100%;" class="ag-dark"
+        [gridOptions]="gridOptions"
+        [rowData]="internalRowData"
+        [columnDefs]="columnDefs"
+        (cellClicked)="onCellClicked($event)"
+        (rowClicked)="onRowClicked($event)"
+        (cellValueChanged)="onCellValueChanged($event)"
+        (cellEditingStopped)="onCellEditingStopped($event)"
+        [enableFilter]="true">
+    </ag-grid-angular>
+</div>

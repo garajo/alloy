@@ -321,6 +321,13 @@ button {
 
     margin-left: 8px;
 
+    // JEFF This is kind of silly to assume a toolbar button will always have an icon and therefore 8px are reserved on the left
+    // Give a way for the consumer of Alloy to use toolbar buttons and their labels without icons 
+    &.no-icon
+    {
+      margin-left: 0px;
+    }
+
     color: map_get($color-palette, button-toolbar-label-color);
     font-size: 14px;
     line-height: normal;
@@ -345,7 +352,21 @@ button {
     background-color: map_get($color-palette, button-toolbar-focus-bg);
   }
 
+  //JEFF_NOTE: Alloy toolbar buttons don't have a disabled state (they should!) let's add one here. 
+  &:disabled,
+  &.is-disabled 
+  {
+      opacity: map_get($color-palette, button-standard-disabled-opacity);
+
+      color: map_get($color-palette, button-standard-disabled-text-color);
+
+      background-color: transparent;
+
+      pointer-events: none;
+  }
+
   &.is-active {
+    // JEFF_TODO Wow really! Assume there is a class by this name, assume it is an image, and then make its color change. Need to turn this style into a real generic style
     .ph-toolbar-box {
       $size: 24px;
 

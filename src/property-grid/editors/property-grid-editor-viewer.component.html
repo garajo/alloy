@@ -1,0 +1,9 @@
+<container-element [ngSwitch]="params.node.data.typeName">
+    <alloy-property-editor-container *ngSwitchCase="componentControl"
+        [cellComponentType]='componentType'
+        [validators]='validators'
+        [validatorMessages]='validatorMessages'
+        [params]='params'
+        (updateDataEvent)='onUpdate($event)'></alloy-property-editor-container>
+    <input *ngSwitchDefault (keydown)="onKeyDown($event)" [(ngModel)]="value">
+</container-element>

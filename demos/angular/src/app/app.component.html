@@ -6,7 +6,7 @@
 		</div>
 		<div class="quick-access-toolbar primary theme-switch">
 			<div class="switch">
-				<input class="switch-input" id="styleguide-switch" type="checkbox" name="styleguide-switch">
+				<input class="switch-input" id="styleguide-switch" (click)="toggleThemes()" type="checkbox" name="styleguide-switch">
 				<label class="switch-paddle" for="styleguide-switch"></label>
 			</div>
 			<label>Theme Toggle</label>
@@ -21,6 +21,7 @@
 			<li class="tabs-title"><a routerLink="/notification-icon" >Notification Icon</a></li>
 			<li class="tabs-title"><a routerLink="/checkbox" >Checkbox</a></li>
 			<li class="tabs-title"><a routerLink="/dropdowns">Dropdowns</a></li>
+			<li class="tabs-title"><a routerLink="/propertygrid">Property Grid</a></li>
 <!--
 			<li class="tabs-title"><a routerLink="/combobox" >Combo Box</a></li>
 			<li class="tabs-title"><a routerLink="/tab-control">Tab Control</a></li>

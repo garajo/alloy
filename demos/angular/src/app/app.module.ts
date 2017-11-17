@@ -1,11 +1,18 @@
+/*
+ * Copyright Keysight Technologies 2017. All rights reserved.
+ */
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import {
   AlloyDropdownModule,
   AlloyCheckboxModule,
-  AlloyNotificationIconModule
+  AlloyNotificationIconModule,
+  AlloyPropertyGridModule,
+  AlloyPropertyGridMessageService
 } from '@keysight/alloy';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +20,14 @@ import { AppComponent } from './app.component';
 import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-page.component';
 import { CheckboxPageComponent } from './components/checkbox-page/checkbox-page.component';
 import { NotificationIconPageComponent } from './components/notification-icon-page/notification-icon-page.component';
+
+import { DataService } from './components/property-page/editors/services/data.service';
+import { PropertyEditorComponent } from './components/property-page/property-editor.component';
+import { CheckboxDynamicComponent } from './components/property-page/editors/dynamic-components/checkbox/checkbox-dynamic.component';
+import { TextfieldDynamicComponent } from './components/property-page/editors/dynamic-components/textfield/textfield-dynamic.component';
+import { DropdownDynamicComponent } from './components/property-page/editors/dynamic-components/dropdown/dropdown-dynamic.component';
+import { EditorService } from './components/property-page/editors/services/editor.service';
+
 
 /**
  * NgModule that includes all Alloy modules that are required to serve the demo app.
@@ -32,15 +47,30 @@ export class AlloyDemoModule { }
     AppComponent,
     DropdownsPageComponent,
     CheckboxPageComponent,
-    NotificationIconPageComponent
+    NotificationIconPageComponent,
+    PropertyEditorComponent,
+    CheckboxDynamicComponent,
+    TextfieldDynamicComponent,
+    DropdownDynamicComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
     AlloyDemoModule,
+    AlloyPropertyGridModule.withComponents([
+      CheckboxDynamicComponent,
+      TextfieldDynamicComponent,
+      DropdownDynamicComponent
+    ]),
+    AppRoutingModule,
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AlloyPropertyGridMessageService,
+    DataService,
+    EditorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,93 @@
+// Foundation for Sites by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+////
+/// @group label
+////
+
+// Almost got this override foundation sass variables to work but ran out of time for this PR. Would like to pursue further as clobbering
+// the HTML label element type style may have unintended side effects (code far below)
+
+// /// Default background color for labels.
+// /// @type Color
+// //JEFF_LABELS Attemped to override. Didn't work
+// $label-background: transparent !default; // $primary-color !default;
+
+// /// Default text color for labels.
+// /// @type Color
+// //JEFF_LABELS Attemped to override. Didn't work
+// $label-color: map_get($color-palette, style-guide-label-color) !default; //$white !default;
+
+// /// Alternate text color for labels.
+// /// @type Color
+// $label-color-alt: $black !default;
+
+// /// Coloring classes. A map of classes to output in your CSS, like `.secondary`, `.success`, and so on.
+// /// @type Map
+// $label-palette: $foundation-palette !default;
+
+// /// Default font size for labels.
+// /// @type Number
+// $label-font-size: 0.8rem !default;
+
+// /// Default padding inside labels.
+// /// @type Number
+// $label-padding: 0.33333rem 0.5rem !default;
+
+// /// Default radius of labels.
+// /// @type Number
+// $label-radius: $global-radius !default;
+
+// /// Generates base styles for a label.
+// @mixin label {
+//   display: inline-block;
+//   padding: $label-padding;
+
+//   border-radius: $label-radius;
+
+//   font-size: $label-font-size;
+//   line-height: 1;
+//   white-space: nowrap;
+//   cursor: default;
+// }
+
+// @mixin foundation-label {
+//   .label {
+//     @include label;
+
+//     background: $label-background;
+//     color: $label-color;
+
+//     @each $name, $color in $label-palette {
+//       &.#{$name} {
+//         background: $color;
+//         color: color-pick-contrast($color, ($label-color, $label-color-alt));
+//       }
+//     }
+//   }
+// }
+
+//JEFF_LABELS Since the above stuff didn't work I really globbered things with this stuff
+
+//Foundation provides a .label class. Let's override it (at least for the default label - it has other options like success, alert, warning etc.)
+// Making it an Alloy compliant thingy with normal control text size, family, weight, color etc. 
+.label
+{
+    color: map_get($color-palette, style-guide-label-color); //!important; 
+
+    //Comes from a class that was added to the Alloy _typography.scss file
+    @extend .alloy-controls-font;
+}
+
+//HTML has a label element. In some cases it may be more convenient or frequent that devs would just use it.
+// Making it an Alloy compliant thingy with normal control text size, family, weight, color etc. 
+label
+{
+    color: map_get($color-palette, style-guide-label-color); // !important; 
+
+    //Comes from a class that was added to the Alloy _typography.scss file
+    @extend .alloy-controls-font;
+}
+
+

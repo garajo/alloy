@@ -33,8 +33,11 @@ const external = [
   '@angular/cdk/coercion',
   '@angular/cdk/a11y',
   '@angular/cdk/rxjs',
+  '@angular/platform-browser',
+  'ag-grid-angular/main',
   'rxjs/observable/merge',
-  'rxjs/Subject'
+  'rxjs/Subject',
+  'ts-keycode-enum'
 ]
 
 // Suppress `The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten` message.

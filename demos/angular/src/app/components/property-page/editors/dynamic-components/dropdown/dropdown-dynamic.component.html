@@ -1,0 +1,10 @@
+<form novalidate [formGroup]="dropdownForm">
+    <alloy-dropdown [(ngModel)]="selectedValue"
+        [placeholder]="placeholder"
+        formControlName="dropdownFormControl">
+        <alloy-option *ngFor="let module of modules" [value]="module.value">
+            {{ module.name }}
+        </alloy-option>
+    </alloy-dropdown>
+    <span class="error" data-toggle="tooltip" title="{{messageTooltip}}"></span>
+</form>
