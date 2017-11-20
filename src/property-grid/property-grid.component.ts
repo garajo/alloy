@@ -22,6 +22,7 @@ import { AlloyPropertyGridOutputService } from './services/property-grid-output.
 import { AlloyPropertyGridTreeUtility } from './services/property-grid-tree-utility';
 import { AlloyPropertyGridTypeService } from './services/property-grid-type.service';
 import { AlloyPropertyGridValidatorService } from './services/property-grid-validator.service';
+import { AlloyPropertyGridMessageService } from './services/property-grid-message.service';
 import { IPropertyGridOption } from './models/property-grid-option';
 import { ISubscription } from 'rxjs/Subscription';
 
@@ -97,7 +98,8 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
     constructor(private typeService: AlloyPropertyGridTypeService,
                 private controlsService: AlloyPropertyGridDynamicControlService,
                 private outputService: AlloyPropertyGridOutputService,
-                private validatorService: AlloyPropertyGridValidatorService) {
+                private validatorService: AlloyPropertyGridValidatorService,
+                private messageService: AlloyPropertyGridMessageService) {
         this.showGrid = true;
         this.gridOptions = <GridOptions> {};
 
@@ -325,6 +327,11 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
     // tslint:disable-next-line:no-any
     public onCellEditingStopped($event: any): void {
         // console.log('onCellEditingStopped: '.concat($event.data[$event.column.colId]));
+    }
+
+    // This event handler, send a event to Textfiled for Showing editor cursor
+    public onCellEditingStarted($event: any): void {
+        this.messageService.publishEditCell();
     }
     // row click event listner
     // tslint:disable-next-line:no-any

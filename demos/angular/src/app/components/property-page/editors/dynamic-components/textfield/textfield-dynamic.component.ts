@@ -48,7 +48,8 @@ export class TextfieldDynamicComponent implements AfterViewInit, OnInit, OnDestr
 
     private isStayInEditor: boolean;
     // tslint:disable-next-line:member-ordering
-    private subscription: ISubscription;
+    private valueChangesSubscription: ISubscription;
+    private messageServiceSubscription: ISubscription;
 
     constructor(private messageService: AlloyPropertyGridMessageService,
                 private cdr: ChangeDetectorRef,
@@ -138,29 +139,38 @@ export class TextfieldDynamicComponent implements AfterViewInit, OnInit, OnDestr
             this.cdr.detectChanges();
         }
 
-        this.subscription = this.textfieldForm.valueChanges
-            .subscribe((value) => {
-                this.checkValidationError();
-            });
+        this.valueChangesSubscription = this.textfieldForm.valueChanges
+        .subscribe((value) => {
+            this.checkValidationError();
+        });
 
         // only send focus if the editor (not the renderer) is editing
         // the editor does not have params.data, only the renderer does
         // why use setTimeout? due to avoid conflict ag-grid startEditingCell() API in AlloyPropertyGridComponent's ngOnInit(),
         // if not use setTimeout(), ExpressionChangedAfterItHasBeenCheckedError will be appear
-        if (this.params && this.params.node.data &&
-            this.textInputBox &&
-            this.textInputBox.nativeElement) {
-            setTimeout( () => {
-                this.textInputBox.nativeElement.focus();
-                this.textInputBox.nativeElement.select();
-            }, 0);
-        }
+        // get logic tree and add option into logic tree
+        // this event come from Alloy's AlloyPropertyGridComponent
+        this.messageServiceSubscription = this.messageService.subscribeEditCell()
+            .subscribe(() => {
+                if (this.params && this.params.node.data &&
+                    this.textInputBox &&
+                    this.textInputBox.nativeElement) {
+                    setTimeout( () => {
+                        this.textInputBox.nativeElement.focus();
+                        this.textInputBox.nativeElement.select();
+                    }, 0);
+                }
+            });
     }
 
     public ngOnDestroy() {
-        if (this.subscription) {
-            this.subscription.unsubscribe();
-            this.subscription = undefined;
+        if (this.valueChangesSubscription) {
+            this.valueChangesSubscription.unsubscribe();
+            this.valueChangesSubscription = undefined;
+        }
+        if (this.messageServiceSubscription) {
+            this.messageServiceSubscription.unsubscribe();
+            this.messageServiceSubscription = undefined;
         }
     }
 
