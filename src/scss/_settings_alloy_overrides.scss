@@ -32,6 +32,17 @@ $grid-column-gutter: (
 //   medium: 30px,
 // );
 
+// 4. Base Typography
+// ------------------
+
+$header-font-family: $body-font-family;
+// Re-overridden since $body-font-family overridden above.
+
+// 10. Breadcrumbs
+// ---------------
+
+$breadcrumbs-margin: 0 0 $global-margin 0;
+// Re-overridden since $global-margin overridden above.
 
 // 11. Button
 // ----------
@@ -48,13 +59,61 @@ $buttongroup-spacing: 0;
 // $buttongroup-margin: 1rem;
 // $buttongroup-spacing: 1px;
 
+// 14. Card
+// --------
+
+$card-padding: $global-padding;
+$card-margin: $global-margin;
+// Re-overridden since $global-margin and $global-padding overridden above.
+
+// 21. Media Object
+// ----------------
+
+$mediaobject-margin-bottom: $global-margin;
+$mediaobject-section-padding: $global-padding;
+// Re-overridden since $global-margin and $global-padding overridden above.
+
+// 26. Pagination
+// --------------
+
+$pagination-margin-bottom: $global-margin;
+// Re-overridden since $global-margin overridden above.
+
+// 27. Progress Bar
+// ----------------
+
+$progress-margin-bottom: $global-margin;
+// Re-overridden since $global-margin overridden above.
+
+// 29. Reveal
+// ----------
+
+$reveal-padding: $global-padding;
+// Re-overridden since $global-padding overridden above.
+
+// 31. Switch
+// ----------
+
+$switch-margin: $global-margin;
+// Re-overridden since $global-margin overridden above.
 
 // 32. Table
 // ---------
 
 $table-background: transparent;
 //$table-background: $white;
+$table-border: 1px solid smart-scale($table-background, $table-color-scale);
+$table-row-hover: darken($table-background, $table-hover-scale);
+$table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
+$table-striped-background: smart-scale($table-background, $table-color-scale);
+$table-head-background: smart-scale($table-background, $table-color-scale / 2);
+// Re-overridden since $table-background overridden above.
 
+// 34. Thumbnail
+// -------------
+
+$thumbnail-margin-bottom: $global-margin;
+// Re-overridden since $global-margin overridden above.
 
 // 35. Title Bar
 // -------------
