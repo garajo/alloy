@@ -97,8 +97,11 @@
     //This callout-font-color-alt comes from the Alloy _settings.scss file (copied from Foundation). Need update settings vars to match caranu colors. 
     color: $callout-font-color-alt;
 
-    //Caranu spec pg. 22 padding for error text boxes calls for 9px 12px but the 9px top/bottom padding seems a little too large; plus most of our buttons and text fields that errors may show up next to have only 6px. Lines up better. 
-    padding: 6px 12px;
+    // Caranu spec pg. 22 padding for error text boxes calls for 9px 12px but the 9px top/bottom padding seems a little too large.
+    // Plus most of our buttons and text fields and labels that errors may show up next to are total height of 32px. Padding of 4.5
+    // ends up creating a default height (if the message text doesn't wrap) of 32px 
+    //    (bounding-box = 21px, top+bottom padding = 9px, top+bottom border = 2px)
+    padding: 4.5px 12px;
     //Caranu spec doesn't call for a standard margin. Consumers will have to set their own.
     //The foundation callout is setting a weird margin bottom. Just set it to 0 and let consumers set. 
     margin: 0px;
