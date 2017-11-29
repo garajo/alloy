@@ -5,7 +5,9 @@ body {
     // Flags
     $theme-light:           true;
 
-    // Colors
+    // BEGIN: Standard color palette: Caranu spec pg. 59
+
+    // Gray scale colors
     $catskill-white:        #F1F2F9;
     $selago:                #EDEFFA;
     $zircon:                #DFE1EB;
@@ -14,13 +16,35 @@ body {
     $french-gray:           #B8BBC2;
     $smoky:                 #5E6166;
 
+    //Typically semi-transparent colors
+    $bunting:               #131B40;
+
+    // Blue colors
     $hawkes-blue:           #D1E0FB;
     $cornflower-blue:       #4C8EFF;
 
-    $transparent-light:     rgba(19,27,64,0.15);
-    $transparent:           rgba(19,27,64,0.20);
-    $transparent-dark:      rgba(19,27,64,0.30);
+    // END: Standard color palette: Caranu spec pg. 59
 
+    // Not a declared standard color but is pervasively used throughout the light spec. More heavily used than many standard colors. Should probably be considered for promotion to the standard palette.
+    $hover-blue:            #6C82A8;
+
+    //Opacity: Variables for opacity straight out of the Caranu spec. Those opacity values used heavily enough in the Light skin to warrant their own variables. Tired of doing hex/decimal conversion.
+    $opacity-HEXCC:          .80; 
+    $opacity-HEX99:          .60;         
+    $opacity-HEX7F:          .50;  
+    $opacity-HEX66:          .40;         
+    $opacity-HEX59:          .35;         
+    $opacity-HEX4C:          .30;         
+    $opacity-HEX3F:          .25;         
+    $opacity-HEX33:          .20;         
+    $opacity-HEX2D:          .18;         
+    $opacity-HEX26:          .15;         
+    $opacity-HEX1E:          .12;         
+    $opacity-HEX14:          .08;         
+    $opacity-HEX0F:          .06;         
+    $opacity-HEX0A:          .04;         
+
+   
     background:             $white;
     color:                  $smoky;
 
@@ -41,44 +65,51 @@ body {
             header-text:                              $black,
             section-bg:                               $selago,
 
+            // Windows
+            window-bg:                                $white,                         //Caranu spec. pg. 76 FILL = #FFFFFFFF NOTE: An app main window does not have the blue border. Only if it has MDI windows would the "active" window get the blue border
+            window-border:                            rgba($glitter,$opacity-HEX4C),  //Caranu spec. pg. 76 BORDER = #4C000000
+            window-box-shadow:                        rgba($black,$opacity-HEX3F),    //JEFF_TODO: There are no class/styles for windows. When they are created use this var for the shadow. Caranu spec. pg. 34 Shadow = v-offset 1px, blur 8px, #3F000000
+                                                                                      //Example of how to use this box shadow var as a value of the box-shadow property until we get a full window style made
+                                                                                      //box-shadow: 0 2px 8px 0 map_get($color-palette,  window-box-shadow);
+
             // Title Bar
             title-bar-gradient-top:                   $zircon,
             title-bar-gradient-bottom:                $quartz,
-            title-bar-border-bottom:                  $transparent-dark,
-            title-bar-box-shadow:                     rgba(0,0,0,0.18),
+            title-bar-border-bottom:                  rgba($bunting,$opacity-HEX4C),
+            title-bar-box-shadow:                     rgba($black,$opacity-HEX2D),
             text-title-color:                         $black,
             button-close-x-hover-bg:                  #E03030,
             button-close-x-active-bg:                 #B02626,
             button-close-x-active-box-shadow:         #5E1414,
-            button-min-max-hover-bg:                  rgba(108,130,168,0.12),
-            button-min-max-active-bg:                 rgba(108,130,168,0.12),
-            button-min-max-active-box-shadow:         rgba(19,27,64,0.20),
+            button-min-max-hover-bg:                  rgba($hover-blue,$opacity-HEX1E),
+            button-min-max-active-bg:                 rgba($hover-blue,$opacity-HEX1E),
+            button-min-max-active-box-shadow:         rgba($bunting,$opacity-HEX33),
 
             // Menus
             menu-title-color:                         $smoky,
-            menu-title-hover-bg:                      rgba(108,130,168,0.12),
+            menu-title-hover-bg:                      rgba($hover-blue,$opacity-HEX1E),
             menu-title-active-bg:                     $selago,
-            menu-border-active:                       rgba(19,27,64,0.30),
+            menu-border-active:                       rgba($bunting,$opacity-HEX4C),
             menu-border-inset-active:                 transparent,
-            menu-shadow-active:                       rgba(0,0,0,0.30),
+            menu-shadow-active:                       rgba($black,$opacity-HEX4C),
             menu-shadow-inset-active:                 $white,
             menu-text-active-color:                   $black,
             menu-text-color:                          $black,
             menu-divider-color:                       $black,
-            menu-hover-bg:                            rgba(108,130,168,0.20),
+            menu-hover-bg:                            rgba($hover-blue,$opacity-HEX33),
             menu-active-bg:                           $cornflower-blue,
 
             // Tabs
             tab-bar-bg:                               #E6E8F0,
-            tab-bar-border:                           rgba(#131B40,0.30),
+            tab-bar-border:                           rgba($bunting,$opacity-HEX4C),
             tab-bar-shadow:                           $white,
-            tab-bg-hover:                             rgba(#6C82A8,0.12),
+            tab-bg-hover:                             rgba($hover-blue,$opacity-HEX1E),
             tab-text-color-hover:                     $smoky,
             tab-text-color-active:                    $black,
             // -- Nav Tabs
             nav-tab-title-active-gradient-top:        #F5F6FC,
             nav-tab-title-active-gradient-bottom:     $catskill-white,
-            nav-tab-border-active:                    rgba(19,27,64,0.20),
+            nav-tab-border-active:                    rgba($bunting,$opacity-HEX33),
             nav-tab-bar-gradient-top:                 $catskill-white,
             nav-tab-bar-gradient-mid:                 $zircon,
             nav-tab-bar-gradient-bottom:              #D0D1DB,
@@ -88,48 +119,52 @@ body {
 
             // Toolbar
             toolbar-shadow-inset-top:                 $white,
-            toolbar-shadow-inset-bottom:              rgba(19,27,64,0.30),
-            toolbar-shadow:                           rgba(0,0,0,0.18),
-            toolbar-group-separator:                  rgba(19,27,64,0.30),
+            toolbar-shadow-inset-bottom:              rgba($bunting,$opacity-HEX4C),
+            toolbar-shadow:                           rgba($black,$opacity-HEX2D),
+            toolbar-group-separator:                  rgba($bunting,$opacity-HEX4C),
             button-toolbar-label-color:               $smoky,
-            button-toolbar-hover-bg:                  rgba(108,130,168,0.20),
-            button-toolbar-focus-bg:                  rgba(108,130,168,0.20),
-            button-toolbar-focus-border:              rgba(19,27,64,0.20),
-            button-split-group-hover-bg:              rgba(108,130,168,0.08),
-            button-split-group-divider:               rgba(19,27,64,0.20),
+            button-toolbar-hover-bg:                  rgba($hover-blue,$opacity-HEX33),
+            button-toolbar-focus-bg:                  rgba($hover-blue,$opacity-HEX33),
+            button-toolbar-focus-border:              rgba($bunting,$opacity-HEX33),
+            button-split-group-hover-bg:              rgba($hover-blue,$opacity-HEX14),
+            button-split-group-divider:               rgba($bunting,$opacity-HEX33),
 
             // Quick Access Toolbar
-            button-quick-access-hover-bg:             rgba(108,130,168,0.12),
-            button-quick-access-active-border:        rgba(19,27,64,0.20),
-            button-quick-access-active-bg:            rgba(108,130,168,0.12),
-            button-group-box-border:                  rgba(19,27,64,0.15),
-            button-group-box-bg:                      rgba(255,255,255,0.20),
+            button-quick-access-hover-bg:             rgba($hover-blue,$opacity-HEX1E),
+            button-quick-access-active-border:        rgba($bunting,$opacity-HEX33),
+            button-quick-access-active-bg:            rgba($hover-blue,$opacity-HEX1E),
+            button-group-box-border:                  rgba($bunting,$opacity-HEX26),
+            button-group-box-bg:                      rgba($white,$opacity-HEX33),
 
             // Buttons
+
             // -- Standard
             button-standard-color:                    $black,
             button-standard-gradient-top:             $selago,
             button-standard-gradient-bottom:          $zircon,
-            button-standard-border:                   rgba(0,0,0,0.13),
-            button-standard-shadow-inset:             rgba(255,255,255,0.70),
-            button-standard-shadow:                   rgba(0,0,0,0.12),
+            button-standard-border:                   rgba($black,$opacity-HEX59), //JEFF_REVIEW: This was .13 decimal. The spec says it should be #59 HEX which equals .35 decimal. So I changed it.
+            button-standard-shadow-inset:             rgba($white,0.70),           //This is correct according to the spec. But because it seems to be a rare/isolated use of this opacity we won't give it it's own var. Don't want to promote it. 
+            button-standard-shadow:                   rgba($black,$opacity-HEX1E),
             button-standard-hover-gradient-top:       #EDF4FF,
             button-standard-hover-gradient-bottom:    #CDDFFF,
-            button-standard-hover-border-inset:       rgba($cornflower-blue,0.30),
+            button-standard-hover-border-inset:       rgba($cornflower-blue,$opacity-HEX4C),
             button-standard-pressed-bg:               $cornflower-blue,
             button-standard-pressed-color:            $white,
             button-standard-active-bg:                $hawkes-blue,
-            button-standard-active-border-inset:      rgba(0,0,0,0.15),
-            button-standard-active-shadow-inset:      rgba(255,255,255,0.40),
-            button-standard-disabled-opacity:         0.52,
-            button-standard-disabled-text-color:      rgba($black,0.36),
+            button-standard-active-border-inset:      rgba($black,$opacity-HEX26),
+            button-standard-active-shadow-inset:      rgba($white,$opacity-HEX66),
+            button-standard-disabled-opacity:         0.52,                       //Since the spec declares this in decimal we will leave it without its own var
+            button-standard-disabled-text-color:      rgba($black,0.36),          //Since the spec declares this in decimal we will leave it without its own var
+
             // -- Default
             button-default-border-inset:              $cornflower-blue,
-            button-default-shadow-inset:              rgba($cornflower-blue,0.50),
+            button-default-shadow-inset:              rgba($cornflower-blue,$opacity-HEX7F),
             button-default-hover-border-inset:        $cornflower-blue,
             button-default-hover-shadow-inset:        $cornflower-blue,
+
             // -- Dropdown
             button-dropdown-color:                    $black,
+
             // -- Dropdown Lightweight
             button-dropdown-lightweight-color:        $smoky,
             button-dropdown-lightweight-color-hover:  $black,
@@ -137,22 +172,24 @@ body {
 
             // Input
             input-text-border:                        $french-gray,
-            input-text-bg:                            rgba(#F0F1F7,0.80),
+            input-text-bg:                            rgba(#F0F1F7,$opacity-HEXCC),
             input-text-color:                         $black,
             input-text-border-hover:                  #919499,
             input-text-border-active:                 $cornflower-blue,
-            input-text-bg-active:                     rgba($cornflower-blue,0.12),
+            input-text-bg-active:                     rgba($cornflower-blue,$opacity-HEX1E),
             input-text-bg-error:                      #F7EBEB,
             input-text-border-error:                  #E03030,
             input-text-highlight-bg:                  #2E4585,
             input-text-highlight-color:               $white,
-            input-text-disabled-opacity:              0.52,
-            input-text-disabled-color:                rgba($black,0.36),
+            input-text-disabled-opacity:              0.52,                   //Since the spec declares this in decimal we will leave it without its own var
+            input-text-disabled-color:                rgba($black,0.36),      //Since the spec declares this in decimal we will leave it without its own var
+
             // -- Radios
             radio-border:                             #8A93A3,
             radio-border-hover:                       $smoky,
             radio-checked-bg:                         $cornflower-blue,
-            radio-disabled:                           rgba(#8a93a3,0.52),
+            radio-disabled:                           rgba(#8a93a3,0.52),  //Since the spec declares this in decimal we will leave it without its own var
+
             // -- Switch
             switch-border:                            #8A93A3,
             switch-bg:                                transparent,
@@ -161,12 +198,14 @@ body {
             switch-border-checked:                    $cornflower-blue,
             switch-bg-checked:                        $cornflower-blue,
             switch-thumb-checked-bg:                  $white,
-            switch-disabled-opacity:                  0.52,
+            switch-disabled-opacity:                  0.52,                 //Since the spec declares this in decimal we will leave it without its own var
+
             // -- Combo box
-            button-dropdown-combo-bg:                 rgba(#F0F1F7,0.80),
-            button-dropdown-combo-bg-hover:           rgba(#6C82A8,0.20),
+            button-dropdown-combo-bg:                 rgba(#F0F1F7,$opacity-HEXCC),
+            button-dropdown-combo-bg-hover:           rgba($hover-blue,$opacity-HEX33),
             button-dropdown-combo-border:             $french-gray,
             button-dropdown-combo-border-hover:       #8A93A3,
+
             // -- Spin
             button-spin-gradient-top:                 $selago,
             button-spin-gradient-bottom:              $zircon,
@@ -174,38 +213,38 @@ body {
             button-spin-gradient-top-hover:           #EDF4FF,
             button-spin-gradient-bottom-hover:        #CDDFFF,
             button-spin-bg-active:                    $cornflower-blue,
-            button-spin-opacity-disabled:             0.36,
+            button-spin-opacity-disabled:             0.36,               //Since the spec declares this in decimal we will leave it without its own var
 
             // Tree View
             list-item-color:                          $smoky,
-            list-item-bg-hover:                       rgba(#6C82A8,0.20),
-            list-item-bg-focus:                       rgba(#6C82A8,0.50),
+            list-item-bg-hover:                       rgba($hover-blue,$opacity-HEX33),
+            list-item-bg-focus:                       rgba($hover-blue,$opacity-HEX7F),
             list-item-bg-active:                      $hawkes-blue,
 
             // Data Grid
-            data-grid-border:                         rgba(#131B40,0.30),
+            data-grid-border:                         rgba($bunting,$opacity-HEX4C),
             data-grid-header-top-gradient:            $zircon,
             data-grid-header-bottom-gradient:         $quartz,
             data-grid-color:                          $smoky,
             data-grid-color-highlighted:              #3D72CC,
-            data-grid-row-bg-hover:                   rgba(#6C82A8,0.20),
+            data-grid-row-bg-hover:                   rgba($hover-blue,$opacity-HEX33),
             data-grid-row-bg-active:                  $hawkes-blue,
-            data-grid-row-stripe-bg:                  rgba($black,0.04),
-            data-grid-stripe-border:                  rgba($black,0.06),
+            data-grid-row-stripe-bg:                  rgba($black,$opacity-HEX0A),
+            data-grid-stripe-border:                  rgba($black,$opacity-HEX0F),
 
             // Property Panel
             panel-bg:                                 #F2F4FA,
-            panel-tabs-shadow:                        rgba($black,0.20),
+            panel-tabs-shadow:                        rgba($black,$opacity-HEX33),
             panel-tab-bar-bg:                         #E6E8F0,
             panel-header-color:                       $black,
-            panel-border:                             rgba(#131B40,0.30),
+            panel-border:                             rgba($bunting,$opacity-HEX4C),
             panel-border-left:                        #898B95,
             panel-top-border:                         $white,
             panel-splitter-bg:                        #DFE3EB,
-            panel-splitter-border:                    rgba(#131B40,0.30),
+            panel-splitter-border:                    rgba($bunting,$opacity-HEX4C),
             panel-splitter-bg-hover:                  #DFE3EB,
-            panel-splitter-border-hover:              rgba(#6C82A8,0.12),
-            panel-separator:                          rgba(#131B40,0.30),
+            panel-splitter-border-hover:              rgba($hover-blue,$opacity-HEX1E),
+            panel-separator:                          rgba($bunting,$opacity-HEX4C),
 
             // Property Grid
             grid-title-color:                         $black,
@@ -215,11 +254,11 @@ body {
 
             // Scrollbars
             scrollbar-track-bg:                       #D7DAE0,
-            scrollbar-track-border:                   rgba(#131B40,0.30),
+            scrollbar-track-border:                   rgba($bunting,$opacity-HEX4C),
             scrollbar-thumb-bg:                       #717885,
             scrollbar-thumb-bg-hover:                 $smoky,
             scrollbar-thumb-bg-active:                $black,
-            scrollbar-button-bg-hover:                rgba(#6C82A8,0.12),
+            scrollbar-button-bg-hover:                rgba($hover-blue,$opacity-HEX1E),
             scrollbar-button-bg-active:               $cornflower-blue,
 
             // Styleguide
