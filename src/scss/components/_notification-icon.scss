@@ -1,0 +1,21 @@
+.notification-icon
+{
+.default-body {
+    stroke: map_get($color-palette, notification-icon-body);
+     stroke-opacity: 1;
+     stroke-linejoin: miter;
+  }
+
+  .main-body {
+    stroke: map_get($color-palette, notification-icon-body);
+  }
+
+  .main-ellipse {
+      stroke: map_get($color-palette, notification-icon-ellipse);
+      stroke-linejoin: round;
+  }
+
+  .message-count {
+      fill: map_get($color-palette, notification-icon-ellipse);
+  }
+}

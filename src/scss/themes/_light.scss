@@ -266,7 +266,11 @@ body {
             style-guide-buttons-bg:                   $white,
             style-guide-label-color:                  $smoky,
             style-guide-default-bg:                   #FFFFFE,
-            style-guide-spacer-bg:                    #C5C9CF
+            style-guide-spacer-bg:                    #C5C9CF,
+
+            // notification Icon
+            notification-icon-body:                   $black,
+            notification-icon-ellipse:                $cornflower-blue
     );
 
     // Images & Icons

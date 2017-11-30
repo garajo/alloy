@@ -17,18 +17,21 @@ export class AlloyNotificationIcon {
     private _count: number;
     private _height: number;
     private _width: number;
-    public largeCount: boolean;
+    public messageCount: string;
 
     /** Number of messages to be shown */
     @Input()
     get count() { return this._count; }
     set count(value: number) {
-        this._count = value;
-        // If more than 99 messages show '...' on icon.
-        if (value > 99 || value.toString().length > 2) {
-            this.largeCount = true;
+        if (value) {
+            this._count = value;
         } else {
-            this.largeCount = false;
+            this._count = 0;
+        }
+        this.messageCount = this._count.toString();
+        // If more than 99 messages show '...' on icon.
+        if (value > 99 || this.messageCount.length > 2) {
+            this.messageCount = '...';
         }
     }
 
@@ -44,5 +47,19 @@ export class AlloyNotificationIcon {
     get width() { return this._width; }
     set width(value: number) {
         this._width = value;
+    }
+
+    // Return a boolean if the count is 0.
+    isCountZero() {
+        return (this.messageCount === '0');
+    }
+
+    // Change the y value if the text is '...'
+    returnYvalue() {
+        if (this.messageCount === '...') {
+            return 11;
+        } else {
+            return 14;
+        }
     }
 }

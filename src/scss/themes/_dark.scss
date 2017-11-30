@@ -246,8 +246,11 @@ $color-palette: (
         style-guide-buttons-bg:                   transparent,
         style-guide-label-color:                  $french-gray,
         style-guide-default-bg:                   #1A1A1E,                           //JEFF_TODO: this color doesn't show up in the Caranu spec at all. Why is it here?
-        style-guide-spacer-bg:                    $shark
+        style-guide-spacer-bg:                    $shark,
 
+        // notification Icon
+        notification-icon-body:                   $white,
+        notification-icon-ellipse:                $cornflower-blue
 );
 
 // Images & Icons

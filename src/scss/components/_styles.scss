@@ -22,3 +22,5 @@
 @import "_property-grid"; //Type style for the ag-grid control
 //JEFF_LABELS Need to ensure this is after typography as it uses vars from there
 @import "label";
+
+@import "_notification-icon";

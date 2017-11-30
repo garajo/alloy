@@ -15,7 +15,7 @@
                 <div>
                     <h6>Set Number of Notifications</h6>
                     <div>
-                      <input #inputCount type="number" [(ngModel)]="messageCount" (keyup)="updateIcon()">
+                      <input type="text" [(ngModel)]="messageCount" (keypress)="isNumberKey($event)">
                     </div>
                 </div>             
                 <div>
