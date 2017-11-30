@@ -180,6 +180,10 @@
  // Not tested, since we don't have disabled props yet.
  .ag-cell-readonly {
      @extend .griddarkened;
+    -webkit-user-select:text;
+    -moz-user-select:text;
+    -ms-user-select:text;
+    user-select:text;
   }
 
 // Start name only highlight experiment
