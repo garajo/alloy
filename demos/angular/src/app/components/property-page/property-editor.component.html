@@ -1,15 +1,50 @@
-<div class="row align-center">
-  <div class="columns" style="padding:20px;">
-    <h3>Simple Property Grid</h3>
-    <div class="columns" style="padding:20px">
-        <alloy-property-grid
-          [gridOption]="gridOption"
-          [nodeModel]="rowData"
-          [styledControls]='editors'
-          [validators]='validators'
-          [validatorMessages]='validatorMessages'
-          (updateDataEvent)='onUpdate($event)'>
-        </alloy-property-grid>
+<div class="tabs-panel is-active">
+
+  <div class="content-container">
+
+    <div class="row align-center">
+      <div class="columns small-12">
+        <h3>Simple Property Grid</h3>
+        <br>
+      </div>
     </div>
+
+    <div class="row align-center">
+      <div class="columns">
+
+        <!-- aside = HTML element that is a container for content. Alloy uses it to define a panel type control -->
+        <!-- panel = An Alloy style combined with the grid style that created panel type controls -->
+        <!-- grid = An Alloy style that combined with the panel style creates panel type controls-->
+        <!-- See the Alloy HTML demo app for how to properly style a Property Panel-->
+        <aside class="panel grid">
+
+          <!--property-header = An alloy class that sets the font size, family, weight and margin for panel type controls. 
+            The property grid is a "panel" kind of control. See the HTML demo for sample usage of how to apply Alloy styles-->
+          <div class="property-header">
+            Favorite Settings: Sample Settings
+          </div>
+
+          <!-- NOTE: The search behavior has not been implemented. This is just a facade taken from the UPro HTML sample app to show what it might look like-->
+          <div class="search-container">
+            <input type="text" class="grid-search" placeholder="Search (behavior not implemented)" />
+            <span class="mag-glass"></span>
+          </div>
+
+          <alloy-property-grid [gridOption]="gridOption" [nodeModel]="rowData" [styledControls]='editors' [validators]='validators'
+            [validatorMessages]='validatorMessages' (updateDataEvent)='onUpdate($event)'>
+          </alloy-property-grid>
+
+          <!-- If/when we decide to turn on the summary description stuff this is how you do it. Borrrowed from the Alloy HTML demo app-->
+          <div class="splitter"></div>
+          <div class="property">
+            <span class="property-header">Selected Item (behavior not implemented)</span>
+            <p>Label and definition of selected item would show up here. </p>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
   </div>
 </div>

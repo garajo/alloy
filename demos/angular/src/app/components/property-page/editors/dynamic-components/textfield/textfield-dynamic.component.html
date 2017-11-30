@@ -1,14 +1,17 @@
 <form novalidate [formGroup]="textfieldForm">
         <div class="ag-grid-editable-properties">
-            <!-- This hidden input is used to allow the server errors validator to get access to the serverErrors data
-            The formControlName - serverErrors has it's value set to the string array of server errors in the typescript
-            which then can be gotten in the validator -->
-            <input formControlName="serverErrors" type="hidden"/>
-            <input #textInputBox type="text"
-                    formControlName="textfieldControlName"
-                    *ngIf="!params.node.data.readOnly"
-                    [class.has-error]="textfieldForm.controls['textfieldControlName'].errors" />
-            <div class="error" data-toggle="tooltip" title="{{messageTooltip}}"></div>
-            <p class="ag-cell-readonly" *ngIf="params.node.data.readOnly">{{params.node.data.value}}</p>
+                <!-- This hidden input is used to allow the server errors validator to get access to the serverErrors data
+                The formControlName - serverErrors has it's value set to the string array of server errors in the typescript
+                which then can be gotten in the validator -->
+                <input formControlName="serverErrors" type="hidden"/>
+                <!-- Should always have an input-group around a text box that also has an error icon. This allows the error icon be "anchored" via the relative position propery of the input-group-->
+                <div class="input-group">
+                        <input #textInputBox type="text"
+                                formControlName="textfieldControlName"
+                                *ngIf="!params.node.data.readOnly" 
+                                [class.has-error]="textfieldForm.controls['textfieldControlName'].errors" />
+                        <div class="error" data-toggle="tooltip" title="{{messageTooltip}}"></div>
+                        <p class="ag-cell-readonly" *ngIf="params.node.data.readOnly">{{params.node.data.value}}</p>
+                </div>
         </div>
 </form>

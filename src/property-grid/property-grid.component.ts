@@ -121,11 +121,10 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
 
             // change row height for dropdown
             getRowHeight: (params) => {
-                if (params.node.data && params.node.data.typeName === 'Enum') {
-                    return 32;
-                } else {
-                    return 26;
-                }
+                // Caranu spec says 22px row heights for the content of the "right side" editable properties.
+                // Looks like we've determined that 26px is the right height for the ag grid row which accounts for the 22px content height
+                // and leaves a little extra space (26-22 = 4px) for 2px padding top and bottom
+                return 26;
             }
         };
 

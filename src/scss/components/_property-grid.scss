@@ -1,37 +1,132 @@
 
-//JEFF_TODO This editor specific styling needs to be moved back over to swivel
-.ag-grid-editable-properties
+// These property grid specific styles were inspired by the original UPro/Alloy styles called .editable-properties & .list-properties found in src\scss\components\_grid.scss
+// .list-properties = the style that was applied by UPro to the left side (names) row items of their property grid. Not the treeview nodes but the list items found as a group as children under a treeview node 
+// .editable-properties = the style that was applied by UPro to the right side (values) row items of their property grid. The value items that lined up & matched the left side list-properties. 
+// In the UPro version of the property grid it uses ULs/LIs to form the lists of left side items (names) and right side items (values)
+// Since we are using ag-grid under the hood we are using its types not simpleton ULs/LIs so this style has been
+// slightly modified to be able to select the different visual tree structure of an ag-grid
+
+// **Need to leave all this comment out borrowed code from the base editable & list properties styles as I'd like to extend/derive these styles off of them
+.ag-grid-list-properties,
+.ag-grid-editable-properties 
 {
-    //Add this so the error image could be absolute distance from the input given this common parent
-    position: relative;
-    //Added this so the child control won't take up the whole width (in case there are multiple controls that need to share the linear space: Example textbox + error icon, textbox + ellipses button)
     display: inline-block;
 
+    padding: 0;
+
+    // Original
+    // li 
+    // {
+    //     a 
+    //     {
+    //         margin-left: 0 !important;
+    //     }
+    // }
+}
+
+// Original
+// .ag-grid-list-properties 
+// {
+//     width: 60%;
+// }
+
+.ag-grid-editable-properties
+{
     $offset: 8px;
     $height: 22px;
 
+    // Original
+    // width: 40%;
+    // min-width: 40%;
+    // padding-left: $offset;
+
+    // Original
+    // Removed this different expectation around the visual tree structure since ag-grid doesn't use ULs/LIs for its children
+    // li {
+
+    //     padding-left: 0;
+
+    //     a 
+    //     {
+    //         margin-left: 0 !important;
+    //     }
+
+    // NOTE: There is base styling that has already been merged in here for this control that comes from any/all other styles that "contribute" to this control style
+    // We are just tweaking/overriding things we need to change to make it look good in the context of the property grid.
     input[type="text"] 
     {
+        // Original Was set on the input text itself but then it makes the error icon potentially way at the end. 
+        // max-width: calc(100% - 32px);
+
+        // Copied: The original value from _grid.scss for an input text box inside of the UPro property grid
         height: $height;
 
+        // Copied: The original value from _grid.scss for an input text box inside of the UPro property grid
         padding: 3px $offset;
 
+        // Copied: The original value from _grid.scss for an input text box inside of the UPro property grid
         font-size: 13px;
 
         // Added this has-error section all just to get down to the error image and center it in a smaller 22px high textbox in a property grid (versus a 32px high normal textbox)
         &.has-error 
         {
-            border: 1px solid map_get($color-palette, input-text-border-error);
+            &+.error 
+            {
+            // Tweaked: Had to change the default top value from the generic/type style for text boxes since these property grid rows are much smaller/shorter thant what a textbox is used to
+            // All of this has-error and sibling error override is to get the vertical alignmnent correct. Error image is 16px tall, TextBox in property grid is 22px. 22-16 = 6 /2 = 3px vertical shift to get it centered.
+            top: 3px; 
+            }
+        }
+    }
 
-            background-color: map_get($color-palette, input-text-bg-error);
+    // Added this button.dropdown entry here, above and beyond what UPro/Alloy did since they didn't seem to have a drop down featured in their actual sample app
+    // NOTE: There is base styling that has already been merged in here for this control that comes from any/all other styles that "contribute" to this control style
+    // We are just tweaking/overriding things we need to change to make it look good in the context of the property grid.
+    button.dropdown {
+        &.lightweight {
 
-            caret-color: map_get($color-palette, input-text-border-error);
+            // getRowHeight() method in property-grid.component.ts already forces the overall heigh of each grid row to be 26px
+            // lets set the height of this content (button for the dropdown) to 22px like the spec shows
+            height: $height;
 
-            &+.error {
-            display: block;
-            position: absolute;
-            //All of this has-error and sibling error overrid is to get the vertical alignmnent correct. Error image is 16px tall, TextBox in property grid is 22px. 22-16 = 6 /2 = 3px vertical shift to get it centered.
-            top: 3px; right: -24px;
+            // Make the button (default selection) portion of the drop down shorter to fit inside the property grid row
+            // Tweaked: Override the original value for a generic dropdown button from _buttons.scss -- too big for living inside a property grid experience
+            // padding: 8px 12px;
+            padding: 3px $offset;
+        }
+    }
+
+    // NOTE: There is base styling that has already been merged in here for this control that comes from any/all other styles that "contribute" to this control style
+    // We are just tweaking/overriding things we need to change to make it look good in the context of the property grid.
+    .dropdown-pane 
+    {
+        ul.menu 
+        {
+            li 
+            {
+                a 
+                {
+                    // Make the menu item height shorter. Going all the way to 22px seemed way too short. Since this is a drop down menu that lives outside the ag grid rows it looked much better at 32px. Plus it matches the treeview item height.
+                    // Tweaked: Override the original value for a generic dropdown from _dropdown.scss -- too big for living inside a property grid experience
+                    // height: 40px;
+                    height: 32px;
+
+                    // Make the non icon based drop down menu items shorter 
+                    // Tweaked: Override the original value for a generic dropdown from _dropdown.scss -- too big for living inside a property grid experience
+                    // padding: 12px 40px;
+                    padding: 6px 40px;
+                }
+
+                &.has-icon 
+                {
+                    a 
+                    {
+                        // Make the icon based drop down menu items shorter
+                        // Tweaked: Override the original value for a generic dropdown from _dropdown.scss -- too big for living inside a property grid experience
+                        // padding: 12px 40px 12px 0;
+                        padding: 6px 40px 6px 0;
+                    }
+                }
             }
         }
     }
@@ -39,34 +134,50 @@
     // From original Alloy style for vanilla (non ag-grid) Property Grid. See src\components\_grid.scss file
     // All of these are how other controls can be auto styled that are children of this ag-grid editable-properties style
 
-    // .button-standard {
-    // min-width: 19px;
-    // min-height: $height;
+    .button-standard {
+        min-width: 19px;
+        min-height: $height;
 
-    // margin-left: 4px;
-    // padding: 3px;
-    // }
+        margin-left: 4px;
+        padding: 3px;
+    }
 
+    // JEFF_COMMENT Can't have this while we use an input-group above around the textbox (which we should do following the Caranu pattern for anchoring that error icon to the end of the text box). 
+    // Original code from the _grid.scss UPro property grid
     // .input-group {
-    // margin: 1px 0 1px $offset;
+    //     margin: 1px 0 1px $offset;
     // }
 
-    // .combo-box {
+    .combo-box {
+        .input-group-field {
+        max-width: calc(100% - 36px);
+        }
 
-    // .input-group-field {
-    //     max-width: calc(100% - 36px);
-    // }
+        .dropdown-combo {
+        height: $height;
 
-    // .dropdown-combo {
-    //     height: $height;
+        padding: 3px $offset;
+        }
+    }
 
-    //     padding: 3px $offset;
-    // }
-    // }
+    .checkbox {
 
-    // .checkbox {
-    // margin: 5px 0 5px $offset;
-    // }
+        // Tweaked: Override the original value from _grid.scss for a checck box inside of the UPro property grid -- even though a UPro grid row is 22px these 5px values seemed too large
+        // Copied: The original value from _grid.scss 
+        //margin: 5px 0 5px $offset;
+        margin: 3px 0 3px $offset;
+    }
+
+    //Added this to account for the property grid read only properties using a paragraph element to turn down their opacity
+    p {
+        // Copied: The original values from _grid.scss for an input text box inside of the UPro property grid; assuming we want other free form text like paragraph to align with text from text boxes
+        height: $height;
+        padding: 3px $offset;
+        font-size: 13px;
+    }
+
+    // Removed this different expectation around the visual tree structure since ag-grid doesn't use ULs/LIs for its children
+    //}
 
 }
 
