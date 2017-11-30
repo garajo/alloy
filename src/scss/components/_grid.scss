@@ -161,12 +161,12 @@ aside {
     .splitter.vertical {
       position: absolute;
       top: 8px; left: calc(60% + 4px); bottom: 0;
-      z-index: 1;
+
 
       opacity: 0;
 
       transition: opacity 0.25s ease-in-out;
-
+      
       &:hover {
         opacity: 1;
       }
