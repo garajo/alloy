@@ -13,6 +13,7 @@ import {
   AlloyNotificationIconModule,
   AlloyPropertyGridModule,
   AlloyPropertyGridMessageService,
+  AlloyTextboxModule,
   AlloyTextareaModule
 } from '@keysight/alloy';
 
@@ -28,6 +29,7 @@ import { CheckboxDynamicComponent } from './components/property-page/editors/dyn
 import { TextfieldDynamicComponent } from './components/property-page/editors/dynamic-components/textfield/textfield-dynamic.component';
 import { DropdownDynamicComponent } from './components/property-page/editors/dynamic-components/dropdown/dropdown-dynamic.component';
 import { EditorService } from './components/property-page/editors/services/editor.service';
+import { TextboxPageComponent } from './components/textbox-page/textbox-page.component';
 import { TextareaPageComponent } from './components/textarea-page/textarea-page.component';
 
 
@@ -40,6 +42,7 @@ import { TextareaPageComponent } from './components/textarea-page/textarea-page.
     AlloyDropdownModule,
     AlloyCheckboxModule,
     AlloyNotificationIconModule,
+    AlloyTextboxModule,
     AlloyTextareaModule
   ]
 })
@@ -55,6 +58,7 @@ export class AlloyDemoModule { }
     CheckboxDynamicComponent,
     TextfieldDynamicComponent,
     DropdownDynamicComponent,
+    TextboxPageComponent,
     TextareaPageComponent
   ],
   imports: [
