@@ -248,6 +248,20 @@ $color-palette: (
         style-guide-default-bg:                   #1A1A1E,                           //JEFF_TODO: this color doesn't show up in the Caranu spec at all. Why is it here?
         style-guide-spacer-bg:                    $shark,
 
+        // Textarea
+        textarea-text-border:                        rgba($glitter,$opacity-HEX4C),
+        textarea-text-bg:                            rgba($black,$opacity-HEX33),
+        textarea-text-color:                         $white,
+        textarea-text-border-hover:                  $mountain-mist,
+        textarea-text-border-active:                 $cornflower-blue,
+        textarea-text-bg-active:                     rgba(#212733,$opacity-HEX99),         //JEFF_TODO: according to Caranu spec this color should be applied to this the background of a focus/active textbox (pg. 22) but also to the background of the active combobox (pg. 23)
+        textarea-text-bg-error:                      #2B0A0A,
+        textarea-text-border-error:                  #E03030,
+        textarea-text-highlight-bg:                  $jacksons-purple,
+        textarea-text-disabled-opacity:              0.3,                                    //leave disabled opacity in decimal since the Caranu spec does    
+        textarea-text-disabled-color:                $white,
+
+
         // notification Icon
         notification-icon-body:                   $white,
         notification-icon-ellipse:                $cornflower-blue

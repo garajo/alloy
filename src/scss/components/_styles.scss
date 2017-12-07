@@ -23,4 +23,5 @@
 //JEFF_LABELS Need to ensure this is after typography as it uses vars from there
 @import "label";
 
+@import "_textarea"; //Style for the textarea.
 @import "_notification-icon";

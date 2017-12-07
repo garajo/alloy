@@ -1,0 +1,156 @@
+
+<div class="tabs-panel is-active">
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h3>Textarea</h3>
+                <br>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns small-3">
+                <form id="myform" ngNativeValidate>
+                    <alloy-textarea [rows]="rows" [cols]="cols" [width]="width"
+                        [height]="height" [disabled]="disabledSimple" [readonly]="readonlySimple" [required]="requiredSimple"
+                        [placeholder]="placeholderSimple" [maxlength]="maxlengthSimple" [minlength]="minlengthSimple" 
+                        [autofocus]="autofocusSimple" [resize]="resizeSimple" [spellcheck]="spellcheckSimple" [value]="valueSimple"
+                        [wrap]="wrapSimple">
+                    </alloy-textarea>  
+                </form>
+                <input type="submit" class="button-standard" form="myform">
+            </div>
+            <div class="columns small-3">  
+                <div class="row">
+                    <h6>Textarea Attributes</h6>
+                </div><br>
+                <div class="row">
+                    <div class="columns small-6">
+                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled()" [ngClass]="{'is-pressed': disabledSimple}">Disabled</button>
+                    </div>
+                    <div class="columns small-6">
+                        <button id="autofocus" type="button" class="button-standard" (click)="toggleAutofocus()" [ngClass]="{'is-pressed': autofocusSimple}">Autofocus</button>                           
+                    </div>
+                </div><br>
+                <div class="row">  
+                    <div class="columns small-6">
+                        <button id="required" type="button" class="button-standard" (click)="toggleRequired()" [ngClass]="{'is-pressed': requiredSimple}">Required</button>   
+                    </div>
+                    <div class="columns small-6"> 
+                        <button id="spellcheck" type="button" class="button-standard" (click)="toggleSpellcheck()" [ngClass]="{'is-pressed': spellcheckSimple}">Spellcheck</button>                                                                                                                                                                                                                                         
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="columns small-6">
+                        <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly()" [ngClass]="{'is-pressed': readonlySimple}">Readonly</button>                        
+                    </div>
+                    <div class="columns small-6">
+                        <button id="resize" type="button" class="button-standard" (click)="toggleResize()" [ngClass]="{'is-pressed': resizeSimple}">Not-Resizable</button>                         
+                    </div>
+                </div>
+                <br>
+                <div class="row ">
+                    <div class="columns small-5">
+                        <label>Placeholder:</label>
+                    </div>
+                    <div class="columns small-7">
+                        <input type="text" [(ngModel)]="placeholderSimple" >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns small-5">
+                        <label class="label-block">Max Length: </label>
+                    </div>
+                    <div class="columns small-7">
+                        <input type="text" [(ngModel)]="maxlengthSimple" (keypress)="isNumberKey($event)" class="input-block">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns small-5">
+                        <label class="label-block">Min Length: </label>
+                    </div>
+                    <div class="columns small-7">
+                        <input type="text" [(ngModel)]="minlengthSimple" (keypress)="isNumberKey($event)" class="input-block">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns small-5">
+                        <label class="label-block">Value: </label>
+                    </div>
+                    <div class="columns small-7">
+                        <input type="text" [(ngModel)]="valueSimple" class="input-block">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns small-5">
+                        <label class="label-block">Wrap: </label>
+                    </div>
+                    <div class="columns small-7">
+                        <input type="text" [(ngModel)]="wrapSimple" class="input-block">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns small-12">
+                        <alloy-checkbox [label]="checkboxLabel"
+                            [checked]="selectRC" (click)="toggleRC()">
+                        </alloy-checkbox>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns small-5">
+                        <label class="label-block">Rows: </label>
+                    </div>
+                    <div class="columns small-7">
+                        <input type="text" [(ngModel)]="rows" (keypress)="isNumberKey($event)" class="input-block">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns small-5">
+                        <label class="label-block">Columns: </label>
+                    </div>
+                    <div class="columns small-7">
+                        <input type="text" [(ngModel)]="cols" (keypress)="isNumberKey($event)" class="input-block">
+                    </div>
+                </div>           
+                <div class="row">
+                    <div class="columns small-5">
+                        <label class="label-block">Height: </label>
+                    </div>
+                    <div class="columns small-7">
+                        <input id="height" type="text" [(ngModel)]="height" (keypress)="isNumberKey($event)" [disabled]="selectRC" class="input-block">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns small-5">
+                        <label class="label-block">Width: </label>
+                    </div>
+                    <div class="columns small-7">
+                        <input id="width" type="text" [(ngModel)]="width" (keypress)="isNumberKey($event)" [disabled]="selectRC" class="input-block">
+                    </div>
+                </div>
+            </div>
+            <div class="columns small-6">
+                <pre ngNonBindable>
+&lt;alloy-textarea
+    [rows]="rows" [cols]="cols"
+    [height]="height" [width]="width"
+    [resize]="resize"
+    [dirname]="dirname"
+    [form]="form"
+    [maxlength]="maxlength"
+    [minlength]="minlength"
+    [name]="name"
+    [placeholder]="placeholder"
+    [wrap]="wrap"
+    [type]="type"
+    [value]="value"
+    [autofocus]="autofocus" 
+    [disabled]="disabled" 
+    [readonly]="readonly"
+    [required]="required"
+    [spellcheck]="spellcheck"&gt;
+&lt;/alloy-textarea&gt;
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>
