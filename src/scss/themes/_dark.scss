@@ -24,6 +24,7 @@ $jacksons-purple:       #2E4585;
 // END: Standard color palette: Caranu spec pg. 17
 
 //Opacity: Variables for opacity straight out of the Caranu spec. Those opacity values used heavily enough in the Dark skin to warrant their own variables. Tired of doing hex/decimal conversion.
+$opacity-HEXB2:          0.70;
 $opacity-HEX99:          0.60;         
 $opacity-HEX7F:          0.50;         
 $opacity-HEX66:          0.40;         
@@ -245,22 +246,32 @@ $color-palette: (
         style-guide-switch-label-color:           $white,
         style-guide-buttons-bg:                   transparent,
         style-guide-label-color:                  $french-gray,
-        style-guide-default-bg:                   #1A1A1E,                           //JEFF_TODO: this color doesn't show up in the Caranu spec at all. Why is it here?
+
+        style-guide-default-bg:                   #1A1A1E,                              //JEFF_TODO: this color doesn't show up in the Caranu spec at all. Why is it here?
         style-guide-spacer-bg:                    $shark,
 
-        // Textarea
-        textarea-text-border:                        rgba($glitter,$opacity-HEX4C),
-        textarea-text-bg:                            rgba($black,$opacity-HEX33),
-        textarea-text-color:                         $white,
-        textarea-text-border-hover:                  $mountain-mist,
-        textarea-text-border-active:                 $cornflower-blue,
-        textarea-text-bg-active:                     rgba(#212733,$opacity-HEX99),         //JEFF_TODO: according to Caranu spec this color should be applied to this the background of a focus/active textbox (pg. 22) but also to the background of the active combobox (pg. 23)
-        textarea-text-bg-error:                      #2B0A0A,
-        textarea-text-border-error:                  #E03030,
-        textarea-text-highlight-bg:                  $jacksons-purple,
-        textarea-text-disabled-opacity:              0.3,                                    //leave disabled opacity in decimal since the Caranu spec does    
-        textarea-text-disabled-color:                $white,
+        // Dialog
+        dialog-border-color:                      $cornflower-blue,
+        dialog-background-color:                  $dark-jungle,
+        dialog-body-color:                        $french-gray,
+        dialog-box-shadow:                        rgba(#0D1E40, $opacity-HEXB2),
+        dialog-title-bar-color:                   $cornflower-blue,
+        dialog-title-bar-gradient-top:            $jaguar,
+        dialog-title-bar-gradient-bottom:         $black-russian,
+        dialog-title-bar-border-bottom:           rgba($black, $opacity-HEX99),
 
+        // Textarea
+        textarea-text-border:                     rgba($glitter,$opacity-HEX4C),
+        textarea-text-bg:                         rgba($black,$opacity-HEX33),
+        textarea-text-color:                      $white,
+        textarea-text-border-hover:               $mountain-mist,
+        textarea-text-border-active:              $cornflower-blue,
+        textarea-text-bg-active:                  rgba(#212733,$opacity-HEX99),         //JEFF_TODO: according to Caranu spec this color should be applied to this the background of a focus/active textbox (pg. 22) but also to the background of the active combobox (pg. 23)
+        textarea-text-bg-error:                   #2B0A0A,
+        textarea-text-border-error:               #E03030,
+        textarea-text-highlight-bg:               $jacksons-purple,
+        textarea-text-disabled-opacity:           0.3,                                    //leave disabled opacity in decimal since the Caranu spec does    
+        textarea-text-disabled-color:             $white,
 
         // notification Icon
         notification-icon-body:                   $white,
@@ -341,7 +352,9 @@ $icon-pack: (
         // Scrollbar
         scroll-caret-down:                    inline-image("#{$dark-icons}/scroll-caret-down.png"),
         scroll-caret-down-hover:              inline-image("#{$dark-icons}/scroll-caret-down-hover.png"),
-        scroll-caret-down-active:             inline-image("#{$dark-icons}/scroll-caret-down-hover.png")
+        scroll-caret-down-active:             inline-image("#{$dark-icons}/scroll-caret-down-hover.png"),
+
+        brand-sign:                           inline-image("#{$dark-icons}/keysight-brand-signature.png")
 
 );
 

@@ -30,6 +30,7 @@ body {
 
     //Opacity: Variables for opacity straight out of the Caranu spec. Those opacity values used heavily enough in the Light skin to warrant their own variables. Tired of doing hex/decimal conversion.
     $opacity-HEXCC:          .80; 
+    $opacity-HEXB2:          .70;
     $opacity-HEX99:          .60;         
     $opacity-HEX7F:          .50;  
     $opacity-HEX66:          .40;         
@@ -143,7 +144,7 @@ body {
             button-standard-gradient-top:             $selago,
             button-standard-gradient-bottom:          $zircon,
             button-standard-border:                   rgba($black,$opacity-HEX59), //JEFF_REVIEW: This was .13 decimal. The spec says it should be #59 HEX which equals .35 decimal. So I changed it.
-            button-standard-shadow-inset:             rgba($white,0.70),           //This is correct according to the spec. But because it seems to be a rare/isolated use of this opacity we won't give it it's own var. Don't want to promote it. 
+            button-standard-shadow-inset:             rgba($white, $opacity-HEXB2),           // multiple usages of 0.7 was found for shadow, so promoting to own var
             button-standard-shadow:                   rgba($black,$opacity-HEX1E),
             button-standard-hover-gradient-top:       #EDF4FF,
             button-standard-hover-gradient-bottom:    #CDDFFF,
@@ -284,7 +285,17 @@ body {
             
             // notification Icon
             notification-icon-body:                   $black,
-            notification-icon-ellipse:                $cornflower-blue
+            notification-icon-ellipse:                $cornflower-blue,
+
+            // Dialog
+            dialog-border-color:                      $cornflower-blue,
+            dialog-background-color:                  $white,
+            dialog-body-color:                        $smoky,
+            dialog-box-shadow:                        rgba(#0D1E40, $opacity-HEX4C),
+            dialog-title-bar-color:                   $cornflower-blue,
+            dialog-title-bar-gradient-top:            $zircon,
+            dialog-title-bar-gradient-bottom:         $quartz,
+            dialog-title-bar-border-bottom:           rgba(#131B40, $opacity-HEX4C)
     );
 
     // Images & Icons
@@ -364,7 +375,9 @@ body {
             // Scrollbar
             scroll-caret-down:                    inline-image("#{$light-icons}/scroll-caret-down.png"),
             scroll-caret-down-hover:              inline-image("#{$light-icons}/scroll-caret-down-hover.png"),
-            scroll-caret-down-active:             inline-image("#{$light-icons}/scroll-caret-down-active.png")
+            scroll-caret-down-active:             inline-image("#{$light-icons}/scroll-caret-down-active.png"),
+
+            brand-sign:                           inline-image("#{$light-icons}/keysight-brand-signature.png")
 
     );
 

@@ -6,8 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
+  AlloyAboutBox,
+  AlloyAboutBoxModule,
   AlloyDropdownModule,
   AlloyCheckboxModule,
   AlloyNotificationIconModule,
@@ -17,6 +21,7 @@ import {
   AlloyTextareaModule
 } from '@keysight/alloy';
 
+import { AboutBoxPageComponent } from './components/about-box-page/about-box-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-page.component';
@@ -39,8 +44,19 @@ import { TextareaPageComponent } from './components/textarea-page/textarea-page.
  */
 @NgModule({
   exports: [
+    AlloyAboutBoxModule,
     AlloyDropdownModule,
     AlloyCheckboxModule,
+    AlloyNotificationIconModule,
+    AlloyTextboxModule,
+    AlloyTextareaModule
+  ],
+  entryComponents: [
+    AlloyAboutBox
+  ],
+  imports: [
+    MatDialogModule,
+    BrowserAnimationsModule,
     AlloyNotificationIconModule,
     AlloyTextboxModule,
     AlloyTextareaModule
@@ -53,6 +69,7 @@ export class AlloyDemoModule { }
     AppComponent,
     DropdownsPageComponent,
     CheckboxPageComponent,
+    AboutBoxPageComponent,    
     NotificationIconPageComponent,
     PropertyEditorComponent,
     CheckboxDynamicComponent,

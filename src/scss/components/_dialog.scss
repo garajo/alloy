@@ -1,0 +1,70 @@
+.mat-dialog-container {
+    overflow: hidden !important;
+    border: 1px solid !important;
+    border-color: map_get($color-palette, dialog-border-color) !important;
+    padding: 0 !important;
+    box-shadow: 0 1px 86px 0 map_get($color-palette, dialog-box-shadow) !important;
+}
+
+// these next 3 classes make the dialog box appear in the center of window
+.cdk-global-overlay-wrapper,.cdk-overlay-container {
+    pointer-events:none;top:0;left:0;height:100%;width:100%
+}
+
+.cdk-overlay-container {
+    position:fixed;z-index:1000
+}
+
+.cdk-global-overlay-wrapper {
+    display:flex;position:absolute;z-index:1000
+}
+
+.dialog {
+    min-width: 550px;
+    min-height: 300px;
+}
+
+.dialog-body {
+    background: map_get($color-palette, dialog-background-color);
+    font-family: 'Roboto';
+    font-size: 13px;
+    color: map_get($color-palette, dialog-body-color);
+}
+
+.dialog-controls {
+    vertical-align: bottom;
+    padding: 0;
+}
+
+.dialog-button-close {
+    float: right;
+    margin-right: 12px;
+    margin-bottom: 18px;
+}
+
+.dialog-title-bar {
+    background:  linear-gradient(90deg, map_get($color-palette, dialog-title-bar-gradient-top), map_get($color-palette, dialog-title-bar-gradient-bottom) );
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: map_get($color-palette, dialog-title-bar-color);
+    height: 32px;
+    border-color: map_get($color-palette, dialog-title-bar-border-bottom);
+}
+
+.dialog-title-bar-title {
+    float: left;
+    margin-top: 6px;
+    margin-left: 12px;
+    color: map_get($color-palette, dialog-title-bar-color);
+}
+
+.dialog-button-close-x {
+    @extend .button-close-x;
+    float: right;
+    margin-top: 0;
+}
+
+/*Change the default button styling when it's focused.*/
+.button-default:focus {
+    border: solid 1px map_get($color-palette, button-default-border-inset);
+}

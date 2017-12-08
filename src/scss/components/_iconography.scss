@@ -313,3 +313,16 @@
     background: transparent map_get($icon-pack, clear) no-repeat center center / $size;
   }
   
+.brand-signature {
+  $icon-width: 21px;
+  $height: 36px;
+  $width: 102px;
+
+  display: block;
+  @include size($width, $height);
+  float:right;
+
+  margin: 7px 12px 0 0;
+
+  background: transparent map_get($icon-pack, brand-sign) no-repeat left center / $width $height;
+}

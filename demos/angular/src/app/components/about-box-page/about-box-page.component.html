@@ -1,0 +1,39 @@
+<div class="tabs-panel is-active">
+    <!-- About Box -->
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h3>About Box</h3>
+                <br>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+            </div>
+            <div class="columns">
+                <div>
+                    <button type="button" (click)='openAbout($event)' class="button-standard">Open About Dialog</button>
+                </div>
+            </div>
+            <div class="columns small-7">
+                <pre>
+dialog: MatDialog;
+dialogRef: MatDialogRef&lt;AlloyAboutBox&gt;;
+dialogRef = dialog.open(AlloyAboutBox);
+dialogRef.componentInstance.appName = &quot;{{appName}}&quot;;
+dialogRef.componentInstance.content = &quot;{{content}}&quot;;
+dialogRef.componentInstance.copyright = &quot;{{copyright}}&quot;;
+dialogRef.componentInstance.icon = &quot;{{iconSrc}}&quot;;
+dialogRef.componentInstance.title = &quot;{{title}}&quot;;
+dialogRef.componentInstance.version = &quot;{{version}}&quot;;
+                </pre>
+            </div>
+            <div class="row align-center">
+                <div class="columns small-4">
+                </div>
+                <div class="columns small-8">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
