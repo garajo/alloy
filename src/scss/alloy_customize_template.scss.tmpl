@@ -1,0 +1,66 @@
+//***IMPORTANT*** This is meant to be a template that you copy into your application and configure appropriately to add in your
+// own theming/colors along with pulling in Alloy.
+
+//***Any spot marked with TODO needs to be configured for you app***
+
+// This alloy_customize_template.scss file constitutes the recipe to create a customized version of Alloy
+// Customized version of alloy is defined as a consuming app that wants to contribute/add to the themeing/color model
+// with its own custom styles and color for its own app specific custom controls or experience
+
+// Given the need to support default alloy and customized alloy abstracted common things (mostly foundation settings stuff) into a common file
+// TODO This path should get you to the node_modules/@keysight/alloy/scss/alloy_base file. If not tweak this line.
+@import '~@keysight/alloy/scss/alloy_base';
+
+// JEFF_COMMENT Need to allow apps/consumers of Alloy contribute to the themeing model for their own/custom controls
+// The approach is for Alloy to provide primitives (color themes and styles) that a consuming app then hydrates (and extends if needed for the app specific custom controls or theming/coloring)
+// Consumers of Alloy will now be required to:
+//      1) Declare their dark theme by at least pulling in the alloy _dark.scss file. They can optionally add after it their own color vars & class/styles dark theme scss files.
+//      2) Declare their own light theme by wrapping in a "body" element and ".light" class combo with their own ligth scheme definition + the Alloy light theme
+//      3) "Declare" their own color theme essentially means having distinct color var .scss file along with two copies of their style/classes scss file in the context of the distinct color themes. 
+//      4) See the Alloy Angular demo apps _styles.scss file as an example. 
+
+
+//NOTE: Dark is the default and doesn't need to be wrapped in a "body" element + ".light" class combination. We exclude it here just like the light theme to be very explicit to the app that consumes Alloy.
+//Pull in the Alloy provided dark colors and styles for the Alloy controls
+// TODO This path should get you to the node_modules/@keysight/alloy/scss/themes/_dark.scss. If not tweak this line.
+@import '~@keysight/alloy/scss/themes/_dark.scss';
+
+//Now pull in any contribution to the color vars the app may want to make for the over all dark experience
+// TODO This path should point to your app specific dark color vars file, if any. Name the path/file whatever you'd like. 
+@import "styles_app_darkcolors.scss";
+
+//Now pull in any contribution to the control classes/styles the app may want to make for the over all dark experience
+// TODO This path should point to your app specific styles/classes file, if any. Name the path/file whatever you'd like. 
+@import "styles_app.scss";
+
+//IMPORTANT: As noted above this is the non default color scheme and therefore needs to be wrapped in a "body" element + ".light" class combination in the calling app.
+body 
+{
+  &.light 
+  {
+        //NOTE: Light is the non default and needs to be wrapped in a "body" element + ".light" class combination
+
+        //Pull in the Alloy provided light colors and styles for the Alloy controls
+        // TODO This path should get you to the node_modules/@keysight/alloy/scss/themes/_light.scss. If not tweak this line.
+        @import '~@keysight/alloy/scss/themes/_light.scss';
+
+        //Now pull in any contribution to the color vars the app may want to make for the over all light experience
+        // TODO This path should point to your app specific styles/classes file, if any. Name the path/file whatever you'd like. 
+        @import "styles_app_lightcolors.scss";
+
+        // NOTE: yes you guessed it, an entire copy of the app specific styles/classes 
+        // need to be insantiated in the context of the light color vars palette. 
+        // Without that the statically generated css won't know how to actually switch 
+        // color themes. Unlike dynaic variables that are modified and noticed at runtime
+        // the only way CSS has is to create to two full copies of Alloy + App specific 
+        // styling each with their own hard coded set of colors.
+        // NOTE: The new CSS Variables feature (sometimes called dynamic properties) 
+        // does support runtime edit/notify/reaction support for real runtime variables
+        // but not all the browsers we care about (IE11) support it as its a relatively
+        // new feature
+
+        //Now pull in any contribution to the control classes/styles the app may want to make for the over all light experience
+        // TODO This path should point to your app specific styles/classes file, if any. Name the path/file whatever you'd like. 
+        @import "styles_app.scss";
+  }
+}

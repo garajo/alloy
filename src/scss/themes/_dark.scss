@@ -287,6 +287,7 @@ $icon-pack: (
         // Title Bar
         logo:                                 inline-image("#{$icons}/logo.png"),
         logo-full:                            inline-image("#{$dark-icons}/logo-full.png"),
+        brand-sign:                           inline-image("#{$dark-icons}/keysight-brand-signature.png"),  
         close-x:                              inline-image("#{$icons}/close-x.png"),
         close-x-hover:                        inline-image("#{$icons}/close-x.png"),
         close-x-active:                       inline-image("#{$icons}/close-x.png"),
@@ -353,9 +354,6 @@ $icon-pack: (
         scroll-caret-down:                    inline-image("#{$dark-icons}/scroll-caret-down.png"),
         scroll-caret-down-hover:              inline-image("#{$dark-icons}/scroll-caret-down-hover.png"),
         scroll-caret-down-active:             inline-image("#{$dark-icons}/scroll-caret-down-hover.png"),
-
-        brand-sign:                           inline-image("#{$dark-icons}/keysight-brand-signature.png")
-
 );
 
 @import "../components/_styles";
