@@ -30,16 +30,24 @@
             <span class="mag-glass"></span>
           </div>
 
-          <alloy-property-grid [gridOption]="gridOption" [nodeModel]="rowData" [styledControls]='editors' [validators]='validators'
-            [validatorMessages]='validatorMessages' (updateDataEvent)='onUpdate($event)'>
-          </alloy-property-grid>
+          <!-- The description box by default is in disabled mode -->
+            <alloy-property-grid 
+                [gridOption]="gridOption" 
+                [nodeModel]="rowData" 
+                [styledControls]='editors' 
+                [validators]='validators'
+                [validatorMessages]='validatorMessages'
+                (updateDataEvent)='onUpdate($event)'
+                [enableDescription]='true'>
+            </alloy-property-grid>
 
-          <!-- If/when we decide to turn on the summary description stuff this is how you do it. Borrrowed from the Alloy HTML demo app-->
-          <div class="splitter"></div>
-          <div class="property">
-            <span class="property-header">Selected Item (behavior not implemented)</span>
-            <p>Label and definition of selected item would show up here. </p>
-          </div>
+            <!-- If/when we decide to turn on the summary description stuff this is how you do it. Borrrowed from the Alloy HTML demo app-->
+            <!-- Commented these lines because description box was already built in <alloy-property-grid> -->
+            <!-- <div class="splitter"></div>
+            <div class="property">
+                <span class="property-header">Selected Item (behavior not implemented)</span>
+                <p>Label and definition of selected item would show up here. </p>
+            </div> -->
 
         </aside>
 

@@ -1,7 +1,8 @@
 /*
  * Copyright Keysight Technologies 2017. All rights reserved.
  */
-import { Component,
+import {
+    Component,
     AfterViewInit,
     EventEmitter,
     HostListener,
@@ -10,7 +11,7 @@ import { Component,
     OnInit,
     Output,
     OnDestroy
- } from '@angular/core';
+} from '@angular/core';
 
 import { GridOptions } from 'ag-grid/main';
 import { ValidatorFn } from '@angular/forms';
@@ -27,15 +28,16 @@ import { IPropertyGridOption } from './models/property-grid-option';
 import { ISubscription } from 'rxjs/Subscription';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'alloy-property-grid',
-  templateUrl: './property-grid.component.html'
+    // tslint:disable-next-line:component-selector
+    selector: 'alloy-property-grid',
+    templateUrl: './property-grid.component.html'
 })
 export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
     // tslint:disable:no-any
     public columnDefs: any[] = [];
     public componentType: any[];
     public gridOptions: GridOptions;
+    public pgDescriptionText: { name: string, description: string } = { name: '', description: '' };
     public showGrid: boolean;
     // tslint:enable: no-any
 
@@ -77,6 +79,11 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
     // tslint:disable-next-line:no-any
     @Input() public validatorMessages: any[];
 
+    // 'enableDescription' can be renamed when implementing grid-search so that this Input parameter will hold
+    // both the controls for the property description box and grid-search
+    // tslint:disable-next-line:no-input-rename
+    @Input('enableDescription') public isDescriptionVisible: boolean;
+
     // tslint:disable-next-line:no-any
     @Output() public updateDataEvent = new EventEmitter<any>();
 
@@ -96,12 +103,13 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
 
     // data model creation
     constructor(private typeService: AlloyPropertyGridTypeService,
-                private controlsService: AlloyPropertyGridDynamicControlService,
-                private outputService: AlloyPropertyGridOutputService,
-                private validatorService: AlloyPropertyGridValidatorService,
-                private messageService: AlloyPropertyGridMessageService) {
+        private controlsService: AlloyPropertyGridDynamicControlService,
+        private outputService: AlloyPropertyGridOutputService,
+        private validatorService: AlloyPropertyGridValidatorService,
+        private messageService: AlloyPropertyGridMessageService) {
         this.showGrid = true;
-        this.gridOptions = <GridOptions> {};
+        this.gridOptions = <GridOptions>{};
+        this.isDescriptionVisible = false; // description box by default is not enabled
 
         // set the options
         this.gridOptions = {
@@ -191,7 +199,7 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
                         params.node.data.values) {
                         // each drop item has 40 pxcel, plus top item and extra gap height has 40(=32+8) pixel
                         const heightString = String(params.node.data.values.length * 40 + 40) + 'px';
-                        return { height: heightString};
+                        return { height: heightString };
                     } else {
                         return null;
                     }
@@ -201,7 +209,7 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
 
         // receive changed value with payload from AlloyPropertyGridEditorViewerComponent via outputService
         this.subscription = this.outputService.getOutput()
-            .subscribe( (packedPayload) => {
+            .subscribe((packedPayload) => {
                 // tslint:disable-next-line:no-unused-variable
                 const [payload, params, isKeyEnter] = packedPayload;
                 // tslint:disable-next-line:no-unused-variable
@@ -315,7 +323,7 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
         //         this.typeService.sendType(this.componentType[1]);
         //     break;
         // }
-    //    event.stopImmediatePropagation();
+        //    event.stopImmediatePropagation();
     }
 
     // tslint:disable-next-line:no-any
@@ -335,7 +343,7 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
     // row click event listner
     // tslint:disable-next-line:no-any
     public onRowClicked($event: any): void {
-
+        this.pgDescriptionText = $event.node.data;
         // I need it in the future
         // console.log('onRowClicked: '.concat($event.node.data.typeName));
         // console.log('title: '.concat($event.node.data.title));
@@ -391,7 +399,7 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
     // tslint:disable-next-line:no-any
     public getStyles(): any {
         let styles = {
-            'width':  this.internalGridOption ? this.internalGridOption.width : '400px',
+            'width': this.internalGridOption ? this.internalGridOption.width : '400px',
             'height': this.internalGridOption ? this.internalGridOption.height : '600px',
             'margin-left': 'auto',
             'margin-right': 'auto'

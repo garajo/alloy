@@ -19,11 +19,13 @@ import { EnumerationUtility } from './editors/services/enumeration.utility';
 import { ISubscription } from 'rxjs/Subscription';
 
 @Component({
+    // tslint:disable-next-line:component-selector
     selector: 'client-property-editor',
     templateUrl: './property-editor.component.html'
 })
 
 export class PropertyEditorComponent implements OnInit, OnDestroy {
+    public pgDescriptionText: { name: string, description: string } = { name: '', description: '' };
     public testStepName: Observable<string>;
     // tslint:disable-next-line:no-any
     public rowData:         (AlloyPropertyGridGroupRow | AlloyPropertyGridPropertyRow) [] = [];
