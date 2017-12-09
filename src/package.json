@@ -19,16 +19,16 @@
   "module": "alloy.js",
   "typings": "alloy.d.ts",
   "dependencies": {
-    "foundation-sites": "=6.3.1",
+    "@angular/cdk": "=2.0.0-beta.11",
+    "@angular/material": "=2.0.0-beta.11",
     "ag-grid": "13.0.x",
     "ag-grid-angular": "13.0.x",
+    "foundation-sites": "=6.3.1",
     "ts-keycode-enum": "=1.0.4"
   },
   "devDependencies": {},
   "peerDependencies": {
     "@angular/animations": "^4.3.1",
-    "@angular/material": "^2.0.0-beta.11",
-    "@angular/cdk": "^2.0.0-beta.11",
     "@angular/common": "^4.3.1",
     "@angular/core": "^4.3.1",
     "@angular/forms": "^4.3.1",
