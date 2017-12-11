@@ -282,6 +282,10 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
             this.validatorService.setValidator(this.validators, this.validatorMessages);
         }
 
+        // Reset description box when PG data change
+        if (this.isDescriptionVisible) {
+            this.pgDescriptionText = { name: '', description: '' };
+        }
     }
 
     // cell click event listner
