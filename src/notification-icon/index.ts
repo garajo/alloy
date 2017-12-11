@@ -16,4 +16,6 @@ import { AlloyNotificationIcon } from './notification-icon';
 })
 export class AlloyNotificationIconModule { }
 
-export * from './notification-icon';
+// those specific export names help to remove Consumer side's "ng build --aot=true" warning errors
+// export * from './notification-icon';
+export { AlloyNotificationIcon } from './notification-icon';
