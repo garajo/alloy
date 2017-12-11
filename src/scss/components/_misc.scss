@@ -94,8 +94,8 @@
     // JEFF_TODO ALLOY_PR this makes error messages look a LOT like input boxes, is that confusing?
     // border: 1px solid map_get($color-palette, input-text-border-error);
 
-    //This callout-font-color-alt comes from the Alloy _settings.scss file (copied from Foundation). Need update settings vars to match caranu colors. 
-    color: $callout-font-color-alt;
+    // JEFF_TODO ALLOY_PR Need to leverage the existing Foundation vars for callout alerts and set their values in light/dark scheme files
+    color: map_get($color-palette, input-text-color);
 
     // Caranu spec pg. 22 padding for error text boxes calls for 9px 12px but the 9px top/bottom padding seems a little too large.
     // Plus most of our buttons and text fields and labels that errors may show up next to are total height of 32px. Padding of 4.5
