@@ -1,3 +1,4 @@
+// Original class level styles that UPro contractor did for us
 @import "_mixins";
 @import "_typography";
 @import "_input";
@@ -19,12 +20,12 @@
 @import "_about-box";
 @import "_dialog";
 
-//JEFF Added additional control styles
+//Additional control styles that were added to Alloy
 
-@import "_property-grid"; //Type style for the ag-grid control
-//JEFF_LABELS Need to ensure this is after typography as it uses vars from there
-@import "label";
-
-@import "_notification-icon";
-@import "_textbox"; //Style for textbox.
-@import "_textarea"; //Style for the textarea.
+@import "label";                //Need to ensure this is after typography as it uses vars from there
+@import "_notification-icon";   //Style for notification-icon
+@import "_textbox";             //Style for textbox.
+@import "_textarea";            //Style for the textarea.
+@import "_property-grid";       //**IMPORTANT** This style needs to come last. It is a complex control that overrides styles of basic controls as well as inserting its styling
+                                // into the ag-grid control style system. For example putting textbox (or others) would clobber it's "tweaks" to have borderless textboxes when textboxes
+                                // are instantiated in the context of a property grid
