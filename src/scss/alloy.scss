@@ -14,6 +14,10 @@ body {
 
         // Pull in Alloy light theme but wrap it here in its body/.light combo. This allows for the customized version of Alloy light to be imported without the body/light combo
         @import 'themes/_light.scss'; 
+
+        //Need to put these body level properties here. Dark puts them in the _dark.scss but doesn't have the requirement of scoping them with the .light class
+        background:             $white;
+        color:                  $smoky;
    }
 }
 

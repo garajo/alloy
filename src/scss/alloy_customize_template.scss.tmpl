@@ -44,6 +44,10 @@ body
         // TODO This path should get you to the node_modules/@keysight/alloy/scss/themes/_light.scss. If not tweak this line.
         @import '~@keysight/alloy/scss/themes/_light.scss';
 
+        //Need to put these body level properties here. Dark puts them in the _dark.scss but doesn't have the requirement of scoping them with the .light class
+        background:             $white;
+        color:                  $smoky;
+        
         //Now pull in any contribution to the color vars the app may want to make for the over all light experience
         // TODO This path should point to your app specific styles/classes file, if any. Name the path/file whatever you'd like. 
         @import "styles_app_lightcolors.scss";
