@@ -281,11 +281,6 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
         if (this.validators) {
             this.validatorService.setValidator(this.validators, this.validatorMessages);
         }
-
-        // Reset description box when PG data change
-        if (this.isDescriptionVisible) {
-            this.pgDescriptionText = { name: '', description: '' };
-        }
     }
 
     // cell click event listner
@@ -344,13 +339,25 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
     public onCellEditingStarted($event: any): void {
         this.messageService.publishEditCell();
     }
-    // row click event listner
+
+    // row click event listner (mouseClick event only)
     // tslint:disable-next-line:no-any
     public onRowClicked($event: any): void {
-        this.pgDescriptionText = $event.node.data;
         // I need it in the future
         // console.log('onRowClicked: '.concat($event.node.data.typeName));
         // console.log('title: '.concat($event.node.data.title));
+    }
+
+    // Fix pgDescriptionText when user tried to do a copy from <Inputbox A>
+    // and paste into <Inputbox B>, pgDescriptionText do not get updated
+    // Problem is caused by user actions not performing a rowClick(mouseClick event). Instead its a mouseDown event.
+    public onCellFocused($event: any): void {
+        if (this.isDescriptionVisible) {
+            const rowData = this.gridOptions.api.getDisplayedRowAtIndex($event.rowIndex);
+            if (rowData && rowData.hasOwnProperty('data')) {
+                this.pgDescriptionText = rowData.data;
+            }
+        }
     }
 
     // tslint:disable-next-line:no-any
@@ -426,4 +433,12 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
             });
         }
     }
+
+    // needed to test something later
+    // public clearDescriptionBox(): void {
+    //     // Reset description box when needed
+    //     if (this.isDescriptionVisible) {
+    //         this.pgDescriptionText = { name: '', description: '' };
+    //     }
+    // }
 }
