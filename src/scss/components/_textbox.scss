@@ -59,6 +59,13 @@ input[type="text"] {
     pointer-events: none;
   }
 
+  &:read-only {
+    border: 1px solid map_get($color-palette, input-text-border);
+
+    background-color: map_get($color-palette, input-text-bg);
+
+  }
+
   &.has-error {
     border: 1px solid map_get($color-palette, input-text-border-error);
 
