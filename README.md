@@ -19,10 +19,15 @@ Watch [Jason Aden's talk](https://www.youtube.com/watch?v=unICbsPGFIA) to learn 
 ## Implementation status
 List of components and implementation states with comments:
 
-| Name            | dir          | docs                                                                               | Comments                                  |
-| --------------- | ------------ | ---------------------------------------------------------------------------------- | ----------------------------------------- |
-| dropdown        | [src/dropdown](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/dropdown) | [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/dropdown/README.md) | Major functionality implemented|
-| checkbox        | [src/checkbox](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/checkbox) | [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/checkbox/README.md) | Major functionality implemented|
+| Name              | dir          | docs                                                                                       | Comments                                  |
+| ---------------   | ------------ | ----------------------------------------------------------------------------------         | ----------------------------------------- |
+| dropdown          | [src/dropdown](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/dropdown)         | [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/dropdown/README.md) | Major functionality implemented|
+| checkbox          | [src/checkbox](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/checkbox)         | [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/checkbox/README.md) | Major functionality implemented|
+| notification icon | [src/notification-icon](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/notification-icon)| [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/notification-icon/README.md) | Major functionality implemented|
+| about box         | [src/about-box](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/about-box)        | [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/about-box/README.md) | Major functionality implemented|
+| text area         | [src/textarea](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/textarea)         | [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/textarea/README.md) | Major functionality implemented|
+| text box          | [src/textbox](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/textbox)          | [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/textbox/README.md) | Major functionality implemented|
+
 
 ## Installation and Consuming the library
 

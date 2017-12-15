@@ -176,7 +176,7 @@ $color-palette: (
         input-text-border-error:                  #E03030,
         input-text-highlight-bg:                  #2E4585,
         input-text-highlight-color:               $white,
-        input-text-disabled-opacity:              0.52,                   //Since the spec declares this in decimal we will leave it without its own var
+        input-text-disabled-opacity:              0.52,                     //Since the spec declares this in decimal we will leave it without its own var        
         input-text-disabled-color:                rgba($black,0.36),      //Since the spec declares this in decimal we will leave it without its own var
 
         // -- Radios
@@ -289,7 +289,10 @@ $color-palette: (
         dialog-title-bar-color:                   $cornflower-blue,
         dialog-title-bar-gradient-top:            $zircon,
         dialog-title-bar-gradient-bottom:         $quartz,
-        dialog-title-bar-border-bottom:           rgba(#131B40, $opacity-HEX4C)
+        dialog-title-bar-border-bottom:           rgba(#131B40, $opacity-HEX4C),
+
+        // checkbox
+        checkbox-disabled-opacity:                 0.52
     );
 
 // Images & Icons

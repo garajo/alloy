@@ -19,6 +19,9 @@ export class AlloyCheckbox {
     /** Whether or not the checkbox is checked */
     private _isChecked = false;
 
+    /** Whether or not the checkbox label/ icon is hovered upon */
+    private _isHovered = false;
+
     /** Checkbox label */
     private _label = '';
 
@@ -39,6 +42,13 @@ export class AlloyCheckbox {
         this._isDisabled = value;
     }
 
+    /** Input boolean to set the checkbox in hovered state */
+    @Input()
+    get hovered() { return this._isHovered; }
+    set hovered(value: boolean) {
+        this._isHovered = value;
+    }
+
     /** Checkbox label to be shown */
     @Input()
     get label() { return this._label; }
@@ -54,12 +64,22 @@ export class AlloyCheckbox {
     }
 
     /** Determines whether icon needs to be displayed */
-    showIcon() : boolean {
+    showIcon(): boolean {
         return this._iconSource !== '';
     }
 
     /** Determines whether label needs to be displayed */
-    showLabel() : boolean {
+    showLabel(): boolean {
         return this._label !== '';
+    }
+
+    /** Toggles the enabled/disabled states of the checkbox */
+    toggle(): void {
+        this._isChecked = !this._isChecked;
+    }
+
+    /** Toggles the hovered state of the checkbox when it's label or icon is hovered upon */
+    toggleHover(): void {
+        this._isHovered = !this._isHovered;
     }
 }

@@ -158,6 +158,7 @@ $color-palette: (
         button-dropdown-lightweight-color-active: $cornflower-blue,
 
         // Input
+        input-text-disabled-opacity:              0.3,                                    //leave disabled opacity in decimal since the Caranu spec does            
         input-text-border:                        rgba($glitter,$opacity-HEX4C),
         input-text-bg:                            rgba($black,$opacity-HEX33),
         input-text-color:                         $white,
@@ -167,7 +168,6 @@ $color-palette: (
         input-text-bg-error:                      #2B0A0A,
         input-text-border-error:                  #E03030,
         input-text-highlight-bg:                  $jacksons-purple,
-        input-text-disabled-opacity:              0.3,                                    //leave disabled opacity in decimal since the Caranu spec does    
         input-text-disabled-color:                $white,
         // -- Radios
         radio-border:                             $french-gray,
@@ -275,7 +275,10 @@ $color-palette: (
 
         // notification Icon
         notification-icon-body:                   $white,
-        notification-icon-ellipse:                $cornflower-blue
+        notification-icon-ellipse:                $cornflower-blue,
+
+        // checkbox
+        checkbox-disabled-opacity:                0.3
 );
 
 // Images & Icons
