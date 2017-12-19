@@ -1,0 +1,52 @@
+<div class="tabs-panel is-active">
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h3>Switcher</h3>
+                <br>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns small-3" align="center">
+                <alloy-switcher (onSwitchListener)="onSwitch($event)" [onSwitchStatus]="switchStatus" [disabled]="switchDisabled"></alloy-switcher>
+                <label>Switcher is {{switchStatusText}}</label>
+            </div>
+            <div class="columns small-3">  
+                <div class="row">
+                    <h6>Change Theme</h6>
+                </div><br>
+                <div class="row">
+                    <div class="columns small-6">
+                        <button type="button" class="button-standard" (click)="onSwitch(false)" [ngClass]="{'is-pressed': !switchStatus}">Dark</button>
+                    </div>
+                    <div class="columns small-6">
+                        <button type="button" class="button-standard" (click)="onSwitch(true)" [ngClass]="{'is-pressed': switchStatus}">Light</button>                           
+                    </div>                    
+                </div><br>
+                <div class="row">
+                    <p>Theme of page changes as switcher slides. Theme is dark when switcher is off and light when on.</p>
+                </div><br>
+                <div class="row">
+                    <h6>Disable Switcher</h6>
+                </div><br>
+                <div class="row">
+                    <div class="columns small-6">
+                        <button type="button" class="button-standard" (click)="disabled()" [ngClass]="{'is-pressed': switchDisabled}">Disable</button>                           
+                    </div>
+                </div><br>
+                <div class="row">
+                    <p>Both switcher and buttons are disabled to change theme.</p>
+                </div>
+            </div>
+            <div class="columns small-6">
+                <pre ngNonBindable>
+&lt;alloy-switcher
+    [onSwitchStatus]="onSwitchStatus"
+    [disabled]="switchDisabled"
+    (onSwitchListener)="onSwitch($event)"&gt;
+&lt;/alloy-switcher&gt;
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>

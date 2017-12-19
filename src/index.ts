@@ -13,4 +13,5 @@ export * from './checkbox/index';
 export * from './notification-icon/index';
 export * from './property-grid/index';
 export * from './textbox/index';
+export * from './switcher/index';
 export * from './textarea/index';

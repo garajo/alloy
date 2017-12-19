@@ -8,6 +8,7 @@ import { NotificationIconPageComponent } from './components/notification-icon-pa
 import { PropertyEditorComponent } from './components/property-page/property-editor.component';
 import { TextboxPageComponent } from './components/textbox-page/textbox-page.component';
 import { TextareaPageComponent } from './components/textarea-page/textarea-page.component';
+import { SwitcherPageComponent } from 'app/components/switcher-page/switcher-page.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'dropdowns', pathMatch: 'full' },
@@ -16,8 +17,9 @@ const routes: Routes = [
     { path: 'checkbox', component: CheckboxPageComponent},
     { path: 'notification-icon', component: NotificationIconPageComponent },
     { path: 'propertygrid', component: PropertyEditorComponent },
+    { path: 'textarea', component: TextareaPageComponent },
+    { path: 'switcher', component: SwitcherPageComponent},
     { path: 'textbox', component: TextboxPageComponent},
-    { path: 'textarea', component: TextareaPageComponent }
 ];
 
 @NgModule({
