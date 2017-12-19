@@ -1,4 +1,11 @@
 .checkbox-container {
+  display: flex;
+  align-items: center;
+
+    .child {
+      padding-left: 5px;
+    }
+
     .has-label {
         @extend .alloy-controls-font;
     }

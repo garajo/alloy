@@ -1,12 +1,12 @@
-<div class="row align-middle small-collapse checkbox-container">
-    <div class="checkbox small-1 columns">
+<div class="checkbox-container">
+    <div class="checkbox">
         <input type="checkbox" [ngClass]="{'is-hovered': hovered}" [checked]="checked" [disabled]="disabled" />
         <span></span>
     </div>
-    <div class="small-2 columns" *ngIf="showIcon()">
+    <div class="child" *ngIf="showIcon()">
         <img class="has-icon" (click)="toggle()" (mouseover)="toggleHover()" (mouseout)="toggleHover()" [ngClass]="{'disabled': disabled}" [src]=icon>
     </div>
-    <div class="columns" *ngIf="showLabel()">
+    <div class="child" *ngIf="showLabel()">
         <label class="has-label" (click)="toggle()" (mouseover)="toggleHover()" (mouseout)="toggleHover()" [ngClass]="{'disabled': disabled}">{{ label }}</label>
     </div>
 </div>
