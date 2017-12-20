@@ -13,7 +13,7 @@
                     <alloy-textarea [rows]="rows" [cols]="cols" [width]="width"
                         [height]="height" [disabled]="disabledSimple" [readonly]="readonlySimple" [required]="requiredSimple"
                         [placeholder]="placeholderSimple" [maxlength]="maxlengthSimple" [minlength]="minlengthSimple" 
-                        [autofocus]="autofocusSimple" [resize]="resizeSimple" [spellcheck]="spellcheckSimple" [value]="valueSimple"
+                        [autofocus]="true" [resize]="resizeSimple" [spellcheck]="spellcheckSimple" [value]="valueSimple"
                         [wrap]="wrapSimple">
                     </alloy-textarea>  
                 </form>
@@ -25,24 +25,21 @@
                 </div><br>
                 <div class="row">
                     <div class="columns small-6">
-                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled()" [ngClass]="{'is-pressed': disabledSimple}">Disabled</button>
-                    </div>
-                    <div class="columns small-6">
-                        <button id="autofocus" type="button" class="button-standard" (click)="toggleAutofocus()" [ngClass]="{'is-pressed': autofocusSimple}">Autofocus</button>                           
-                    </div>
-                </div><br>
-                <div class="row">  
-                    <div class="columns small-6">
                         <button id="required" type="button" class="button-standard" (click)="toggleRequired()" [ngClass]="{'is-pressed': requiredSimple}">Required</button>   
                     </div>
-                    <div class="columns small-6"> 
-                        <button id="spellcheck" type="button" class="button-standard" (click)="toggleSpellcheck()" [ngClass]="{'is-pressed': spellcheckSimple}">Spellcheck</button>                                                                                                                                                                                                                                         
+                    <div class="columns small-6">
+                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled()" [ngClass]="{'is-pressed': disabledSimple}">Disabled</button>
                     </div>
                 </div><br>
                 <div class="row">
+                    <div class="columns small-6"> 
+                        <button id="spellcheck" type="button" class="button-standard" (click)="toggleSpellcheck()" [ngClass]="{'is-pressed': spellcheckSimple}">Spellcheck</button>                                                                                                                                                                                                                                         
+                    </div>  
                     <div class="columns small-6">
                         <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly()" [ngClass]="{'is-pressed': readonlySimple}">Readonly</button>                        
                     </div>
+                </div><br>
+                <div class="row align-left">
                     <div class="columns small-6">
                         <button id="resize" type="button" class="button-standard" (click)="toggleResize()" [ngClass]="{'is-pressed': resizeSimple}">Not-Resizable</button>                         
                     </div>
@@ -143,7 +140,7 @@
     [wrap]="wrap"
     [type]="type"
     [value]="value"
-    [autofocus]="autofocus" 
+    [autofocus]="true" 
     [disabled]="disabled" 
     [readonly]="readonly"
     [required]="required"

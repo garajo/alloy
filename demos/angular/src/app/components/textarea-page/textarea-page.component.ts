@@ -17,7 +17,6 @@ export class TextareaPageComponent {
   disabledSimple: boolean = false;
   readonlySimple: boolean = false;
   requiredSimple: boolean = false;
-  autofocusSimple: boolean = false;
   spellcheckSimple: boolean = false;
   maxlengthSimple: number;
   minlengthSimple: number; 
@@ -42,10 +41,6 @@ export class TextareaPageComponent {
 
   toggleRequired() {
     this.requiredSimple = !this.requiredSimple;
-  }
-
-  toggleAutofocus() {
-    this.autofocusSimple = !this.autofocusSimple;
   }
 
   toggleResize() {

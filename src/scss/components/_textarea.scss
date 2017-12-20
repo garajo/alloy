@@ -41,6 +41,12 @@ textarea {
     caret-color: map_get($color-palette, textarea-text-border-active);
   }
 
+  &:read-only {
+    border: 1px solid map_get($color-palette, textarea-text-border);
+
+    background-color: map_get($color-palette, textarea-text-bg);
+  }
+
   &.has-error {
     border: 1px solid map_get($color-palette, textarea-text-border-error);
 
@@ -56,35 +62,6 @@ textarea {
   }
 }
 
-//Ready only text area styling to match the Caranu look 
-textarea[readonly]
-{
-  //Was originally just going to extend the TextBox style but decided against all the active/focus/hover state visual changes. 
-  //Inspired by the static state styling of the TextBox
-
-  //Updated to reflect what Caranu spec says on pg. 27 for main body text inside a container. 
-  // padding: 16px;
-  border: 1px solid map_get($color-palette, textarea-text-border);
-
-  //Need to add the !important here to override what other attributes of textarea may do/apply. For example the readonly attribute sets a light gray background. Need to ensure we clobber it. 
-  background-color: map_get($color-palette, textarea-text-bg);
-
-  color: map_get($color-palette, textarea-text-color);
-  font-family: $body-font-family;
-  font-size: 14px;
-  font-weight: normal;
-
-  &,
-  &:hover,
-  &.is-hovered,
-  &:focus,
-  &.is-focused,
-  &:active,
-  &.is-active {
-    box-shadow: none;
-  }
-}
-
 textarea[disabled] {
   opacity: map_get($color-palette, textarea-text-disabled-opacity);
 
@@ -93,12 +70,4 @@ textarea[disabled] {
   color: map_get($color-palette, textarea-text-disabled-color);
 
   pointer-events: none;
-}
-
-textarea[autofocus] {
-  border: 1px solid map_get($color-palette, textarea-text-border-active);
-
-  background-color: map_get($color-palette, textarea-text-bg-active);
-
-  caret-color: map_get($color-palette, textarea-text-border-active);
 }

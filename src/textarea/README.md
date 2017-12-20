@@ -43,7 +43,7 @@ Defining the dimensions of the textarea can be done either by setting values for
     [wrap]="wrap"
     [type]="type"
     [value]="value"
-    [autofocus]="autofocus" 
+    [autofocus]="true" 
     [disabled]="disabled" 
     [readonly]="readonly"
     [required]="required"
