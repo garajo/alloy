@@ -2,10 +2,9 @@
  * Copyright Keysight Technologies 2017. All rights reserved.
  */
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -13,6 +12,8 @@ import {
   AlloyAboutBox,
   AlloyAboutBoxModule,
   AlloyDropdownModule,
+  AlloyButtonModule,
+  AlloyIconModule,  
   AlloyCheckboxModule,
   AlloyNotificationIconModule,
   AlloyPropertyGridModule,
@@ -26,6 +27,7 @@ import { AboutBoxPageComponent } from './components/about-box-page/about-box-pag
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-page.component';
+import { ButtonPageComponent } from './components/button-page/button-page.component';
 import { CheckboxPageComponent } from './components/checkbox-page/checkbox-page.component';
 import { NotificationIconPageComponent } from './components/notification-icon-page/notification-icon-page.component';
 
@@ -47,8 +49,10 @@ import { SwitcherPageComponent } from './components/switcher-page/switcher-page.
 @NgModule({
   exports: [
     AlloyAboutBoxModule,
+    AlloyButtonModule,  
+    AlloyCheckboxModule,  
     AlloyDropdownModule,
-    AlloyCheckboxModule,
+    AlloyIconModule,  
     AlloyNotificationIconModule,
     AlloySwitcherModule,
     AlloyTextboxModule,
@@ -60,9 +64,11 @@ import { SwitcherPageComponent } from './components/switcher-page/switcher-page.
   imports: [
     MatDialogModule,
     BrowserAnimationsModule,
+    AlloyButtonModule,    
+    AlloyIconModule,    
     AlloyNotificationIconModule,
     AlloyTextboxModule,
-    AlloyTextareaModule
+    AlloyTextareaModule 
   ]
 })
 export class AlloyDemoModule { }
@@ -71,6 +77,7 @@ export class AlloyDemoModule { }
   declarations: [
     AppComponent,
     DropdownsPageComponent,
+    ButtonPageComponent,
     CheckboxPageComponent,
     AboutBoxPageComponent,
     NotificationIconPageComponent,

@@ -76,9 +76,9 @@ $color-palette: (
         button-close-x-active-bg:                 #541313,
         button-close-x-active-box-shadow:         #2B0A0A,
         button-min-max-hover-bg:                  rgba($glitter,$opacity-HEX14),
-        button-min-max-active-bg:                 rgba($black,$opacity-HEX19),                    
+        button-min-max-active-bg:                 rgba($black,$opacity-HEX19),
         button-min-max-active-box-shadow:         rgba($black,$opacity-HEX4C),
-
+        
         // Menus
         menu-title-color:                         $french-gray,
         menu-title-hover-bg:                      rgba($glitter,$opacity-HEX14),
@@ -126,8 +126,10 @@ $color-palette: (
         button-quick-access-hover-bg:             rgba($glitter,$opacity-HEX14),
         button-quick-access-active-border:        rgba($black,$opacity-HEX19),                     
         button-quick-access-active-bg:            rgba($black,$opacity-HEX4C),
+        button-quick-access-disabled-opacity:     0.3,   
+        button-quick-access-disabled-text-color:  $white,
         button-group-box-border:                  rgba($glitter,$opacity-HEX28),
-        button-group-box-bg:                      rgba($black,$opacity-HEX19),                    
+        button-group-box-bg:                      rgba($black,$opacity-HEX19),                 
 
         // Buttons
         // -- Standard

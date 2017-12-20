@@ -128,6 +128,8 @@ $color-palette: (
         button-quick-access-hover-bg:             rgba($hover-blue,$opacity-HEX1E),
         button-quick-access-active-border:        rgba($bunting,$opacity-HEX33),
         button-quick-access-active-bg:            rgba($hover-blue,$opacity-HEX1E),
+        button-quick-access-disabled-opacity:     0.52,                       //Since the spec declares this in decimal we will leave it without its own var
+        button-quick-access-disabled-text-color:  rgba($black,0.36),          //Since the spec declares this in decimal we will leave it without its own var
         button-group-box-border:                  rgba($bunting,$opacity-HEX26),
         button-group-box-bg:                      rgba($white,$opacity-HEX33),
 

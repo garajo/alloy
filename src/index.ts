@@ -7,8 +7,10 @@
 export * from './about-box/index'
 export * from './core';
 
-export * from './dropdown/index';
+export * from './button/index';
 export * from './checkbox/index';
+export * from './dropdown/index';
+export * from './icon/index';
 
 export * from './notification-icon/index';
 export * from './property-grid/index';

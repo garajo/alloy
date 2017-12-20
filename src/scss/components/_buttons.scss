@@ -439,6 +439,19 @@ button {
 
     background-color: map_get($color-palette, button-quick-access-active-bg);
   }
+
+  // ARJUN_NOTE: Alloy quick access buttons don't have a disabled state (they should!) let's add one here.
+  &:disabled,
+  &.is-disabled 
+  {
+      opacity: map_get($color-palette, button-quick-access-disabled-opacity);
+
+      color: map_get($color-palette, button-quick-access-disabled-text-color);
+
+      background-color: transparent;
+
+      pointer-events: none;
+  }
 }
 
 .button-group-box {

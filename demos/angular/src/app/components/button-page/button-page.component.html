@@ -1,0 +1,192 @@
+<div class="tabs-panel is-active">
+
+    <!-- Default Button -->
+    <div class="content-container">
+            <div class="row align-center">
+                <div class="columns small-12">
+                    <h3>Standard Button</h3>
+                    <br>
+                </div>
+            </div>
+            <div class="row align-center">
+                <div class="columns">
+                    <button alloy-button default [disabled]="disabledDefault" [hover]="hoveredDefault" [active]="clickedDefault">
+                        Default Button
+                    </button>
+                </div>
+                <div class="columns">
+                    <div>
+                        <h5>Button States</h5>
+                        <div>
+                            <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledDefault()" [ngClass]="{'is-pressed': disabledDefault}">Disabled</button>
+                        </div>
+                        <div>
+                            <button id="hover" type="button" class="button-standard" (click)="toggleHoveredDefault()" [ngClass]="{'is-pressed': hoveredDefault}">Hover</button>
+                        </div>
+                        <div>
+                            <button id="clicked" type="button" class="button-standard" (click)="toggleClickedDefault()" [ngClass]="{'is-pressed': clickedDefault}">Active</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns small-7">
+                    <pre ngNonBindable>
+    &lt;button alloy-button default 
+        [disabled]=&quot;disabled&quot;
+        [hover]=&quot;hover&quot;
+        [active]=&quot;active&quot;
+        Default Button
+    &lt;/button &gt;
+                    </pre>
+                </div>
+                <div class="row align-center">
+                    <div class="columns small-4">
+                    </div>
+                    <div class="columns small-8">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Toolbar Button -->
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h3>Toolbar Button</h3>
+                <br>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <button alloy-button toolbar [disabled]="disabledToolbar" [hover]="hoveredToolbar" [active]="clickedToolbar">
+                    Toolbar Button
+                    <alloy-icon class='ph-menu-box'></alloy-icon>
+                </button>
+            </div>
+            <div class="columns">
+                <div>
+                    <h5>Button States</h5>
+                    <div>
+                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledToolbar()" [ngClass]="{'is-pressed': disabledToolbar}">Disabled</button>
+                    </div>
+                    <div>
+                        <button id="hover" type="button" class="button-standard" (click)="toggleHoveredToolbar()" [ngClass]="{'is-pressed': hoveredToolbar}">Hover</button>
+                    </div>
+                    <div>
+                        <button id="clicked" type="button" class="button-standard" (click)="toggleClickedToolbar()" [ngClass]="{'is-pressed': clickedToolbar}">Active</button>
+                    </div>
+                </div>
+            </div>
+            <div class="columns small-7">
+                <pre ngNonBindable>
+&lt;button alloy-button toolbar
+    [disabled]=&quot;disabled&quot;
+    [hover]=&quot;hover&quot;
+    [active]=&quot;active&quot;&gt;
+    Toolbar Button
+    &lt;alloy-icon class=&quot;ph-menu-box&quot;&gt;&lt;/alloy-icon&gt;
+&lt;/button&gt;
+                </pre>
+            </div>
+            <div class="row align-center">
+                <div class="columns small-4">
+                </div>
+                <div class="columns small-8">
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Standard Button -->
+      <div class="content-container">
+            <div class="row align-center">
+                <div class="columns small-12">
+                    <h3>Standard Button</h3>
+                    <br>
+                </div>
+            </div>
+            <div class="row align-center">
+                <div class="columns">
+                    <button alloy-button standard [disabled]="disabledStandard" [hover]="hoveredStandard" [active]="clickedStandard">
+                        Standard Button
+                    </button>
+                </div>
+                <div class="columns">
+                    <div>
+                        <h5>Button States</h5>
+                        <div>
+                            <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledStandard()" [ngClass]="{'is-pressed': disabledStandard}">Disabled</button>
+                        </div>
+                        <div>
+                            <button id="hover" type="button" class="button-standard" (click)="toggleHoveredStandard()" [ngClass]="{'is-pressed': hoveredStandard}">Hover</button>
+                        </div>
+                        <div>
+                            <button id="clicked" type="button" class="button-standard" (click)="toggleClickedStandard()" [ngClass]="{'is-pressed': clickedStandard}">Active</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns small-7">
+                    <pre ngNonBindable>
+    &lt;button alloy-button regular 
+        [disabled]=&quot;disabled&quot;
+        [hover]=&quot;hover&quot;
+        [active]=&quot;active&quot;
+        Standard Button
+    &lt;/button &gt;
+                    </pre>
+                </div>
+                <div class="row align-center">
+                    <div class="columns small-4">
+                    </div>
+                    <div class="columns small-8">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- Quick Access Button -->
+      <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h3>Quick Access Button</h3>
+                <br>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <button alloy-button quickaccess [disabled]="disabledQuickAccess" [hover]="hoveredQuickAccess" [active]="clickedQuickAccess">
+                    <alloy-icon class='ph-menu-box'></alloy-icon>
+                </button>
+            </div>
+            <div class="columns">
+                <div>
+                    <h5>Button States</h5>
+                    <div>
+                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledQuickAccess()" [ngClass]="{'is-pressed': disabledQuickAccess}">Disabled</button>
+                    </div>
+                    <div>
+                        <button id="hover" type="button" class="button-standard" (click)="toggleHoveredQuickAccess()" [ngClass]="{'is-pressed': hoveredQuickAccess}">Hover</button>
+                    </div>
+                    <div>
+                        <button id="clicked" type="button" class="button-standard" (click)="toggleClickedQuickAccess()" [ngClass]="{'is-pressed': clickedQuickAccess}">Active</button>
+                    </div>
+                </div>
+            </div>
+            <div class="columns small-7">
+                <pre ngNonBindable>
+&lt;button alloy-button quickaccess
+    [disabled]=&quot;disabled&quot;
+    [hover]=&quot;hover&quot;
+    [active]=&quot;active&quot;
+    &lt;alloy-icon class=&quot;ph-menu-box&quot;&gt;&lt;/alloy-icon&gt;    
+&lt;/button &gt;
+                </pre>
+            </div>
+            <div class="row align-center">
+                <div class="columns small-4">
+                </div>
+                <div class="columns small-8">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
