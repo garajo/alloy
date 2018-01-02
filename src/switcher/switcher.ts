@@ -2,8 +2,7 @@ import { Component, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
     selector: 'alloy-switcher',
-    templateUrl: './switcher.html',
-    styleUrls: ['./switcher.scss']
+    templateUrl: './switcher.html'
 })
 
 export class AlloySwitcher {

@@ -3,8 +3,7 @@ declare function require(name: string): string;
 
 @Component({
     selector: 'app-dropdowns-page',
-    templateUrl: './dropdowns-page.component.html',
-    styleUrls: ['./dropdowns-page.component.scss']
+    templateUrl: './dropdowns-page.component.html'
 })
 export class DropdownsPageComponent implements OnInit {
     private id = 0;

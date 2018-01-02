@@ -4,8 +4,7 @@ import { AlloyAboutBox } from '@keysight/alloy';
 
 @Component({
     selector: 'app-about-box-page',
-    templateUrl: './about-box-page.component.html',
-    styleUrls: ['./about-box-page.component.scss']
+    templateUrl: './about-box-page.component.html'
 })
 export class AboutBoxPageComponent implements OnInit {
 

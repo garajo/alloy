@@ -3,8 +3,7 @@ declare function require(name: string): string;
 
 @Component({
     selector: 'app-checkbox-page',
-    templateUrl: './checkbox-page.component.html',
-    styleUrls: ['./checkbox-page.component.scss']
+    templateUrl: './checkbox-page.component.html'
 })
 export class CheckboxPageComponent implements OnInit {
 

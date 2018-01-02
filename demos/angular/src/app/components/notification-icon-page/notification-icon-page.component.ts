@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-notification-icon-page',
-  templateUrl: './notification-icon-page.component.html',
-  styleUrls: ['./notification-icon-page.component.scss']
+  templateUrl: './notification-icon-page.component.html'
 })
 export class NotificationIconPageComponent {
 

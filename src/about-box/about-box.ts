@@ -11,8 +11,7 @@ import { MatDialogRef} from '@angular/material';
   moduleId: module.id,
   selector: 'alloy-about-box',
   templateUrl: './about-box.html',
-  styleUrls: ['./about-box.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class AlloyAboutBox implements OnInit {
 

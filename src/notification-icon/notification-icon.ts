@@ -8,8 +8,7 @@ import {
     moduleId: module.id,
     selector: 'alloy-notification-icon',
     templateUrl: './notification-icon.html',
-    styleUrls: ['./notification-icon.scss'],
-    encapsulation: ViewEncapsulation.None,
+    encapsulation: ViewEncapsulation.None
 })
 export class AlloyNotificationIcon {
 

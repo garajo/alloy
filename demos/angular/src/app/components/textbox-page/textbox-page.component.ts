@@ -3,8 +3,7 @@ import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-textbox-page',
-  templateUrl: './textbox-page.component.html',
-  styleUrls: ['./textbox-page.component.scss']
+  templateUrl: './textbox-page.component.html'
 })
 export class TextboxPageComponent implements OnInit {
   

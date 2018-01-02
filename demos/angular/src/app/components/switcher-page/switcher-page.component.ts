@@ -3,8 +3,7 @@ import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-switcher-page',
-  templateUrl: './switcher-page.component.html',
-  styleUrls: ['./switcher-page.component.scss']
+  templateUrl: './switcher-page.component.html'
 })
 export class SwitcherPageComponent {
   switchStatus = false;

@@ -94,9 +94,8 @@ export class AlloyDropdownChange {
     moduleId: module.id,
     selector: 'alloy-dropdown',
     templateUrl: './dropdown.html',
-    styleUrls: ['./dropdown.scss'],
     inputs: ['color'],
-    encapsulation: ViewEncapsulation.None,
+    encapsulation: ViewEncapsulation.None
 })
 export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     ControlValueAccessor {

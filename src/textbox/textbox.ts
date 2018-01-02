@@ -10,8 +10,7 @@ import {NgForm} from '@angular/forms';
     moduleId: module.id,
     selector: 'alloy-textbox',
     templateUrl: './textbox.html',
-    styleUrls: ['./textbox.scss'],
-    encapsulation: ViewEncapsulation.None,
+    encapsulation: ViewEncapsulation.None
 })
 export class AlloyTextbox {
 

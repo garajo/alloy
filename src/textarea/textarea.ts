@@ -8,8 +8,7 @@ import {
     moduleId: module.id,
     selector: 'alloy-textarea',
     templateUrl: './textarea.html',
-    styleUrls: ['./textarea.scss'],
-    encapsulation: ViewEncapsulation.None,
+    encapsulation: ViewEncapsulation.None
 })
 export class AlloyTextarea {
 

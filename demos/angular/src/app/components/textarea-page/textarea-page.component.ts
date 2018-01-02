@@ -3,8 +3,7 @@ declare function require(name: string): string;
 
 @Component({
   selector: 'app-textarea-page',
-  templateUrl: './textarea-page.component.html',
-  styleUrls: ['./textarea-page.component.scss'],
+  templateUrl: './textarea-page.component.html'
 
 })
 export class TextareaPageComponent {

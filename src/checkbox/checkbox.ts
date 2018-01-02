@@ -8,8 +8,7 @@ import {
     moduleId: module.id,
     selector: 'alloy-checkbox',
     templateUrl: './checkbox.html',
-    styleUrls: ['./checkbox.scss'],
-    encapsulation: ViewEncapsulation.None,
+    encapsulation: ViewEncapsulation.None
 })
 export class AlloyCheckbox {
 
