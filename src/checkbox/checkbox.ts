@@ -74,7 +74,9 @@ export class AlloyCheckbox {
 
     /** Toggles the enabled/disabled states of the checkbox */
     toggle(): void {
-        this._isChecked = !this._isChecked;
+        if (!this._isDisabled) {
+            this._isChecked = !this._isChecked;
+        }
     }
 
     /** Toggles the hovered state of the checkbox when it's label or icon is hovered upon */
