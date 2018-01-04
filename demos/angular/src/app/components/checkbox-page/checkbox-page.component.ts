@@ -13,6 +13,11 @@ export class CheckboxPageComponent implements OnInit {
     checkedIcon = false;
     disabledMixed = false;
     checkedMixed = false;
+    checkedErrorIcon = false;
+    disabledErrorIcon = false;
+    // Turn the error checkbox into the error state by default
+    errorsErrorIcon = true;
+
     placeholder = 'This is a checkbox';
     iconSrc = '../../assets/userProfLogo.png';
 
@@ -40,6 +45,18 @@ export class CheckboxPageComponent implements OnInit {
 
     toggleCheckedMixed() {
         this.checkedMixed = !this.checkedMixed;
+    }
+
+    toggleCheckedErrorIcon() {
+        this.checkedErrorIcon = !this.checkedErrorIcon;
+    }
+
+    toggleDisabledErrorIcon() {
+        this.disabledErrorIcon = !this.disabledErrorIcon;
+    }
+
+    toggleErrorsErrorIcon() {
+        this.errorsErrorIcon = !this.errorsErrorIcon;
     }
 
     ngOnInit() {

@@ -1,16 +1,24 @@
 import {
     Input,
     Component,
-    ViewEncapsulation
+    forwardRef
 } from '@angular/core';
+
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
     moduleId: module.id,
     selector: 'alloy-checkbox',
     templateUrl: './checkbox.html',
-    encapsulation: ViewEncapsulation.None
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => AlloyCheckbox),
+            multi: true
+        }
+    ]
 })
-export class AlloyCheckbox {
+export class AlloyCheckbox implements ControlValueAccessor {
 
     /** Whether or not the checkbox is disabled  */
     private _isDisabled = false;
@@ -21,17 +29,40 @@ export class AlloyCheckbox {
     /** Whether or not the checkbox label/ icon is hovered upon */
     private _isHovered = false;
 
+    /** Whether or not the checkbox is in the error state */
+    private _isErrors = false;
+
     /** Checkbox label */
     private _label = '';
 
     /** Checkbox icon */
     private _iconSource = '';
 
+    /** ControlValueAccessor interface implementation */
+    onChange: any = () => { };
+    onTouched: any = () => { };
+
+    registerOnChange(fn) {
+        this.onChange = fn;
+    }
+
+    registerOnTouched(fn) {
+        this.onTouched = fn;
+    }
+
+    writeValue(value) {
+        if (value) {
+            this.checked = value;
+        }
+    }
+
     /** Input boolean to check the checkbox */
     @Input()
     get checked() { return this._isChecked; }
     set checked(value: boolean) {
         this._isChecked = value;
+        this.onChange(value);
+        this.onTouched();
     }
 
     /** Input boolean to disable the checkbox */
@@ -46,6 +77,13 @@ export class AlloyCheckbox {
     get hovered() { return this._isHovered; }
     set hovered(value: boolean) {
         this._isHovered = value;
+    }
+
+    /** Input boolean to set the checkbox in error state */
+    @Input()
+    get errors() { return this._isErrors; }
+    set errors(value: boolean) {
+        this._isErrors = value;
     }
 
     /** Checkbox label to be shown */

@@ -23,9 +23,9 @@
             </div>
             <div class="columns small-7">
                 <pre ngNonBindable>
-&lt;alloy-checkbox [label]=&quot;placeholder&quot; [disabled]=&quot;disabled&quot; 
-    [checked]=&quot;checked&quot;&gt;
-&lt;/alloy-checkbox&gt;
+                    &lt;alloy-checkbox [label]=&quot;placeholder&quot; [disabled]=&quot;disabled&quot; 
+                        [checked]=&quot;checked&quot;&gt;
+                    &lt;/alloy-checkbox&gt;
                 </pre>
             </div>
             <div class="row align-center">
@@ -60,10 +60,10 @@
             </div>
             <div class="columns small-7">
                 <pre ngNonBindable>
-    &lt;alloy-checkbox [icon]=&quot;iconSrc&quot; [disabled]=&quot;disabled&quot; 
-        [checked]=&quot;checked&quot;&gt;
-    &lt;/alloy-checkbox&gt;
-                    </pre>
+                    &lt;alloy-checkbox [icon]=&quot;iconSrc&quot; [disabled]=&quot;disabled&quot; 
+                        [checked]=&quot;checked&quot;&gt;
+                    &lt;/alloy-checkbox&gt;
+                </pre>
             </div>
             <div class="row align-center">
                 <div class="columns small-4">
@@ -97,10 +97,48 @@
             </div>
             <div class="columns small-7">
                 <pre ngNonBindable>
-&lt;alloy-checkbox [label]=&quot;placeholder&quot; [icon]=&quot;iconSrc&quot; [disabled]=&quot;disabled&quot; 
-    [checked]=&quot;checked&quot;&gt;
-&lt;/alloy-checkbox&gt;
+                    &lt;alloy-checkbox [label]=&quot;placeholder&quot; [icon]=&quot;iconSrc&quot; [disabled]=&quot;disabled&quot; 
+                        [checked]=&quot;checked&quot;&gt;
+                    &lt;/alloy-checkbox&gt;
                 </pre>
+            </div>
+            <div class="row align-center">
+                <div class="columns small-4">
+                </div>
+                <div class="columns small-8">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Error Checkbox -->
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h3>Error Checkbox</h3>
+                <br>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <alloy-checkbox [errors]="errorsErrorIcon" [label]="placeholder" [disabled]="disabledErrorIcon" [checked]="checkedErrorIcon" >
+                </alloy-checkbox>
+            </div>
+            <div class="columns">
+                <div>
+                    <h6>Checkbox States</h6>
+                    <div>
+                        <button id="checked" type="button" class="button-standard" (click)="toggleCheckedErrorIcon()" [ngClass]="{'is-pressed': checkedErrorIcon}">Checked</button>
+                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledErrorIcon()" [ngClass]="{'is-pressed': disabledErrorIcon}">Disabled</button>
+                        <button id="errors" type="button" class="button-standard" (click)="toggleErrorsErrorIcon()" [ngClass]="{'is-pressed': errorsErrorIcon}">Errors</button>
+                    </div>
+                </div>
+            </div>
+            <div class="columns small-7">
+                <pre ngNonBindable>
+                        &lt;alloy-checkbox [errors]=&quot;errorsErrorIcon&quot; [label]=&quot;placeholder&quot; [disabled]=&quot;disabled&quot; 
+                            [checked]=&quot;checked&quot;&gt;
+                        &lt;/alloy-checkbox&gt;
+                    </pre>
             </div>
             <div class="row align-center">
                 <div class="columns small-4">

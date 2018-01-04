@@ -2,63 +2,77 @@
   display: flex;
   align-items: center;
 
-    .child {
-      padding-left: 5px;
+  label {
+    // See Caranu spec pg. 18 Graphic button as an example. Label should be 10 pixels to the right of any left icon associated with it
+    margin-left: 10px;
+  }
+
+  .has-icon {
+    $height: 24px;
+    $width: 24px;
+
+    @include size($height, $width);
+
+    cursor: default;
+
+    // See Caranu spec pg. 18 Graphic button as an example. Label should be 10 pixels to the right of any left icon associated with it
+    margin-left: 10px;
+  }
+
+  .has-error {
+    //Derive from all the styling above from .has-icon
+    @extend .has-icon;
+    //Pull in the .error class from _iconography which gets us the error icon
+    @extend .error;
+
+    //The global .error icon is invisible by default. Consumers need to turn it on. 
+    display: block;
+
+    // See Caranu spec pg. 22 TextBox error state as an example. Error icon should be 8 pixels to the right of the control it is associated with
+    // NOTE: We have to override the default style (margin) we are picking up from the has-icon style. 
+    margin-left: 8px;
+  }
+
+  .disabled {
+    opacity: map_get($color-palette, checkbox-disabled-opacity);        
+  }
+}
+
+.checkbox {
+    $size: 14px;
+  
+    &,
+    * {
+      @include size($size);
     }
-
-    .has-label {
-        @extend .alloy-controls-font;
-    }
-
-    .has-icon {
-        $height: 24px;
-        $width: 24px;
-
-        @include size($height, $width);
-
-        cursor: default;
+  
+    input[type="checkbox"] {
+      &+ span {
+        margin: 0;
+        
+        display:inline-block;
+        vertical-align: top;
+  
+        background: transparent map_get($icon-pack, checkbox) no-repeat center center / $size;
       }
-
-      .disabled {
-        opacity: map_get($color-palette, checkbox-disabled-opacity);        
+  
+      &:hover + span,
+      &.is-hovered + span {
+        background: transparent map_get($icon-pack, checkbox-hover) no-repeat center center / $size;
+      }
+  
+      &:checked + span {
+        background: transparent map_get($icon-pack, checkbox-checked) no-repeat center center / $size;
+      }
+  
+      &:disabled + span {
+        background: transparent map_get($icon-pack, checkbox-disabled) no-repeat center center / $size;
+  
+        pointer-events: none;
+      }
+  
+      &:checked:disabled + span {
+        background: transparent map_get($icon-pack, checkbox-checked-disabled) no-repeat center center / $size;
       }
     }
-
-    .checkbox {
-        $size: 14px;
-      
-        &,
-        * {
-          @include size($size);
-        }
-      
-        input[type="checkbox"] {
-          &+ span {
-            margin: 0;
-            
-            display:inline-block;
-            vertical-align: top;
-      
-            background: transparent map_get($icon-pack, checkbox) no-repeat center center / $size;
-          }
-      
-          &:hover + span,
-          &.is-hovered + span {
-            background: transparent map_get($icon-pack, checkbox-hover) no-repeat center center / $size;
-          }
-      
-          &:checked + span {
-            background: transparent map_get($icon-pack, checkbox-checked) no-repeat center center / $size;
-          }
-      
-          &:disabled + span {
-            background: transparent map_get($icon-pack, checkbox-disabled) no-repeat center center / $size;
-      
-            pointer-events: none;
-          }
-      
-          &:checked:disabled + span {
-            background: transparent map_get($icon-pack, checkbox-checked-disabled) no-repeat center center / $size;
-          }
-        }
-    }
+}
