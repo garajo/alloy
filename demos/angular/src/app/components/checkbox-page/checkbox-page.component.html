@@ -9,30 +9,27 @@
         </div>
         <div class="row align-center">
             <div class="columns">
-                <alloy-checkbox [label]="placeholder" [disabled]="disabledSimple" [checked]="checkedSimple">
+                <alloy-checkbox [label]="placeholder" [disabled]="disabledSimple" [checked]="checkedSimple" [readonly]="readonlySimple" [errors]="errorsSimple" [errorMessage]="errorMessage">
                 </alloy-checkbox>
             </div>
             <div class="columns">
                 <div>
                     <h6>Checkbox States</h6>
                     <div>
-                        <button id="checked" type="button" class="button-standard" (click)="toggleCheckedSimple()" [ngClass]="{'is-pressed': checkedSimple}">Checked</button>
-                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledSimple()" [ngClass]="{'is-pressed': disabledSimple}">Disabled</button>
+                        <button id="checked" type="button" class="button-standard" (click)="toggleChecked('simple')" [ngClass]="{'is-pressed': checkedSimple}">Checked</button>
+                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled('simple')" [ngClass]="{'is-pressed': disabledSimple}">Disabled</button>
+                        <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly('simple')" [ngClass]="{'is-pressed': readonlySimple}">Readonly</button>
+                        <button id="errors" type="button" class="button-standard" (click)="toggleErrorState('simple')" [ngClass]="{'is-pressed': errorsSimple}">Error</button>                    
                     </div>
                 </div>
             </div>
             <div class="columns small-7">
                 <pre ngNonBindable>
-                    &lt;alloy-checkbox [label]=&quot;placeholder&quot; [disabled]=&quot;disabled&quot; 
-                        [checked]=&quot;checked&quot;&gt;
-                    &lt;/alloy-checkbox&gt;
+&lt;alloy-checkbox [label]=&quot;placeholder&quot; [disabled]=&quot;disabled&quot; 
+    [checked]=&quot;checked&quot;&gt; [readonly]=&quot;readonlyMixed&quot; 
+    [errors]=&quot;errorsMixed&quot; [errorMessage]=&quot;errorMessage&quot;
+&lt;/alloy-checkbox&gt;
                 </pre>
-            </div>
-            <div class="row align-center">
-                <div class="columns small-4">
-                </div>
-                <div class="columns small-8">
-                </div>
             </div>
         </div>
     </div>
@@ -46,30 +43,27 @@
         </div>
         <div class="row align-center">
             <div class="columns">
-                <alloy-checkbox [disabled]="disabledIcon" [checked]="checkedIcon" [icon]="iconSrc">
+                <alloy-checkbox [disabled]="disabledIcon" [checked]="checkedIcon" [icon]="iconSrc" [readonly]="readonlyIcon" [errors]="errorsIcon" [errorMessage]="errorMessage">
                 </alloy-checkbox>
             </div>
             <div class="columns">
                 <div>
                     <h6>Checkbox States</h6>
                     <div>
-                        <button id="checked" type="button" class="button-standard" (click)="toggleCheckedIcon()" [ngClass]="{'is-pressed': checkedIcon}">Checked</button>
-                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledIcon()" [ngClass]="{'is-pressed': disabledIcon}">Disabled</button>
+                        <button id="checked" type="button" class="button-standard" (click)="toggleChecked('icon')" [ngClass]="{'is-pressed': checkedIcon}">Checked</button>
+                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled('icon')" [ngClass]="{'is-pressed': disabledIcon}">Disabled</button>
+                        <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly('icon')" [ngClass]="{'is-pressed': readonlyIcon}">Readonly</button>
+                        <button id="errors" type="button" class="button-standard" (click)="toggleErrorState('icon')" [ngClass]="{'is-pressed': errorsIcon}">Error</button>                                            
                     </div>
                 </div>
             </div>
             <div class="columns small-7">
                 <pre ngNonBindable>
-                    &lt;alloy-checkbox [icon]=&quot;iconSrc&quot; [disabled]=&quot;disabled&quot; 
-                        [checked]=&quot;checked&quot;&gt;
-                    &lt;/alloy-checkbox&gt;
+&lt;alloy-checkbox [icon]=&quot;iconSrc&quot; [disabled]=&quot;disabled&quot; 
+    [checked]=&quot;checked&quot;&gt; [readonly]=&quot;readonlyMixed&quot; 
+    [errors]=&quot;errorsMixed&quot; [errorMessage]=&quot;errorMessage&quot;
+&lt;/alloy-checkbox&gt;
                 </pre>
-            </div>
-            <div class="row align-center">
-                <div class="columns small-4">
-                </div>
-                <div class="columns small-8">
-                </div>
             </div>
         </div>
     </div>
@@ -83,68 +77,27 @@
         </div>
         <div class="row align-center">
             <div class="columns">
-                <alloy-checkbox [label]="placeholder" [icon]="iconSrc" [disabled]="disabledMixed" [checked]="checkedMixed">
+                <alloy-checkbox [label]="placeholder" [icon]="iconSrc" [disabled]="disabledMixed" [checked]="checkedMixed" [readonly]="readonlyMixed" [errors]="errorsMixed" [errorMessage]="errorMessage">
                 </alloy-checkbox>
             </div>
             <div class="columns">
                 <div>
                     <h6>Checkbox States</h6>
                     <div>
-                        <button id="checked" type="button" class="button-standard" (click)="toggleCheckedMixed()" [ngClass]="{'is-pressed': checkedMixed}">Checked</button>
-                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledMixed()" [ngClass]="{'is-pressed': disabledMixed}">Disabled</button>
+                        <button id="checked" type="button" class="button-standard" (click)="toggleChecked('mixed')" [ngClass]="{'is-pressed': checkedMixed}">Checked</button>
+                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled('mixed')" [ngClass]="{'is-pressed': disabledMixed}">Disabled</button>
+                        <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly('mixed')" [ngClass]="{'is-pressed': readonlyMixed}">Readonly</button>
+                        <button id="errors" type="button" class="button-standard" (click)="toggleErrorState('mixed')" [ngClass]="{'is-pressed': errorsMixed}">Error</button>                                                                    
                     </div>
                 </div>
             </div>
             <div class="columns small-7">
                 <pre ngNonBindable>
-                    &lt;alloy-checkbox [label]=&quot;placeholder&quot; [icon]=&quot;iconSrc&quot; [disabled]=&quot;disabled&quot; 
-                        [checked]=&quot;checked&quot;&gt;
-                    &lt;/alloy-checkbox&gt;
+&lt;alloy-checkbox [label]=&quot;placeholder&quot; [icon]=&quot;iconSrc&quot; [disabled]=&quot;disabled&quot; 
+    [checked]=&quot;checked&quot;&gt; [readonly]=&quot;readonlyMixed&quot; 
+    [errors]=&quot;errorsMixed&quot; [errorMessage]=&quot;errorMessage&quot;
+&lt;/alloy-checkbox&gt;
                 </pre>
-            </div>
-            <div class="row align-center">
-                <div class="columns small-4">
-                </div>
-                <div class="columns small-8">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Error Checkbox -->
-    <div class="content-container">
-        <div class="row align-center">
-            <div class="columns small-12">
-                <h3>Error Checkbox</h3>
-                <br>
-            </div>
-        </div>
-        <div class="row align-center">
-            <div class="columns">
-                <alloy-checkbox [errors]="errorsErrorIcon" [label]="placeholder" [disabled]="disabledErrorIcon" [checked]="checkedErrorIcon" >
-                </alloy-checkbox>
-            </div>
-            <div class="columns">
-                <div>
-                    <h6>Checkbox States</h6>
-                    <div>
-                        <button id="checked" type="button" class="button-standard" (click)="toggleCheckedErrorIcon()" [ngClass]="{'is-pressed': checkedErrorIcon}">Checked</button>
-                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledErrorIcon()" [ngClass]="{'is-pressed': disabledErrorIcon}">Disabled</button>
-                        <button id="errors" type="button" class="button-standard" (click)="toggleErrorsErrorIcon()" [ngClass]="{'is-pressed': errorsErrorIcon}">Errors</button>
-                    </div>
-                </div>
-            </div>
-            <div class="columns small-7">
-                <pre ngNonBindable>
-                        &lt;alloy-checkbox [errors]=&quot;errorsErrorIcon&quot; [label]=&quot;placeholder&quot; [disabled]=&quot;disabled&quot; 
-                            [checked]=&quot;checked&quot;&gt;
-                        &lt;/alloy-checkbox&gt;
-                    </pre>
-            </div>
-            <div class="row align-center">
-                <div class="columns small-4">
-                </div>
-                <div class="columns small-8">
-                </div>
             </div>
         </div>
     </div>

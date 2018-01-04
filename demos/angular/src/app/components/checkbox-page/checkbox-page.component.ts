@@ -9,59 +9,87 @@ export class CheckboxPageComponent implements OnInit {
 
     disabledSimple = false;
     checkedSimple = false;
+    readonlySimple = false;
+    errorsSimple = false;
+
     disabledIcon = false;
     checkedIcon = false;
+    readonlyIcon = false;
+    errorsIcon = true;
+
     disabledMixed = false;
     checkedMixed = false;
-    checkedErrorIcon = false;
-    disabledErrorIcon = false;
-    // Turn the error checkbox into the error state by default
-    errorsErrorIcon = true;
+    readonlyMixed = false;
+    errorsMixed = false;
 
-    placeholder = 'This is a checkbox';
+    errorMessage = 'Validation errors in checkbox';
+    placeholder = 'Checkbox';
     iconSrc = '../../assets/userProfLogo.png';
 
     constructor() { }
 
-    toggleDisabledSimple() {
-        this.disabledSimple = !this.disabledSimple;
+    toggleDisabled(checkboxtype: string) {
+        switch (checkboxtype) {
+            case 'simple':
+            this.disabledSimple = !this.disabledSimple;
+            break;
+            case 'icon':
+            this.disabledIcon = !this.disabledIcon;
+            break;
+            case 'mixed':
+            this.disabledMixed = !this.disabledMixed;
+            break;
+        }
     }
 
-    toggleCheckedSimple() {
-        this.checkedSimple = !this.checkedSimple;
+    toggleChecked(checkboxtype: string) {
+        switch (checkboxtype) {
+            case 'simple':
+            if (!this.disabledSimple && !this.readonlySimple) {
+                this.checkedSimple = !this.checkedSimple;
+            }
+            break;
+            case 'icon':
+            if (!this.disabledIcon && !this.readonlyIcon) {
+                this.checkedIcon = !this.checkedIcon;
+            }
+            break;
+            case 'mixed':
+            if (!this.disabledMixed && !this.readonlyMixed) {
+                this.checkedMixed = !this.checkedMixed;
+            }
+            break;
+        }
     }
 
-    toggleDisabledIcon() {
-        this.disabledIcon = !this.disabledIcon;
+    toggleReadonly(checkboxtype: string) {
+        switch (checkboxtype) {
+            case 'simple':
+            this.readonlySimple = !this.readonlySimple;
+            break;
+            case 'icon':
+            this.readonlyIcon = !this.readonlyIcon;
+            break;
+            case 'mixed':
+            this.readonlyMixed = !this.readonlyMixed;
+            break;
+        }
     }
 
-    toggleCheckedIcon() {
-        this.checkedIcon = !this.checkedIcon;
-    }
-
-    toggleDisabledMixed() {
-        this.disabledMixed = !this.disabledMixed;
-    }
-
-    toggleCheckedMixed() {
-        this.checkedMixed = !this.checkedMixed;
-    }
-
-    toggleCheckedErrorIcon() {
-        this.checkedErrorIcon = !this.checkedErrorIcon;
-    }
-
-    toggleDisabledErrorIcon() {
-        this.disabledErrorIcon = !this.disabledErrorIcon;
-    }
-
-    toggleErrorsErrorIcon() {
-        this.errorsErrorIcon = !this.errorsErrorIcon;
+    toggleErrorState(checkboxtype: string) {
+        switch (checkboxtype) {
+            case 'simple':
+            this.errorsSimple = !this.errorsSimple;
+            break;
+            case 'icon':
+            this.errorsIcon = !this.errorsIcon;
+            break;
+            case 'mixed':
+            this.errorsMixed = !this.errorsMixed;
+            break;
+        }
     }
 
     ngOnInit() {
-
     }
-
-
 }

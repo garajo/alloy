@@ -294,7 +294,8 @@ $color-palette: (
         dialog-title-bar-border-bottom:           rgba(#131B40, $opacity-HEX4C),
 
         // checkbox
-        checkbox-disabled-opacity:                 0.52
+        checkbox-disabled-opacity:                 0.52,
+        checkbox-readonly-opacity:                 0.6 
     );
 
 // Images & Icons

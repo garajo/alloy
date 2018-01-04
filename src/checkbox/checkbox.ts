@@ -29,8 +29,14 @@ export class AlloyCheckbox implements ControlValueAccessor {
     /** Whether or not the checkbox label/ icon is hovered upon */
     private _isHovered = false;
 
+    /** Whether or not the checkbox is in readonly state */
+    private _isReadonly = false;
+
     /** Whether or not the checkbox is in the error state */
     private _isErrors = false;
+
+    /** Checkbox validation message */
+    private _errorMessage = '';
 
     /** Checkbox label */
     private _label = '';
@@ -79,11 +85,25 @@ export class AlloyCheckbox implements ControlValueAccessor {
         this._isHovered = value;
     }
 
+    /** Input boolean to set the readonly state for the checkbox */
+    @Input()
+    get readonly() { return this._isReadonly; }
+    set readonly(value: boolean) {
+        this._isReadonly = value;
+    }
+
     /** Input boolean to set the checkbox in error state */
     @Input()
     get errors() { return this._isErrors; }
     set errors(value: boolean) {
         this._isErrors = value;
+    }
+
+    /** Checkbox error message shown as a tooltip */
+    @Input()
+    get errorMessage() { return this._errorMessage; }
+    set errorMessage(value: string) {
+        this._errorMessage = value;
     }
 
     /** Checkbox label to be shown */
@@ -111,10 +131,12 @@ export class AlloyCheckbox implements ControlValueAccessor {
     }
 
     /** Toggles the enabled/disabled states of the checkbox */
-    toggle(): void {
-        if (!this._isDisabled) {
+    toggle(): boolean {
+        if (!this._isDisabled && !this._isReadonly) {
             this._isChecked = !this._isChecked;
+            return true;
         }
+        return false;
     }
 
     /** Toggles the hovered state of the checkbox when it's label or icon is hovered upon */

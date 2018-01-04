@@ -33,7 +33,11 @@
     margin-left: 8px;
   }
 
-  .disabled {
+  &.readonly {
+    opacity: map_get($color-palette, checkbox-readonly-opacity);
+  }
+
+  &.disabled {
     opacity: map_get($color-palette, checkbox-disabled-opacity);        
   }
 }
@@ -63,16 +67,6 @@
   
       &:checked + span {
         background: transparent map_get($icon-pack, checkbox-checked) no-repeat center center / $size;
-      }
-  
-      &:disabled + span {
-        background: transparent map_get($icon-pack, checkbox-disabled) no-repeat center center / $size;
-  
-        pointer-events: none;
-      }
-  
-      &:checked:disabled + span {
-        background: transparent map_get($icon-pack, checkbox-checked-disabled) no-repeat center center / $size;
       }
     }
 }
