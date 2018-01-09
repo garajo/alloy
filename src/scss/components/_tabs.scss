@@ -3,7 +3,7 @@ ul.tabs {
 
   &.tab-bar {
     border: none;
-    border-bottom: 1px solid map_get($color-palette, tab-bar-border);
+    border-bottom: none;
 
     background-color: map_get($color-palette, tab-bar-bg);
     box-shadow: 0 1px 0 0 map_get($color-palette, tab-bar-shadow);
@@ -21,8 +21,10 @@ ul.tabs {
 
           margin: 0;
           padding: 12px;
+          padding-bottom: 11px; // one less to allow for the border-bottom
           border: none;
           border-right: 1px solid map_get($color-palette, tab-bar-border);
+          border-bottom: 1px solid map_get($color-palette, tab-bar-border);
           border-radius: 0;
 
           text-align: center;
@@ -43,6 +45,7 @@ ul.tabs {
         a {
           background-color: map_get($color-palette, panel-bg);
           box-shadow: inset 0 1px 0 0 map_get($color-palette, tab-bar-shadow);
+          border-bottom: 1px solid transparent;
 
           color: map_get($color-palette, tab-text-color-active);
           font-weight: normal;
@@ -57,6 +60,37 @@ ul.tabs {
             border: none;
 
             background-color: map_get($color-palette, panel-bg);
+          }
+        }
+      }
+    }
+
+    &.has-icons {
+      li.tabs-title {
+        a {
+          // Add enough padding to the left to accommodate the icon and its padding
+          // 14px (left of icon) + 24px (icon itself) + 14px (between icon and text) = 52
+          padding-left: 52px;
+
+          // Need this so the top tab positioned directly below a nav-bar with a drop shadow won't 
+          // clobber the drop shadow when it is selected.
+          position: unset;
+
+          span {
+            // Use position:absolute for the icon, this sets the 'anchor' for that
+            position: relative;
+
+            img {
+              // Set the position relative to its parent
+              position: absolute;
+              left: -38px; // left by 14px (padding) + 24px (image width)
+              top: -3px; // padding-top for the text is 11px, but we only want 8px padding
+
+              max-width: 24px;
+              width: 24px;
+              max-height: 24px;
+              height: 24px;
+        }
           }
         }
       }
@@ -345,7 +379,7 @@ ul.tabs {
         width: auto;
         height: 100%;
 
-        border-right: 1px solid map_get($color-palette, tab-bar-border);
+        border-right: none;
         border-bottom: none;
 
         box-shadow: none;
@@ -359,8 +393,10 @@ ul.tabs {
           &.is-active {
             a {
               padding: 12px 16px;
-              border-right: none;
+              padding-bottom: 11px; // one less to allow for the border-bottom
+              border-right: 1px solid map_get($color-palette, tab-bar-border);
               border-bottom: 1px solid map_get($color-palette, tab-bar-border);
+              position: unset;
 
               text-align: left;
               white-space: nowrap;
@@ -371,12 +407,48 @@ ul.tabs {
           &.is-active {
             a {
               box-shadow: inset 0 1px 0 0 map_get($color-palette, tab-bar-shadow);
+              border-right: 1px solid transparent;
 
               &:after {
                 top: 0; right: -1px; bottom: 0; left: auto;
                 @include size(2px, 100%);
 
                 box-shadow: inset 0 1px 0 0 map_get($color-palette, tab-bar-shadow);
+              }
+            }
+          }
+        }
+
+        // Changes to a 56px high tab bar, which allows for a 24px icon, 11px text, and 7px padding on top, between, and bottom
+        // JEFF_TODO:  nav-tabs w/ has-icons has vertical alignment of (top-to-bottom):  8px space, 24px icon, 8px space, 11px font, 4px space.
+        //             That means that the nav-tabs have their content pushed towards the bottom of the tab
+        //             For tab-bar.has-icons, the spacing is 7-24-7-11-7, which centers it.
+        &.has-icons {
+          li.tabs-title {
+            a {
+              // Add enough padding to the left to accommodate the icon and its padding
+              // 14px (left of icon) + 24px (icon itself) + 14px (between icon and text) = 52
+              padding-left: 52px;
+
+              // Need this so the top tab positioned directly below a nav-bar with a drop shadow won't 
+              // clobber the drop shadow when it is selected.
+              position: unset;
+
+              span {
+                // Use position:absolute for the icon, this sets the 'anchor' for that
+                position: relative;
+
+                img {
+                  // Set the position relative to its parent
+                  position: absolute;
+                  left: -38px; // left by 14px (padding) + 24px (image width)
+                  top: -3px; // padding-top for the text is 11px, but we only want 8px padding
+
+                  max-width: 24px;
+                  width: 24px;
+                  max-height: 24px;
+                  height: 24px;
+                }
               }
             }
           }

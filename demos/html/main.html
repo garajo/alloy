@@ -783,50 +783,105 @@
       </div>
     </div>
     <div class="tabs-panel" id="tab-tab-control">
-      <div class="content-container">
-        <div class="row align-center">
+
+          <div class="row align-center">
+              <div class="columns small-4">
+                  <h5 class="style-guide-label">Vertical Tab Bar</h5>
+                  <div class="tabs-container vertical">
+                    <ul class="tabs tab-bar " data-tabs id="tab-bar-control-vertical">
+                      <li class="tabs-title is-active" aria-selected="true"><a href="#tab-bar-vertical-1">Extra Long Tab 1</a></li>
+                      <li class="tabs-title is-hovered"><a href="#tab-bar-vertical-2">Tab 2</a></li>
+                      <li class="tabs-title"><a href="#tab-bar-vertical-3">Tab 3</a></li>
+                    </ul>
+                    <div class="tabs-content" data-tabs-content="tab-bar-control-vertical">
+                      <div class="tabs-panel is-active" id="tab-bar-vertical-1">
+                        Tab 1
+                      </div>
+                      <div class="tabs-panel" id="tab-bar-vertical-2">
+                        Tab 2
+                      </div>
+                      <div class="tabs-panel" id="tab-bar-vertical-3">
+                        Tab 3
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
           <div class="columns small-4">
-            <h5 class="style-guide-label">Horizontal Tab Bar</h5>
-            <div class="tabs-container">
-              <ul class="tabs tab-bar" data-tabs id="tab-bar-control">
-                <li class="tabs-title is-active" aria-selected="true"><a href="#tab-bar-1">Extra Long Tab 1</a></li>
-                <li class="tabs-title is-hovered"><a href="#tab-bar-2">Tab 2</a></li>
-                <li class="tabs-title"><a href="#tab-bar-3">Tab 3</a></li>
-              </ul>
-              <div class="tabs-content" data-tabs-content="tab-bar-control">
-                <div class="tabs-panel is-active" id="tab-bar-1">
-                  Tab 1
-                </div>
-                <div class="tabs-panel" id="tab-bar-2">
-                  Tab 2
-                </div>
-                <div class="tabs-panel" id="tab-bar-3">
-                  Tab 3
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="columns small-4">
-            <h5 class="style-guide-label">Vertical Tab Bar</h5>
+            <h5 class="style-guide-label">Vertical Tab Bar With Icons</h5>
             <div class="tabs-container vertical">
-              <ul class="tabs tab-bar " data-tabs id="tab-bar-control-vertical">
-                <li class="tabs-title is-active" aria-selected="true"><a href="#tab-bar-vertical-1">Extra Long Tab 1</a></li>
-                <li class="tabs-title is-hovered"><a href="#tab-bar-vertical-2">Tab 2</a></li>
-                <li class="tabs-title"><a href="#tab-bar-vertical-3">Tab 3</a></li>
+              <ul class="tabs tab-bar has-icons" data-tabs id="tab-bar-control-vertical-with-icons">
+                <li class="tabs-title is-active" aria-selected="true"><a href="#tab-bar-vertical-1-with-icons">
+                  <span><img class="ph-menu-box "></img></span>Extra Long Tab 1</a></li>
+                <li class="tabs-title is-hovered"><a href="#tab-bar-vertical-2-with-icons">
+                    <span><img class="ph-menu-box "></img></span>Tab 2</a></li>
+                <li class="tabs-title"><a href="#tab-bar-vertical-3-with-icons">
+                    <span><img class="ph-menu-box "></img></span>Tab 3</a></li>
               </ul>
-              <div class="tabs-content" data-tabs-content="tab-bar-control-vertical">
-                <div class="tabs-panel is-active" id="tab-bar-vertical-1">
+              <div class="tabs-content" data-tabs-content="tab-bar-control-vertical-with-icons">
+                <div class="tabs-panel is-active" id="tab-bar-vertical-1-with-icons">
                   Tab 1
                 </div>
-                <div class="tabs-panel" id="tab-bar-vertical-2">
+                <div class="tabs-panel" id="tab-bar-vertical-2-with-icons">
                   Tab 2
                 </div>
-                <div class="tabs-panel" id="tab-bar-vertical-3">
+                <div class="tabs-panel" id="tab-bar-vertical-3-with-icons">
                   Tab 3
                 </div>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="content-container">
+          <div class="row align-center">
+            <div class="columns small-4">
+              <h5 class="style-guide-label">Horizontal Tab Bar</h5>
+              <div class="tabs-container">
+                <ul class="tabs tab-bar" data-tabs id="tab-bar-control">
+                  <li class="tabs-title is-active" aria-selected="true"><a href="#tab-bar-1">Extra Long Tab 1</a></li>
+                  <li class="tabs-title is-hovered"><a href="#tab-bar-2">Tab 2</a></li>
+                  <li class="tabs-title"><a href="#tab-bar-3">Tab 3</a></li>
+                </ul>
+                <div class="tabs-content" data-tabs-content="tab-bar-control">
+                  <div class="tabs-panel is-active" id="tab-bar-1">
+                    Tab 1
+                  </div>
+                  <div class="tabs-panel" id="tab-bar-2">
+                    Tab 2
+                  </div>
+                  <div class="tabs-panel" id="tab-bar-3">
+                    Tab 3
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="columns small-5">
+                <h5 class="style-guide-label">Horizontal Tab Bar With Icons</h5>
+                <div class="tabs-container">
+                  <ul class="tabs tab-bar has-icons" data-tabs id="tab-bar-control-with-icons">
+                    <li class="tabs-title is-active" aria-selected="true"><a href="#tab-bar-1-with-icons">
+                        <span><img class="ph-menu-box "></img></span>Extra Long Tab 1</a></li>
+                    <li class="tabs-title is-hovered"><a href="#tab-bar-2-with-icons">
+                        <span><img class="ph-menu-box "></img></span>Tab 2</a></li>
+                    <li class="tabs-title"><a href="#tab-bar-3-with-icons">
+                        <span><img class="ph-menu-box "></img></span>Tab 3</a></li>
+                  </ul>
+                  <div class="tabs-content" data-tabs-content="tab-bar-control-with-icons">
+                    <div class="tabs-panel is-active" id="tab-bar-1-with-icons">
+                      Tab 1
+                    </div>
+                    <div class="tabs-panel" id="tab-bar-2-with-icons">
+                      Tab 2
+                    </div>
+                    <div class="tabs-panel" id="tab-bar-3-with-icons">
+                      Tab 3
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+  
         </div>
       </div>
     </div>
