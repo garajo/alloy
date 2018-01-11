@@ -141,6 +141,10 @@ export class AlloyCheckbox implements ControlValueAccessor {
 
     /** Toggles the hovered state of the checkbox when it's label or icon is hovered upon */
     toggleHover(): void {
-        this._isHovered = !this._isHovered;
+        if (this._isDisabled || this._isReadonly) {
+            this._isHovered = false;
+        } else {
+            this._isHovered = !this._isHovered;
+        }
     }
 }
