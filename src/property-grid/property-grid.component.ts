@@ -411,9 +411,7 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
     public getStyles(): any {
         let styles = {
             'width': this.internalGridOption ? this.internalGridOption.width : '400px',
-            'height': this.internalGridOption ? this.internalGridOption.height : '600px',
-            'margin-left': 'auto',
-            'margin-right': 'auto'
+            'height': this.internalGridOption ? this.internalGridOption.height : '600px'
         };
         return styles;
     }
