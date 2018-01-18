@@ -180,6 +180,7 @@ $color-palette: (
         input-text-highlight-color:               $white,
         input-text-disabled-opacity:              0.52,                     //Since the spec declares this in decimal we will leave it without its own var        
         input-text-disabled-color:                rgba($black,0.36),      //Since the spec declares this in decimal we will leave it without its own var
+        input-text-placeholder-color:             $smoky,
 
         // -- Radios
         radio-border:                             #8A93A3,
@@ -266,19 +267,20 @@ $color-palette: (
         style-guide-spacer-bg:                    #C5C9CF,
 
         // Textarea
-        textarea-text-border:                        $french-gray,
-        textarea-text-bg:                            rgba(#F0F1F7,$opacity-HEXCC),
-        textarea-text-color:                         $black,
-        textarea-text-border-hover:                  #919499,
-        textarea-text-border-active:                 $cornflower-blue,
-        textarea-text-bg-active:                     rgba($cornflower-blue,$opacity-HEX1E),
-        textarea-text-bg-error:                      #F7EBEB,
-        textarea-text-border-error:                  #E03030,
-        textarea-text-highlight-bg:                  #2E4585,
-        textarea-text-highlight-color:               $white,
-        textarea-text-disabled-opacity:              0.52,
-        textarea-text-disabled-color:                rgba($black,0.36),
-        
+        textarea-text-border:                     $french-gray,
+        textarea-text-bg:                         rgba(#F0F1F7,$opacity-HEXCC),
+        textarea-text-color:                      $black,
+        textarea-text-border-hover:               #919499,
+        textarea-text-border-active:              $cornflower-blue,
+        textarea-text-bg-active:                  rgba($cornflower-blue,$opacity-HEX1E),
+        textarea-text-bg-error:                   #F7EBEB,
+        textarea-text-border-error:               #E03030,
+        textarea-text-highlight-bg:               #2E4585,
+        textarea-text-highlight-color:            $white,
+        textarea-text-disabled-opacity:           0.52,
+        textarea-text-disabled-color:             rgba($black,0.36),
+        textarea-text-placeholder-color:          $smoky,
+
         // notification Icon
         notification-icon-body:                   $black,
         notification-icon-ellipse:                $cornflower-blue,

@@ -1,20 +1,15 @@
 textarea {
   position: relative;
   padding: 16px;
-
   border: 1px solid map_get($color-palette, textarea-text-border);
-
   background-color: map_get($color-palette, textarea-text-bg);
-
   color: map_get($color-palette, textarea-text-color);
   font-family: $body-font-family;
   font-size: 14px;
   font-weight: normal;
 
-  @include placeholder-color(map_get($color-palette, textarea-text-color));
-
+  @include placeholder-font(map_get($color-palette, textarea-text-placeholder-color), 14px, italic);
   transition: border-color 0.25s ease-in-out;
-
   &,
   &:hover,
   &.is-hovered,
@@ -24,50 +19,38 @@ textarea {
   &.is-active {
     box-shadow: none;
   }
-
   &:hover,
   &.is-hovered {
     border: 1px solid map_get($color-palette, textarea-text-border-hover);
   }
-
   &:focus,
   &.is-focused,
   &:active,
   &.is-active {
     border: 1px solid map_get($color-palette, textarea-text-border-active);
-
     background-color: map_get($color-palette, textarea-text-bg-active);
-
     caret-color: map_get($color-palette, textarea-text-border-active);
   }
-
   &:read-only {
     border: 1px solid map_get($color-palette, textarea-text-border);
-
     background-color: map_get($color-palette, textarea-text-bg);
   }
-
   &.has-error {
     border: 1px solid map_get($color-palette, textarea-text-border-error);
-
     background-color: map_get($color-palette, textarea-text-bg-error);
-
     caret-color: map_get($color-palette, textarea-text-border-error);
-
     &+.error {
       display: block;
       position: absolute;
-      top: 8px; right: -24px;
+      top: 8px;
+      right: -24px;
     }
   }
 }
 
 textarea[disabled] {
   opacity: map_get($color-palette, textarea-text-disabled-opacity);
-
   background-color: map_get($color-palette, textarea-text-bg);
-  
   color: map_get($color-palette, textarea-text-disabled-color);
-
   pointer-events: none;
 }

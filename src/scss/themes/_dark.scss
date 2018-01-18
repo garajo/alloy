@@ -171,6 +171,8 @@ $color-palette: (
         input-text-border-error:                  #E03030,
         input-text-highlight-bg:                  $jacksons-purple,
         input-text-disabled-color:                $white,
+        input-text-placeholder-color:             $french-gray,
+        
         // -- Radios
         radio-border:                             $french-gray,
         radio-border-hover:                       $white,
@@ -274,6 +276,9 @@ $color-palette: (
         textarea-text-highlight-bg:               $jacksons-purple,
         textarea-text-disabled-opacity:           0.3,                                    //leave disabled opacity in decimal since the Caranu spec does    
         textarea-text-disabled-color:             $white,
+        textarea-text-placeholder-color:          $french-gray,
+
+
 
         // notification Icon
         notification-icon-body:                   $white,
