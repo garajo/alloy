@@ -6,7 +6,7 @@ export class AlloyPropertyGridTreeUtility {
     // update tree model by payload data
     // tslint:disable-next-line:no-any function-name
     public static updateData(parent: any, payload: any): boolean {
-        const [ id, value] = payload;
+        const [id, value] = payload;
         if (parent) {
             // check to see if parent is the element right away
             // checking for leaf node, maybe see if it has .children?

@@ -16,14 +16,13 @@ import {
 import { GridOptions } from 'ag-grid/main';
 import { ValidatorFn } from '@angular/forms';
 
-import { AlloyPropertyGridEditorViewerComponent } from './editors/property-grid-editor-viewer.component';
-
 import { AlloyPropertyGridDynamicControlService } from './services/property-grid-dynamic-control.service';
+import { AlloyPropertyGridEditorViewerComponent } from './editors/property-grid-editor-viewer.component';
+import { AlloyPropertyGridMessageService } from './services/property-grid-message.service';
 import { AlloyPropertyGridOutputService } from './services/property-grid-output.service';
 import { AlloyPropertyGridTreeUtility } from './services/property-grid-tree-utility';
 import { AlloyPropertyGridTypeService } from './services/property-grid-type.service';
 import { AlloyPropertyGridValidatorService } from './services/property-grid-validator.service';
-import { AlloyPropertyGridMessageService } from './services/property-grid-message.service';
 import { IPropertyGridOption } from './models/property-grid-option';
 import { ISubscription } from 'rxjs/Subscription';
 
@@ -39,7 +38,6 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
     public gridOptions: GridOptions;
     public pgDescriptionText: { name: string, description: string } = { name: '', description: '' };
     public showGrid: boolean;
-    // tslint:enable: no-any
 
     // input
     // tslint:disable-next-line:no-input-rename
@@ -56,7 +54,6 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
     }
 
     // tslint:disable-next-line:no-input-rename no-any
-    // @Input('nodeModel') public rowData: any[];
     @Input('nodeModel') // public rowData: any[];
     // tslint:disable:no-any at the beginning
     private internalRowData: any[];
@@ -268,6 +265,7 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
     // tslint:disable-next-line:no-any
     public ngOnChanges(changes: any): void {
         const changedProperty = changes;
+
         if (changedProperty && changedProperty.branch && changedProperty.branch.currentValue) {
             // this.updateProperties(changedProperty.branch.currentValue);
             this.internalRowData = changedProperty.branch.currentValue;
@@ -348,8 +346,8 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
         // console.log('title: '.concat($event.node.data.title));
     }
 
-    // Fix pgDescriptionText when user tried to do a copy from <Inputbox A>
-    // and paste into <Inputbox B>, pgDescriptionText do not get updated
+    // Fix _pgDescriptionText when user tried to do a copy from <Inputbox A>
+    // and paste into <Inputbox B>, _pgDescriptionText do not get updated
     // Problem is caused by user actions not performing a rowClick(mouseClick event). Instead its a mouseDown event.
     public onCellFocused($event: any): void {
         if (this.isDescriptionVisible) {
@@ -432,11 +430,11 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
         }
     }
 
-    // needed to test something later
-    // public clearDescriptionBox(): void {
-    //     // Reset description box when needed
-    //     if (this.isDescriptionVisible) {
-    //         this.pgDescriptionText = { name: '', description: '' };
-    //     }
-    // }
+    // Function available to parent component to clear Description when needed with #ViewChild
+    public clearDescriptionBox(): void {
+        // Reset description box when enabled
+        if (this.isDescriptionVisible) {
+            this.pgDescriptionText = { name: '', description: '' };
+        }
+    }
 }
