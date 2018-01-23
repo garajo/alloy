@@ -22,11 +22,11 @@
   &.is-hovered {
     background-color: map_get($color-palette, panel-splitter-bg-hover);
 
-    &:after {
+    &::after {
       content: '';
       display: block;
       position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
+      top: -3px; right: 0; bottom: -3px; left: 0;
 
       border: 2px solid map_get($color-palette, panel-splitter-border-hover);
       border-right: none;
@@ -39,14 +39,26 @@
     height: 100%;
 
     border: 1px solid map_get($color-palette, panel-splitter-border);
+    border-top: none;
+    border-bottom: none;
 
     cursor: map_get($icon-pack, panel-splitter-vertical-cursor-hover) 8 7.5, pointer;
 
     &:hover,
     &.is-hovered {
-      &:after {
+      background-color: map_get($color-palette, panel-splitter-bg-hover);
+      
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0; right: -3px; bottom: 0; left: -3px;
+
         border: 2px solid map_get($color-palette, panel-splitter-border-hover);
+        border-top: none;
+        border-bottom: none;
       }
+
     }
   }
 }
