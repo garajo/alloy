@@ -63,9 +63,7 @@ $color-palette: (
         window-bg:                                $dark-jungle,                         //Caranu spec. pg. 34 FILL = #FF1B1B1F NOTE: An app main window does not have the blue border. Only if it has MDI windows would the "active" window get the blue border
         window-border:                            rgba($glitter,$opacity-HEX28),        //Caranu spec. pg. 34 BORDER = #28E5EEFF
         window-box-shadow:                        rgba($black,$opacity-HEX7F),          //JEFF_TODO: There are no class/styles for windows. When they are created use this var for the shadow. Caranu spec. pg. 34 Shadow = v-offset 1px, blur 8px, #7F000000
-                                                                                        //Example of how to use this box shadow var as a value of the box-shadow property until we get a full window style made
-                                                                                        //box-shadow: 0 2px 8px 0 map_get($color-palette,  window-box-shadow);
-
+                                                                                        //Example of how to use this box shadow var as a value of the box-shadow property until we get a full window style made                                                                      //box-shadow: 0 2px 8px 0 map_get($color-palette,  window-box-shadow);
         // Title Bar
         title-bar-gradient-top:                   $jaguar,
         title-bar-gradient-bottom:                $black-russian,
@@ -132,6 +130,7 @@ $color-palette: (
         button-group-box-bg:                      rgba($black,$opacity-HEX19),                 
 
         // Buttons
+
         // -- Standard
         button-standard-color:                    $white,
         button-standard-gradient-top:             $shark,
@@ -178,6 +177,7 @@ $color-palette: (
         radio-border-hover:                       $white,
         radio-checked-bg:                         $cornflower-blue,
         radio-disabled:                           rgba($mountain-mist,$opacity-HEX4C),
+        
         // -- Switch
         switch-border:                            $french-gray,
         switch-bg:                                rgba($black,$opacity-HEX33),
@@ -187,11 +187,13 @@ $color-palette: (
         switch-bg-checked:                        $cornflower-blue,
         switch-thumb-checked-bg:                  $white,
         switch-disabled-opacity:                  0.3,                                   //leave disabled opacity in decimal since the Caranu spec does    
+        
         // -- Combo box
         button-dropdown-combo-bg:                 rgba($black,$opacity-HEX33),
         button-dropdown-combo-bg-hover:           rgba($glitter,$opacity-HEX14),
         button-dropdown-combo-border:             rgba($glitter,$opacity-HEX4C),
         button-dropdown-combo-border-hover:       $mountain-mist,
+        
         // -- Spin
         button-spin-gradient-top:                 $shark,
         button-spin-gradient-bottom:              $jaguar,
@@ -278,8 +280,6 @@ $color-palette: (
         textarea-text-disabled-color:             $white,
         textarea-text-placeholder-color:          $french-gray,
 
-
-
         // notification Icon
         notification-icon-body:                   $white,
         notification-icon-ellipse:                $cornflower-blue,
@@ -333,20 +333,25 @@ $icon-pack: (
 
         // Input
         error:                                inline-image("#{$icons}/error.png"),
+
         // -- Checkboxes
         checkbox:                             inline-image("#{$dark-icons}/checkbox.png"),
         checkbox-hover:                       inline-image("#{$dark-icons}/checkbox-hover.png"),
         checkbox-checked:                     inline-image("#{$dark-icons}/checkbox-checked.png"),
-        checkbox-disabled:                    inline-image("#{$dark-icons}/checkbox-disabled.png"),
-        checkbox-checked-disabled:            inline-image("#{$dark-icons}/checkbox-checked-disabled.png"),
+        checkbox-checked-error:               inline-image("#{$icons}/checkbox-checked-error.png"),
+        checkbox-error:                       inline-image("#{$icons}/checkbox-error.png"),
+        checkbox-hover-error:                 inline-image("#{$icons}/checkbox-hover-error.png"),
+
         // -- Radio
         radio:                                inline-image("#{$dark-icons}/radio.png"),
         radio-hover:                          inline-image("#{$dark-icons}/radio-hover.png"),
         radio-checked:                        inline-image("#{$dark-icons}/radio-checked.png"),
         radio-disabled:                       inline-image("#{$dark-icons}/radio-disabled.png"),
         radio-checked-disabled:               inline-image("#{$dark-icons}/radio-checked-disabled.png"),
+        
         // -- Combo Box
         check:                                inline-image("#{$dark-icons}/check.png"),
+        
         // -- Spin Box
         arrow-up:                             inline-image("#{$dark-icons}/arrow-up.png"),
         arrow-up-active:                      inline-image("#{$dark-icons}/arrow-up-active.png"),

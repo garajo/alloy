@@ -64,9 +64,7 @@ $color-palette: (
         window-bg:                                $white,                         //Caranu spec. pg. 76 FILL = #FFFFFFFF NOTE: An app main window does not have the blue border. Only if it has MDI windows would the "active" window get the blue border
         window-border:                            rgba($glitter,$opacity-HEX4C),  //Caranu spec. pg. 76 BORDER = #4C000000
         window-box-shadow:                        rgba($black,$opacity-HEX3F),    //JEFF_TODO: There are no class/styles for windows. When they are created use this var for the shadow. Caranu spec. pg. 34 Shadow = v-offset 1px, blur 8px, #3F000000
-                                                                                  //Example of how to use this box shadow var as a value of the box-shadow property until we get a full window style made
-                                                                                  //box-shadow: 0 2px 8px 0 map_get($color-palette,  window-box-shadow);
-
+                                                                                  //Example of how to use this box shadow var as a value of the box-shadow property until we get a full window style made                                                                    //box-shadow: 0 2px 8px 0 map_get($color-palette,  window-box-shadow);
         // Title Bar
         title-bar-gradient-top:                   $zircon,
         title-bar-gradient-bottom:                $quartz,
@@ -152,16 +150,13 @@ $color-palette: (
         button-standard-active-shadow-inset:      rgba($white,$opacity-HEX66),
         button-standard-disabled-opacity:         0.52,                       //Since the spec declares this in decimal we will leave it without its own var
         button-standard-disabled-text-color:      rgba($black,0.36),          //Since the spec declares this in decimal we will leave it without its own var
-
         // -- Default
         button-default-border-inset:              $cornflower-blue,
         button-default-shadow-inset:              rgba($cornflower-blue,$opacity-HEX7F),
         button-default-hover-border-inset:        $cornflower-blue,
         button-default-hover-shadow-inset:        $cornflower-blue,
-
         // -- Dropdown
         button-dropdown-color:                    $black,
-
         // -- Dropdown Lightweight
         button-dropdown-lightweight-color:        $smoky,
         button-dropdown-lightweight-color-hover:  $black,
@@ -266,6 +261,16 @@ $color-palette: (
         style-guide-default-bg:                   #FFFFFE,
         style-guide-spacer-bg:                    #C5C9CF,
 
+        // Dialog
+        dialog-border-color:                      $cornflower-blue,
+        dialog-background-color:                  $white,
+        dialog-body-color:                        $smoky,
+        dialog-box-shadow:                        rgba(#0D1E40, $opacity-HEX4C),
+        dialog-title-bar-color:                   $cornflower-blue,
+        dialog-title-bar-gradient-top:            $zircon,
+        dialog-title-bar-gradient-bottom:         $quartz,
+        dialog-title-bar-border-bottom:           rgba(#131B40, $opacity-HEX4C),
+
         // Textarea
         textarea-text-border:                     $french-gray,
         textarea-text-bg:                         rgba(#F0F1F7,$opacity-HEXCC),
@@ -284,16 +289,6 @@ $color-palette: (
         // notification Icon
         notification-icon-body:                   $black,
         notification-icon-ellipse:                $cornflower-blue,
-
-        // Dialog
-        dialog-border-color:                      $cornflower-blue,
-        dialog-background-color:                  $white,
-        dialog-body-color:                        $smoky,
-        dialog-box-shadow:                        rgba(#0D1E40, $opacity-HEX4C),
-        dialog-title-bar-color:                   $cornflower-blue,
-        dialog-title-bar-gradient-top:            $zircon,
-        dialog-title-bar-gradient-bottom:         $quartz,
-        dialog-title-bar-border-bottom:           rgba(#131B40, $opacity-HEX4C),
 
         // checkbox
         checkbox-disabled-opacity:                 0.52,
@@ -345,20 +340,25 @@ $icon-pack: (
 
         // Input
         error:                                inline-image("#{$icons}/error.png"),
+        
         // -- Checkboxes
         checkbox:                             inline-image("#{$light-icons}/checkbox.png"),
         checkbox-hover:                       inline-image("#{$light-icons}/checkbox-hover.png"),
         checkbox-checked:                     inline-image("#{$light-icons}/checkbox-checked.png"),
-        checkbox-disabled:                    inline-image("#{$light-icons}/checkbox-disabled.png"),
-        checkbox-checked-disabled:            inline-image("#{$light-icons}/checkbox-checked-disabled.png"),
+        checkbox-checked-error:               inline-image("#{$icons}/checkbox-checked-error.png"),
+        checkbox-error:                       inline-image("#{$icons}/checkbox-error.png"),
+        checkbox-hover-error:                 inline-image("#{$icons}/checkbox-hover-error.png"),
+
         // -- Radio
         radio:                                inline-image("#{$light-icons}/radio.png"),
         radio-hover:                          inline-image("#{$light-icons}/radio-hover.png"),
         radio-checked:                        inline-image("#{$light-icons}/radio-checked.png"),
         radio-disabled:                       inline-image("#{$light-icons}/radio-disabled.png"),
         radio-checked-disabled:               inline-image("#{$light-icons}/radio-checked-disabled.png"),
+        
         // -- Combo Box
         check:                                inline-image("#{$light-icons}/check.png"),
+        
         // -- Spin Box
         arrow-up:                             inline-image("#{$light-icons}/arrow-up.png"),
         arrow-up-hover:                       inline-image("#{$light-icons}/arrow-up-hover.png"),
