@@ -1,11 +1,37 @@
 .dropdown-group {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
   width: auto;
 
   button {
     transition: none;
   }
+
+  .has-error {
+    //Pull in the .error class from _iconography which gets us the error icon
+    @extend .error;
+
+    //The global .error icon is invisible by default. Consumers need to turn it on. 
+    display: block;
+
+    // See Caranu spec pg. 22 TextBox error state as an example. Error icon should be 8 pixels to the right of the control it is associated with
+    margin-left: 8px;
+  }
+
+  &.readonly {
+    // This simple property allowed us to remove large amounts of code to prevent widget interaction when in read-only
+    pointer-events: none;
+    opacity: map_get($color-palette, control-default-readonly-opacity);
+  }
+  
+  //Disabled opacity is explicitly here (after the read only) so it takes precedent
+  &.disabled {
+    // This simple property allowed us to remove large amounts of code to prevent widget interaction when disabled
+    pointer-events: none;
+    opacity: map_get($color-palette, control-default-disabled-opacity);        
+  }
+
 }
 
 .dropdown-pane {

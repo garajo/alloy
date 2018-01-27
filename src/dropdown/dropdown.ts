@@ -127,6 +127,15 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     /** Property for icon imported by 'require' stmt. Needs to be that for browser to digest it */
     private _icon: any;
 
+    /** Whether or not the dropdown is in readonly state */
+    private _isReadonly = false;
+
+    /** Whether or not the dropdown is in the error state */
+    private _isErrors = false;
+
+    /** Dropdown validation message */
+    private _errorMessage = '';
+
     /** Property for right alignment of dd pane */
     private _rightAlign: boolean;
 
@@ -239,6 +248,27 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
         this._icon = value;
     }
 
+    /** Input boolean to set the readonly state for the DropDown */
+    @Input()
+    get readonly() { return this._isReadonly; }
+    set readonly(value: boolean) {
+        this._isReadonly = value;
+    }
+
+    /** Input boolean to set the DropDown in error state */
+    @Input()
+    get errors() { return this._isErrors; }
+    set errors(value: boolean) {
+        this._isErrors = value;
+    }
+
+    /** DropDown error message shown as a tooltip */
+    @Input()
+    get errorMessage() { return this._errorMessage; }
+    set errorMessage(value: string) {
+        this._errorMessage = value;
+    }
+
     /** Input boolean to align the pane with the right side of the button */
     @Input()
     get right_align() { return this._rightAlign; }
@@ -272,7 +302,7 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
 
     /** Tab index for the select element. */
     @Input()
-    get tabIndex(): number { return this.disabled ? -1 : this._tabIndex; }
+    get tabIndex(): number { return (this.disabled || this.readonly) ? -1 : this._tabIndex; }
     set tabIndex(value: number) {
         if (typeof value !== 'undefined') {
             this._tabIndex = value;
@@ -353,12 +383,18 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
 
     /** Toggles the overlay panel open or closed. */
     toggle(): void {
+
+        // We may want this extra security but with the "pointer-events: none" the widget doesn't response to any mouse/touch/keyboard event
+        // if (this.disabled || this.readonly) {
+        //     return;
+        // }
+
         this.panelOpen ? this.close() : this.open();
     }
 
     /** Opens the overlay panel. */
     open(): void {
-        if (this.disabled || !this.options.length) {
+        if (this.disabled || this.readonly || !this.options.length) {
             return;
         }
 
@@ -459,13 +495,17 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
 
     /** Handles the keyboard interactions of a closed select. */
     _handleClosedKeydown(event: KeyboardEvent): void {
-        if (!this.disabled) {
-            if (event.keyCode === ENTER || event.keyCode === SPACE) {
-                event.preventDefault(); // prevents the page from scrolling down when pressing space
-                this.open();
-            } else if (event.keyCode === UP_ARROW || event.keyCode === DOWN_ARROW) {
-                this._handleArrowKey(event);
-            }
+
+        // We may want this extra security but with the "pointer-events: none" the widget doesn't response to any mouse/touch/keyboard event
+        // if (this.disabled || this.readonly) {
+        //     return;
+        // }
+
+        if (event.keyCode === ENTER || event.keyCode === SPACE) {
+            event.preventDefault(); // prevents the page from scrolling down when pressing space
+            this.open();
+        } else if (event.keyCode === UP_ARROW || event.keyCode === DOWN_ARROW) {
+            this._handleArrowKey(event);
         }
     }
 
@@ -886,6 +926,12 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
 
     /** Handles the user pressing the arrow keys on a closed select.  */
     private _handleArrowKey(event: KeyboardEvent): void {
+
+        // We may want this extra security but with the "pointer-events: none" the widget doesn't response to any mouse/touch/keyboard event
+        // if (this.disabled || this.readonly) {
+        //     return;
+        // }
+
         if (this._multiple) {
             event.preventDefault();
             this.open();

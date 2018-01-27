@@ -41,7 +41,11 @@ $opacity-HEX26:          .15;
 $opacity-HEX1E:          .12;         
 $opacity-HEX14:          .08;         
 $opacity-HEX0F:          .06;         
-$opacity-HEX0A:          .04;         
+$opacity-HEX0A:          .04;     
+
+$opacity-DEC36:          0.36;
+$opacity-DEC52:          0.52;
+$opacity-DEC60:          0.6;
 
 $color-palette: (
         primary-lightest:                         $catskill-white,
@@ -126,8 +130,8 @@ $color-palette: (
         button-quick-access-hover-bg:             rgba($hover-blue,$opacity-HEX1E),
         button-quick-access-active-border:        rgba($bunting,$opacity-HEX33),
         button-quick-access-active-bg:            rgba($hover-blue,$opacity-HEX1E),
-        button-quick-access-disabled-opacity:     0.52,                       //Since the spec declares this in decimal we will leave it without its own var
-        button-quick-access-disabled-text-color:  rgba($black,0.36),          //Since the spec declares this in decimal we will leave it without its own var
+        button-quick-access-disabled-opacity:     $opacity-DEC52,                       //Since the spec declares this in decimal we will leave it without its own var
+        button-quick-access-disabled-text-color:  rgba($black,$opacity-DEC36),          //Since the spec declares this in decimal we will leave it without its own var
         button-group-box-border:                  rgba($bunting,$opacity-HEX26),
         button-group-box-bg:                      rgba($white,$opacity-HEX33),
 
@@ -137,8 +141,8 @@ $color-palette: (
         button-standard-color:                    $black,
         button-standard-gradient-top:             $selago,
         button-standard-gradient-bottom:          $zircon,
-        button-standard-border:                   rgba($black,$opacity-HEX59), //JEFF_REVIEW: This was .13 decimal. The spec says it should be #59 HEX which equals .35 decimal. So I changed it.
-        button-standard-shadow-inset:             rgba($white, $opacity-HEXB2),           // multiple usages of 0.7 was found for shadow, so promoting to own var
+        button-standard-border:                   rgba($black,$opacity-HEX59),          //JEFF_REVIEW: This was .13 decimal. The spec says it should be #59 HEX which equals .35 decimal. So I changed it.
+        button-standard-shadow-inset:             rgba($white, $opacity-HEXB2),         // multiple usages of 0.7 was found for shadow, so promoting to own var
         button-standard-shadow:                   rgba($black,$opacity-HEX1E),
         button-standard-hover-gradient-top:       #EDF4FF,
         button-standard-hover-gradient-bottom:    #CDDFFF,
@@ -148,15 +152,18 @@ $color-palette: (
         button-standard-active-bg:                $hawkes-blue,
         button-standard-active-border-inset:      rgba($black,$opacity-HEX26),
         button-standard-active-shadow-inset:      rgba($white,$opacity-HEX66),
-        button-standard-disabled-opacity:         0.52,                       //Since the spec declares this in decimal we will leave it without its own var
-        button-standard-disabled-text-color:      rgba($black,0.36),          //Since the spec declares this in decimal we will leave it without its own var
+        button-standard-disabled-opacity:         $opacity-DEC52,                       //Since the spec declares this in decimal we will leave it without its own var
+        button-standard-disabled-text-color:      rgba($black,$opacity-DEC36),          //Since the spec declares this in decimal we will leave it without its own var
+
         // -- Default
         button-default-border-inset:              $cornflower-blue,
         button-default-shadow-inset:              rgba($cornflower-blue,$opacity-HEX7F),
         button-default-hover-border-inset:        $cornflower-blue,
         button-default-hover-shadow-inset:        $cornflower-blue,
+
         // -- Dropdown
         button-dropdown-color:                    $black,
+
         // -- Dropdown Lightweight
         button-dropdown-lightweight-color:        $smoky,
         button-dropdown-lightweight-color-hover:  $black,
@@ -173,15 +180,15 @@ $color-palette: (
         input-text-border-error:                  #E03030,
         input-text-highlight-bg:                  #2E4585,
         input-text-highlight-color:               $white,
-        input-text-disabled-opacity:              0.52,                     //Since the spec declares this in decimal we will leave it without its own var        
-        input-text-disabled-color:                rgba($black,0.36),      //Since the spec declares this in decimal we will leave it without its own var
+        input-text-disabled-opacity:              $opacity-DEC52,                       //Since the spec declares this in decimal we will leave it without its own var        
+        input-text-disabled-color:                rgba($black,$opacity-DEC36),          //Since the spec declares this in decimal we will leave it without its own var
         input-text-placeholder-color:             $smoky,
 
         // -- Radios
         radio-border:                             #8A93A3,
         radio-border-hover:                       $smoky,
         radio-checked-bg:                         $cornflower-blue,
-        radio-disabled:                           rgba(#8a93a3,0.52),  //Since the spec declares this in decimal we will leave it without its own var
+        radio-disabled:                           rgba(#8a93a3,$opacity-DEC52),  //Since the spec declares this in decimal we will leave it without its own var
 
         // -- Switch
         switch-border:                            #8A93A3,
@@ -191,7 +198,7 @@ $color-palette: (
         switch-border-checked:                    $cornflower-blue,
         switch-bg-checked:                        $cornflower-blue,
         switch-thumb-checked-bg:                  $white,
-        switch-disabled-opacity:                  0.52,                 //Since the spec declares this in decimal we will leave it without its own var
+        switch-disabled-opacity:                  $opacity-DEC52,                 //Since the spec declares this in decimal we will leave it without its own var
 
         // -- Combo box
         button-dropdown-combo-bg:                 rgba(#F0F1F7,$opacity-HEXCC),
@@ -206,7 +213,7 @@ $color-palette: (
         button-spin-gradient-top-hover:           #EDF4FF,
         button-spin-gradient-bottom-hover:        #CDDFFF,
         button-spin-bg-active:                    $cornflower-blue,
-        button-spin-opacity-disabled:             0.36,               //Since the spec declares this in decimal we will leave it without its own var
+        button-spin-opacity-disabled:             $opacity-DEC36,                       //Since the spec declares this in decimal we will leave it without its own var
 
         // Tree View
         list-item-color:                          $smoky,
@@ -243,7 +250,7 @@ $color-palette: (
         grid-title-color:                         $black,
         grid-search-placeholder-color:            $smoky,
         grid-item-darkened-opacity:               0.3,
-        propgrid-item-darkened-opacity:           0.6,
+        propgrid-item-darkened-opacity:           $opacity-DEC60,
 
         // Scrollbars
         scrollbar-track-bg:                       #D7DAE0,
@@ -290,9 +297,9 @@ $color-palette: (
         notification-icon-body:                   $black,
         notification-icon-ellipse:                $cornflower-blue,
 
-        // checkbox
-        checkbox-disabled-opacity:                 0.52,
-        checkbox-readonly-opacity:                 0.6 
+        // Default properties and values that are shared by many/most controls
+        control-default-disabled-opacity:         $opacity-DEC52,
+        control-default-readonly-opacity:         $opacity-DEC60 
     );
 
 // Images & Icons

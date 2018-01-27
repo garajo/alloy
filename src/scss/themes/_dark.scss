@@ -35,7 +35,10 @@ $opacity-HEX28:          0.16;
 $opacity-HEX19:          0.10;         
 $opacity-HEX14:          0.08;         
 $opacity-HEX0F:          0.06;         
-$opacity-HEX07:          0.03;         
+$opacity-HEX07:          0.03;     
+
+$opacity-DEC30:          0.3;
+$opacity-DEC60:          0.6;
 
 body {
 	background:	    $dark-jungle;
@@ -124,7 +127,7 @@ $color-palette: (
         button-quick-access-hover-bg:             rgba($glitter,$opacity-HEX14),
         button-quick-access-active-border:        rgba($black,$opacity-HEX19),                     
         button-quick-access-active-bg:            rgba($black,$opacity-HEX4C),
-        button-quick-access-disabled-opacity:     0.3,   
+        button-quick-access-disabled-opacity:     $opacity-DEC30,   
         button-quick-access-disabled-text-color:  $white,
         button-group-box-border:                  rgba($glitter,$opacity-HEX28),
         button-group-box-bg:                      rgba($black,$opacity-HEX19),                 
@@ -144,7 +147,7 @@ $color-palette: (
         button-standard-pressed-color:            $white,
         button-standard-active-bg:                $jacksons-purple,
         button-standard-active-shadow-inset:      rgba($white,$opacity-HEX28),
-        button-standard-disabled-opacity:         0.3,                                  //leave disabled opacity in decimal since the Caranu spec does    
+        button-standard-disabled-opacity:         $opacity-DEC30,                      //leave disabled opacity in decimal since the Caranu spec does    
         button-standard-disabled-text-color:      $white,
         // -- Default
         button-default-border-inset:              rgba($cornflower-blue,$opacity-HEX7F),
@@ -159,7 +162,7 @@ $color-palette: (
         button-dropdown-lightweight-color-active: $cornflower-blue,
 
         // Input
-        input-text-disabled-opacity:              0.3,                                    //leave disabled opacity in decimal since the Caranu spec does            
+        input-text-disabled-opacity:              $opacity-DEC30,                          //leave disabled opacity in decimal since the Caranu spec does            
         input-text-border:                        rgba($glitter,$opacity-HEX4C),
         input-text-bg:                            rgba($black,$opacity-HEX33),
         input-text-color:                         $white,
@@ -186,7 +189,7 @@ $color-palette: (
         switch-border-checked:                    $cornflower-blue,
         switch-bg-checked:                        $cornflower-blue,
         switch-thumb-checked-bg:                  $white,
-        switch-disabled-opacity:                  0.3,                                   //leave disabled opacity in decimal since the Caranu spec does    
+        switch-disabled-opacity:                  $opacity-DEC30,                        //leave disabled opacity in decimal since the Caranu spec does    
         
         // -- Combo box
         button-dropdown-combo-bg:                 rgba($black,$opacity-HEX33),
@@ -201,7 +204,7 @@ $color-palette: (
         button-spin-gradient-top-hover:           #3F3F46,                            //infrequently used one off (non standard) color; usually for control hover states
         button-spin-gradient-bottom-hover:        #36373D,                            //infrequently used one off (non standard) color; usually for control hover states
         button-spin-bg-active:                    $cornflower-blue,
-        button-spin-opacity-disabled:             0.3,                                  //leave disabled opacity in decimal since the Caranu spec does    
+        button-spin-opacity-disabled:             $opacity-DEC30,                       //leave disabled opacity in decimal since the Caranu spec does    
 
         // Tree View
         list-item-color:                          $french-gray,
@@ -236,8 +239,8 @@ $color-palette: (
         // Property Grid
         grid-title-color:                         $white,
         grid-search-placeholder-color:            $french-gray,
-        grid-item-darkened-opacity:               0.3,                                 //leave disabled opacity in decimal since the Caranu spec does    
-        propgrid-item-darkened-opacity:           0.6,                                 //JEFF_TODO Need to rename this to reflect a style for read only properties of the property grid. Need to create a separate group for the property grid specific vars.
+        grid-item-darkened-opacity:               $opacity-DEC30,                      //leave disabled opacity in decimal since the Caranu spec does    
+        propgrid-item-darkened-opacity:           $opacity-DEC60,                      //JEFF_TODO Need to rename this to reflect a style for read only properties of the property grid. Need to create a separate group for the property grid specific vars.
 
         // Scrollbars
         scrollbar-track-bg:                       $jaguar,
@@ -276,7 +279,7 @@ $color-palette: (
         textarea-text-bg-error:                   #2B0A0A,
         textarea-text-border-error:               #E03030,
         textarea-text-highlight-bg:               $jacksons-purple,
-        textarea-text-disabled-opacity:           0.3,                                    //leave disabled opacity in decimal since the Caranu spec does    
+        textarea-text-disabled-opacity:           $opacity-DEC30,                        //leave disabled opacity in decimal since the Caranu spec does    
         textarea-text-disabled-color:             $white,
         textarea-text-placeholder-color:          $french-gray,
 
@@ -284,9 +287,9 @@ $color-palette: (
         notification-icon-body:                   $white,
         notification-icon-ellipse:                $cornflower-blue,
 
-        // checkbox
-        checkbox-disabled-opacity:                0.3,
-        checkbox-readonly-opacity:                0.6
+        // Default properties and values that are shared by many/most controls
+        control-default-disabled-opacity:         $opacity-DEC30,
+        control-default-readonly-opacity:         $opacity-DEC60
 );
 
 // Images & Icons

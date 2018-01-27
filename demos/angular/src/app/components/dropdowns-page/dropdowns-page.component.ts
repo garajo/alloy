@@ -9,11 +9,15 @@ export class DropdownsPageComponent implements OnInit {
     private id = 0;
     public profImage = require('../../../assets/userProfLogo.png');
 
-    disabled = false;
     selectedValue: string;
     alt_selectedValue: string;
     icon_selectedValue: string;
     placeholder = 'Select One';
+
+    disabledState = false;
+    readOnlyState = false;
+    errorState = false;
+    errorMessage = 'Validation errors in dropdown';
 
 
     modules = [
@@ -49,6 +53,18 @@ export class DropdownsPageComponent implements OnInit {
         if (id >= 0) {
             this.modules.splice(id, 1);
         }
+    }
+
+    toggleErrorState() {
+        this.errorState = !this.errorState;
+    }
+
+    toggleReadonlyState() {
+        this.readOnlyState = !this.readOnlyState;
+    }
+
+    toggleDisabledState() {
+        this.disabledState = !this.disabledState;
     }
 
     constructor() { }

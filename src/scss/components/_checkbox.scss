@@ -34,13 +34,13 @@
   }
 
   &.readonly {
-    opacity: map_get($color-palette, checkbox-readonly-opacity);
     cursor: default;
+    opacity: map_get($color-palette, control-default-readonly-opacity);
   }
 
   &.disabled {
-    opacity: map_get($color-palette, checkbox-disabled-opacity);
     cursor: default;
+    opacity: map_get($color-palette, control-default-disabled-opacity);        
   }
 }
 
@@ -62,6 +62,7 @@
         background: transparent map_get($icon-pack, checkbox) no-repeat center center / $size;
       }
   
+      &:hover + span,
       &.is-hovered + span {
         background: transparent map_get($icon-pack, checkbox-hover) no-repeat center center / $size;
       }

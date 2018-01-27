@@ -533,6 +533,11 @@ button.dropdown {
     background: transparent (map_get($icon-pack, caret-down)) no-repeat center center / $caret-width $caret-height;
   }
 
+  &.nocaret::after {
+    //Remove the "after the content" content. IOW if you turn on this class the caret will be removed.  
+    content:none;
+  }
+
   &.button-toolbar {
     &:after {
       top: 9px;
