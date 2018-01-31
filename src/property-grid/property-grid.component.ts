@@ -81,6 +81,13 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
     // tslint:disable-next-line:no-input-rename
     @Input('enableDescription') public isDescriptionVisible: boolean;
 
+    // ~ For customizable rowHeight ~
+    // Caranu spec says 28px row heights for the content of the "right side" editable properties.
+    // Looks like we've determined that 28px is the right height for the ag grid row which accounts for the 24px content height
+    // and leaves a little extra space (28-24 = 4px) for 2px padding top and bottom
+    // In Swivel, rowHeight is set at 32px for all grids.
+    @Input() public rowHeight = 28;
+
     // tslint:disable-next-line:no-any
     @Output() public updateDataEvent = new EventEmitter<any>();
 
@@ -117,7 +124,6 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
             suppressFocusAfterRefresh: false,
             getNodeChildDetails: this.getNodeChildDetails,
             headerHeight: 0,
-            // rowHeight: 26,
             animateRows: true,
             // The following function supposedly makes the grid responsive.
             // It was visible in the aggrid gui demo.
@@ -126,10 +132,7 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
 
             // change row height for dropdown
             getRowHeight: (params) => {
-                // Caranu spec says 22px row heights for the content of the "right side" editable properties.
-                // Looks like we've determined that 26px is the right height for the ag grid row which accounts for the 22px content height
-                // and leaves a little extra space (26-22 = 4px) for 2px padding top and bottom
-                return 26;
+                return this.rowHeight;
             }
         };
 
@@ -430,7 +433,7 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
         }
     }
 
-    // Function available to parent component to clear Description when needed with #ViewChild
+    // Available to parent component for description clearing with @ViewChild
     public clearDescriptionBox(): void {
         // Reset description box when enabled
         if (this.isDescriptionVisible) {

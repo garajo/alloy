@@ -6,6 +6,10 @@
 // Since we are using ag-grid under the hood we are using its types not simpleton ULs/LIs so this style has been
 // slightly modified to be able to select the different visual tree structure of an ag-grid
 
+div.ag-body-container form{
+    height: 100%;
+}
+
 // **Need to leave all this comment out borrowed code from the base editable & list properties styles as I'd like to extend/derive these styles off of them
 .ag-grid-list-properties,
 .ag-grid-editable-properties 
@@ -13,6 +17,8 @@
     display: inline-block;
 
     padding: 0;
+
+    height: 100%;
 
     // Original
     // li 
@@ -51,6 +57,10 @@
     //         margin-left: 0 !important;
     //     }
 
+    div.input-group {
+        height: 100%;
+    }
+
     // NOTE: There is base styling that has already been merged in here for this control that comes from any/all other styles that "contribute" to this control style
     // We are just tweaking/overriding things we need to change to make it look good in the context of the property grid.
     input[type="text"] 
@@ -59,7 +69,8 @@
         // max-width: calc(100% - 32px);
 
         // Copied: The original value from _grid.scss for an input text box inside of the UPro property grid
-        height: $height;
+        height: 100%;
+        margin-bottom: 0;
 
         // Copied: The original value from _grid.scss for an input text box inside of the UPro property grid
         padding: 3px $offset;
@@ -72,9 +83,10 @@
         {
             &+.error 
             {
-            // Tweaked: Had to change the default top value from the generic/type style for text boxes since these property grid rows are much smaller/shorter thant what a textbox is used to
-            // All of this has-error and sibling error override is to get the vertical alignmnent correct. Error image is 16px tall, TextBox in property grid is 22px. 22-16 = 6 /2 = 3px vertical shift to get it centered.
-            top: 3px; 
+            // Tweaked: Auto resizing error icon
+            top: 0; // Overwrite parent style of top 8px
+            bottom: 0;
+            margin: auto;
             }
         }
     }
@@ -165,7 +177,10 @@
         // Tweaked: Override the original value from _grid.scss for a checck box inside of the UPro property grid -- even though a UPro grid row is 22px these 5px values seemed too large
         // Copied: The original value from _grid.scss 
         //margin: 5px 0 5px $offset;
-        margin: 3px 0 3px $offset;
+        //margin: 3px 0 3px $offset;
+        margin-left: $offset;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     //Added this to account for the property grid read only properties using a paragraph element to turn down their opacity
