@@ -1,20 +1,15 @@
 <form novalidate [formGroup]="checkboxForm">
     <div class="ag-grid-editable-properties">
-        <div class="checkbox">
+        <alloy-checkbox
+            formControlName="checkboxFormControl"
+            [disabled]="this.params?.node.data.readOnly"
+            (change)=onChange($event.target.checked)
+            [errors]="checkboxForm.controls['checkboxFormControl'].errors"
+            [errorMessage]="messageTooltip">
             <!-- This hidden input is used to allow the server errors validator to get access to the serverErrors data
-            The formControlName - serverErrors has it's value set to the string array of server errors in the typescript
-            which then can be gotten in the validator -->
+                The formControlName - serverErrors has it's value set to the string array of server errors in the typescript
+                which then can be gotten in the validator -->
             <input formControlName="serverErrors" type="hidden" />
-            <!-- JEFF_TODO There is something wrong with this checkbox, when one clicks over to the new checkbox component page on -->
-            <!-- the demo and then clicks back here this checkbox slides to the bottom (margin-bottom = 0) of it's row-->
-            <!-- Weird. I know. I think it has something to do with the type styles for checkbox from UPro, and the new -->
-            <!-- type style for checkboxes from the new Alloy component colliding with the "squashed" styling for a checkbox -->
-            <!-- in the context of the property grid-->
-            <input type="checkbox"
-                formControlName="checkboxFormControl"
-                [checked]='params?.value' (change)=onChange($event.target.checked)
-                [class.has-error]="checkboxForm.controls['checkboxFormControl'].errors" />
-                <span class="error" data-toggle="tooltip" title="{{messageTooltip}}"></span>
-        </div>
+        </alloy-checkbox>
     </div>
 </form>

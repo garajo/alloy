@@ -57,7 +57,7 @@ div.ag-body-container form{
     //         margin-left: 0 !important;
     //     }
 
-    div.input-group {
+    .input-group {
         height: 100%;
     }
 
@@ -172,15 +172,15 @@ div.ag-body-container form{
         }
     }
 
-    .checkbox {
-
-        // Tweaked: Override the original value from _grid.scss for a checck box inside of the UPro property grid -- even though a UPro grid row is 22px these 5px values seemed too large
-        // Copied: The original value from _grid.scss 
-        //margin: 5px 0 5px $offset;
-        //margin: 3px 0 3px $offset;
-        margin-left: $offset;
-        top: 50%;
-        transform: translateY(-50%);
+    .checkbox-container {
+        height: 100%;
+        .checkbox {
+            // Tweaked: Override the original value from _grid.scss for a checck box inside of the UPro property grid -- even though a UPro grid row is 22px these 5px values seemed too large
+            // Copied: The original value from _grid.scss 
+            margin-left: $offset;
+            display: inline-block;
+            vertical-align: middle;
+        }
     }
 
     //Added this to account for the property grid read only properties using a paragraph element to turn down their opacity
