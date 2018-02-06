@@ -16,6 +16,12 @@ export class AlloyPropertyGridPropertyRow {
     // The default value is an empty string.
     public errorMessages: string [];
 
+    // Values are options known prior to creating/updating the dropdown for the property row.
+    // The available values for the drop down are only known after the id
+    // is used to access the actual propertyDefinition.
+    // The default value is an empty string.
+    public values: string [];
+
     // ReadOnly indicates that this property should be readonly
     // and not editable.
     // The default value is false.
@@ -41,6 +47,7 @@ export class AlloyPropertyGridPropertyRow {
         public id: string) {
             // Set some defaults
             this.errorMessages = [];
+            this.values = [];
             this.readOnly = false;
     };
 }
