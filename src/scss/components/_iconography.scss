@@ -156,6 +156,9 @@
     transform: rotate(90deg);
   }
 
+  // For carets used as expanders, Caranu specifies that hover & pressed state are the same color
+  &:hover,
+  &.is-hover,
   &:active,
   &.is-active {
     &.up {
