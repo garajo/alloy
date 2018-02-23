@@ -26,6 +26,7 @@ const buildFolder = path.join(rootFolder, 'build');
 const distFolder = path.join(rootFolder, 'dist');
 
 const external = [
+  '@angular/animations',
   '@angular/core',
   '@angular/common',
   '@angular/forms',
@@ -33,8 +34,12 @@ const external = [
   '@angular/cdk/coercion',
   '@angular/cdk/a11y',
   '@angular/cdk/rxjs',
+  '@angular/material',
   '@angular/platform-browser',
+  '@angular/platform-browser/animations',
   'ag-grid-angular/main',
+  'ag-grid-angular/dist/aggrid.module',
+  'ag-grid-angular/dist/interfaces',
   'rxjs/observable/merge',
   'rxjs/Subject',
   'ts-keycode-enum'
@@ -122,7 +127,7 @@ gulp.task('rollup:fesm', function() {
 
       // Bundle's entry point
       // See https://github.com/rollup/rollup/wiki/JavaScript-API#entry
-      entry: `${buildFolder}/index.js`,
+      input: `${buildFolder}/index.js`,
 
       // Allow mixing of hypothetical and actual files. "Actual" files can be files
       // accessed by Rollup or produced by plugins further down the chain.
@@ -136,7 +141,9 @@ gulp.task('rollup:fesm', function() {
 
       // Format of generated bundle
       // See https://github.com/rollup/rollup/wiki/JavaScript-API#format
-      format: 'es',
+      output: {
+        format: 'es'
+      },
 
       onwarn: onwarn,
     }))
@@ -154,7 +161,7 @@ gulp.task('rollup:umd', function() {
 
       // Bundle's entry point
       // See https://github.com/rollup/rollup/wiki/JavaScript-API#entry
-      entry: `${buildFolder}/index.js`,
+      input: `${buildFolder}/index.js`,
 
       // Allow mixing of hypothetical and actual files. "Actual" files can be files
       // accessed by Rollup or produced by plugins further down the chain.
@@ -166,27 +173,29 @@ gulp.task('rollup:umd', function() {
       // See https://github.com/rollup/rollup/wiki/JavaScript-API#external
       external: external,
 
-      // Format of generated bundle
-      // See https://github.com/rollup/rollup/wiki/JavaScript-API#format
-      format: 'umd',
+      output: {
+        // Format of generated bundle
+        // See https://github.com/rollup/rollup/wiki/JavaScript-API#format
+        format: 'umd',
+          
+        // Export mode to use
+        // See https://github.com/rollup/rollup/wiki/JavaScript-API#exports
+        exports: 'named',
 
-      // Export mode to use
-      // See https://github.com/rollup/rollup/wiki/JavaScript-API#exports
-      exports: 'named',
+        // The name to use for the module for UMD/IIFE bundles
+        // (required for bundles with exports)
+        // See https://github.com/rollup/rollup/wiki/JavaScript-API#modulename
+        name: '@keysight/alloy',
 
-      // The name to use for the module for UMD/IIFE bundles
-      // (required for bundles with exports)
-      // See https://github.com/rollup/rollup/wiki/JavaScript-API#modulename
-      name: '@keysight/alloy',
-
-      // See https://github.com/rollup/rollup/wiki/JavaScript-API#globals
-      globals: Object.assign({
-          typescript: 'ts'
-        },
-          // Suppress `o name was provided for external module '@angular/core' in options.globals – guessing '_angular_core'` message.
-          // by converting externals to a map like {'@angular/core': '_angular_core'}
-          Object.assign(...external.map(d => ({[d]: d.replace(/\W/g, '_')})))
-      ),
+        // See https://github.com/rollup/rollup/wiki/JavaScript-API#globals
+        globals: Object.assign({
+            typescript: 'ts'
+          },
+            // Suppress `o name was provided for external module '@angular/core' in options.globals – guessing '_angular_core'` message.
+            // by converting externals to a map like {'@angular/core': '_angular_core'}
+            Object.assign(...external.map(d => ({[d]: d.replace(/\W/g, '_')})))
+        ),
+      },
 
       onwarn: onwarn,
     }))

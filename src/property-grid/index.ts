@@ -1,7 +1,7 @@
 /*
  * Copyright Keysight Technologies 2017. All rights reserved.
  */
-import { AgGridModule } from 'ag-grid-angular/main';
+import { AgGridModule } from 'ag-grid-angular/dist/aggrid.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule, ANALYZE_FOR_ENTRY_COMPONENTS, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';

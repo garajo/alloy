@@ -4,7 +4,7 @@
 import { AfterViewInit, Component, ChangeDetectionStrategy, HostListener } from '@angular/core';
 import { ValidatorFn } from '@angular/forms';
 
-import { ICellEditorAngularComp } from 'ag-grid-angular/main';
+import { ICellEditorAngularComp } from 'ag-grid-angular/dist/interfaces';
 
 import { AlloyPropertyGridOutputService } from '../services/property-grid-output.service';
 import { AlloyPropertyGridDynamicControlService } from '../services/property-grid-dynamic-control.service';
