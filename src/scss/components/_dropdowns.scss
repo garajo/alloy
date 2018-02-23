@@ -1,6 +1,7 @@
 .dropdown-group {
   position: relative;
-  display: flex;
+  //Fix so that "siblings" to this container don't go on their own rows; we want things to be on the same row by default
+  display: inline-flex;
   align-items: center;
   width: auto;
 
@@ -13,7 +14,7 @@
     @extend .error;
 
     //The global .error icon is invisible by default. Consumers need to turn it on. 
-    display: block;
+    display: inline-flex;
 
     // See Caranu spec pg. 22 TextBox error state as an example. Error icon should be 8 pixels to the right of the control it is associated with
     margin-left: 8px;
