@@ -1,10 +1,9 @@
 <div class="switch">
     <input class="switch-input"
-        id="styleguide-switch"
+        [id]="myId"
         type="checkbox"
-        name="styleguide-switch"
         [checked]="onSwitchStatus"
         [disabled]="disabled"
         (click)="onSwitch()">
-    <label class="switch-paddle" for="styleguide-switch"></label>
+    <label class="switch-paddle" [for]="myId"></label>
 </div>
