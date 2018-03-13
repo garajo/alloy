@@ -1,10 +1,13 @@
 import {
     Input,
     Component,
-    forwardRef
+    forwardRef,
+    ViewChild,
+    ElementRef
 } from '@angular/core';
 
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FocusableOption } from '@angular/cdk/a11y';
 
 @Component({
     moduleId: module.id,
@@ -18,7 +21,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
         }
     ]
 })
-export class AlloyCheckbox implements ControlValueAccessor {
+export class AlloyCheckbox implements ControlValueAccessor, FocusableOption {
+    @ViewChild('checkbox') private inputCheckbox: ElementRef;
 
     /** Whether or not the checkbox is disabled  */
     private _isDisabled = false;
@@ -130,10 +134,11 @@ export class AlloyCheckbox implements ControlValueAccessor {
         return this._label !== '';
     }
 
-    /** Toggles the enabled/disabled states of the checkbox */
+    /** Toggles the checked/unchecked states of the checkbox */
     toggle(): boolean {
         if (!this._isDisabled && !this._isReadonly) {
             this._isChecked = !this._isChecked;
+            this.focus();
             return true;
         }
         return false;
@@ -145,6 +150,18 @@ export class AlloyCheckbox implements ControlValueAccessor {
             this._isHovered = false;
         } else {
             this._isHovered = !this._isHovered;
+        }
+    }
+
+    /** Checks if the checkbox currently can be focused */
+    isFocusable(): boolean {
+        return !this.readonly && !this.disabled;
+    }
+
+    /** Get the checkbox to focus and receive keystrokes */
+    focus(): void {
+        if (this.isFocusable()) {
+            this.inputCheckbox.nativeElement.focus();
         }
     }
 }

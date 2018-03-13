@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FocusableOption } from '@angular/cdk/a11y';
+
 declare function require(name: string): string;
 
 @Component({
@@ -22,9 +24,16 @@ export class CheckboxPageComponent implements OnInit {
     readonlyMixed = false;
     errorsMixed = false;
 
+    disabledFocus = false;
+    checkedFocus = false;
+    readonlyFocus = false;
+    errorsFocus = false;
+
     errorMessage = 'Validation errors in checkbox';
     placeholder = 'Checkbox';
     iconSrc = '../../assets/userProfLogo.png';
+
+    @ViewChild('focusCheckBox') focusCheckBox: FocusableOption;
 
     constructor() { }
 
@@ -38,6 +47,9 @@ export class CheckboxPageComponent implements OnInit {
             break;
             case 'mixed':
             this.disabledMixed = !this.disabledMixed;
+            break;
+            case 'focus':
+            this.disabledFocus = !this.disabledFocus;
             break;
         }
     }
@@ -59,6 +71,11 @@ export class CheckboxPageComponent implements OnInit {
                 this.checkedMixed = !this.checkedMixed;
             }
             break;
+            case 'focus':
+            if (!this.disabledFocus && !this.readonlyFocus) {
+                this.checkedFocus = !this.checkedFocus;
+            }
+            break;
         }
     }
 
@@ -72,6 +89,9 @@ export class CheckboxPageComponent implements OnInit {
             break;
             case 'mixed':
             this.readonlyMixed = !this.readonlyMixed;
+            break;
+            case 'focus':
+            this.readonlyFocus = !this.readonlyFocus;
             break;
         }
     }
@@ -87,7 +107,14 @@ export class CheckboxPageComponent implements OnInit {
             case 'mixed':
             this.errorsMixed = !this.errorsMixed;
             break;
+            case 'focus':
+            this.errorsFocus = !this.errorsFocus;
+            break;
         }
+    }
+
+    focusOnCheckBox() {
+        this.focusCheckBox.focus();
     }
 
     ngOnInit() {

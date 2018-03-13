@@ -4,7 +4,7 @@
         (mouseover)="toggleHover()"
         (mouseout)="toggleHover()">
     <div class="checkbox">
-        <input type="checkbox" [ngClass]="{'is-hovered': hovered, 'hover-disable': !hovered, 'has-error': errors}" [checked]="checked" />
+        <input #checkbox type="checkbox" [ngClass]="{'is-hovered': hovered, 'hover-disable': !hovered, 'has-error': errors}" [checked]="checked" />
         <!-- JEFF_TODO Do we really need this extra span barnacle? Can we change the style and the instances to remove it since I see no value in it, other than UPro had originally required it -->
         <span></span>
     </div>

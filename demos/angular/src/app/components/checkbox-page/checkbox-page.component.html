@@ -101,4 +101,52 @@
             </div>
         </div>
     </div>
+
+    <!-- demo checkbox focus  -->
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h3>Checkbox focus</h3>
+                <br>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <alloy-checkbox #focusCheckBox [label]="placeholder" [disabled]="disabledFocus" [checked]="checkedFocus" [readonly]="readonlyFocus" [errors]="errorsFocus" [errorMessage]="errorMessage">
+                </alloy-checkbox>
+            </div>
+            <div class="columns">
+                <div>
+                    <h6>Checkbox States</h6>
+                    <div>
+                        <button id="checked" type="button" class="button-standard" (click)="toggleChecked('focus')" [ngClass]="{'is-pressed': checkedFocus}">Checked</button>
+                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled('focus')" [ngClass]="{'is-pressed': disabledFocus}">Disabled</button>
+                        <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly('focus')" [ngClass]="{'is-pressed': readonlyFocus}">Readonly</button>
+                        <button id="errors" type="button" class="button-standard" (click)="toggleErrorState('focus')" [ngClass]="{'is-pressed': errorsFocus}">Error</button>
+                        <button id="focus" type="button" class="button-standard" (click)="focusOnCheckBox()">Focus</button>                                                                    
+                    </div>
+                </div>
+            </div>
+            <div class="columns small-7">
+                <pre ngNonBindable>
+Click on Focus button and use spacebar to toggle checkbox.
+If focus isn't on checkbox, spacebar has no effect.
+
+&lt;alloy-checkbox #focusCheckBox [label]=&quot;placeholder&quot;
+    [disabled]=&quot;disabled&quot; [checked]=&quot;checked&quot;&gt;
+    [readonly]=&quot;readonlyFocus&quot; [errors]=&quot;errorsFocus&quot;
+    [errorMessage]=&quot;errorMessage&quot;
+&lt;/alloy-checkbox&gt;
+
+@ViewChild('focusCheckBox') alloyCheckBox: AlloyCheckBox;
+
+or
+
+@ViewChild('focusCheckBox') alloyCheckBox: FocusableOption;
+
+alloyCheckBox.focus();
+                </pre>
+            </div>
+        </div>
+    </div>
 </div>
