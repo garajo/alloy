@@ -3,7 +3,7 @@
   //Fix so that "siblings" to this container don't go on their own rows; we want things to be on the same row by default
   display: inline-flex;
   align-items: center;
-  width: auto;
+  width: 100%;
 
   button {
     transition: none;
