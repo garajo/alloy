@@ -42,7 +42,8 @@ const external = [
   'ag-grid-angular/dist/interfaces',
   'rxjs/observable/merge',
   'rxjs/Subject',
-  'ts-keycode-enum'
+  'ts-keycode-enum',
+  'ngx-contextmenu'
 ]
 
 // Suppress `The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten` message.

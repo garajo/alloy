@@ -11,9 +11,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   AlloyAboutBox,
   AlloyAboutBoxModule,
+  AlloyContextmenuModule,
   AlloyDropdownModule,
   AlloyButtonModule,
-  AlloyIconModule,  
+  AlloyIconModule,
   AlloyCheckboxModule,
   AlloyNotificationIconModule,
   AlloyPropertyGridModule,
@@ -40,6 +41,7 @@ import { EditorService } from './components/property-page/editors/services/edito
 import { TextboxPageComponent } from './components/textbox-page/textbox-page.component';
 import { TextareaPageComponent } from './components/textarea-page/textarea-page.component';
 import { SwitcherPageComponent } from './components/switcher-page/switcher-page.component';
+import { ContextmenuPageComponent } from './components/contextmenu-page/contextmenu-page.component';
 
 
 /**
@@ -49,14 +51,15 @@ import { SwitcherPageComponent } from './components/switcher-page/switcher-page.
 @NgModule({
   exports: [
     AlloyAboutBoxModule,
-    AlloyButtonModule,  
-    AlloyCheckboxModule,  
+    AlloyButtonModule,
+    AlloyCheckboxModule,
     AlloyDropdownModule,
-    AlloyIconModule,  
+    AlloyIconModule,
     AlloyNotificationIconModule,
     AlloySwitcherModule,
     AlloyTextboxModule,
-    AlloyTextareaModule
+    AlloyTextareaModule,
+    AlloyContextmenuModule
   ],
   entryComponents: [
     AlloyAboutBox
@@ -64,11 +67,12 @@ import { SwitcherPageComponent } from './components/switcher-page/switcher-page.
   imports: [
     MatDialogModule,
     BrowserAnimationsModule,
-    AlloyButtonModule,    
-    AlloyIconModule,    
+    AlloyButtonModule,
+    AlloyIconModule,
     AlloyNotificationIconModule,
     AlloyTextboxModule,
-    AlloyTextareaModule 
+    AlloyTextareaModule,
+    AlloyContextmenuModule
   ]
 })
 export class AlloyDemoModule { }
@@ -87,7 +91,8 @@ export class AlloyDemoModule { }
     DropdownDynamicComponent,
     TextboxPageComponent,
     TextareaPageComponent,
-    SwitcherPageComponent
+    SwitcherPageComponent,
+    ContextmenuPageComponent
   ],
   imports: [
     AlloyDemoModule,

@@ -9,6 +9,7 @@ export * from './core';
 
 export * from './button/index';
 export * from './checkbox/index';
+export * from './contextmenu/index';
 export * from './dropdown/index';
 export * from './icon/index';
 

@@ -10,6 +10,7 @@ import { PropertyEditorComponent } from './components/property-page/property-edi
 import { TextboxPageComponent } from './components/textbox-page/textbox-page.component';
 import { TextareaPageComponent } from './components/textarea-page/textarea-page.component';
 import { SwitcherPageComponent } from 'app/components/switcher-page/switcher-page.component';
+import { ContextmenuPageComponent } from './components/contextmenu-page/contextmenu-page.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'dropdowns', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const routes: Routes = [
     { path: 'textarea', component: TextareaPageComponent },
     { path: 'switcher', component: SwitcherPageComponent},
     { path: 'textbox', component: TextboxPageComponent},
+    { path: 'contextmenu', component: ContextmenuPageComponent }
 ];
 
 @NgModule({

@@ -10,12 +10,15 @@ import {
     OnChanges,
     OnInit,
     Output,
-    OnDestroy
+    OnDestroy,
+    Renderer2
 } from '@angular/core';
 
+import { ContextMenuService } from 'ngx-contextmenu';
 import { GridOptions } from 'ag-grid/main';
 import { ValidatorFn } from '@angular/forms';
 
+import { AlloyContextMenuComponent } from './../contextmenu/contextmenu';
 import { AlloyPropertyGridDynamicControlService } from './services/property-grid-dynamic-control.service';
 import { AlloyPropertyGridEditorViewerComponent } from './editors/property-grid-editor-viewer.component';
 import { AlloyPropertyGridMessageService } from './services/property-grid-message.service';
@@ -88,6 +91,10 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
     // In Swivel, rowHeight is set at 32px for all grids.
     @Input() public rowHeight = 28;
 
+    // ~ For customizable contextmenu ~
+    // DO NOT call it 'contextMenu/alloyContextMenu'. It conflicts with ContextMenuDirectives and Component.
+    @Input() public contextMenuTemplate: AlloyContextMenuComponent;
+
     // tslint:disable-next-line:no-any
     @Output() public updateDataEvent = new EventEmitter<any>();
 
@@ -110,7 +117,9 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
         private controlsService: AlloyPropertyGridDynamicControlService,
         private outputService: AlloyPropertyGridOutputService,
         private validatorService: AlloyPropertyGridValidatorService,
-        private messageService: AlloyPropertyGridMessageService) {
+        private messageService: AlloyPropertyGridMessageService,
+        private contextMenuService: ContextMenuService,
+        private renderer: Renderer2) {
         this.showGrid = true;
         this.gridOptions = <GridOptions>{};
         this.isDescriptionVisible = false; // description box by default is not enabled
@@ -133,10 +142,31 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
             // change row height for dropdown
             getRowHeight: (params) => {
                 return this.rowHeight;
+            },
+
+            // Listen for (contextmenu) event on each rows except group
+            processRowPostCreate: (params) => {
+                const eRow = params.eRow;
+                if (eRow && !params.node.group) {
+                    this.renderer.listen(eRow, 'contextmenu', (event) => this.onContextMenu(event, params.node.data));
+                }
             }
         };
 
         this.internalRowData = [];
+    }
+
+    // Every context menu item emits execute events.
+    // The $event object is of the form { event: MouseEvent, item: any },
+    // where event is the mouse click event that triggered the execution and item is the current item.
+    public onContextMenu($event: MouseEvent, data: any): void {
+        this.contextMenuService.show.next({
+            contextMenu: this.contextMenuTemplate,
+            event: $event,
+            item: data
+        });
+        $event.preventDefault();
+        $event.stopPropagation();
     }
 
     public ngAfterViewInit(): void {

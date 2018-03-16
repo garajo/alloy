@@ -7,6 +7,7 @@ import { AbstractControl, FormBuilder, FormGroup, ValidatorFn } from '@angular/f
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
+    // tslint:disable-next-line:component-selector
     selector: 'client-dynamic-component',
     templateUrl: './dropdown-dynamic.component.html'
 })

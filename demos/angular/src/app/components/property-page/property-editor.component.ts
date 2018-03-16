@@ -1,7 +1,7 @@
 /*
  * Copyright Keysight Technologies 2017. All rights reserved.
  */
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 import { PropertyType } from './assets/propertyType';
@@ -10,6 +10,7 @@ import { DataService } from './editors/services/data.service';
 import { EditorService } from './editors/services/editor.service';
 
 import {
+    AlloyContextMenuComponent,
     AlloyPropertyGridGroupRow,
     AlloyPropertyGridPropertyRow,
     IPropertyGridOption,
@@ -41,6 +42,10 @@ export class PropertyEditorComponent implements OnInit, OnDestroy {
 
     // tslint:disable-next-line:member-ordering
     private subscription: ISubscription;
+
+    // ~ Custom contextmenu items ~
+    private contextMenuData: any;
+    @ViewChild('propertyContextMenu') public propertyContextMenu: AlloyContextMenuComponent;
 
     constructor(private editorService: EditorService,
                 private dataService: DataService) {
@@ -107,5 +112,10 @@ export class PropertyEditorComponent implements OnInit, OnDestroy {
 
         // inject into gridOption input
         this.gridOption = option;
+    }
+
+    public onContextMenuPress(event: any): void {
+        this.contextMenuData = event.item;
+        console.log('Do something with the selected data...', this.contextMenuData);
     }
 }

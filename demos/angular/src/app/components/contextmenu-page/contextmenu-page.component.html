@@ -1,0 +1,180 @@
+<div class="tabs-panel is-active">
+    <!-- Contextmenu -->
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h3>Simple Contextmenu</h3>
+                <br>
+            </div>
+        </div>
+
+        <!-- alloy-contextmenu Basic example -->
+        <div class="row align-center">
+            <div class="columns">
+                <div>
+                    <ul>
+                        <li *ngFor="let item of items" [alloyContextMenu]="basicMenu" [alloyContextMenuData]="item">Right Click: {{item?.name}}</li>
+                    </ul>
+                    <alloy-contextmenu #basicMenu>
+                        <ng-template contextMenuItem let-item [enabled]="isEnabled" (execute)="onContextMenuItemClick($event)">
+                            Add {{ item?.name }}
+                        </ng-template>
+                        <ng-template contextMenuItem divider="true"></ng-template>
+                        <ng-template contextMenuItem let-item [enabled]="isEnabled" (execute)="onContextMenuItemClick($event)">
+                            Copy {{ item?.name }}
+                        </ng-template>
+                        <ng-template contextMenuItem let-item [enabled]="isEnabled" (execute)="onContextMenuItemClick($event)">
+                            Delete {{ item?.name }}
+                        </ng-template>
+                        <ng-template contextMenuItem [visible]="isVisible" (execute)="onContextMenuItemClick($event)">
+                            You cannot see this if visible is False
+                        </ng-template>
+                    </alloy-contextmenu>
+                </div>
+                <br>
+                <div style="color:#1779ba">
+                    [enabled]="{{ isEnabled }}"
+                    <br> [visible]="{{ isVisible }}"
+                    <br>
+                    <alloy-checkbox [checked]="isEnabled" [label]="'Toggle enable/disable'" (click)="onEnabled()"></alloy-checkbox>
+                    <alloy-checkbox [checked]="isVisible" [label]="'Toggle visibility'" (click)="onVisible()"></alloy-checkbox>
+                </div>
+
+
+
+
+            </div>
+            <div class="columns">
+                <pre ngNonBindable>
+    // HTML
+    &lt;element *ngFor=&quot;let item of items&quot; [alloyContextMenu]=&quot;basicMenu&quot; [alloyContextMenuData]=&quot;items&quot;&gt;
+        Right Click: {{item?.name}}
+    &lt;/element&gt;
+    
+    &lt;alloy-contextmenu&gt;
+        &lt;ng-template contextMenuItem let-item (execute)=&quot;onContextMenuItemClick($event)&quot;&gt;
+            Add {{ item?.name }}
+        &lt;/ng-template&gt;
+        &lt;ng-template contextMenuItem let-item divider=&quot;true&quot;&gt;&lt;/ng-template&gt;
+        &lt;ng-template contextMenuItem let-item (execute)=&quot;onContextMenuItemClick($event)&quot;&gt;
+            Copy {{ item?.name }}
+        &lt;/ng-template&gt;
+        &lt;ng-template contextMenuItem let-item (execute)=&quot;onContextMenuItemClick($event)&quot;&gt;
+            Delete {{ item?.name }}
+            &lt;/ng-template&gt;
+        &lt;ng-template contextMenuItem [enabled]=&quot;false&quot; (execute)=&quot;onContextMenuItemClick($event)&quot;&gt;
+            You cannot see this if visible is False
+        &lt;/ng-template>
+    &lt;/alloy-contextmenu&gt;
+    
+    // Component
+    items: any[] = [....];
+    @ViewChild(AlloyContextMenuComponent) public basicMenu: AlloyContextMenuComponent;
+                    </pre>
+            </div>
+        </div>
+
+        <!-- alloy-contextmenu Input parameters -->
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h4>Input parameters</h4>
+
+                <div class="columns">
+                    <h6>
+                        <pre>divider</pre>
+                    </h6>
+                </div>
+                <div class="columns">This property takes in a boolean value. Optional input parameter.</div>
+                <br>
+
+                <div class="columns">
+                    <h6>
+                        <pre>enabled</pre>
+                    </h6>
+                </div>
+                <div class="columns">Items are enabled by default. Optional input parameter. This can be a boolean value or a function definition
+                    that takes an item and returns a boolean.</div>
+                <br>
+
+                <div class="columns">
+                    <h6>
+                        <pre>visible</pre>
+                    </h6>
+                </div>
+                <div class="columns">Items are visible by default. Optional input parameter. This can be a boolean value or a function definition
+                    that takes an item and returns a boolean.</div>
+
+            </div>
+        </div>
+
+        <!-- alloy-contextmenu API -->
+        <div class="row align-center" style="margin-top:50px;">
+            <div class="columns small-12">
+                <h4>API</h4>
+
+                <div class="columns">
+                    <pre>
+    class AlloyContextMenu
+        api: AlloyContextMenuAPI;
+    </pre>
+                    <pre>
+    class AlloyContextMenuAPI
+        attachListener(target: any, contextMenuData: any, customContextMenuTemplate?: AlloyContextMenuComponent): void;
+    </pre>
+                </div>
+                <br>
+                <div class="columns">If you cannot access DOM element of the `target`, you can attach a listener with `api.attachListener` to
+                    listen for contextmenu event manually. If `alloy-contextmenu` template is in a different component, you
+                    need to set your contextMenuTemplate.
+                </div>
+            </div>
+        </div>
+
+        <!-- Manually attaching event -->
+        <div class="row align-center" style="margin-top:50px;">
+            <div class="columns small-12">
+                <h4>Manually attaching contextmenu event</h4>
+
+                <div class="columns">
+                    <pre ngNonBindable>
+    // HTML
+    &lt;element #contextMenuSubject&gt;
+        Menu Item A
+    &lt;/element&gt;
+    
+    // COMPONENT
+    @ViewChild('contextMenuSubject') public contextMenuSubject: ElementRef;
+    this.manualAttachingContextMenu.api.attachListener(this.contextMenuSubject.nativeElement, 'Manual Attached Menu Data');
+    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Manually attaching event if contextmenu in different component -->
+        <div class="row align-center" style="margin-top:50px;">
+            <div class="columns small-12">
+                <h4>Manually attaching event if contextmenu in different component</h4>
+
+                <div class="columns">
+                    <pre ngNonBindable>
+    // HTML
+    &lt;app-childcomponent [alloyContextMenu]="alloyContextMenuCopy"&gt;&lt;/app-childcomponent&gt;
+    &lt;alloy-contextmenu #manualAttachingContextMenu&gt;
+        &lt;ng-template contextMenuItem&gt;
+            Menu Item A
+        &lt;/ng-template&gt;
+    &lt;/alloy-contextmenu&gt;
+    
+    // PARENT COMPONENT
+    @ViewChild(AlloyContextMenu) public manualAttachingContextMenu: AlloyContextMenu;
+    this.alloyContextMenuCopy = this.manualAttachingContextMenu;
+    
+    // CHILD COMPONENT
+    this.alloyContextMenu.api.attachListener(this.contextMenuSubject.nativeElement, 'Different component');
+                                    </pre>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

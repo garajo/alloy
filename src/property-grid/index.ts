@@ -68,7 +68,7 @@ export { AlloyPropertyGridPropertyRow} from './models/property-grid-property-row
 export { AlloyPropertyGridTypeService } from './services/property-grid-type.service';
 export { AlloyPropertyGridValidatorService } from './services/property-grid-validator.service';
 export { PropertyGridColumn, IPropertyGridColumn } from './models/property-grid-column';
-export { PropertyGridOption, IPropertyGridOption,  } from './models/property-grid-option';
+export { PropertyGridOption, IPropertyGridOption } from './models/property-grid-option';
 // ts impl
 
 // export * from './property-grid.component';

@@ -1,51 +1,59 @@
 <div class="tabs-panel is-active">
 
-  <div class="content-container">
-
-    <div class="row align-center">
-      <div class="columns small-12">
-        <h3>Simple Property Grid</h3>
-        <br>
+    <div class="content-container">
+  
+      <div class="row align-center">
+        <div class="columns small-12">
+          <h3>Simple Property Grid</h3>
+          <br>
+        </div>
       </div>
-    </div>
-
-    <div class="row align-center">
-      <div class="columns">
-
-        <!-- aside = HTML element that is a container for content. Alloy uses it to define a panel type control -->
-        <!-- panel = An Alloy style combined with the grid style that created panel type controls -->
-        <!-- grid = An Alloy style that combined with the panel style creates panel type controls-->
-        <!-- See the Alloy HTML demo app for how to properly style a Property Panel-->
-        <aside class="panel grid">
-
-          <!--property-header = An alloy class that sets the font size, family, weight and margin for panel type controls. 
-            The property grid is a "panel" kind of control. See the HTML demo for sample usage of how to apply Alloy styles-->
-          <div class="property-header">
-            Favorite Settings: Sample Settings
-          </div>
-
-          <!-- NOTE: The search behavior has not been implemented. This is just a facade taken from the UPro HTML sample app to show what it might look like-->
-          <div class="search-container">
-            <input type="text" class="grid-search" placeholder="Search (behavior not implemented)" />
-            <span class="mag-glass"></span>
-          </div>
-
-            <alloy-property-grid 
-                [gridOption]="gridOption" 
-                [nodeModel]="rowData" 
-                [styledControls]='editors' 
-                [validators]='validators'
-                [validatorMessages]='validatorMessages'
-                (updateDataEvent)='onUpdate($event)'
-                [enableDescription]='true'>
-            </alloy-property-grid>
-            <!-- The description box is disabled by default. To enable, use [enableDescription]='true' -->
-            <!-- Default rowHeight is 28px (Caranu spec). For rowHeight customization, use [rowHeight]='32' for 32px -->
-
-        </aside>
-
+  
+      <div class="row align-center">
+        <div class="columns">
+  
+          <!-- aside = HTML element that is a container for content. Alloy uses it to define a panel type control -->
+          <!-- panel = An Alloy style combined with the grid style that created panel type controls -->
+          <!-- grid = An Alloy style that combined with the panel style creates panel type controls-->
+          <!-- See the Alloy HTML demo app for how to properly style a Property Panel-->
+          <aside class="panel grid">
+  
+            <!--property-header = An alloy class that sets the font size, family, weight and margin for panel type controls. 
+              The property grid is a "panel" kind of control. See the HTML demo for sample usage of how to apply Alloy styles-->
+            <div class="property-header">
+              Favorite Settings: Sample Settings
+            </div>
+  
+            <!-- NOTE: The search behavior has not been implemented. This is just a facade taken from the UPro HTML sample app to show what it might look like-->
+            <div class="search-container">
+              <input type="text" class="grid-search" placeholder="Search (behavior not implemented)" />
+              <span class="mag-glass"></span>
+            </div>
+  
+              <alloy-property-grid 
+                  [gridOption]="gridOption" 
+                  [nodeModel]="rowData" 
+                  [styledControls]='editors' 
+                  [validators]='validators'
+                  [validatorMessages]='validatorMessages'
+                  (updateDataEvent)='onUpdate($event)'
+                  [enableDescription]='true'
+                  [contextMenuTemplate]='propertyContextMenu'>
+              </alloy-property-grid>
+              <!-- The description box is disabled by default. To enable, use [enableDescription]='true' -->
+              <!-- Default rowHeight is 28px (Caranu spec). For rowHeight customization, use [rowHeight]='32' for 32px -->
+  
+          </aside>
+  
+        </div>
       </div>
+  
     </div>
-
   </div>
-</div>
+  
+<!-- alloy-contextmenu template -->
+<!-- if you need to display items?.* in templates, you need to use let-item. It contains alloyContextMenuData -->
+<alloy-contextmenu #propertyContextMenu>
+    <ng-template contextMenuItem let-item (execute)="onContextMenuPress($event)">Show '{{ item?.name }}' in test plan</ng-template>
+    <ng-template contextMenuItem (execute)="onContextMenuPress($event)">Add as External Parameters...</ng-template>
+</alloy-contextmenu>

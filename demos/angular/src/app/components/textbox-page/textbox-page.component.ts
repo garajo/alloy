@@ -6,7 +6,7 @@ import { NgModel } from '@angular/forms';
   templateUrl: './textbox-page.component.html'
 })
 export class TextboxPageComponent implements OnInit {
-  
+
   public disabledSimple: boolean;
   public readonlySimple: boolean;
   public width = 0;
