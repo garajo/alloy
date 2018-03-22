@@ -3,7 +3,8 @@ import {
     Component,
     forwardRef,
     ViewChild,
-    ElementRef
+    ElementRef,
+    Renderer2
 } from '@angular/core';
 
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -23,6 +24,7 @@ import { FocusableOption } from '@angular/cdk/a11y';
 })
 export class AlloyCheckbox implements ControlValueAccessor, FocusableOption {
     @ViewChild('checkbox') private inputCheckbox: ElementRef;
+    @ViewChild('checkboxContainer') private checkboxContainer: ElementRef;
 
     /** Whether or not the checkbox is disabled  */
     private _isDisabled = false;
@@ -48,9 +50,14 @@ export class AlloyCheckbox implements ControlValueAccessor, FocusableOption {
     /** Checkbox icon */
     private _iconSource = '';
 
+    /** Checkbox size */
+    private _size = 14;
+
     /** ControlValueAccessor interface implementation */
     onChange: any = () => { };
     onTouched: any = () => { };
+
+    constructor(private renderer: Renderer2) {}
 
     registerOnChange(fn) {
         this.onChange = fn;
@@ -122,6 +129,14 @@ export class AlloyCheckbox implements ControlValueAccessor, FocusableOption {
     get icon() { return this._iconSource; }
     set icon(value: string) {
         this._iconSource = value;
+    }
+
+    /** Checkbox size */
+    @Input()
+    get size() { return this._size; }
+    set size(value: number) {
+        (value <= 0 || !value) ? this._size = 14 : this._size = value;
+        this.renderer.setAttribute(this.checkboxContainer.nativeElement, 'style', 'transform: scale(' + (this._size / 14) + ')');
     }
 
     /** Determines whether icon needs to be displayed */

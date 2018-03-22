@@ -9,7 +9,7 @@
         </div>
         <div class="row align-center">
             <div class="columns">
-                <alloy-checkbox [label]="placeholder" [disabled]="disabledSimple" [checked]="checkedSimple" [readonly]="readonlySimple" [errors]="errorsSimple" [errorMessage]="errorMessage">
+                <alloy-checkbox [size]="sizeSimple" [label]="placeholder" [disabled]="disabledSimple" [checked]="checkedSimple" [readonly]="readonlySimple" [errors]="errorsSimple" [errorMessage]="errorMessage">
                 </alloy-checkbox>
             </div>
             <div class="columns">
@@ -19,7 +19,8 @@
                         <button id="checked" type="button" class="button-standard" (click)="toggleChecked('simple')" [ngClass]="{'is-pressed': checkedSimple}">Checked</button>
                         <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled('simple')" [ngClass]="{'is-pressed': disabledSimple}">Disabled</button>
                         <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly('simple')" [ngClass]="{'is-pressed': readonlySimple}">Readonly</button>
-                        <button id="errors" type="button" class="button-standard" (click)="toggleErrorState('simple')" [ngClass]="{'is-pressed': errorsSimple}">Error</button>                    
+                        <button id="errors" type="button" class="button-standard" (click)="toggleErrorState('simple')" [ngClass]="{'is-pressed': errorsSimple}">Error</button>
+                        <label>Checkbox Size (px):</label><input type="text" [(ngModel)]="sizeSimple" (keypress)="isNumberKey($event)" maxlength="2">                            
                     </div>
                 </div>
             </div>
@@ -28,6 +29,7 @@
 &lt;alloy-checkbox [label]=&quot;placeholder&quot; [disabled]=&quot;disabled&quot; 
     [checked]=&quot;checked&quot;&gt; [readonly]=&quot;readonlyMixed&quot; 
     [errors]=&quot;errorsMixed&quot; [errorMessage]=&quot;errorMessage&quot;
+    [checkboxSize]=&quot;checkboxSize&quot;
 &lt;/alloy-checkbox&gt;
                 </pre>
             </div>

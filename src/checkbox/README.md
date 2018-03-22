@@ -6,11 +6,13 @@
 In your template, create an `alloy-checkbox` element. Note that you can disable a checkbox by adding the `disabled` boolean attribute or
 binding to it. Similarly you can check a checkbox using the `checked` boolean attribute or binding to it.
 Also, checkbox can have other states such as readonly and error state. You can as well specify an error message that is to be shown when the checkbox is in error state, which is shown as a tooltip when hovered on the error icon.
+The size of the icon is adjustable through the `size` attribute. Just use numeric values that represents the number of pixels for the dimension of the checkbox and the width and height of the checkbox
+will be set to this amount. The checkbox container along with the label and icon will be scaled according to the checkbox size. The default checkbox size is 14px. if the size value is 0, negative, or undefined, the checkbox will keep the default size.
 
 *my-comp.html*
 ```html
 <alloy-checkbox [label]="placeholder" [disabled]="disabled" [checked]="checked" [readonly]="readonly" 
-    [errors]="errors" [errorMessage]="errorMessage">
+    [size]="size" [errors]="errors" [errorMessage]="errorMessage">
 </alloy-checkbox>
 ```
 

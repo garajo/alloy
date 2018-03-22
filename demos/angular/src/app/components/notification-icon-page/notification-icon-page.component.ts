@@ -14,7 +14,6 @@ export class NotificationIconPageComponent {
 
   isNumberKey(event){
     const inputChar = String.fromCharCode(event.keyCode);
-    console.log(inputChar);
     if (['0','1','2','3','4','5','6','7','8','9'].indexOf(inputChar) === -1) {
       event.preventDefault();
     }

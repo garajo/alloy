@@ -13,6 +13,7 @@ export class CheckboxPageComponent implements OnInit {
     checkedSimple = false;
     readonlySimple = false;
     errorsSimple = false;
+    sizeSimple = 14; //Default checkbox size based on Caranu style guide.
 
     disabledIcon = false;
     checkedIcon = false;
@@ -118,5 +119,12 @@ export class CheckboxPageComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    isNumberKey(event){
+        const inputChar = String.fromCharCode(event.keyCode);
+        if (['0','1','2','3','4','5','6','7','8','9'].indexOf(inputChar) === -1) {
+            event.preventDefault();
+        }
     }
 }
