@@ -66,6 +66,7 @@ $color-palette: (
 
         // Windows
         window-bg:                                $white,                         //Caranu spec. pg. 76 FILL = #FFFFFFFF NOTE: An app main window does not have the blue border. Only if it has MDI windows would the "active" window get the blue border
+        window-main-bg:                           $blue-haze,                     //Listed on pg. 59 on the spec as the color behind child windows in a main window.
         window-border:                            rgba($glitter,$opacity-HEX4C),  //Caranu spec. pg. 76 BORDER = #4C000000
         window-box-shadow:                        rgba($black,$opacity-HEX3F),    //JEFF_TODO: There are no class/styles for windows. When they are created use this var for the shadow. Caranu spec. pg. 34 Shadow = v-offset 1px, blur 8px, #3F000000
                                                                                   //Example of how to use this box shadow var as a value of the box-shadow property until we get a full window style made                                                                    //box-shadow: 0 2px 8px 0 map_get($color-palette,  window-box-shadow);
