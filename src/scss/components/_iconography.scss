@@ -311,6 +311,9 @@
   background: transparent map_get($icon-pack, brand-sign) no-repeat left center / $width $height;
 }
 
+.delete {
+  @include icon-base(delete);
+}
 
 .error-msg {
   @include icon-base(error);

@@ -299,6 +299,9 @@ $icons:                 "icons";
 $dark-icons:            "dark/icons";
 
 $icon-pack: (
+        // General
+        delete:                               inline-image("#{$icons}/delete.svg"),                                 
+
         // Title Bar
         logo:                                 inline-image("#{$icons}/logo.png"),
         logo-full:                            inline-image("#{$dark-icons}/logo-full.png"),
