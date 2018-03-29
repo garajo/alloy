@@ -346,8 +346,12 @@ $icon-pack: (
         target:                               inline-image("#{$light-icons}/target.png"),
         property:                             inline-image("#{$light-icons}/property.png"),
 
-        // Input
+        // Input & Messaging
         error:                                inline-image("#{$icons}/error.png"),
+
+        // Messaging
+        information:                          inline-image("#{$light-icons}/information.svg"),
+        warning:                              inline-image("#{$icons}/warning.svg"),
         
         // -- Checkboxes
         checkbox:                             inline-image("#{$light-icons}/checkbox.png"),
@@ -387,6 +391,7 @@ $icon-pack: (
         scroll-caret-down:                    inline-image("#{$light-icons}/scroll-caret-down.png"),
         scroll-caret-down-hover:              inline-image("#{$light-icons}/scroll-caret-down-hover.png"),
         scroll-caret-down-active:             inline-image("#{$light-icons}/scroll-caret-down-active.png"),
+
 );
 
 @import "../components/_styles";

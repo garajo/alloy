@@ -111,3 +111,11 @@
     }
   }
 }
+
+// Base formating for iconography classes
+@mixin icon-base($name, $size: 20px) {
+  display: inline-block;
+  @include size($size);
+
+  background: transparent map-get($icon-pack, $name) no-repeat center center / $size;
+}

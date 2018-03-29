@@ -1,10 +1,5 @@
 .ph-menu-box {
-  $size: 14px;
-
-  display: inline-block;
-  @include size($size);
-
-  background: transparent map_get($icon-pack, ph-menu-box) no-repeat center center / $size;
+  @include icon-base(ph-menu-box, 14px);
 
   &.small {
     $size: 11px;
@@ -17,11 +12,7 @@
 
 .ph-toolbar-box {
   $size: 24px;
-
-  display: inline-block;
-  @include size($size);
-
-  background: transparent map_get($icon-pack, ph-toolbar-box) no-repeat center center / $size;
+  @include icon-base(ph-toolbar-box, $size);
 
   &.is-active {
     background: transparent map_get($icon-pack, ph-toolbar-box-active) no-repeat center center / $size;
@@ -299,22 +290,12 @@
 }
 
 .mag-glass {
-  $size: 20px;
-
-  display: inline-block;
-  @include size($size);
-
-  background: transparent map_get($icon-pack, mag-glass) no-repeat center center / $size;
+  @include icon-base(mag-glass);
 }
 
 .clear {
-    $size: 20px;
-  
-    display: inline-block;
-    @include size($size);
-  
-    background: transparent map_get($icon-pack, clear) no-repeat center center / $size;
-  }
+  @include icon-base(clear);
+}
   
 .brand-signature {
   $icon-width: 21px;
@@ -328,4 +309,17 @@
   margin: 7px 12px 0 0;
 
   background: transparent map_get($icon-pack, brand-sign) no-repeat left center / $width $height;
+}
+
+
+.error-msg {
+  @include icon-base(error);
+}
+
+.warning {
+  @include icon-base(warning);
+}
+
+.information {
+  @include icon-base(information);
 }

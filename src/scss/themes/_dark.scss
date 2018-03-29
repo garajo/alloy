@@ -335,8 +335,12 @@ $icon-pack: (
         target:                               inline-image("#{$dark-icons}/target.png"),
         property:                             inline-image("#{$dark-icons}/property.png"),
 
-        // Input
+        // Input & Messaging
         error:                                inline-image("#{$icons}/error.png"),
+
+        // Messaging
+        information:                          inline-image("#{$dark-icons}/information.svg"),
+        warning:                              inline-image("#{$icons}/warning.svg"),
 
         // -- Checkboxes
         checkbox:                             inline-image("#{$dark-icons}/checkbox.png"),
