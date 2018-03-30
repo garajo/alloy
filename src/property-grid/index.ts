@@ -3,6 +3,7 @@
  */
 import { AgGridModule } from 'ag-grid-angular/dist/aggrid.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { ContextMenuService } from 'ngx-contextmenu';
 import { FormsModule } from '@angular/forms';
 import { NgModule, ANALYZE_FOR_ENTRY_COMPONENTS, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
@@ -37,7 +38,8 @@ import { AlloyPropertyGridValidatorService } from './services/property-grid-vali
         AlloyPropertyGridMessageService,
         AlloyPropertyGridOutputService,
         AlloyPropertyGridTypeService,
-        AlloyPropertyGridValidatorService
+        AlloyPropertyGridValidatorService,
+        ContextMenuService
     ],
     exports: [
         AgGridModule,

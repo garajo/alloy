@@ -61,7 +61,8 @@ export class AlloyContextMenuAttachDirective {
 */
 @Directive({
     // tslint:disable-next-line:directive-selector
-    selector: 'alloy-contextmenu'
+    selector: 'alloy-contextmenu',
+    exportAs: 'contextMenuDirective'
 })
 // tslint:disable-next-line:directive-class-suffix
 export class AlloyContextMenu {

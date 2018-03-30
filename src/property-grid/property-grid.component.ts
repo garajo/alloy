@@ -147,7 +147,7 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
             // Listen for (contextmenu) event on each rows except group
             processRowPostCreate: (params) => {
                 const eRow = params.eRow;
-                if (eRow && !params.node.group) {
+                if (eRow && !params.node.group && this.contextMenuTemplate) {
                     this.renderer.listen(eRow, 'contextmenu', (event) => this.onContextMenu(event, params.node.data));
                 }
             }

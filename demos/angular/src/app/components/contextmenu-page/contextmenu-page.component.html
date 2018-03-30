@@ -130,25 +130,6 @@
             </div>
         </div>
 
-        <!-- Manually attaching event -->
-        <div class="row align-center" style="margin-top:50px;">
-            <div class="columns small-12">
-                <h4>Manually attaching contextmenu event</h4>
-
-                <div class="columns">
-                    <pre ngNonBindable>
-    // HTML
-    &lt;element #contextMenuSubject&gt;
-        Menu Item A
-    &lt;/element&gt;
-    
-    // COMPONENT
-    @ViewChild('contextMenuSubject') public contextMenuSubject: ElementRef;
-    this.manualAttachingContextMenu.api.attachListener(this.contextMenuSubject.nativeElement, 'Manual Attached Menu Data');
-    </pre>
-                </div>
-            </div>
-        </div>
 
         <!-- Manually attaching event if contextmenu in different component -->
         <div class="row align-center" style="margin-top:50px;">
@@ -158,8 +139,8 @@
                 <div class="columns">
                     <pre ngNonBindable>
     // HTML
-    &lt;app-childcomponent [alloyContextMenu]="alloyContextMenuCopy"&gt;&lt;/app-childcomponent&gt;
-    &lt;alloy-contextmenu #manualAttachingContextMenu&gt;
+    &lt;app-childcomponent [alloyContextMenu]="manualAttachingContextMenu"&gt;&lt;/app-childcomponent&gt;
+    &lt;alloy-contextmenu #manualAttachingContextMenu="contextMenuDirective"&gt;
         &lt;ng-template contextMenuItem&gt;
             Menu Item A
         &lt;/ng-template&gt;
@@ -167,7 +148,6 @@
     
     // PARENT COMPONENT
     @ViewChild(AlloyContextMenu) public manualAttachingContextMenu: AlloyContextMenu;
-    this.alloyContextMenuCopy = this.manualAttachingContextMenu;
     
     // CHILD COMPONENT
     this.alloyContextMenu.api.attachListener(this.contextMenuSubject.nativeElement, 'Different component');
