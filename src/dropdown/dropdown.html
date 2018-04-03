@@ -24,7 +24,8 @@
     <!-- The drop down pane - this is absolute positioned relative to the overall dropdown-group. See the style for more detail-->
     <div 
         class="dropdown-pane bottom" 
-        [ngClass]="{'is-open': panelOpen, 'right-align': right_align, 'left-align': !right_align}">
+        [ngClass]="{'is-open': panelOpen, 'right-align': right_align, 'left-align': !right_align}"
+        [style.transform]="_transformPanelY">
         <ul class="menu vertical">
             <ng-content></ng-content>
         </ul>

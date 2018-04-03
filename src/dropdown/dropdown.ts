@@ -17,6 +17,9 @@ import {
     ChangeDetectorRef,
     HostListener
 } from '@angular/core';
+
+import { ViewportRuler } from '@angular/cdk/overlay';
+
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import {coerceBooleanProperty} from '@angular/cdk/coercion';
 
@@ -181,6 +184,9 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     /** The value of the select panel's transform-origin property. */
     _transformOrigin: string = 'top';
 
+    /** The value of the select panel's translateY property. */
+    _transformPanelY: string = 'translateY(0px)';
+
     /** Whether the panel's animation is done. */
     _panelDoneAnimating: boolean = false;
 
@@ -334,6 +340,7 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
         private elementRef: ElementRef,
+        private _viewportRuler: ViewportRuler,
         @Self() @Optional() public _control: NgControl,
         @Attribute('tabindex') tabIndex: string,
         ) {
@@ -801,6 +808,25 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
             // and the trigger element, then multiply it by -1 to ensure the panel moves
             // in the correct direction up the page.
             this._offsetY = (SELECT_ITEM_HEIGHT - SELECT_TRIGGER_HEIGHT) / 2 * -1;
+        }
+        this._movePanelAlongY();
+    }
+
+    /**
+     * Checks that the attempted overlay position will fit within the viewport.
+     * If there is not sufficient space in the bottom, then move the panel 
+     * vertically along the Y axis.
+     */
+    _movePanelAlongY(): void {
+        const viewportRect = this._viewportRuler.getViewportRect();
+        const triggerRect = this._getTriggerRect();
+        const bottomSpaceAvailable = viewportRect.height - triggerRect.bottom - SELECT_PANEL_VIEWPORT_PADDING;
+        const totalPanelHeight = this._getItemCount() * SELECT_ITEM_HEIGHT;
+        if(totalPanelHeight > bottomSpaceAvailable){
+            this._transformPanelY = 'translateY('+(-totalPanelHeight-18)+'px)';
+        }
+        else {
+            this._transformPanelY = 'translateY(0px)';
         }
     }
 
