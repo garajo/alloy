@@ -131,6 +131,26 @@
         </div>
 
 
+        <!-- Manually attaching event contextmenu -->
+        <div class="row align-center" style="margin-top:50px;">
+            <div class="columns small-12">
+                <h4>Manually attaching contextmenu event</h4>
+
+                <div class="columns">
+                    <pre ngnonbindable="">    // HTML
+    &lt;element #contextMenuSubject&gt;
+        Menu Item A
+    &lt;/element&gt;
+    
+    // COMPONENT
+    @ViewChild('contextMenuSubject') public contextMenuSubject: ElementRef;
+    this.manualAttachingContextMenu.api.attachListener(this.contextMenuSubject.nativeElement, 'Manual Attached Menu Data');
+    </pre>
+                </div>
+            </div>
+        </div>
+
+
         <!-- Manually attaching event if contextmenu in different component -->
         <div class="row align-center" style="margin-top:50px;">
             <div class="columns small-12">
