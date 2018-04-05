@@ -41,7 +41,7 @@ import { startWith, filter } from '../core/rxjs/index';
  */
 
 /** The fixed height of every option element (option, group header etc.). */
-export const SELECT_ITEM_HEIGHT = 48;
+export const SELECT_ITEM_HEIGHT = 40;
 
 /** The max height of the select's overlay panel */
 export const SELECT_PANEL_MAX_HEIGHT = 256;
@@ -823,7 +823,7 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
         const bottomSpaceAvailable = viewportRect.height - triggerRect.bottom - SELECT_PANEL_VIEWPORT_PADDING;
         const totalPanelHeight = this._getItemCount() * SELECT_ITEM_HEIGHT;
         if(totalPanelHeight > bottomSpaceAvailable){
-            this._transformPanelY = 'translateY('+(-totalPanelHeight-18)+'px)';
+            this._transformPanelY = 'translateY('+(-totalPanelHeight-triggerRect.height-SELECT_PANEL_VIEWPORT_PADDING)+'px)';
         }
         else {
             this._transformPanelY = 'translateY(0px)';

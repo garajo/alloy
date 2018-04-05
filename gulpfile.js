@@ -33,6 +33,7 @@ const external = [
   '@angular/cdk/keycodes',
   '@angular/cdk/coercion',
   '@angular/cdk/a11y',
+  '@angular/cdk/overlay',
   '@angular/cdk/rxjs',
   '@angular/material',
   '@angular/platform-browser',
