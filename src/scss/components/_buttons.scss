@@ -15,7 +15,9 @@ button {
     position: relative;
     min-width: 80px;
     min-height: 32px;
-    vertical-align: middle;
+    * {
+      vertical-align: middle;
+    }
 
     padding: 8px 12px;
     border: none;
