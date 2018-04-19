@@ -42,6 +42,7 @@ import { TextboxPageComponent } from './components/textbox-page/textbox-page.com
 import { TextareaPageComponent } from './components/textarea-page/textarea-page.component';
 import { SwitcherPageComponent } from './components/switcher-page/switcher-page.component';
 import { ContextmenuPageComponent } from './components/contextmenu-page/contextmenu-page.component';
+import { CompoundPageComponent } from './components/compound-page/compound-page.component';
 
 
 /**
@@ -92,7 +93,8 @@ export class AlloyDemoModule { }
     TextboxPageComponent,
     TextareaPageComponent,
     SwitcherPageComponent,
-    ContextmenuPageComponent
+    ContextmenuPageComponent,
+    CompoundPageComponent
   ],
   imports: [
     AlloyDemoModule,
