@@ -21,7 +21,6 @@ import {
   AlloyPropertyGridMessageService,
   AlloyTextboxModule,
   AlloySwitcherModule,
-  AlloyTextareaModule
 } from '@keysight/alloy';
 
 import { AboutBoxPageComponent } from './components/about-box-page/about-box-page.component';
@@ -59,7 +58,6 @@ import { CompoundPageComponent } from './components/compound-page/compound-page.
     AlloyNotificationIconModule,
     AlloySwitcherModule,
     AlloyTextboxModule,
-    AlloyTextareaModule,
     AlloyContextmenuModule
   ],
   entryComponents: [
@@ -72,7 +70,6 @@ import { CompoundPageComponent } from './components/compound-page/compound-page.
     AlloyIconModule,
     AlloyNotificationIconModule,
     AlloyTextboxModule,
-    AlloyTextareaModule,
     AlloyContextmenuModule
   ]
 })

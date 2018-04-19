@@ -9,15 +9,17 @@
         </div>
         <div class="row align-center">
             <div class="columns small-3">
-                <form id="myform" ngNativeValidate>
-                    <alloy-textarea [rows]="rows" [cols]="cols" [width]="width"
-                        [height]="height" [disabled]="disabledSimple" [readonly]="readonlySimple" [required]="requiredSimple"
+                <form id="myform" ngNativeValidate ngNoForm>
+                    <textarea [rows]="rows" [cols]="cols"
+                        [disabled]="disabledSimple" [readonly]="readonlySimple" [required]="requiredSimple"
                         [placeholder]="placeholderSimple" [maxlength]="maxlengthSimple" [minlength]="minlengthSimple" 
-                        [autofocus]="true" [resize]="resizeSimple" [spellcheck]="spellcheckSimple" [value]="valueSimple"
-                        [wrap]="wrapSimple">
-                    </alloy-textarea>  
+                        [autofocus]="true" [spellcheck]="spellcheckSimple"
+                        [wrap]="wrapSimple" [value]="valueSimple" [(ngModel)]="textValue">
+                    </textarea>
                 </form>
                 <input type="submit" class="button-standard" form="myform">
+                <h6>Display input text below:</h6>
+                <p>{{textValue}}</p>
             </div>
             <div class="columns small-3">  
                 <div class="row">
@@ -39,12 +41,6 @@
                         <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly()" [ngClass]="{'is-pressed': readonlySimple}">Readonly</button>                        
                     </div>
                 </div><br>
-                <div class="row align-left">
-                    <div class="columns small-6">
-                        <button id="resize" type="button" class="button-standard" (click)="toggleResize()" [ngClass]="{'is-pressed': resizeSimple}">Not-Resizable</button>                         
-                    </div>
-                </div>
-                <br>
                 <div class="row ">
                     <div class="columns small-5">
                         <label>Placeholder:</label>
@@ -86,13 +82,6 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="columns small-12">
-                        <alloy-checkbox [label]="checkboxLabel"
-                            [checked]="selectRC" (click)="toggleRC()">
-                        </alloy-checkbox>
-                    </div>
-                </div>
-                <div class="row">
                     <div class="columns small-5">
                         <label class="label-block">Rows: </label>
                     </div>
@@ -108,29 +97,11 @@
                         <input type="text" [(ngModel)]="cols" (keypress)="isNumberKey($event)" class="input-block">
                     </div>
                 </div>           
-                <div class="row">
-                    <div class="columns small-5">
-                        <label class="label-block">Height: </label>
-                    </div>
-                    <div class="columns small-7">
-                        <input id="height" type="text" [(ngModel)]="height" (keypress)="isNumberKey($event)" [disabled]="selectRC" class="input-block">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="columns small-5">
-                        <label class="label-block">Width: </label>
-                    </div>
-                    <div class="columns small-7">
-                        <input id="width" type="text" [(ngModel)]="width" (keypress)="isNumberKey($event)" [disabled]="selectRC" class="input-block">
-                    </div>
-                </div>
             </div>
             <div class="columns small-6">
                 <pre ngNonBindable>
-&lt;alloy-textarea
+&lt;textarea
     [rows]="rows" [cols]="cols"
-    [height]="height" [width]="width"
-    [resize]="resize"
     [dirname]="dirname"
     [form]="form"
     [maxlength]="maxlength"
@@ -144,8 +115,9 @@
     [disabled]="disabled" 
     [readonly]="readonly"
     [required]="required"
-    [spellcheck]="spellcheck"&gt;
-&lt;/alloy-textarea&gt;
+    [spellcheck]="spellcheck"
+    [(ngModel)]="textValue"&gt;
+&lt;/textarea&gt;
                 </pre>
             </div>
         </div>

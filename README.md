@@ -25,8 +25,17 @@ List of components and implementation states with comments:
 | checkbox          | [src/checkbox](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/checkbox)         | [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/checkbox/README.md) | Major functionality implemented|
 | notification icon | [src/notification-icon](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/notification-icon)| [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/notification-icon/README.md) | Major functionality implemented|
 | about box         | [src/about-box](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/about-box)        | [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/about-box/README.md) | Major functionality implemented|
-| text area         | [src/textarea](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/textarea)         | [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/textarea/README.md) | Major functionality implemented|
 | text box          | [src/textbox](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/textbox)          | [README.md](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/textbox/README.md) | Major functionality implemented|
+
+## Native Elements with Caranu Style
+| Name              | Style dir                                                                                                                                        |
+| ---------------   | --------------------------------------------------------------------------------------------------------------------------------------           |
+| textarea          | [src/scss/components/\_textarea.scss](https://bitbucket.it.keysight.com/projects/KSFGUI/repos/alloy/browse/src/scss/components/_textarea.scss)   |
+
+## Native Elements on which Alloy Directives can be Applied
+| Name              | Directives        | dir           |
+| ---------------   | ----------        | -----------   |
+| &nbsp;            | &nbsp;            | &nbsp;        |
 
 
 ## Installation and Consuming the library

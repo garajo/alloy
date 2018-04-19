@@ -8,27 +8,20 @@ declare function require(name: string): string;
 })
 export class TextareaPageComponent {
 
-  height: string;
-  width: string ;
-  rows: number = 10;
-  cols: number = 20;
-  placeholderSimple: string = "Enter text here";
-  disabledSimple: boolean = false;
-  readonlySimple: boolean = false;
-  requiredSimple: boolean = false;
-  spellcheckSimple: boolean = false;
+  textValue: string;
+  rows = 10;
+  cols = 20;
+  placeholderSimple = 'Enter text here';
+  disabledSimple = false;
+  readonlySimple = false;
+  requiredSimple = false;
+  spellcheckSimple = false;
   maxlengthSimple: number;
-  minlengthSimple: number; 
-  resizeSimple: string;
+  minlengthSimple: number;
   valueSimple: string;
-  selectRC: boolean = true;
-  checkboxLabel: string = 'Resize by rows and columns.';
-  wrapSimple: string = 'hard';
+  wrapSimple = 'hard';
 
   constructor() {}
-
-  ngOnInit() {
-  }
 
   toggleDisabled() {
         this.disabledSimple = !this.disabledSimple;
@@ -42,32 +35,13 @@ export class TextareaPageComponent {
     this.requiredSimple = !this.requiredSimple;
   }
 
-  toggleResize() {
-    if (this.resizeSimple) {
-      this.resizeSimple = null;
-    } else {
-      this.resizeSimple = "none";
-    }
-  }
-
   toggleSpellcheck() {
     this.spellcheckSimple = !this.spellcheckSimple;
   }
 
-  toggleRC() {
-    this.selectRC = !this.selectRC;
-    if (this.selectRC) {
-      this.width = 'auto';
-      this.height = 'auto';
-    } else {
-      this.width = '';
-      this.height = '';
-    }
-  }
-
-  isNumberKey(event){
+  isNumberKey(event) {
       const inputChar = String.fromCharCode(event.keyCode);
-      if (['0','1','2','3','4','5','6','7','8','9'].indexOf(inputChar) === -1) {
+      if (['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].indexOf(inputChar) === -1) {
         event.preventDefault();
     }
   }
