@@ -321,6 +321,8 @@ $icon-pack: (
         close-x-active:                       inline-image("#{$icons}/close-x.png"),
         maximize:                             inline-image("#{$light-icons}/maximize.png"),
         minimize:                             inline-image("#{$light-icons}/minimize.png"),
+        settings:                             inline-image("#{$light-icons}/settings.svg"),
+        user-profile:                         inline-image("#{$light-icons}/user_profile.svg"),
 
         // Menus
         ph-menu-box:                          inline-image("#{$light-icons}/ph-menu-box.png"),
@@ -350,7 +352,7 @@ $icon-pack: (
         property:                             inline-image("#{$light-icons}/property.png"),
 
         // Input & Messaging
-        error:                                inline-image("#{$icons}/error.png"),
+        error:                                inline-image("#{$icons}/error.svg"),
 
         // Messaging
         information:                          inline-image("#{$light-icons}/information.svg"),

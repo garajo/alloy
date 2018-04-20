@@ -326,3 +326,11 @@
 .information {
   @include icon-base(information);
 }
+
+.settings {
+    @include icon-base(settings);
+}
+
+.user-profile {
+    @include icon-base(user-profile);
+}
