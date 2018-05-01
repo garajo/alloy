@@ -4,6 +4,7 @@ jennyPipeline{
     nodeConfigs = [
         [
             nodeName: 'Linux',
+            awsAmi: 'redhat',
             primaryNode: true,
         ],
         [
