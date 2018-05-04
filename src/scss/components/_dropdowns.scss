@@ -10,10 +10,10 @@
   }
 
   .has-error {
-    //Pull in the .error class from _iconography which gets us the error icon
-    @extend .error;
+    //Pull in the .alloy-ic-error class from _iconography which gets us the error icon
+    @extend .alloy-ic-error;
 
-    //The global .error icon is invisible by default. Consumers need to turn it on. 
+    //The global .alloy-ic-error icon is invisible by default. Consumers need to turn it on. 
     display: inline-flex;
 
     // See Caranu spec pg. 22 TextBox error state as an example. Error icon should be 8 pixels to the right of the control it is associated with
@@ -127,11 +127,11 @@
 
             margin-right: 0;
 
-            &.ph-menu-box {
+            &.alloy-ic-ph-menu-box {
               margin-top: 1px;
             }
 
-            &.check {
+            &.alloy-ic-check {
               margin-top: 3px;
             }
           }

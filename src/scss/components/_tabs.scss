@@ -215,7 +215,7 @@ ul.tabs {
                 opacity: 1;
               }
 
-              .ph-toolbar-box {
+              .alloy-ic-ph-toolbar-box {
                 @if $theme-light == true {
                   background: transparent map_get($icon-pack, ph-toolbar-tab-box-active) no-repeat center center / 24px;
                 }

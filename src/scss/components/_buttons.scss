@@ -269,7 +269,7 @@ button {
 }
 
 .button-close-x {
-  @extend .close-x;
+  @extend .alloy-ic-close-x;
 
   &:hover {
     background-color: map_get($color-palette, button-close-x-hover-bg);
@@ -284,11 +284,11 @@ button {
 }
 
 .button-maximize {
-  @extend .maximize;
+  @extend .alloy-ic-maximize;
 }
 
 .button-minimize {
-  @extend .minimize;
+  @extend .alloy-ic-minimize;
 }
 
 .button-maximize,
@@ -369,7 +369,7 @@ button {
 
   &.is-active {
     // JEFF_TODO Wow really! Assume there is a class by this name, assume it is an image, and then make its color change. Need to turn this style into a real generic style
-    .ph-toolbar-box {
+    .alloy-ic-ph-toolbar-box {
       $size: 24px;
 
       background: map_get($icon-pack, ph-toolbar-box-active) no-repeat center center / $size;
@@ -406,7 +406,7 @@ button {
 
 .button-caret-up {
   @extend .button-toolbar;
-  @extend .caret.up;
+  @extend .alloy-ic-caret.up;
 }
 
 .button-quick-access, .button-quick-access:focus {
@@ -718,13 +718,13 @@ button.dropdown {
   &.is-disabled {
     &.up {
       &:after {
-        @extend .arrow.up;
+        @extend .alloy-ic-arrow.up;
       }
     }
 
     &.down {
       &:after {
-        @extend .arrow.down;
+        @extend .alloy-ic-arrow.down;
       }
     }
   }
@@ -738,13 +738,13 @@ button.dropdown {
   &.is-hovered {
     &.up {
       &:after {
-        @extend .arrow.up:hover;
+        @extend .alloy-ic-arrow.up:hover;
       }
     }
 
     &.down {
       &:after {
-        @extend .arrow.down:hover;
+        @extend .alloy-ic-arrow.down:hover;
       }
     }
   }
@@ -753,13 +753,13 @@ button.dropdown {
   &.is-pressed {
     &.up {
       &:after {
-        @extend .arrow.up:active;
+        @extend .alloy-ic-arrow.up:active;
       }
     }
 
     &.down {
       &:after {
-        @extend .arrow.down:active;
+        @extend .alloy-ic-arrow.down:active;
       }
     }
   }

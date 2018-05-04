@@ -10,7 +10,7 @@
                                 formControlName="textfieldControlName"
                                 *ngIf="!params.node.data.readOnly" 
                                 [class.has-error]="textfieldForm.controls['textfieldControlName'].errors" />
-                        <div class="error" data-toggle="tooltip" title="{{messageTooltip}}"></div>
+                        <div class="alloy-ic-error" data-toggle="tooltip" title="{{messageTooltip}}"></div>
                         <p class="ag-cell-readonly" *ngIf="params.node.data.readOnly">{{params.node.data.value}}</p>
                 </div>
         </div>

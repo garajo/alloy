@@ -1,336 +1,341 @@
-.ph-menu-box {
-  @include icon-base(ph-menu-box, 14px);
+$prefix: alloy-ic-;
 
-  &.small {
-    $size: 11px;
+.#{$prefix} {
 
+  &ph-menu-box {
+    @include icon-base(ph-menu-box, 14px);
+
+    &.small {
+        $size: 11px;
+
+        @include size($size);
+
+        background-size: $size;
+    }
+  }
+
+  &ph-toolbar-box {
+    $size: 24px;
+    @include icon-base(ph-toolbar-box, $size);
+
+    &.is-active {
+        background: transparent map_get($icon-pack, ph-toolbar-box-active) no-repeat center center / $size;
+    }
+
+    &.small {
+        &,
+        &.is-active {
+        $size: 16px;
+
+        @include size($size);
+
+        background: transparent map_get($icon-pack, ph-toolbar-box-active) no-repeat center center / $size;
+        }
+    }
+  }
+
+  &ph-spacer {
+    display: inline-block;
+    @include size(16px);
+
+    background-color: map_get($color-palette, style-guide-spacer-bg);
+  }
+
+  &logo {
+    $icon-width: 21px;
+    $height: 16px;
+    $bg-width: 70px;
+
+    display: inline-block;
+    @include size($icon-width, $height);
+
+    margin: 7px 12px 7px 0;
+
+    background: transparent map_get($icon-pack, logo-full) no-repeat left center / $bg-width $height;
+
+    &.full {
+        width: $bg-width;
+
+        margin: 7px 10px 7px 0;
+    }
+
+    @include breakpoint(medium) {
+        width: $bg-width;
+
+        margin: 7px 10px 7px 0;
+
+        &.icon-only {
+        width: $icon-width;
+
+        margin: 7px 12px 7px 0;
+        }
+    }
+  }
+
+  &close-x {
+    $size: 16px;
+
+    display: inline-block;
     @include size($size);
 
-    background-size: $size;
+    background: transparent map_get($icon-pack, close-x) no-repeat center center / $size;
+
+    &:hover {
+        background: transparent map_get($icon-pack, close-x-hover) no-repeat center center / $size;
+    }
+
+    &:active,
+    &.is-active,
+    &:focus {
+        background: transparent map_get($icon-pack, close-x-active) no-repeat center center / $size;
+    }
   }
-}
 
-.ph-toolbar-box {
-  $size: 24px;
-  @include icon-base(ph-toolbar-box, $size);
+  &maximize {
+    $size: 16px;
 
-  &.is-active {
-    background: transparent map_get($icon-pack, ph-toolbar-box-active) no-repeat center center / $size;
-  }
+    display: inline-block;
+    @include size($size);
 
-  &.small {
     &,
-    &.is-active {
-      $size: 16px;
-
-      @include size($size);
-
-      background: transparent map_get($icon-pack, ph-toolbar-box-active) no-repeat center center / $size;
+    &:hover,
+    &:active,
+    &.is-active,
+    &:focus {
+        background: transparent map_get($icon-pack, maximize) no-repeat center center / $size;
     }
   }
-}
 
-.ph-spacer {
-  display: inline-block;
-  @include size(16px);
+  &minimize {
+    $width: 16px;
+    $height: 1px;
 
-  background-color: map_get($color-palette, style-guide-spacer-bg);
-}
+    display: inline-block;
+    @include size($width, $height);
 
-.logo {
-  $icon-width: 21px;
-  $height: 16px;
-  $bg-width: 70px;
-
-  display: inline-block;
-  @include size($icon-width, $height);
-
-  margin: 7px 12px 7px 0;
-
-  background: transparent map_get($icon-pack, logo-full) no-repeat left center / $bg-width $height;
-
-  &.full {
-    width: $bg-width;
-
-    margin: 7px 10px 7px 0;
-  }
-
-  @include breakpoint(medium) {
-    width: $bg-width;
-
-    margin: 7px 10px 7px 0;
-
-    &.icon-only {
-      width: $icon-width;
-
-      margin: 7px 12px 7px 0;
+    &,
+    &:hover,
+    &:active,
+    &.is-active,
+    &:focus {
+        background: transparent map_get($icon-pack, minimize) no-repeat bottom 8px center / $width $height;
     }
   }
-}
 
-.close-x {
-  $size: 16px;
+  &caret {
+    $width: 11px;
+    $height: 7px;
 
-  display: inline-block;
-  @include size($size);
-
-  background: transparent map_get($icon-pack, close-x) no-repeat center center / $size;
-
-  &:hover {
-    background: transparent map_get($icon-pack, close-x-hover) no-repeat center center / $size;
-  }
-
-  &:active,
-  &.is-active,
-  &:focus {
-    background: transparent map_get($icon-pack, close-x-active) no-repeat center center / $size;
-  }
-}
-
-.maximize {
-  $size: 16px;
-
-  display: inline-block;
-  @include size($size);
-
-  &,
-  &:hover,
-  &:active,
-  &.is-active,
-  &:focus {
-    background: transparent map_get($icon-pack, maximize) no-repeat center center / $size;
-  }
-}
-
-.minimize {
-  $width: 16px;
-  $height: 1px;
-
-  display: inline-block;
-  @include size($width, $height);
-
-  &,
-  &:hover,
-  &:active,
-  &.is-active,
-  &:focus {
-    background: transparent map_get($icon-pack, minimize) no-repeat bottom 8px center / $width $height;
-  }
-}
-
-.caret {
-  $width: 11px;
-  $height: 7px;
-
-  display: inline-block;
-  @include size($width, $height);
-
-  &.up {
-    background: transparent map_get($icon-pack, caret-down) no-repeat center center / $width $height;
-
-    transform: rotate(180deg);
-  }
-
-  &.right {
-    background: transparent map_get($icon-pack, caret-down) no-repeat center center / $width $height;
-
-    transform: rotate(-90deg);
-  }
-
-  &.down {
-    background: transparent map_get($icon-pack, caret-down) no-repeat center center / $width $height;
-  }
-
-  &.left {
-    background: transparent map_get($icon-pack, caret-down) no-repeat center center / $width $height;
-
-    transform: rotate(90deg);
-  }
-
-  // For carets used as expanders, Caranu specifies that hover & pressed state are the same color
-  &:hover,
-  &.is-hover,
-  &:active,
-  &.is-active {
-    &.up {
-      background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $width $height;
-    }
-
-    &.right {
-      background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $width $height;
-    }
-
-    &.down {
-      background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $width $height;
-    }
-
-    &.left {
-      background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $width $height;
-    }
-  }
-}
-
-.qa-toolbar-icon {
-  $size: 16px;
-
-  display: block;
-  @include size($size);
-
-  &.folder {
-    background: transparent map_get($icon-pack, folder) no-repeat center center / 13px 17px;
-  }
-
-  &.save {
-    background: transparent map_get($icon-pack, save) no-repeat center center / 14px;
-  }
-
-  &.undo {
-    background: transparent map_get($icon-pack, undo) no-repeat center center / 15px 16px;
-  }
-
-  &.redo {
-    background: transparent map_get($icon-pack, redo) no-repeat center center / 15px 16px;
-  }
-
-  &.play {
-    background: transparent map_get($icon-pack, play) no-repeat center center / 12px 16px;
-  }
-
-  &.stop {
-    background: transparent map_get($icon-pack, stop) no-repeat center center / 14px;
-  }
-
-  &.ellipses {
-    background: transparent map_get($icon-pack, ellipses) no-repeat center center / 12px 2px;
-  }
-
-  &.download {
-    background: transparent map_get($icon-pack, download) no-repeat center center / 16px 15px;
-  }
-
-  &.remove {
-    background: transparent map_get($icon-pack, remove) no-repeat center center / 16px 15px;
-  }
-
-  &.target {
-    background: transparent map_get($icon-pack, target) no-repeat center center / 14px;
-  }
-
-  &.property {
-    background: transparent map_get($icon-pack, property) no-repeat center center / 16px;
-  }
-}
-
-.error {
-  $size: 16px;
-
-  display: none;
-  @include size($size);
-
-  background: transparent map_get($icon-pack, error) no-repeat center center / $size;
-}
-
-.check {
-  $width: 12px;
-  $height: 10px;
-
-  display: inline-block;
-  @include size($width, $height);
-
-  background: transparent map_get($icon-pack, check) no-repeat center center / $width $height;
-}
-
-.arrow {
-  $width: 8px;
-  $height: 4px;
-
-  &,
-  &:focus {
     display: inline-block;
     @include size($width, $height);
 
     &.up {
-      background: transparent map_get($icon-pack, arrow-up) no-repeat center center / $width $height;
+        background: transparent map_get($icon-pack, caret-down) no-repeat center center / $width $height;
+
+        transform: rotate(180deg);
+    }
+
+    &.right {
+        background: transparent map_get($icon-pack, caret-down) no-repeat center center / $width $height;
+
+        transform: rotate(-90deg);
     }
 
     &.down {
-      background: transparent map_get($icon-pack, arrow-down) no-repeat center center / $width $height;
+        background: transparent map_get($icon-pack, caret-down) no-repeat center center / $width $height;
+    }
+
+    &.left {
+        background: transparent map_get($icon-pack, caret-down) no-repeat center center / $width $height;
+
+        transform: rotate(90deg);
+    }
+
+    // For carets used as expanders, Caranu specifies that hover & pressed state are the same color
+    &:hover,
+    &.is-hover,
+    &:active,
+    &.is-active {
+        &.up {
+        background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $width $height;
+        }
+
+        &.right {
+        background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $width $height;
+        }
+
+        &.down {
+        background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $width $height;
+        }
+
+        &.left {
+        background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $width $height;
+        }
     }
   }
 
-  &:hover,
-  &.is-hovered {
-    &.up {
-      @if $theme-light == true {
-        background: transparent map_get($icon-pack, arrow-up-hover) no-repeat center center / $width $height;
-      } @else {
-        background: transparent map_get($icon-pack, arrow-up-active) no-repeat center center / $width $height;
-      }
+  &qa-toolbar {
+    $size: 16px;
+
+    display: block;
+    @include size($size);
+
+    &.folder {
+        background: transparent map_get($icon-pack, folder) no-repeat center center / 13px 17px;
     }
 
-    &.down {
-      @if $theme-light == true {
-        background: transparent map_get($icon-pack, arrow-down-hover) no-repeat center center / $width $height;
-      } @else {
-        background: transparent map_get($icon-pack, arrow-down-active) no-repeat center center / $width $height;
-      }
+    &.save {
+        background: transparent map_get($icon-pack, save) no-repeat center center / 14px;
+    }
+
+    &.undo {
+        background: transparent map_get($icon-pack, undo) no-repeat center center / 15px 16px;
+    }
+
+    &.redo {
+        background: transparent map_get($icon-pack, redo) no-repeat center center / 15px 16px;
+    }
+
+    &.play {
+        background: transparent map_get($icon-pack, play) no-repeat center center / 12px 16px;
+    }
+
+    &.stop {
+        background: transparent map_get($icon-pack, stop) no-repeat center center / 14px;
+    }
+
+    &.ellipses {
+        background: transparent map_get($icon-pack, ellipses) no-repeat center center / 12px 2px;
+    }
+
+    &.download {
+        background: transparent map_get($icon-pack, download) no-repeat center center / 16px 15px;
+    }
+
+    &.remove {
+        background: transparent map_get($icon-pack, remove) no-repeat center center / 16px 15px;
+    }
+
+    &.target {
+        background: transparent map_get($icon-pack, target) no-repeat center center / 14px;
+    }
+
+    &.property {
+        background: transparent map_get($icon-pack, property) no-repeat center center / 16px;
     }
   }
 
-  &:active,
-  &.is-pressed {
-    &.up {
-      background: map_get($color-palette, button-spin-bg-active) map_get($icon-pack, arrow-up-active) no-repeat center center / $width $height;
+  &error {
+    $size: 16px;
+
+    display: none;
+    @include size($size);
+
+    background: transparent map_get($icon-pack, error) no-repeat center center / $size;
+  }
+
+  &check {
+    $width: 12px;
+    $height: 10px;
+
+    display: inline-block;
+    @include size($width, $height);
+
+    background: transparent map_get($icon-pack, check) no-repeat center center / $width $height;
+  }
+
+  &arrow {
+    $width: 8px;
+    $height: 4px;
+
+    &,
+    &:focus {
+        display: inline-block;
+        @include size($width, $height);
+
+        &.up {
+        background: transparent map_get($icon-pack, arrow-up) no-repeat center center / $width $height;
+        }
+
+        &.down {
+        background: transparent map_get($icon-pack, arrow-down) no-repeat center center / $width $height;
+        }
     }
 
-    &.down {
-      background: map_get($color-palette, button-spin-bg-active) map_get($icon-pack, arrow-down-active) no-repeat center center / $width $height;
+    &:hover,
+    &.is-hovered {
+        &.up {
+        @if $theme-light == true {
+            background: transparent map_get($icon-pack, arrow-up-hover) no-repeat center center / $width $height;
+        } @else {
+            background: transparent map_get($icon-pack, arrow-up-active) no-repeat center center / $width $height;
+        }
+        }
+
+        &.down {
+        @if $theme-light == true {
+            background: transparent map_get($icon-pack, arrow-down-hover) no-repeat center center / $width $height;
+        } @else {
+            background: transparent map_get($icon-pack, arrow-down-active) no-repeat center center / $width $height;
+        }
+        }
+    }
+
+    &:active,
+    &.is-pressed {
+        &.up {
+        background: map_get($color-palette, button-spin-bg-active) map_get($icon-pack, arrow-up-active) no-repeat center center / $width $height;
+        }
+
+        &.down {
+        background: map_get($color-palette, button-spin-bg-active) map_get($icon-pack, arrow-down-active) no-repeat center center / $width $height;
+        }
     }
   }
-}
 
-.mag-glass {
-  @include icon-base(mag-glass);
-}
+  &mag-glass {
+    @include icon-base(mag-glass);
+  }
 
-.clear {
-  @include icon-base(clear);
-}
-  
-.brand-signature {
-  $icon-width: 21px;
-  $height: 36px;
-  $width: 102px;
+  &clear {
+    @include icon-base(clear);
+  }
+    
+  &brand-signature {
+    $icon-width: 21px;
+    $height: 36px;
+    $width: 102px;
 
-  display: block;
-  @include size($width, $height);
-  float:right;
+    display: block;
+    @include size($width, $height);
+    float:right;
 
-  margin: 7px 12px 0 0;
+    margin: 7px 12px 0 0;
 
-  background: transparent map_get($icon-pack, brand-sign) no-repeat left center / $width $height;
-}
+    background: transparent map_get($icon-pack, brand-sign) no-repeat left center / $width $height;
+  }
 
-.delete {
-  @include icon-base(delete);
-}
+  &delete {
+    @include icon-base(delete);
+  }
 
-.error-msg {
-  @include icon-base(error);
-}
+  &error-msg {
+    @include icon-base(error);
+  }
 
-.warning {
-  @include icon-base(warning);
-}
+  &warning {
+    @include icon-base(warning);
+  }
 
-.information {
-  @include icon-base(information);
-}
+  &information {
+    @include icon-base(information);
+  }
 
-.settings {
-    @include icon-base(settings);
-}
+  &settings {
+        @include icon-base(settings);
+  }
 
-.user-profile {
-    @include icon-base(user-profile);
+  &user-profile {
+        @include icon-base(user-profile);
+  }
 }

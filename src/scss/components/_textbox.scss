@@ -53,7 +53,7 @@ input[type="text"] {
     border: 1px solid map_get($color-palette, input-text-border-error);
     background-color: map_get($color-palette, input-text-bg-error);
     caret-color: map_get($color-palette, input-text-border-error);
-    &+.error {
+    &+.alloy-ic-error {
       display: block;
       position: absolute;
       top: 8px;

@@ -78,12 +78,12 @@ div.ag-body-container form{
         // Copied: The original value from _grid.scss for an input text box inside of the UPro property grid
         font-size: 13px;
 
-        // Added this has-error section all just to get down to the error image and center it in a smaller 22px high textbox in a property grid (versus a 32px high normal textbox)
+        // Added this has-error section all just to get down to the alloy-ic-error image and center it in a smaller 22px high textbox in a property grid (versus a 32px high normal textbox)
         &.has-error 
         {
-            &+.error 
+            &+.alloy-ic-error 
             {
-            // Tweaked: Auto resizing error icon
+            // Tweaked: Auto resizing alloy-ic-error icon
             top: 0; // Overwrite parent style of top 8px
             bottom: 0;
             margin: auto;
@@ -154,7 +154,7 @@ div.ag-body-container form{
         padding: 3px;
     }
 
-    // JEFF_COMMENT Can't have this while we use an input-group above around the textbox (which we should do following the Caranu pattern for anchoring that error icon to the end of the text box). 
+    // JEFF_COMMENT Can't have this while we use an input-group above around the textbox (which we should do following the Caranu pattern for anchoring that alloy-ic-error icon to the end of the text box). 
     // Original code from the _grid.scss UPro property grid
     // .input-group {
     //     margin: 1px 0 1px $offset;
@@ -367,20 +367,20 @@ div.ag-body-container form{
   // Gee we wish this would work. Its the same code. However, using the @extend inheritance approach seems to move the order of precedence down so that "something" is
   // wrong with the Caranu caret icons that we bring in. It does find and use the Alloy caret png files but they seemed to be stretched/scaled in a weird way. So it does
   // find the pngs but something else gets lost in translation when using @extend.
-  // NOTE: This DOES work if you pepper the actual .caret class with !important statement on its background property
+  // NOTE: This DOES work if you pepper the actual .alloy-ic-caret class with !important statement on its background property
 
-//   @extend .caret;
-//   @extend .caret.right;
+//   @extend .alloy-ic-caret;
+//   @extend .alloy-ic-caret.right;
 }
 
 // .ag-icon-expanded:active {
-//     @extend .caret:active;
-//     @extend .caret.right;
+//     @extend .alloy-ic-caret:active;
+//     @extend .alloy-ic-caret.right;
 // }
 
 // .ag-icon-expanded:hover {
-//     @extend .caret:active;
-//     @extend .caret.right;
+//     @extend .alloy-ic-caret:active;
+//     @extend .alloy-ic-caret.right;
 // }
 
 .ag-icon-contracted 
@@ -396,20 +396,20 @@ div.ag-body-container form{
   // Gee we wish this would work. Its the same code. However, using the @extend inheritance approach seems to move the order of precedence down so that "something" is
   // wrong with the Caranu caret icons that we bring in. It does find and use the Alloy caret png files but they seemed to be stretched/scaled in a weird way. So it does
   // find the pngs but something else gets lost in translation when using @extend.
-  // NOTE: This DOES work if you pepper the actual .caret class with !important statement on its background property
+  // NOTE: This DOES work if you pepper the actual .alloy-ic-caret class with !important statement on its background property
   
-//   @extend .caret;
-//   @extend .caret.down;
+//   @extend .alloy-ic-caret;
+//   @extend .alloy-ic-caret.down;
 }
 
 // .ag-icon-contracted:active {
-//     @extend .caret:active;
-//     @extend .caret.down;
+//     @extend .alloy-ic-caret:active;
+//     @extend .alloy-ic-caret.down;
 // }
 
 // .ag-icon-contracted:hover {
-//     @extend .caret:active;
-//     @extend .caret.down;
+//     @extend .alloy-ic-caret:active;
+//     @extend .alloy-ic-caret.down;
 // }
 
 

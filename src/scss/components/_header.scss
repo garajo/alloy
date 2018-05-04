@@ -26,7 +26,7 @@ header.top-bar {
 
       margin: 0 0 0 12px;
 
-      .logo {
+      .alloy-ic-logo {
         @include flex-grid-column(shrink, 0);
 
         vertical-align: middle;
@@ -51,7 +51,7 @@ header.top-bar {
 
       margin: 0 0 0 12px;
 
-      .logo {
+      .alloy-ic-logo {
         @include flex-grid-column(shrink, 0);
 
         vertical-align: middle;

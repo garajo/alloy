@@ -23,8 +23,8 @@ ul.tree-view {
         top: 12px;
         left: -14px;
 
-        @extend .caret;
-        @extend .caret.right;
+        @extend .alloy-ic-caret;
+        @extend .alloy-ic-caret.right;
       }
 
       &:after {
@@ -66,7 +66,7 @@ ul.tree-view {
         &:before {
           top: 12px;  left: -16px;
 
-          @extend .caret.down:active;
+          @extend .alloy-ic-caret.down:active;
 
           transform: rotate(0deg);
         }
