@@ -141,18 +141,18 @@ export class AlloyCheckbox implements ControlValueAccessor, FocusableOption {
 
     /** Determines whether icon needs to be displayed */
     showIcon(): boolean {
-        return this._iconSource !== '';
+        return this.icon !== '';
     }
 
     /** Determines whether label needs to be displayed */
     showLabel(): boolean {
-        return this._label !== '';
+        return this.label !== '';
     }
 
     /** Toggles the checked/unchecked states of the checkbox */
     toggle(): boolean {
-        if (!this._isDisabled && !this._isReadonly) {
-            this._isChecked = !this._isChecked;
+        if (!this.disabled && !this.readonly) {
+            this.checked = !this.checked;
             this.focus();
             return true;
         }
@@ -161,10 +161,10 @@ export class AlloyCheckbox implements ControlValueAccessor, FocusableOption {
 
     /** Toggles the hovered state of the checkbox when it's label or icon is hovered upon */
     toggleHover(): void {
-        if (this._isDisabled || this._isReadonly) {
-            this._isHovered = false;
+        if (this.disabled || this.readonly) {
+            this.hovered = false;
         } else {
-            this._isHovered = !this._isHovered;
+            this.hovered = !this.hovered;
         }
     }
 
