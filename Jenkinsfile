@@ -25,6 +25,8 @@ jennyPipeline{
             npm: true,
             dir: '.',
             customTestSh: 'echo "No tests"',
+            publishDir: 'dist',
+            additionalVersionLocations: ['src']
         ]
     ]
 }
