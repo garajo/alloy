@@ -21,13 +21,13 @@ import {
 import { ViewportRuler } from '@angular/cdk/overlay';
 
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import {coerceBooleanProperty} from '@angular/cdk/coercion';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { merge } from 'rxjs/observable/merge';
 
-import {ENTER, SPACE, UP_ARROW, DOWN_ARROW, HOME, END} from '../core/keyboard/keycodes';
+import { ENTER, SPACE, UP_ARROW, DOWN_ARROW, HOME, END } from '../core/keyboard/keycodes';
 import { AlloyOption, AlloyOptionSelectionChange } from '../core/option/index';
 import { FocusKeyManager } from '../core/a11y/focus-key-manager';
 import { SelectionModel } from '../core/selection/selection';

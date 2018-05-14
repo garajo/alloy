@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 import { AlloyDropdown } from './dropdown';
 import { AlloyOptionModule } from '../core/option/index';
@@ -7,6 +8,7 @@ import { AlloyOptionModule } from '../core/option/index';
 @NgModule({
     imports: [
         CommonModule,
+        OverlayModule,
         AlloyOptionModule
     ],
     exports: [
