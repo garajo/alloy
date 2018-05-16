@@ -12,3 +12,5 @@ export class AlloyThemingServiceModule { }
 
 // Need to export this so that consuming code can actually import the service and use it
 export { AlloyThemingService } from './theme.service';
+// Need to export the enum for the currently available Alloy themes
+export { AlloyThemes } from './theme.service';
