@@ -10,6 +10,8 @@ import {
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FocusableOption } from '@angular/cdk/a11y';
 
+let nextUniqueId = 0;
+
 @Component({
     moduleId: module.id,
     selector: 'alloy-checkbox',
@@ -136,8 +138,12 @@ export class AlloyCheckbox implements ControlValueAccessor, FocusableOption {
     get size() { return this._size; }
     set size(value: number) {
         (value <= 0 || !value) ? this._size = 14 : this._size = value;
-        this.renderer.setAttribute(this.checkboxContainer.nativeElement, 'style', 'transform: scale(' + (this._size / 14) + ')');
+        this.renderer.setAttribute(this.checkboxContainer.nativeElement, 'style', 'transform: scale(' + (this._size / 14.0) + ')');
     }
+
+    private _uniqueId: string = `alloy-checkbox-${++nextUniqueId}`;
+
+    get inputId(): string { return `${this._uniqueId}-input`; }
 
     /** Determines whether icon needs to be displayed */
     showIcon(): boolean {
@@ -147,16 +153,6 @@ export class AlloyCheckbox implements ControlValueAccessor, FocusableOption {
     /** Determines whether label needs to be displayed */
     showLabel(): boolean {
         return this.label !== '';
-    }
-
-    /** Toggles the checked/unchecked states of the checkbox */
-    toggle(): boolean {
-        if (!this.disabled && !this.readonly) {
-            this.checked = !this.checked;
-            this.focus();
-            return true;
-        }
-        return false;
     }
 
     /** Toggles the hovered state of the checkbox when it's label or icon is hovered upon */

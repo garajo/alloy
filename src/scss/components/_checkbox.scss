@@ -25,11 +25,11 @@
     //Pull in the .alloy-ic-error class from _iconography which gets us the alloy-ic-error icon
     @extend .alloy-ic-error;
 
-    //The global .alloy-ic-error icon is invisible by default. Consumers need to turn it on. 
+    //The global .alloy-ic-error icon is invisible by default. Consumers need to turn it on.
     display: block;
 
     // See Caranu spec pg. 22 TextBox error state as an example. Error icon should be 8 pixels to the right of the control it is associated with
-    // NOTE: We have to override the default style (margin) we are picking up from the has-icon style. 
+    // NOTE: We have to override the default style (margin) we are picking up from the has-icon style.
     margin-left: 8px;
   }
 
@@ -40,29 +40,28 @@
 
   &.disabled {
     cursor: default;
-    opacity: map_get($color-palette, control-default-disabled-opacity);        
+    opacity: map_get($color-palette, control-default-disabled-opacity);
   }
 }
 
 .checkbox {
     $size: 14px;
-  
+
     &,
     * {
       @include size($size);
     }
-  
+
     input[type="checkbox"] {
       &+ span {
         margin: 0;
-        
+
         display:inline-block;
         vertical-align: top;
-  
+
         background: transparent map_get($icon-pack, checkbox) no-repeat center center / $size;
       }
-  
-      &:hover + span,
+
       &.is-hovered + span {
         background: transparent map_get($icon-pack, checkbox-hover) no-repeat center center / $size;
       }
@@ -74,11 +73,11 @@
       &.is-hovered.has-error + span{
         background: transparent map_get($icon-pack, checkbox-hover-error) no-repeat center center / $size;
       }
-  
+
       &.hover-disable {
         cursor: default;
       }
-      
+
       &:checked + span {
         background: transparent map_get($icon-pack, checkbox-checked) no-repeat center center / $size;
       }

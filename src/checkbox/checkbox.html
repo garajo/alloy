@@ -1,14 +1,20 @@
-<div class="checkbox-container" #checkboxContainer
-        [ngClass]="{'disabled': disabled, 'readonly': readonly}" 
-        (click)="toggle()" 
+<label class="checkbox-container" #checkboxContainer
+        [ngClass]="{'disabled': disabled, 'readonly': readonly}"
+        (click)="focus()"
         (mouseover)="toggleHover()"
         (mouseout)="toggleHover()">
     <div class="checkbox">
-        <input #checkbox type="checkbox" [ngClass]="{'is-hovered': hovered, 'hover-disable': !hovered, 'has-error': errors}" [checked]="checked" />
+        <input #checkbox
+               type="checkbox"
+               [id]="inputId"
+               [ngClass]="{'is-hovered': hovered, 'hover-disable': !hovered, 'has-error': errors}"
+               [checked]="checked"
+               (change)="checked = !checked"
+               [disabled]="!isFocusable()" />
         <!-- JEFF_TODO Do we really need this extra span barnacle? Can we change the style and the instances to remove it since I see no value in it, other than UPro had originally required it -->
         <span></span>
     </div>
-    <div *ngIf="showIcon()"><img class="has-icon" [src]=icon></div>
-    <div *ngIf="showLabel()"><label>{{ label }}</label></div>
+    <img *ngIf="showIcon()" class="has-icon" [src]=icon>
+    <label *ngIf="showLabel()" [attr.for]="inputId">{{ label }}</label>
     <div [ngClass]="{'has-error': errors}" data-tooltip data-disable-hover="false" title="{{errorMessage}}"></div>
-</div>
+</label>
