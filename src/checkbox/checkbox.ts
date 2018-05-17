@@ -155,6 +155,16 @@ export class AlloyCheckbox implements ControlValueAccessor, FocusableOption {
         return this.label !== '';
     }
 
+    /** Toggles the checked/unchecked states of the checkbox */
+    toggle(): boolean {
+        if (!this.disabled && !this.readonly) {
+            this.checked = !this.checked;
+            this.focus();
+            return true;
+        }
+        return false;
+    }
+
     /** Toggles the hovered state of the checkbox when it's label or icon is hovered upon */
     toggleHover(): void {
         if (this.disabled || this.readonly) {
