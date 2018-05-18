@@ -3,7 +3,8 @@
  * Keysight Confidential
  */
 import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 // Would love to just use the native support for enums
 // World claims that typescript 2.4+ supports it but most people aren't getting it to work unless they go to Angular 5
@@ -25,51 +26,61 @@ export const AlloyThemes = {
 @Injectable()
 export class AlloyThemingService {
 
-    /** The current theme  */
-    private _theme: AlloyThemes;
     private renderer: Renderer2;
-    public onThemeChanged = new Subject<AlloyThemes>();
+
+    /** The current theme. Use the subject as the backing variable  */
+    public themeSubject = new BehaviorSubject<AlloyThemes>(AlloyThemes.Dark);
 
     // Use of this RendererFactory2 allows us to access the DOM even from this the injected service from some other consuming module
     constructor(rendererFactory: RendererFactory2) {
         this.renderer = rendererFactory.createRenderer(null, null);
-
-        this.theme = AlloyThemes.Dark;
     }
 
     /** Get the active theme name */
-    public get theme(): AlloyThemes { return this._theme; }
+    public get theme(): AlloyThemes { return this.themeSubject.getValue(); }
 
     /** Set the active theme name */
     public set theme(value: AlloyThemes) {
 
-        this._theme = value;
+        switch (value) {
+            case AlloyThemes.Dark:
+                // I know it looks strange. The Dark theme is declared by the absence of the 'light' class on the body tag
+                this.renderer.removeClass(document.body, AlloyThemes.Light);
+                break;
 
-        if (this._theme === AlloyThemes.Dark) {
-            // I know it looks strange. The Dark theme is declared by the absence of the 'light' class on the body tag
-            this.renderer.removeClass(document.body, AlloyThemes.Light);
-        } else if (this._theme === AlloyThemes.Light) {
-            this.renderer.addClass(document.body, AlloyThemes.Light);
-        } else {
-            console.log('Did not recognize the requested theme');
+            case AlloyThemes.Light:
+                this.renderer.addClass(document.body, AlloyThemes.Light);
+                break;
+
+            default:
+                console.warn('Warning: Did not recognize the requested theme "' + this.theme + '". Retaining the existing theme.');
+                return;
         }
 
-        this.notifyOnThemingChanged(value);
+        this.themeSubject.next(value);
     }
 
     public toggleTheme(): void {
 
-        if (this.theme === AlloyThemes.Dark) {
-            this.theme = AlloyThemes.Light;
-        } else if (this.theme === AlloyThemes.Light) {
-            this.theme = AlloyThemes.Dark;
-        } else {
-            console.log('Internal error: Did not recognize the theme ' + this.theme );
+        switch (this.theme) {
+            case AlloyThemes.Dark:
+                this.theme = AlloyThemes.Light;
+                break;
+
+            case AlloyThemes.Light:
+                this.theme = AlloyThemes.Dark;
+                break;
+
+            default:
+                console.warn('Warning: Did not recognize the target theme "' + this.theme + '" used to toggle the color theme.' );
+                return;
+
         }
     }
 
-    public notifyOnThemingChanged(theme: AlloyThemes): void {
-        this.onThemeChanged.next(theme);
+    public onThemeChange(): Observable<AlloyThemes> {
+
+        return this.themeSubject.asObservable();
     }
 
 }
