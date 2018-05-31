@@ -22,8 +22,8 @@
         "@angular/animations": "^4.3.1",
         "@angular/cdk": "^2.0.0-beta.11",
         "@angular/material": "^2.0.0-beta.11",
-        "ag-grid": "13.0.x",
-        "ag-grid-angular": "13.0.x",
+        "ag-grid": "14.1.0",
+        "ag-grid-angular": "14.1.0",
         "ngx-contextmenu": "=2.0.0-beta.7",
         "foundation-sites": "=6.3.1",
         "ts-keycode-enum": "=1.0.4"
