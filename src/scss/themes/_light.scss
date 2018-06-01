@@ -311,6 +311,8 @@ $light-icons:                 "light/icons";
 $icon-pack: (
         // General
         delete:                               inline-image("#{$icons}/delete.svg"),
+        edit:                                 inline-image("#{$light-icons}/edit.svg"),
+        computer:                             inline-image("#{$light-icons}/computer.svg"),
         
         // Title Bar
         logo:                                 inline-image("#{$icons}/logo.png"),

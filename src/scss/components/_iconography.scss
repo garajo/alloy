@@ -2,6 +2,24 @@ $prefix: alloy-ic-;
 
 .#{$prefix} {
 
+ &computer {
+    $size: 24px;
+
+    display: inline-block;
+    @include size($size);
+
+    background: transparent map_get($icon-pack, computer) no-repeat center center / $size;
+  }
+
+  &edit {
+    $size: 16px;
+
+    display: inline-block;
+    @include size($size);
+
+    background: transparent map_get($icon-pack, edit) no-repeat center center / $size;
+  }
+
   &ph-menu-box {
     @include icon-base(ph-menu-box, 14px);
 

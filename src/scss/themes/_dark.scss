@@ -301,6 +301,8 @@ $dark-icons:            "dark/icons";
 $icon-pack: (
         // General
         delete:                               inline-image("#{$icons}/delete.svg"),                                 
+        edit:                                 inline-image("#{$dark-icons}/edit.svg"),
+        computer:                             inline-image("#{$dark-icons}/computer.svg"),
 
         // Title Bar
         logo:                                 inline-image("#{$icons}/logo.png"),
