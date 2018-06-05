@@ -130,6 +130,9 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     /** Property for icon imported by 'require' stmt. Needs to be that for browser to digest it */
     private _icon: any;
 
+    /** internal property to determine if the intended icon is an image or a style class  */
+    public isIconClass = false;
+
     /** Whether or not the dropdown is in readonly state */
     private _isReadonly = false;
 
@@ -251,6 +254,20 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     @Input()
     get icon() { return this._icon; }
     set icon(value: any) {
+
+        if (value.startsWith('alloy-ic-')) {
+            // console.log('We have an alloy icon class');
+
+            // We've determined the intended icon is not a data url but a string and we presume it to be the name of an
+            // Alloy class because it starts with alloy-ic
+            this.isIconClass = true;
+        } else {
+            // console.log('We have traditional JS/require icon use of DropDown. Value is: ' + value);
+
+            // We've determined the intended icon is a data URL JS/require and we presume it is meant to be a source of an img/src
+            this.isIconClass = false;
+        }
+
         this._icon = value;
     }
 

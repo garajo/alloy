@@ -1,20 +1,20 @@
-<div class="dropdown-group" 
+<div class="dropdown-group"
     [ngClass]="{'disabled': disabled, 'readonly': readonly}">
 
-    <!-- JEFF Why do we have this mixed approach for styling? Some ng classes being set, some properties being set, some ngif to show/hide things?-->
+    <!-- JEFF_TODO Why do we have this mixed approach for styling? Some ng classes being set, some properties being set, some ngif to show/hide things?-->
 
-    <button 
-        type="button" 
-        [ngClass]="{'button-icon': icon,
-                    'lightweight': !alternate_style,
+    <button
+        type="button"
+        [ngClass]="{'lightweight': !alternate_style,
                     'button-standard': alternate_style,
                     'is-open': panelOpen
                     }"
-                    class="dropdown" 
+                    class="dropdown"
                     (click)="toggle()"
                     #trigger>
             <label *ngIf="!icon">{{placeholder}}</label>
-            <img *ngIf="icon" src="{{ icon }}">
+            <div *ngIf="icon && isIconClass" class="{{ icon }}"></div>
+            <img *ngIf="icon && !isIconClass" src="{{ icon }}" >
     </button>
 
 

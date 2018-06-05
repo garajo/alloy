@@ -319,7 +319,7 @@ $icon-pack: (
         delete:                               inline-image("#{$icons}/delete.svg"),
         edit:                                 inline-image("#{$light-icons}/edit.svg"),
         computer:                             inline-image("#{$light-icons}/computer.svg"),
-        
+
         // Title Bar
         logo:                                 inline-image("#{$icons}/logo.png"),
         logo-full:                            inline-image("#{$light-icons}/logo-full.png"),
@@ -331,6 +331,7 @@ $icon-pack: (
         minimize:                             inline-image("#{$light-icons}/minimize.png"),
         settings:                             inline-image("#{$light-icons}/settings.svg"),
         user-profile:                         inline-image("#{$light-icons}/user_profile.svg"),
+        tools:                                inline-image("#{$light-icons}/tools.svg"),
 
         // Menus
         ph-menu-box:                          inline-image("#{$light-icons}/ph-menu-box.png"),

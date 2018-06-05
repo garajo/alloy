@@ -164,8 +164,8 @@
             <div class="row align-center">
                 <div class="columns">
                     <!-- If i wanted a right-aligned dd menu... -->
-                    <!-- <alloy-dropdown [(ngModel)]="icon_selectedValue" [right_align]="true" [icon]="profImage"> -->
-                    <alloy-dropdown [(ngModel)]="icon_selectedValue" [icon]="profImage">
+                    <!-- <alloy-dropdown [(ngModel)]="icon_selectedValue" [right_align]="true" icon='alloy-ic-tools'> -->
+                    <alloy-dropdown [(ngModel)]="icon_selectedValue" icon='alloy-ic-tools'>
                         <alloy-option *ngFor="let module of icon_modules" [value]="module.value">
                             {{ module.name }}
                         </alloy-option>
@@ -198,7 +198,7 @@
                 </div>
                 <div class="columns small-7">
                     <pre ngNonBindable>
-                        &lt;alloy-dropdown [(ngModel)]=&quot;selectedValue&quot; [icon]=&quot;profImage&quot;&gt;
+                        &lt;alloy-dropdown [(ngModel)]=&quot;selectedValue&quot; icon=&quot;alloy-ic-tools&quot;&gt;
                             &lt;alloy-option *ngFor=&quot;let m of icon_modules&quot; [value]=&quot;m.value&quot;&gt;
                                 {{ m.name }}
                             &lt;/alloy-option&gt;

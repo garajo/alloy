@@ -2,7 +2,16 @@ $prefix: alloy-ic-;
 
 .#{$prefix} {
 
- &computer {
+  &tools {
+    $size: 24px;
+
+    display: inline-block;
+    @include size($size);
+
+    background: transparent map_get($icon-pack, tools) no-repeat center center / $size;
+  }
+
+  &computer {
     $size: 24px;
 
     display: inline-block;

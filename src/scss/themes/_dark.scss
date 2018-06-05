@@ -313,7 +313,7 @@ $icon-pack: (
         // Title Bar
         logo:                                 inline-image("#{$icons}/logo.png"),
         logo-full:                            inline-image("#{$dark-icons}/logo-full.png"),
-        brand-sign:                           inline-image("#{$dark-icons}/keysight-brand-signature.png"),  
+        brand-sign:                           inline-image("#{$dark-icons}/keysight-brand-signature.png"),
         close-x:                              inline-image("#{$icons}/close-x.png"),
         close-x-hover:                        inline-image("#{$icons}/close-x.png"),
         close-x-active:                       inline-image("#{$icons}/close-x.png"),
@@ -321,6 +321,7 @@ $icon-pack: (
         minimize:                             inline-image("#{$dark-icons}/minimize.png"),
         settings:                             inline-image("#{$dark-icons}/settings.svg"),
         user-profile:                         inline-image("#{$dark-icons}/user_profile.svg"),
+        tools:                                inline-image("#{$dark-icons}/tools.svg"),
 
         // Menus
         ph-menu-box:                          inline-image("#{$dark-icons}/ph-menu-box.png"),

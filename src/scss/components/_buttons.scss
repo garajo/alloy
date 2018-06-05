@@ -518,14 +518,6 @@ button.dropdown {
     height: $icon-height;
   }
 
-  &.button-icon {
-    min-width: 0 !important;
-    max-width: 48;
-  }
-
-  &.button-icon:after {
-    margin-left: 8px;
-  }
 
   &:after {
     @include size($caret-width, $caret-height);
