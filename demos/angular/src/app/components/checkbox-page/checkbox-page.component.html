@@ -9,7 +9,7 @@
         </div>
         <div class="row align-center">
             <div class="columns">
-                <alloy-checkbox [size]="sizeSimple" [label]="placeholder" [disabled]="disabledSimple" [checked]="checkedSimple" [readonly]="readonlySimple" [errors]="errorsSimple" [errorMessage]="errorMessage">
+                <alloy-checkbox [size]="sizeSimple" [label]="placeholder" [disabled]="disabledSimple" [checked]="checkedSimple" [readonly]="readonlySimple" [errors]="errorsSimple" [errorMessage]="errorMessage" (change)="checkedSimple = !checkedSimple">
                 </alloy-checkbox>
             </div>
             <div class="columns">
@@ -20,14 +20,14 @@
                         <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled('simple')" [ngClass]="{'is-pressed': disabledSimple}">Disabled</button>
                         <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly('simple')" [ngClass]="{'is-pressed': readonlySimple}">Readonly</button>
                         <button id="errors" type="button" class="button-standard" (click)="toggleErrorState('simple')" [ngClass]="{'is-pressed': errorsSimple}">Error</button>
-                        <label>Checkbox Size (px):</label><input type="text" [(ngModel)]="sizeSimple" (keypress)="isNumberKey($event)" maxlength="2">                            
+                        <label>Checkbox Size (px):</label><input type="text" [(ngModel)]="sizeSimple" (keypress)="isNumberKey($event)" maxlength="2">
                     </div>
                 </div>
             </div>
             <div class="columns small-7">
                 <pre ngNonBindable>
-&lt;alloy-checkbox [label]=&quot;placeholder&quot; [disabled]=&quot;disabled&quot; 
-    [checked]=&quot;checked&quot;&gt; [readonly]=&quot;readonlyMixed&quot; 
+&lt;alloy-checkbox [label]=&quot;placeholder&quot; [disabled]=&quot;disabled&quot;
+    [checked]=&quot;checked&quot;&gt; [readonly]=&quot;readonlyMixed&quot;
     [errors]=&quot;errorsMixed&quot; [errorMessage]=&quot;errorMessage&quot;
     [checkboxSize]=&quot;checkboxSize&quot;
 &lt;/alloy-checkbox&gt;
@@ -55,14 +55,14 @@
                         <button id="checked" type="button" class="button-standard" (click)="toggleChecked('icon')" [ngClass]="{'is-pressed': checkedIcon}">Checked</button>
                         <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled('icon')" [ngClass]="{'is-pressed': disabledIcon}">Disabled</button>
                         <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly('icon')" [ngClass]="{'is-pressed': readonlyIcon}">Readonly</button>
-                        <button id="errors" type="button" class="button-standard" (click)="toggleErrorState('icon')" [ngClass]="{'is-pressed': errorsIcon}">Error</button>                                            
+                        <button id="errors" type="button" class="button-standard" (click)="toggleErrorState('icon')" [ngClass]="{'is-pressed': errorsIcon}">Error</button>
                     </div>
                 </div>
             </div>
             <div class="columns small-7">
                 <pre ngNonBindable>
-&lt;alloy-checkbox [icon]=&quot;iconSrc&quot; [disabled]=&quot;disabled&quot; 
-    [checked]=&quot;checked&quot;&gt; [readonly]=&quot;readonlyMixed&quot; 
+&lt;alloy-checkbox [icon]=&quot;iconSrc&quot; [disabled]=&quot;disabled&quot;
+    [checked]=&quot;checked&quot;&gt; [readonly]=&quot;readonlyMixed&quot;
     [errors]=&quot;errorsMixed&quot; [errorMessage]=&quot;errorMessage&quot;
 &lt;/alloy-checkbox&gt;
                 </pre>
@@ -89,14 +89,14 @@
                         <button id="checked" type="button" class="button-standard" (click)="toggleChecked('mixed')" [ngClass]="{'is-pressed': checkedMixed}">Checked</button>
                         <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled('mixed')" [ngClass]="{'is-pressed': disabledMixed}">Disabled</button>
                         <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly('mixed')" [ngClass]="{'is-pressed': readonlyMixed}">Readonly</button>
-                        <button id="errors" type="button" class="button-standard" (click)="toggleErrorState('mixed')" [ngClass]="{'is-pressed': errorsMixed}">Error</button>                                                                    
+                        <button id="errors" type="button" class="button-standard" (click)="toggleErrorState('mixed')" [ngClass]="{'is-pressed': errorsMixed}">Error</button>
                     </div>
                 </div>
             </div>
             <div class="columns small-7">
                 <pre ngNonBindable>
-&lt;alloy-checkbox [label]=&quot;placeholder&quot; [icon]=&quot;iconSrc&quot; [disabled]=&quot;disabled&quot; 
-    [checked]=&quot;checked&quot;&gt; [readonly]=&quot;readonlyMixed&quot; 
+&lt;alloy-checkbox [label]=&quot;placeholder&quot; [icon]=&quot;iconSrc&quot; [disabled]=&quot;disabled&quot;
+    [checked]=&quot;checked&quot;&gt; [readonly]=&quot;readonlyMixed&quot;
     [errors]=&quot;errorsMixed&quot; [errorMessage]=&quot;errorMessage&quot;
 &lt;/alloy-checkbox&gt;
                 </pre>
@@ -125,7 +125,7 @@
                         <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled('focus')" [ngClass]="{'is-pressed': disabledFocus}">Disabled</button>
                         <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly('focus')" [ngClass]="{'is-pressed': readonlyFocus}">Readonly</button>
                         <button id="errors" type="button" class="button-standard" (click)="toggleErrorState('focus')" [ngClass]="{'is-pressed': errorsFocus}">Error</button>
-                        <button id="focus" type="button" class="button-standard" (click)="focusOnCheckBox()">Focus</button>                                                                    
+                        <button id="focus" type="button" class="button-standard" (click)="focusOnCheckBox()">Focus</button>
                     </div>
                 </div>
             </div>

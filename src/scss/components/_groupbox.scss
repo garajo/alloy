@@ -1,0 +1,91 @@
+// Foundation for Sites by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+// **ALLOY_CHANGE** Noticed that Foundation Fieldset/Legend combo is pretty close to what we want for a Caranu groupbox
+// Foundation fieldset/legend extend what HTML fieldset/legend does and restyles it using the .fieldset Foundation class
+// See the _fieldset.scss/_forms.scss files from Foundation for the original inspiration
+// ~node_modules\foundation-sites\scss\forms\_fieldset.scss
+// This file is a complete copy of the Foundation _fieldset.scss file and we just "tweaked" what we needed for Caranu
+// **Any/all** changes were marked with the ALLOY_CHANGE comment
+// The general approach here is to have users of Foundation things just use them as documented/natively and the right Caranu thing will happen
+
+////
+/// @group forms
+////
+
+/// Default border around custom fieldsets.
+/// @type Border
+// $fieldset-border: 1px solid $medium-gray !default;
+// ALLOY_CHANGE Caranu spec pgs. 24/66 of the Caranu spec. Group box line/border should be bunting/glitter
+$fieldset-border: 1px solid map_get($color-palette, group-box-border);
+
+/// Default padding inside custom fieldsets.
+/// @type Number
+// $fieldset-padding: rem-calc(20);
+// ALLOY_CHANGE Caranu spec pg. 66 Need to retain a bit of the fieldset padding on the top so the content isn't too close to the header; Caranu calls for padding of 16px on the left for the content; let's do the same for the right
+$fieldset-padding: rem-calc(8 16 0 16);
+
+/// Default margin around custom fieldsets.
+/// @type Number
+// $fieldset-margin: rem-calc(18 0) !default;
+// ALLOY_CHANGE Let's just have an 8px margin all the way round. Caranu spec pg. 66 seems to indicate we ought to have this as a minimum
+$fieldset-margin: rem-calc(8);
+
+// /// Default padding between the legend text and fieldset border.
+// /// @type Number
+// $legend-padding: rem-calc(0 3) !default;
+// ALLOY_CHANGE Caranu spec pg. 66 Looks like a 8px margin between the legend text and the horizontal bar
+$legend-padding: rem-calc(0 8 0 0);
+
+@mixin fieldset {
+  margin: $fieldset-margin;
+  padding: $fieldset-padding;
+
+  //border: $fieldset-border;
+  // ALLOY-CHANGE Caranu group box only has a border (horizontal line) at the top; not a square box all the way round
+  // Turn off all borders
+  border: none;
+  // Turn back on just our Caranu top border
+  border-top: $fieldset-border;
+
+  legend {
+    // Covers up the fieldset's border to create artificial padding
+    // margin: 0;
+    // margin-#{$global-left}: rem-calc(-3);
+    padding: $legend-padding;
+    // background: $body-background;
+
+    //ALLOY_CHANGE Overriding or adding to the properties from above
+    // Caranu spec pg. 66 Our legend needs to be left justified; "move" it left by the left padding amount 16px to line it up against the left edge of the control
+    margin: 0 0 0 -16px;
+    // Transparent background on the legend according to Caranu
+    background: transparent;
+    // Use the right existing Alloy class that get the font family, size, weight correct for this groupbox header concept
+    @extend .alloy-group-header-font;
+    // See pgs 24/66 of the Caranu spec. Group box text should be white/black
+    color: map_get($color-palette, group-box-header-text);
+  }
+}
+
+@mixin foundation-form-fieldset {
+  fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  legend {
+    max-width: 100%;
+    margin-bottom: $form-spacing * 0.5;
+  }
+
+  .fieldset {
+    @include fieldset;
+  }
+
+}
+// ALLOY_CHANGE Reimport the fieldset styles here since we have changed them. This should clobber what Foundation defined them to be underneath us (imported from our alloy_base.scss file)
+// JEFF_TODO Should probably better organize how we turn off things from Foundation that we no longer need/use
+// Should look at what our alloy_base.scss importants and turn off the Foundation things we know we've completely replaced
+@include foundation-form-fieldset;

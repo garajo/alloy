@@ -25,10 +25,12 @@
 }
 
 .dialog-body {
+    // Use the right dialog specific vars to get the background color correct in the different color themes
     background: map_get($color-palette, dialog-background-color);
-    font-family: 'Roboto';
-    font-size: 13px;
+    // Use the right variable for the text color of the dialog content
     color: map_get($color-palette, dialog-body-color);
+    // Just use the already existing Alloy classes to get the font correct
+    @extend .alloy-body-content-font
 }
 
 .dialog-controls {
@@ -44,11 +46,14 @@
 
 .dialog-title-bar {
     background:  linear-gradient(90deg, map_get($color-palette, dialog-title-bar-gradient-top), map_get($color-palette, dialog-title-bar-gradient-bottom) );
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    // JEFF_TODO If it is a modeless inactive dialog the text shouldn't be blue - See pgs. 27/69 Caranu spec for correct colors
     color: map_get($color-palette, dialog-title-bar-color);
     height: 32px;
+    // JEFF_TODO If it is a modeless inactive dialog the text shouldn't be blue - See pgs. 27/69 Caranu spec for correct colors
     border-color: map_get($color-palette, dialog-title-bar-border-bottom);
+
+    // Just use the classes already provided in typography to get things correct and keep them in sync
+    @extend .alloy-titlebar-font
 }
 
 .dialog-title-bar-title {

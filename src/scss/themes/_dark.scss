@@ -62,6 +62,10 @@ $color-palette: (
         header-text:                              $white,
         section-bg:                               $french-gray,
 
+        // Group box
+        group-box-border:                         rgba($glitter,$opacity-HEX28),
+        group-box-header-text:                    $white,
+
         // Windows
         window-bg:                                $dark-jungle,                         //Caranu spec. pg. 34 FILL = #FF1B1B1F NOTE: An app main window does not have the blue border. Only if it has MDI windows would the "active" window get the blue border
         window-main-bg:                           $paynes-gray,                         //Listed on pg. 17 on the spec as the color behind child windows in a main window.
@@ -131,7 +135,7 @@ $color-palette: (
         button-quick-access-disabled-opacity:     $opacity-DEC30,   
         button-quick-access-disabled-text-color:  $white,
         button-group-box-border:                  rgba($glitter,$opacity-HEX28),
-        button-group-box-bg:                      rgba($black,$opacity-HEX19),                 
+        button-group-box-bg:                      rgba($black,$opacity-HEX19),
 
         // Buttons
 
@@ -163,7 +167,7 @@ $color-palette: (
         button-dropdown-lightweight-color-active: $cornflower-blue,
 
         // Input
-        input-text-disabled-opacity:              $opacity-DEC30,                          //leave disabled opacity in decimal since the Caranu spec does            
+        input-text-disabled-opacity:              $opacity-DEC30,                          //leave disabled opacity in decimal since the Caranu spec does
         input-text-border:                        rgba($glitter,$opacity-HEX4C),
         input-text-bg:                            rgba($black,$opacity-HEX33),
         input-text-color:                         $white,
@@ -257,14 +261,16 @@ $color-palette: (
         style-guide-buttons-bg:                   transparent,
         style-guide-label-color:                  $french-gray,
 
-        style-guide-default-bg:                   #1A1A1E,                              //JEFF_TODO: this color doesn't show up in the Caranu spec at all. Why is it here?
+        style-guide-default-bg:                   #1A1A1E,              //JEFF_TODO: this color doesn't show up in the Caranu spec at all. Why is it here? It has been mistakenly set as the content background on any app that has been using the "tabs-content content" combination
         style-guide-spacer-bg:                    $shark,
 
         // Dialog
+        // JEFF_TODO If it is a modeless inactive dialog the text shouldn't be blue (should be #28E5EEFF) See pg. 27 Caranu spec
         dialog-border-color:                      $cornflower-blue,
         dialog-background-color:                  $dark-jungle,
         dialog-body-color:                        $french-gray,
         dialog-box-shadow:                        rgba(#0D1E40, $opacity-HEXB2),
+        // JEFF_TODO If it is a modeless inactive dialog the text shouldn't be blue (should be white) See pg. 27 Caranu spec
         dialog-title-bar-color:                   $cornflower-blue,
         dialog-title-bar-gradient-top:            $jaguar,
         dialog-title-bar-gradient-bottom:         $black-russian,

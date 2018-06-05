@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Input, Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FocusableOption } from '@angular/cdk/a11y';
 
 declare function require(name: string): string;
@@ -10,7 +10,16 @@ declare function require(name: string): string;
 export class CheckboxPageComponent implements OnInit {
 
     disabledSimple = false;
-    checkedSimple = false;
+
+    _checkedSimple = false;
+
+    @Input()
+    get checkedSimple() { return this._checkedSimple; }
+    set checkedSimple(value: boolean) {
+      console.log('checked simple');
+      this._checkedSimple = value;
+    }
+
     readonlySimple = false;
     errorsSimple = false;
     sizeSimple = 14; //Default checkbox size based on Caranu style guide.

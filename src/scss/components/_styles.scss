@@ -17,8 +17,6 @@
 @import "_data-grid";
 @import "_scrollbars";
 @import "_misc";
-@import "_about-box";
-@import "_dialog";
 
 //Additional control styles that were added to Alloy
 
@@ -28,6 +26,9 @@
 @import "_textarea";            //Style for the textarea.
 @import "_checkbox";
 @import "_switcher";
+@import "_about-box";
+@import "_dialog";
+@import "_groupbox";
 @import "_property-grid";       //**IMPORTANT** This style needs to come last. It is a complex control that overrides styles of basic controls as well as inserting its styling
                                 // into the ag-grid control style system. For example putting textbox (or others) would clobber it's "tweaks" to have borderless textboxes when textboxes
                                 // are instantiated in the context of a property grid

@@ -1,0 +1,96 @@
+<!-- Strange but this Alloy style only sets a min width/height. Seems a little underwhelming for such a prestigeously named class-->
+<div class="dialog">
+
+    <!-- Just use the already defined Alloy styling for the Foundation top-bar control which provides the title/caption look-->
+    <!-- Foundation top-bar has support for lef/right alignment via the top-bar-left and top-bar-right classes-->
+    <header class="top-bar" >
+
+        <!-- Just use the already defined Alloy styling for the Foundation title-bar portion of the top-bar-->
+        <div class="title-bar">
+            <!-- Just use the already defined Alloy styling for the title bar text -->
+            <div class="top-bar-title">
+                <!-- New Alloy style for modal dialog text, need to have the active state color. HINT: It's always Cornflower blue-->
+                <label class="modal-dialog-title-text">{{title}}</label>
+            </div>
+
+            <!-- Nothing next to the dialog name so no need for top-bar-left for now-->
+            <!-- <div class="top-bar-left">
+            </div> -->
+
+            <!-- Foundation class that does all the right things to right justify something in the title/caption bar-->
+            <!-- We should use foundation as much as we can as it provides a cross browser abstraction against all the major browsers-->
+            <div class="top-bar-right">
+                <button type="button" class="button-close-x" (click)='close()'></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Use the existing Alloy class for dialog fonts/colors for the body.-->
+    <!-- Use the existing Alloy class for the inner padding around all window/dialogs-->
+    <div class="dialog-body caranu-window-padding">
+
+        <!-- Use Foundation wherever you can; it gets us cross-browser support-->
+        <!-- row = Foundation class indicating a Flexbox container row-->
+        <!-- collapse = Foundation class that removes the default gutter/padding on each of the child columns-->
+        <div class="row collapse">
+            <!-- Give our container column of the groupbox a reasonable width; small-4 will be inherited by any larger breakpoints-->
+            <div class="column small-4">
+
+                <!-- fieldset = Foundation type that extends HTML fieldset type (groups things together; Seems semnatically equivalent to a group box)-->
+                <!-- fieldset = Alloy class that extends the Foundation .fieldset class/styling to make it Caranu compliant; default is a gray group box. Alloy has customized it-->
+                <fieldset class="fieldset">
+                    <!-- As long as you use the Alloy fieldset class your fieldset and your legend will be auto Caranu styled -->
+                    <legend>Color Themes</legend>
+
+                    <!-- Always use Foundation for sizing/alignment/responsiveness needs-->
+                    <!-- row = Foundation class from the Flex grid that turns this into a Flexbox container-->
+                    <!-- align-left = Foundation class for horiztonal alignment of columns. Options are: left, center, right. Left is default, no need to specify -->
+                    <!-- align-middle = Foundation class for vertical alignments of columns. Options are: top, middle, bottom, stretch -->
+                    <div class="row collapse align-middle">
+                        <!-- column = Foundation class that defines columns-->
+                        <!-- shrink = Foundation class that reduces the width of the column to the size of the content-->
+                        <!-- We shrink to content and remove the Foundation column gutters/padding on the radio buttons-->
+                        <div class="column shrink">
+                            <!-- This class=radio parent with a child input type=radio with strange spans is the current structure of the UPro provided styles that identify an Alloy radio -->
+                            <div class="radio">
+                                <!-- One way binding via [checked] to keep UI state in sync. click event handler sets the theme and the backing variable-->
+                                <input type="radio" id="LightTheme" name="themes" [checked]="isLightTheme" (click)="setTheme('light')" /><span></span>
+                            </div>
+                        </div>
+                        <div class="column" style="padding-left: 8px;">
+                            <label for="LightTheme">Light</label>
+                        </div>
+                    </div>
+
+                    <!-- See documentation above on all these Foundation based alignment classes. -->
+                    <!-- With Foundation our cross browser abstraction for alignment/look/responsiveness there really is no reason-->
+                    <!-- To use float, margin, and the myriad of other alignment techniques. Foundation is superior to all of them-->
+                    <div class="row collapse align-middle">
+                        <!-- column = Foundation class that defines columns-->
+                        <!-- shrink = Foundation class that reduces the width of the column to the size of the content-->
+                        <!-- We shrink to content and remove the Foundation column gutters/padding on the radio buttons-->
+                        <div class="column shrink">
+                            <div class="radio">
+                                <input type="radio" id="DarkTheme" name="themes"  [checked]="!isLightTheme" (click)="setTheme('dark')" /><span></span>
+                            </div>
+                        </div>
+                        <div class="column" style="padding-left: 8px;">
+                            <label for="DarkTheme">Dark</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+            </div>
+        </div>
+
+        <!-- Just a spacer row to expand the dialog to give some space between the top content and the bottom close button. Otherwise those two groups of UI would be smooshed together-->
+        <div class="row" style="height: 200px;"></div>
+
+        <!-- align-right = Foundation class to right justify the content found in the column of this row -->
+        <div class="row collapse align-right">
+            <div class="column shrink">
+                <button type="button" class="button-default" (click)='close()' elementFocus>Close</button>
+            </div>
+        </div>
+    </div>
+</div>

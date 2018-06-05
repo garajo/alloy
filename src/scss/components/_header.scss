@@ -1,10 +1,33 @@
+// Attempt to encapsulate what is fast becoming a myriad of duplicate code/styles to define similar things
+// this attempts to get all the styling correct for title/caption area text
+.app-title {
+  display: inline-block;
+  vertical-align: middle;
+
+  color: map_get($color-palette, text-title-color);
+
+  // Just use the correct font family & size combination class so everything stays in sync
+  @extend .alloy-titlebar-font
+}
+
+.modal-dialog-title-text {
+  @extend .app-title;
+
+  color: map_get($color-palette, dialog-title-bar-color);
+}
+
 header.top-bar {
   .tab-bar {
+    // This is for the Alloy Tab Menu bar top level nav experience. When applying the correct visual hierarchy and set of styles
+    // This will ensure that Tab Menu bar portion is pushed down sufficiently. See pg. 50 of the spec.
+    // Without this that Tab Bar (tabs) would be top justified (on top of the title/caption area)
     // margin: 32px 0 0 auto;  // foundation-sites@6.4.x
     margin: 32px 0 auto;       // foundation-sites@6.3.1
   }
 }
 
+// top-bar is a Foundation control. Usually used as the top level nav/menu experience. Alloy has styled it according to Caranu.
+// It should be used whenever someone needs any of the top level title/caption bar, menu bar, tab bar, kiosk mode, toolbar etc. experiences
 .top-bar {
   position: relative;
   flex-wrap: wrap;
@@ -26,11 +49,16 @@ header.top-bar {
 
       margin: 0 0 0 12px;
 
+      // If your title/caption experience is using the Keysight standard logo class this styling will find it and apply automatically
+      // looks like it will shrink to content size and ensure that alignment is vertically centered
       .alloy-ic-logo {
         @include flex-grid-column(shrink, 0);
 
         vertical-align: middle;
       }
+
+      // Just use the correct font family & size combination class so everything stays in sync
+      @extend .alloy-titlebar-font
     }
 
     .top-bar-right {
@@ -38,7 +66,9 @@ header.top-bar {
     }
   }
 
-    .title-bar-section {
+  // Seems to only be used in the HTML demo app but it is important as it tries to show off how to place down styling along the
+  // tab menu bar that needs to accomodate primary/secondary toolbars. It ensure their backgrounds match the lower half of the gradient etc.
+  .title-bar-section {
     @include flex;
     @include flex-grid-column(100%, 0);
     @include flex-align(justify);

@@ -165,15 +165,6 @@
   text-transform: uppercase;
 }
 
-.app-title {
-  display: inline-block;
-  vertical-align: middle;
-
-  color: map_get($color-palette, text-title-color);
-  font-size: 14px;
-  font-family: "Roboto Medium";
-}
-
 .property-header {
   color: map_get($color-palette, panel-header-color);
   font-size: 13px;
@@ -192,14 +183,32 @@ h5 {
   opacity: map_get($color-palette, grid-item-darkened-opacity);
 }
 
-//JEFF_LABELS Added these 3 classes to at least have a class/style for the 3 main Caranu spec defined text combinations
+//JEFF_LABELS Added these classes to at least have a class/style for all the main Caranu spec defined text combinations
 
-//See page 26 of the Caranu spec. 
-//Use this class for when you have a "Main Instructions" scenario as described by the spec. 
+//See pages 26-27, 34-36, 48 of the Caranu spec.
+//Use this class for when you have a dialog or window titlebar scenario as described by the spec.
+.alloy-titlebar-font
+{
+    font-family: 'Roboto Medium', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+//See page 26 of the Caranu spec.
+//Use this class for when you have a "Main Instructions" scenario as described by the spec.
 .alloy-main-instructions-font
 {
-    font-family: "Roboto Medium";
+    font-family: 'Roboto Medium', sans-serif;
     font-size: 15px;
+    font-weight: normal;
+}
+
+//See the Caranu spec. Used for control group/header txt for expanders, group-box, property-panel & property grid etc.
+//Use this class for when you have a group or header label text need
+.alloy-group-header-font
+{
+    font-family: 'Roboto Medium', sans-serif;
+    font-size: 13px;
     font-weight: normal;
 }
 
@@ -207,7 +216,7 @@ h5 {
 //Use this class for when you have a "Body/Content Area" scenario as described by the spec.
 .alloy-body-content-font
 {
-    font-family: "Roboto";
+    font-family: 'Roboto', sans-serif;
     font-size: 13px;
     font-weight: normal;
 }
@@ -217,7 +226,7 @@ h5 {
 //matching essentially what all other controls are doing. 
 .alloy-controls-font
 {
-    font-family: "Roboto";
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: normal;
 }

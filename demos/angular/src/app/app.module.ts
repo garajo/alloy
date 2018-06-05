@@ -11,37 +11,39 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   AlloyAboutBox,
   AlloyAboutBoxModule,
-  AlloyContextmenuModule,
-  AlloyDropdownModule,
   AlloyButtonModule,
-  AlloyIconModule,
   AlloyCheckboxModule,
+  AlloyContextmenuModule,
+  AlloyDisplaySettingsModule,
+  AlloyDropdownModule,
+  AlloyIconModule,
   AlloyNotificationIconModule,
   AlloyPropertyGridModule,
   AlloyPropertyGridMessageService,
-  AlloyTextboxModule,
   AlloySwitcherModule,
+  AlloyTextboxModule,
 } from '@keysight/alloy';
 
 import { AboutBoxPageComponent } from './components/about-box-page/about-box-page.component';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-page.component';
+import { AppRoutingModule } from './app-routing.module';
 import { ButtonPageComponent } from './components/button-page/button-page.component';
+import { CheckboxDynamicComponent } from './components/property-page/editors/dynamic-components/checkbox/checkbox-dynamic.component';
 import { CheckboxPageComponent } from './components/checkbox-page/checkbox-page.component';
+import { CompoundPageComponent } from './components/compound-page/compound-page.component';
+import { ContextmenuPageComponent } from './components/contextmenu-page/contextmenu-page.component';
+import { DisplaySettingsPageComponent } from './components/display-settings-page/display-settings-page.component';
+import { DropdownDynamicComponent } from './components/property-page/editors/dynamic-components/dropdown/dropdown-dynamic.component';
+import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-page.component';
 import { NotificationIconPageComponent } from './components/notification-icon-page/notification-icon-page.component';
+import { PropertyEditorComponent } from './components/property-page/property-editor.component';
+import { SwitcherPageComponent } from './components/switcher-page/switcher-page.component';
+import { TextareaPageComponent } from './components/textarea-page/textarea-page.component';
+import { TextboxPageComponent } from './components/textbox-page/textbox-page.component';
+import { TextfieldDynamicComponent } from './components/property-page/editors/dynamic-components/textfield/textfield-dynamic.component';
 
 import { DataService } from './components/property-page/editors/services/data.service';
-import { PropertyEditorComponent } from './components/property-page/property-editor.component';
-import { CheckboxDynamicComponent } from './components/property-page/editors/dynamic-components/checkbox/checkbox-dynamic.component';
-import { TextfieldDynamicComponent } from './components/property-page/editors/dynamic-components/textfield/textfield-dynamic.component';
-import { DropdownDynamicComponent } from './components/property-page/editors/dynamic-components/dropdown/dropdown-dynamic.component';
 import { EditorService } from './components/property-page/editors/services/editor.service';
-import { TextboxPageComponent } from './components/textbox-page/textbox-page.component';
-import { TextareaPageComponent } from './components/textarea-page/textarea-page.component';
-import { SwitcherPageComponent } from './components/switcher-page/switcher-page.component';
-import { ContextmenuPageComponent } from './components/contextmenu-page/contextmenu-page.component';
-import { CompoundPageComponent } from './components/compound-page/compound-page.component';
 
 
 /**
@@ -53,12 +55,13 @@ import { CompoundPageComponent } from './components/compound-page/compound-page.
     AlloyAboutBoxModule,
     AlloyButtonModule,
     AlloyCheckboxModule,
+    AlloyContextmenuModule,
+    AlloyDisplaySettingsModule,
     AlloyDropdownModule,
     AlloyIconModule,
     AlloyNotificationIconModule,
     AlloySwitcherModule,
     AlloyTextboxModule,
-    AlloyContextmenuModule
   ],
   entryComponents: [
     AlloyAboutBox
@@ -77,21 +80,22 @@ export class AlloyDemoModule { }
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DropdownsPageComponent,
-    ButtonPageComponent,
-    CheckboxPageComponent,
     AboutBoxPageComponent,
+    AppComponent,
+    ButtonPageComponent,
+    CheckboxDynamicComponent,
+    CheckboxPageComponent,
+    CompoundPageComponent,
+    ContextmenuPageComponent,
+    DisplaySettingsPageComponent,
+    DropdownDynamicComponent,
+    DropdownsPageComponent,
     NotificationIconPageComponent,
     PropertyEditorComponent,
-    CheckboxDynamicComponent,
-    TextfieldDynamicComponent,
-    DropdownDynamicComponent,
-    TextboxPageComponent,
-    TextareaPageComponent,
     SwitcherPageComponent,
-    ContextmenuPageComponent,
-    CompoundPageComponent
+    TextfieldDynamicComponent,
+    TextboxPageComponent,
+    TextareaPageComponent
   ],
   imports: [
     AlloyDemoModule,

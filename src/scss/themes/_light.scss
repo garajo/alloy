@@ -64,6 +64,10 @@ $color-palette: (
         header-text:                              $black,
         section-bg:                               $selago,
 
+        // Group box
+        group-box-border:                         rgba($bunting,$opacity-HEX4C),
+        group-box-header-text:                    $black,
+
         // Windows
         window-bg:                                $white,                         //Caranu spec. pg. 76 FILL = #FFFFFFFF NOTE: An app main window does not have the blue border. Only if it has MDI windows would the "active" window get the blue border
         window-main-bg:                           $blue-haze,                     //Listed on pg. 59 on the spec as the color behind child windows in a main window.
@@ -266,14 +270,16 @@ $color-palette: (
         style-guide-switch-label-color:           $black,
         style-guide-buttons-bg:                   $white,
         style-guide-label-color:                  $smoky,
-        style-guide-default-bg:                   #FFFFFE,
+        style-guide-default-bg:                   #FFFFFE,    //JEFF_TODO: this color doesn't show up in the Caranu spec at all. Why is it here? It has been mistakenly set as the content background on any app that has been using the "tabs-content content" combination
         style-guide-spacer-bg:                    #C5C9CF,
 
         // Dialog
+        // JEFF_TODO If it is a modeless inactive dialog the border shouldn't be blue (should be #4C000000) See pg. 69 Caranu spec
         dialog-border-color:                      $cornflower-blue,
         dialog-background-color:                  $white,
         dialog-body-color:                        $smoky,
         dialog-box-shadow:                        rgba(#0D1E40, $opacity-HEX4C),
+        // JEFF_TODO If it is a modeless inactive dialog the text shouldn't be blue (should be black) See pg. 69 Caranu spec
         dialog-title-bar-color:                   $cornflower-blue,
         dialog-title-bar-gradient-top:            $zircon,
         dialog-title-bar-gradient-bottom:         $quartz,
