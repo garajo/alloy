@@ -1,5 +1,7 @@
 <!-- Strange but this Alloy style only sets a min width/height. Seems a little underwhelming for such a prestigeously named class-->
-<div class="dialog">
+<!-- No need for hard coded dialog size. It is responsive given content and a reasonable flex size given screen size. See the vh/vw settings below. -->
+<!-- class="dialog" -->
+<div >
 
     <!-- Just use the already defined Alloy styling for the Foundation top-bar control which provides the title/caption look-->
     <!-- Foundation top-bar has support for lef/right alignment via the top-bar-left and top-bar-right classes-->
@@ -26,15 +28,18 @@
     </header>
 
     <!-- Use the existing Alloy class for dialog fonts/colors for the body.-->
-    <!-- Use the existing Alloy class for the inner padding around all window/dialogs-->
+    <!-- Use the existing Alloy class for the inner padding around all window/dialogs (Caranu spec pg. 27-->
     <div class="dialog-body caranu-window-padding">
 
         <!-- Use Foundation wherever you can; it gets us cross-browser support-->
         <!-- row = Foundation class indicating a Flexbox container row-->
         <!-- collapse = Foundation class that removes the default gutter/padding on each of the child columns-->
         <div class="row collapse">
-            <!-- Give our container column of the groupbox a reasonable width; small-4 will be inherited by any larger breakpoints-->
-            <div class="column small-4">
+            <!-- Give our container column of the groupbox a reasonable width; small-6 will be inherited by any larger breakpoints-->
+            <!-- small-6 says use half the available width of the 12 column grid we are contained in as defined by the row declaration above-->
+            <!-- This will cause the contents of the dialog box to shrink and then vertically align if the dialog gets too narrow. -->
+            <!-- RESPONSIVE DESIGN: This is much better than the dialog simply clipping its content when it runs out of space-->
+            <div class="column small-6">
 
                 <!-- fieldset = Foundation type that extends HTML fieldset type (groups things together; Seems semnatically equivalent to a group box)-->
                 <!-- fieldset = Alloy class that extends the Foundation .fieldset class/styling to make it Caranu compliant; default is a gray group box. Alloy has customized it-->
@@ -46,7 +51,7 @@
                     <!-- row = Foundation class from the Flex grid that turns this into a Flexbox container-->
                     <!-- align-left = Foundation class for horiztonal alignment of columns. Options are: left, center, right. Left is default, no need to specify -->
                     <!-- align-middle = Foundation class for vertical alignments of columns. Options are: top, middle, bottom, stretch -->
-                    <div class="row collapse align-middle">
+                    <div class="row align-middle">
                         <!-- column = Foundation class that defines columns-->
                         <!-- shrink = Foundation class that reduces the width of the column to the size of the content-->
                         <!-- We shrink to content and remove the Foundation column gutters/padding on the radio buttons-->
@@ -57,7 +62,7 @@
                                 <input type="radio" id="LightTheme" name="themes" [checked]="isLightTheme" (click)="setTheme('light')" /><span></span>
                             </div>
                         </div>
-                        <div class="column" style="padding-left: 8px;">
+                        <div class="column foundation-column-gutter-removal">
                             <label for="LightTheme">Light</label>
                         </div>
                     </div>
@@ -65,7 +70,7 @@
                     <!-- See documentation above on all these Foundation based alignment classes. -->
                     <!-- With Foundation our cross browser abstraction for alignment/look/responsiveness there really is no reason-->
                     <!-- To use float, margin, and the myriad of other alignment techniques. Foundation is superior to all of them-->
-                    <div class="row collapse align-middle">
+                    <div class="row align-middle">
                         <!-- column = Foundation class that defines columns-->
                         <!-- shrink = Foundation class that reduces the width of the column to the size of the content-->
                         <!-- We shrink to content and remove the Foundation column gutters/padding on the radio buttons-->
@@ -74,7 +79,7 @@
                                 <input type="radio" id="DarkTheme" name="themes"  [checked]="!isLightTheme" (click)="setTheme('dark')" /><span></span>
                             </div>
                         </div>
-                        <div class="column" style="padding-left: 8px;">
+                        <div class="column foundation-column-gutter-removal">
                             <label for="DarkTheme">Dark</label>
                         </div>
                     </div>
@@ -84,7 +89,11 @@
         </div>
 
         <!-- Just a spacer row to expand the dialog to give some space between the top content and the bottom close button. Otherwise those two groups of UI would be smooshed together-->
-        <div class="row" style="height: 200px;"></div>
+        <!-- RESPONSIVE DESIGN: If the dialog gets shrunk vertically because of smaller screens this vertical dead space will actually shrink as well causing the contents to vertically scrunch together. Better than clipping. -->
+        <div class="row responsive-design-height">
+            <!-- RESPONSIVE DESIGN: If the dialog gets shrunk horizontally because of smaller screens this horizontal dead space will actually shrink as well causing the contents to scrunch together and start to stack vertically . Better than clipping. -->
+            <div class="column responsive-design-width"></div>
+        </div>
 
         <!-- align-right = Foundation class to right justify the content found in the column of this row -->
         <div class="row collapse align-right">

@@ -13,6 +13,7 @@ import { MatDialogRef} from '@angular/material';
   moduleId: module.id,
   selector: 'alloy-display-settings-dialog',
   templateUrl: './display-settings.html',
+  styleUrls: ['./display-settings.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class AlloyDisplaySettingsDialog implements OnInit {

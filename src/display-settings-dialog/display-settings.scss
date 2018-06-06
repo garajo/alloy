@@ -1,0 +1,16 @@
+// One off component specific styling that shouldn't be promoted/propagated into the Alloy global styles
+
+// Just need a way to remove the left side of the column gutter on the radio button label as they were sitting too far away from the radio buttons themselves
+.foundation-column-gutter-removal {
+    padding-left: 0px;
+}
+
+// Instead of hard coding a dialog height let the content (plus some dynamic spacing) dictate how big so that things don't get clipped when in different form factors or browser window sizes
+.responsive-design-height {
+    height: 25vh;
+}
+
+// Instead of hard coding a dialog width let the content (plus some dynamic spacing) dictate how big so that things don't get clipped when in different form factors or browser window sizes
+.responsive-design-width {
+    width: 30vw;
+}
