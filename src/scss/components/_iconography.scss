@@ -68,7 +68,29 @@ $prefix: alloy-ic-;
     background-color: map_get($color-palette, style-guide-spacer-bg);
   }
 
-  &logo {
+  // This is a new branding logo class that exposes the existing red wave icon by itself: as such I'm going to use the correct Caranu spec sizes
+  // Since this is a new class; we have the advantage to snap it to the naming scheme. If Alloy adopters just want the Keysight red wave icon here it is.
+  // This image = <Keysight red wave logo icon>
+  &keysight-logo-icon {
+    $icon-width: 21px;
+    // Caranu height for title bar branding red wave icon (see spec pg. 91)
+    $height: 22px;
+
+    display: inline-block;
+    @include size($icon-width, $height);
+
+    // Even though the spec has hard coded margins top/bottom of 4px etc.
+    // I think that is too inflexible as these logos will just be vertically aligned
+    // margin: 4px 12px 4px 0;
+
+    background: transparent map_get($icon-pack, keysight-logo-icon) no-repeat left center / $icon-width $height;
+  }
+
+  // This image = <Keysight red wave logo icon> + "Keysight"
+  &keysight-logo,
+  &logo { // this logo class name is too generic/confusing. All the various keysight logos (icon only, icon + "Keysight", icon + "Keysight Technologies" etc.) were poorly named.
+          // Trying to impose a reasonable naming scheme but since this .logo class has been out in the either for a long time we are going to announce its
+          // deprecation (but not remove it for now) while providing the new name
     $icon-width: 21px;
     $height: 16px;
     $bg-width: 70px;
@@ -78,25 +100,70 @@ $prefix: alloy-ic-;
 
     margin: 7px 12px 7px 0;
 
-    background: transparent map_get($icon-pack, logo-full) no-repeat left center / $bg-width $height;
+    background: transparent map_get($icon-pack, keysight-logo) no-repeat left center / $bg-width $height;
 
+    // Since this is a child of a top level class in this file it doesn't require the "alloy-ic-" prefix as it won't be applied to it. Only to top level classes (children of the prefix declaration)
     &.full {
         width: $bg-width;
 
+        // JEFF_TODO: Strange why does this "full" version just reduce the right margin by 2pxs. The default background above already seems to be in the "full" mode
         margin: 7px 10px 7px 0;
     }
 
+    // This breakpoint says anything smaller than medium should remove the "keysight" text and make the logo the icon only but still not sure how that .icon-only state gets auto applied. Nothing else is actually setting it.
     @include breakpoint(medium) {
         width: $bg-width;
 
+        // JEFF_TODO: Strange. Why is this medium break point (and larger) essentially do the same thing as the "full" exp from line 102 who in turn just overrides the default "full" experience from line 97
         margin: 7px 10px 7px 0;
 
+        // Since this is a child of a top level class in this file it doesn't require the "alloy-ic-" prefix as it won't be applied to it. Only to top level classes (children of the prefix declaration)
+        // If used in conjuntion with the keysight-logo class it will only show the icon
+        // Presumably this combination allows for dynamically showing/hiding the "keysight" text next to the icon given form factors
+        // The keysight-logo-icon class above would only employ the keysight logo icon in a static way
         &.icon-only {
         width: $icon-width;
 
+        // Seems like some strange vodoo going on here with overriding the margin yet again from line 110. Should we just be using Foundation to vertically center things?
         margin: 7px 12px 7px 0;
         }
     }
+  }
+
+  // &brand-signature, Former name for this icon. I searched all consumers and didn't find any users of it other than the Alloy AboutBox (this project) so I've renamed
+  // to match the naming convention but keep this comment/moniker name in the remote chance someone was digging into our Alloy icons and using it directly
+  // This image = <Keysight red wave logo icon> + "Keysight Technologies"
+  &keysight-logo-signature {
+    $icon-width: 21px;
+    $height: 36px;
+    $width: 102px;
+
+    display: block;
+    @include size($width, $height);
+    // JEFF_TODO: Why are there particular settings like this float? This doesn't make this icon very re-usable. It's acting like it's living in a very specific hard coded
+    // environment. The container of this logo should specify things like alignment and even margin/spacing
+    float:right;
+
+    margin: 7px 12px 0 0;
+
+    background: transparent map_get($icon-pack, keysight-logo-signature) no-repeat left center / $width $height;
+  }
+
+  // This is a new branding logo specific to PathWave: as such I'm going to use the correct Caranu spec sizes
+  // This image = "Path Wave"
+  &keysight-logo-pathwave {
+    $width: 70px;
+    // Caranu height for title bar branding red wave icon (see spec pg. 91)
+    $height: 22px;
+
+    display: inline-block;
+    @include size($width, $height);
+
+    // Even though the spec has hard coded margins top/bottom of 4px etc.
+    // I think that is too inflexible as these logos will just be vertically aligned
+    // margin: 4px 12px 4px 0;
+
+    background: transparent map_get($icon-pack, keysight-logo-pathwave) no-repeat center center / $width $height;
   }
 
   &close-x {
@@ -326,20 +393,6 @@ $prefix: alloy-ic-;
 
   &clear {
     @include icon-base(clear);
-  }
-    
-  &brand-signature {
-    $icon-width: 21px;
-    $height: 36px;
-    $width: 102px;
-
-    display: block;
-    @include size($width, $height);
-    float:right;
-
-    margin: 7px 12px 0 0;
-
-    background: transparent map_get($icon-pack, brand-sign) no-repeat left center / $width $height;
   }
 
   &delete {

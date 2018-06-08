@@ -321,9 +321,10 @@ $icon-pack: (
         computer:                             inline-image("#{$light-icons}/computer.svg"),
 
         // Title Bar
-        logo:                                 inline-image("#{$icons}/logo.png"),
-        logo-full:                            inline-image("#{$light-icons}/logo-full.png"),
-        brand-sign:                           inline-image("#{$light-icons}/keysight-brand-signature.png"),
+        keysight-logo-icon:                   inline-image("#{$icons}/keysight-logo-icon.png"),
+        keysight-logo:                        inline-image("#{$light-icons}/keysight-logo.png"),
+        keysight-logo-signature:              inline-image("#{$light-icons}/keysight-logo-signature.png"),
+        keysight-logo-pathwave:               inline-image("#{$light-icons}/keysight-logo-pathwave.svg"),
         close-x:                              inline-image("#{$light-icons}/close-x.png"),
         close-x-hover:                        inline-image("#{$icons}/close-x.png"),
         close-x-active:                       inline-image("#{$icons}/close-x.png"),

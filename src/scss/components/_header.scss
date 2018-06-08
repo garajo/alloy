@@ -51,7 +51,7 @@ header.top-bar {
 
       // If your title/caption experience is using the Keysight standard logo class this styling will find it and apply automatically
       // looks like it will shrink to content size and ensure that alignment is vertically centered
-      .alloy-ic-logo {
+      .alloy-ic-keysight-logo {
         @include flex-grid-column(shrink, 0);
 
         vertical-align: middle;
@@ -81,7 +81,7 @@ header.top-bar {
 
       margin: 0 0 0 12px;
 
-      .alloy-ic-logo {
+      .alloy-ic-keysight-logo {
         @include flex-grid-column(shrink, 0);
 
         vertical-align: middle;

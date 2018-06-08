@@ -306,14 +306,15 @@ $dark-icons:            "dark/icons";
 
 $icon-pack: (
         // General
-        delete:                               inline-image("#{$icons}/delete.svg"),                                 
+        delete:                               inline-image("#{$icons}/delete.svg"),
         edit:                                 inline-image("#{$dark-icons}/edit.svg"),
         computer:                             inline-image("#{$dark-icons}/computer.svg"),
 
         // Title Bar
-        logo:                                 inline-image("#{$icons}/logo.png"),
-        logo-full:                            inline-image("#{$dark-icons}/logo-full.png"),
-        brand-sign:                           inline-image("#{$dark-icons}/keysight-brand-signature.png"),
+        keysight-logo-icon:                   inline-image("#{$icons}/keysight-logo-icon.png"),
+        keysight-logo:                        inline-image("#{$dark-icons}/keysight-logo.png"),
+        keysight-logo-signature:              inline-image("#{$dark-icons}/keysight-logo-signature.png"),
+        keysight-logo-pathwave:               inline-image("#{$dark-icons}/keysight-logo-pathwave.svg"),
         close-x:                              inline-image("#{$icons}/close-x.png"),
         close-x-hover:                        inline-image("#{$icons}/close-x.png"),
         close-x-active:                       inline-image("#{$icons}/close-x.png"),
