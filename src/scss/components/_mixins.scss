@@ -119,3 +119,47 @@
 
   background: transparent map-get($icon-pack, $name) no-repeat center center / $size;
 }
+
+// Mixin to abstract the responsive logo behavior; assume your "logo" experience consists of an icon to the left + some other UI to the right (usually text in the form of an image as well)
+// The default is to be responsive: less than medium break point the logo loses the 2nd/Right most image and only shows its icon
+// The responsive behavior can be "overriden" using the .full state (force full experience) or the .icon-only state (force the icon only state) for dynamic override given certain situations (See the Alloy HTML demo for an example)
+@mixin titlebar-responsive-logo($logo-name, $logo-full-width: 70px, $logo-icon-width: 21px, $logo-icon-height: 22px) {
+  $icon-width: $logo-icon-width;
+  // Caran spec pg. 91 says titlebar branding icons should be 22px high
+  $height:  $logo-icon-height;
+  $bg-width: $logo-full-width;
+
+  display: inline-block;
+  @include size($icon-width, $height);
+
+  // Caranu spec pg. 91 calls for a 10px margin to the right of the keysight logo experience
+  // Since the height has been changed from 16px high to 22px to spec; reduced the top/bottom margins accordingly
+  margin: 4px 10px 4px 0;
+
+  background: transparent map_get($icon-pack, $logo-name) no-repeat left center / $bg-width $height;
+
+  // Since this is a child of a top level class in this file it doesn't require the "alloy-ic-" prefix as it won't be applied to it. Only to top level classes (children of the prefix declaration)
+  &.full {
+      width: $bg-width;
+
+      margin: 4px 10px 4px 0;
+  }
+
+  // This breakpoint says anything smaller than medium should remove the "keysight" text and make the logo the icon only but still not sure how that .icon-only state gets auto applied. Nothing else is actually setting it.
+  @include breakpoint(medium) {
+      width: $bg-width;
+
+      margin: 4px 10px 4px 0;
+
+      // Since this is a child of a top level class in this file it doesn't require the "alloy-ic-" prefix as it won't be applied to it. Only to top level classes (children of the prefix declaration)
+      // If used in conjuntion with the keysight-logo class it will only show the icon
+      // Presumably this combination allows for dynamically showing/hiding the "keysight" text next to the icon given form factors
+      // The keysight-logo-icon class above would only employ the keysight logo icon in a static way
+      &.icon-only {
+      width: $icon-width;
+
+      // Seems like some strange vodoo going on here with overriding the margin yet again from line 110. Should we just be using Foundation to vertically center things?
+      margin: 4px 10px 4px 0;
+      }
+  }
+}
