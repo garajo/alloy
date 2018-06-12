@@ -10,12 +10,12 @@
 		</div>
 		<div class="row align-center">
 			<div class="columns">
-                <alloy-dropdown 
-                    [(ngModel)]="selectedValue" 
-                    [placeholder]="placeholder" 
-                    [disabled]="disabledState" 
+                <alloy-dropdown
+                    [(ngModel)]="selectedValue"
+                    [placeholder]="placeholder"
+                    [disabled]="disabledState"
                     [readonly]="readOnlyState"
-                    [errors]="errorState" 
+                    [errors]="errorState"
                     [errorMessage]="errorMessage">
 					<alloy-option *ngFor="let module of modules" [value]="module.value">
 						{{ module.name }}
@@ -31,7 +31,7 @@
 				<div>
 					<h6>Placeholder</h6>
 					<div class="input-group">
-						<input type="text" [(ngModel)]="placeholder">
+						<input type="text" alloy [(ngModel)]="placeholder">
 					</div>
 				</div>
                 <br>
@@ -62,17 +62,17 @@
 						<a (click)="add()">Add</a>
 					</div>
 					<div *ngFor="let module of modules" class="input-group">
-						<input type="text" [(ngModel)]="module.value" placeholder="value">
-						<input type="text" [(ngModel)]="module.name" placeholder="name">
+						<input type="text" alloy [(ngModel)]="module.value" placeholder="value">
+						<input type="text" alloy [(ngModel)]="module.name" placeholder="name">
 						&nbsp;<a (click)="remove(module)">X</a>
 					</div>
 				</div>
 			</div>
 			<div class="columns small-7">
 				<pre ngNonBindable>
-                    &lt;alloy-dropdown [(ngModel)]=&quot;selectedValue&quot;&gt; 
-                            [placeholder]=&quot;placeholder&quot; 
-                            [disabled]=&quot;disabledState&quot; 
+                    &lt;alloy-dropdown [(ngModel)]=&quot;selectedValue&quot;&gt;
+                            [placeholder]=&quot;placeholder&quot;
+                            [disabled]=&quot;disabledState&quot;
                             [readonly]=&quot;readOnlyState&quot;
                             [errors]=&quot;errorState&quot; [errorMessage]=&quot;errorMessage&quot;
                         &lt;alloy-option *ngFor=&quot;let m of modules&quot; [value]=&quot;m.value&quot;&gt;
@@ -117,7 +117,7 @@
                     <div>
                         <h6>Placeholder</h6>
                         <div class="input-group">
-                            <input type="text" [(ngModel)]="placeholder">
+                            <input type="text" alloy [(ngModel)]="placeholder">
                         </div>
                     </div>
                     <br>
@@ -127,8 +127,8 @@
                             <a (click)="add()">Add</a>
                         </div>
                         <div *ngFor="let module of alt_modules" class="input-group">
-                            <input type="text" [(ngModel)]="module.value" placeholder="value">
-                            <input type="text" [(ngModel)]="module.name" placeholder="name">
+                            <input type="text" alloy [(ngModel)]="module.value" placeholder="value">
+                            <input type="text" alloy [(ngModel)]="module.name" placeholder="name">
                             &nbsp;<a (click)="remove(module)">X</a>
                         </div>
                     </div>
@@ -180,7 +180,7 @@
                     <div>
                         <h6>Placeholder</h6>
                         <div class="input-group">
-                            <input type="text" [(ngModel)]="placeholder">
+                            <input type="text" alloy [(ngModel)]="placeholder">
                         </div>
                     </div>
                     <br>
@@ -190,8 +190,8 @@
                             <a (click)="add()">Add</a>
                         </div>
                         <div *ngFor="let module of icon_modules" class="input-group">
-                            <input type="text" [(ngModel)]="module.value" placeholder="value">
-                            <input type="text" [(ngModel)]="module.name" placeholder="name">
+                            <input type="text" alloy [(ngModel)]="module.value" placeholder="value">
+                            <input type="text" alloy [(ngModel)]="module.name" placeholder="name">
                             &nbsp;<a (click)="remove(module)">X</a>
                         </div>
                     </div>

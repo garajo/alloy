@@ -15,19 +15,19 @@
                 <div>
                     <h6>Set Number of Notifications</h6>
                     <div>
-                      <input type="text" [(ngModel)]="messageCount" (keypress)="isNumberKey($event)">
+                      <input type="text" alloy [(ngModel)]="messageCount" (keypress)="isNumberKey($event)">
                     </div>
-                </div>             
+                </div>
                 <div>
                     <h6>Set Height of Icon</h6>
                     <div>
-                      <input type="number" [(ngModel)]="height">
+                      <input type="number" alloy [(ngModel)]="height">
                     </div>
                 </div>
                 <div>
                     <h6>Set Width of Icon</h6>
                     <div>
-                      <input type="number" [(ngModel)]="width">
+                      <input type="number" alloy [(ngModel)]="width">
                     </div>
                 </div>
                 <div>
@@ -36,7 +36,7 @@
             </div>
             <div class="columns small-7">
                 <pre ngNonBindable>
-&lt;alloy-notification-icon [count]="messageCount" 
+&lt;alloy-notification-icon [count]="messageCount"
     [height]="height" [width]="width"&gt;
 &lt;/alloy-notification-icon&gt;
                 </pre>

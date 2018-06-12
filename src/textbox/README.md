@@ -1,53 +1,83 @@
 # Alloy Textbox
 
-`<alloy-textbox>` is used to add alloy textbox component.
+`<input alloy>` is a directive used to apply caranu styling to an input.
 
-Alloy textbox has most of the attributes defined for a regular input text element. Following are the
-list of the attributes:
-[size]
-[maxlength]
-[placeholder]
-[value]
-[required]
-[pattern]
-[disabled]
-[readonly]
+`input` attributes can be bound to variables like in the following example.
 
-All the attributes can be bound to variables like in the following example.
-*my-comp.html*
 ```html
-<alloy-textbox 
-    [size]="width" 
-    [maxLength]="maxLength" 
-    [placeholder]="placeholder" 
-    [defaultValue]="defaultValue" 
-    [disabled]="disabledSimple"
-    [required]="requiredSimple"
-    [readonly]="readonly"
+<input type="text" alloy
+    [size]="number"
+    [maxLength]="number"
+    [placeholder]="string"
+    [value]="string"
+    [disabled]="bool"
+    [required]="bool"
+    [readonly]="bool"
+    [error]="bool"
     [pattern]="regexPattern">
-</alloy-textbox>
 ```
 
-size
-    Sets the value of the size attribute of the text box component.
+See https://www.w3schools.com/tags/tag_input.asp for more details.
 
-maxlength
-    The maximum number of characters (Unicode code points) that the user can enter. If this value isn't specified, the user can enter an unlimited number of characters.
+`error` is actually introduced by the `ErrorDirective` which is part of `alloy`.  It will not be available in
+pure HTML apps.  They can use `class="has-error ..."` directly.  More info on `ErrorDirective` is available [here](../directives/error.md).
 
-placeholder
-    A hint to the user of what can be entered in the text box component.
+Notably `checkbox`, `range` (slider) and `radio` are not implemented here.  The supported types are:
 
-defaultValue	
-    Sets the default value of the text box component.
+```css
+        input [type=date] [alloy],
+        input [type=datetime-local] [alloy],
+        input [type=email] [alloy],
+        input [type=month] [alloy],
+        input [type=number] [alloy],
+        input [type=password] [alloy],
+        input [type=tel] [alloy],
+        input [type=text] [alloy],
+        input [type=time] [alloy],
+        input [type=url] [alloy],
+        input [type=week] [alloy],
+```
 
-disabled
-    This Boolean attribute indicates that the user cannot interact with the text box component. 
+# Migration Notes
 
-required
-    This attribute specifies that the user must fill in a value before submitting a form.
+## Angular
 
-readonly
-    This Boolean attribute indicates that the user cannot modify the contents of the text box component. Unlike the disabled attribute, the readonly attribute does not prevent the user from clicking or selecting in the control. The value of a read-only control is still submitted with the form.
+**`<alloy-textbox>` <span style="color:red">is now deprecated**<span>.
+Instances of `<alloy-textbox>` should be migrated to the new directive:
 
-pattern
-    The pattern attribute specifies a regular expression that the the text box component field's value is checked against.
+```html
+<alloy-textbox defaultValue="whatYouSee"> -> <input type="text" alloy value="whatYouSee">
+```
+
+## HTML
+
+Alloy no longer applies styling directly to native `input`.  If you were using
+native elements you may get the legacy styling (with all its warts):
+
+```html
+<input class="alloy-textbox">
+```
+
+or the fixed styling with:
+
+```html
+<input class="alloy-input">
+```
+
+You can apply the legacy styling universally in your app with "alloy-*textbox*":
+
+```css
+input [type="text"],
+input [type="number"] {
+    @extend .alloy-textbox
+}
+```
+
+or the fixed styling with "alloy-*input*":
+
+```css
+input [type="text"],
+input [type="number"] {
+    @extend .alloy-input
+}
+```

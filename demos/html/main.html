@@ -520,20 +520,20 @@
           <div class="columns small-4">
             <h5 class="style-guide-label">Normal</h5>
             <div class="input-group">
-              <input type="text" placeholder="Input"/>
+              <input type="text" class="alloy-input" placeholder="Input"/>
             </div>
             <h5 class="style-guide-label">Focus / Active</h5>
             <div class="input-group">
-              <input type="text" class="is-active" placeholder="Input"/>
+              <input type="text" class="alloy-input is-active" placeholder="Input"/>
             </div>
             <h5 class="style-guide-label">Error</h5>
             <div class="input-group">
-              <input type="text" class="has-error" placeholder="Input"/>
-              <span class="alloy-ic-error"></span>
+              <input type="text" class="alloy-input has-error" placeholder="Input"/>
+              <!-- <span class="alloy-ic-error"></span> AJM: Built into alloy-input -->
             </div>
             <h5 class="style-guide-label">Disabled/ Inactive</h5>
             <div class="input-group">
-              <input type="text" placeholder="Input" disabled/>
+              <input type="text" class="alloy-input" placeholder="Input" disabled/>
             </div>
           </div>
         </div>
@@ -722,7 +722,7 @@
           <div class="columns small-3">
             <h5 class="style-guide-label">Combo Box</h5>
             <div class="input-group combo-box">
-              <input class="input-group-field" type="text" placeholder="Input">
+              <input type="text" class="alloy-input input-group-field"  placeholder="Input">
               <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
               <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
                 <ul class="menu vertical">
@@ -736,7 +736,7 @@
             </div>
             <h5 class="style-guide-label">Combo Box Hover</h5>
             <div class="input-group combo-box is-hovered">
-              <input class="input-group-field" type="text" placeholder="Input">
+              <input type="text" class="alloy-input input-group-field"   placeholder="Input">
               <button type="button" class="dropdown dropdown-combo arrow-only is-hovered" data-toggle="combobox-drop-hover"></button>
               <div class="dropdown-pane bottom" id="combobox-drop-hover" data-dropdown>
                 <ul class="menu vertical">
@@ -750,7 +750,7 @@
             </div>
             <h5 class="style-guide-label">Combo Box Active</h5>
             <div class="input-group combo-box">
-              <input class="input-group-field is-active" type="text" placeholder="Input">
+              <input type="text" class="alloy-input input-group-field is-active"   placeholder="Input">
               <button type="button" class="dropdown dropdown-combo arrow-only is-active" data-toggle="combobox-drop-active"></button>
               <div class="dropdown-pane bottom is-open" id="combobox-drop-active" data-dropdown>
                 <ul class="menu vertical">
@@ -766,19 +766,19 @@
           <div class="columns small-3 small-offset-1">
             <h5 class="style-guide-label">Spin Combo Box</h5>
             <div class="input-group combo-box spin-box">
-              <input class="input-group-field" type="number" value="1" min="1" max="10">
+              <input class="alloy-input input-group-field" type="number" value="1" min="1" max="10">
               <button type="button" class="spin down" disabled></button>
               <button type="button" class="spin up"></button>
             </div>
             <h5 class="style-guide-label">Spin Combo Box Hover</h5>
             <div class="input-group combo-box spin-box is-hovered">
-              <input class="input-group-field" type="number" value="1" min="1" max="10">
+              <input class=" alloy-input input-group-field" type="number" value="1" min="1" max="10">
               <button type="button" class="spin down" disabled></button>
               <button type="button" class="spin up is-hovered"></button>
             </div>
             <h5 class="style-guide-label">Spin Combo Box Pressed</h5>
             <div class="input-group combo-box spin-box">
-              <input class="input-group-field" type="number" value="1" min="1" max="10">
+              <input class="alloy-input input-group-field" type="number" value="1" min="1" max="10">
               <button type="button" class="spin down" disabled></button>
               <button type="button" class="spin up is-pressed"></button>
             </div>
@@ -961,7 +961,7 @@
             <aside class="panel grid">
               <h5 class="property-header">Favorite Settings: N5182A/B MXG:1</h5>
               <div class="search-container">
-                <input type="text" class="grid-search" placeholder="Search" />
+                <input type="text" class="alloy-input grid-search" placeholder="Search" />
                 <span class="alloy-ic-mag-glass"></span>
               </div>
 
@@ -989,7 +989,7 @@
                                 <div class="editable-properties">
                                   <li>
                                     <div class="input-group combo-box">
-                                      <input class="input-group-field" type="text" value="Append Silence">
+                                      <input type="text" class="alloy-input input-group-field"   value="Append Silence">
                                       <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
                                       <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
                                         <ul class="menu vertical">
@@ -1004,7 +1004,7 @@
                                   </li>
                                   <li>
                                     <div class="input-group combo-box">
-                                      <input class="input-group-field" type="text" value="Auto (Performance)">
+                                      <input type="text" class="alloy-input input-group-field"   value="Auto (Performance)">
                                       <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
                                       <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
                                         <ul class="menu vertical">
@@ -1031,7 +1031,7 @@
                                     <div class="editable-properties">
                                       <li>
                                         <div class="input-group combo-box">
-                                          <input class="input-group-field" type="text" value="Append Silence">
+                                          <input type="text" class="alloy-input input-group-field"   value="Append Silence">
                                           <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
                                           <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
                                             <ul class="menu vertical">
@@ -1046,7 +1046,7 @@
                                       </li>
                                       <li>
                                         <div class="input-group">
-                                          <input class="input-group-field" type="text">
+                                          <input type="text" class="alloy-input input-group-field"  >
                                           <button type="button" class="button-standard">...</button>
                                         </div>
                                       </li>
@@ -1229,7 +1229,7 @@
                       <td class="name-col highlighted">Rohan</td>
                       <td>
                         <div class="input-group combo-box">
-                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <input type="text" class="alloy-input input-group-field"   placeholder="Los Angeles">
                           <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
                           <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
                             <ul class="menu vertical">
@@ -1253,7 +1253,7 @@
                       <td class="name-col highlighted">Castleberry</td>
                       <td>
                         <div class="input-group combo-box">
-                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <input type="text" class="alloy-input input-group-field"   placeholder="Los Angeles">
                           <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
                           <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
                             <ul class="menu vertical">
@@ -1277,7 +1277,7 @@
                       <td class="name-col highlighted">Dauber</td>
                       <td>
                         <div class="input-group combo-box">
-                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <input type="text" class="alloy-input input-group-field"   placeholder="Los Angeles">
                           <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
                           <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
                             <ul class="menu vertical">
@@ -1301,7 +1301,7 @@
                       <td class="name-col highlighted">Bugarin</td>
                       <td>
                         <div class="input-group combo-box">
-                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <input type="text" class="alloy-input input-group-field"   placeholder="Los Angeles">
                           <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
                           <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
                             <ul class="menu vertical">
@@ -1332,7 +1332,7 @@
                       <td class="name-col highlighted">Joynes</td>
                       <td>
                         <div class="input-group combo-box">
-                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <input type="text" class="alloy-input input-group-field"   placeholder="Los Angeles">
                           <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
                           <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
                             <ul class="menu vertical">
@@ -1356,7 +1356,7 @@
                       <td class="name-col highlighted">Campuzano</td>
                       <td>
                         <div class="input-group combo-box">
-                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <input type="text" class="alloy-input input-group-field"   placeholder="Los Angeles">
                           <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
                           <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
                             <ul class="menu vertical">
@@ -1380,7 +1380,7 @@
                       <td class="name-col highlighted">Chagoya</td>
                       <td>
                         <div class="input-group combo-box">
-                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <input type="text" class="alloy-input input-group-field"   placeholder="Los Angeles">
                           <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
                           <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
                             <ul class="menu vertical">
@@ -1404,7 +1404,7 @@
                       <td class="name-col highlighted">Winstead</td>
                       <td>
                         <div class="input-group combo-box">
-                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <input type="text" class="alloy-input input-group-field"   placeholder="Los Angeles">
                           <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
                           <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
                             <ul class="menu vertical">
@@ -1428,7 +1428,7 @@
                       <td class="name-col highlighted">Joynes</td>
                       <td>
                         <div class="input-group combo-box">
-                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <input type="text" class="alloy-input input-group-field"   placeholder="Los Angeles">
                           <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
                           <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
                             <ul class="menu vertical">
@@ -1452,7 +1452,7 @@
                       <td class="name-col highlighted">Campuzano</td>
                       <td>
                         <div class="input-group combo-box">
-                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <input type="text" class="alloy-input input-group-field"   placeholder="Los Angeles">
                           <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
                           <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
                             <ul class="menu vertical">
@@ -1476,7 +1476,7 @@
                       <td class="name-col highlighted">Chagoya</td>
                       <td>
                         <div class="input-group combo-box">
-                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <input type="text" class="alloy-input input-group-field"   placeholder="Los Angeles">
                           <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
                           <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
                             <ul class="menu vertical">
@@ -1500,7 +1500,7 @@
                       <td class="name-col highlighted">Winstead</td>
                       <td>
                         <div class="input-group combo-box">
-                          <input class="input-group-field" type="text" placeholder="Los Angeles">
+                          <input type="text" class="alloy-input input-group-field"   placeholder="Los Angeles">
                           <button type="button" class="dropdown dropdown-combo arrow-only" data-toggle="combobox-drop"></button>
                           <div class="dropdown-pane bottom" id="combobox-drop" data-dropdown>
                             <ul class="menu vertical">

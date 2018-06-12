@@ -1,24 +1,24 @@
     <!-- If/when we decide to turn on the grid-search feature -->
     <!-- <div class="search-container" *ngIf="isSearchVisible">
-        <input type="text" class="grid-search" placeholder="Search (behavior not implemented)" />
+        <input type="text" alloy class="grid-search" placeholder="Search (behavior not implemented)" />
         <span class="alloy-ic-mag-glass"></span>
     </div> -->
 
     <div [ngStyle]="getStyles()" *ngIf="rowData.length > 0">
-        <ag-grid-angular style="width: 100%; height: 100%;" class="ag-dark" 
-            [gridOptions]="gridOptions" 
+        <ag-grid-angular style="width: 100%; height: 100%;" class="ag-dark"
+            [gridOptions]="gridOptions"
             [rowData]="internalRowData"
-            [columnDefs]="columnDefs" 
-            (cellClicked)="onCellClicked($event)" 
-            (rowClicked)="onRowClicked($event)" 
+            [columnDefs]="columnDefs"
+            (cellClicked)="onCellClicked($event)"
+            (rowClicked)="onRowClicked($event)"
             (cellFocused)="onCellFocused($event)"
             (cellValueChanged)="onCellValueChanged($event)"
-            (cellEditingStopped)="onCellEditingStopped($event)" 
+            (cellEditingStopped)="onCellEditingStopped($event)"
             (cellEditingStarted)="onCellEditingStarted($event)"
             [enableFilter]="true">
         </ag-grid-angular>
     </div>
-    
+
     <!-- AlloyPropertyGrid Description box: Visibility of the box controlled by isDescriptionVisible -->
     <!-- Can be enabled/disabled with (enableDescription)="true/false" (APG users) -->
     <div *ngIf="isDescriptionVisible">

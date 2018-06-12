@@ -287,6 +287,12 @@ $prefix: alloy-ic-;
     background: transparent map_get($icon-pack, error) no-repeat center center / $size;
   }
 
+  &errorRight {
+    $size: 16px;
+    background: transparent map_get($icon-pack, error) no-repeat center right / $size;
+    background-origin: content-box;
+  }
+
   &check {
     $width: 12px;
     $height: 10px;

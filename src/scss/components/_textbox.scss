@@ -1,67 +1,101 @@
-input[type="text"] {
-  //JEFF_COMMENT: Do we really need this position: relative? The input control itself can't have children and therefore this relative anchor is useless?
-  position: relative;
-  height: 32px;
-  padding-left: 12px; 
-  
-  // This fixes an issue in Firefox where it would clip text that go below the baseline (e.g., letters like p, y, g, etc)
-  // Apparently Firefox will not display text in input elements outside of the content box.
-  // This change makes the content-box 30px high and padding 0px instead of the content box being 14px (same as font size) and top/bottom padding 8px each.
-  // The font size stays at 14px, the total input box height stays at 32px, the border size stays at 1px.
-  padding-top: 0px;
-  padding-bottom: 0px;
-  border: 1px solid map_get($color-palette, input-text-border);
-  background-color: map_get($color-palette, input-text-bg);
-  color: map_get($color-palette, input-text-color);
-  font-family: $body-font-family;
-  font-size: 14px;
-  font-weight: normal;
-  @include placeholder-font(map_get($color-palette, input-text-placeholder-color), 14px, italic);
-  transition: border-color 0.25s ease-in-out;
-  &,
-  &:hover,
-  &.is-hovered,
-  &:focus,
-  &.is-focused,
-  &:active,
-  &.is-active {
-    box-shadow: none;
-  }
-  &:hover,
-  &.is-hovered {
-    border: 1px solid map_get($color-palette, input-text-border-hover);
-  }
-  &:focus,
-  &.is-focused,
-  &:active,
-  &.is-active {
-    border: 1px solid map_get($color-palette, input-text-border-active);
-    background-color: map_get($color-palette, input-text-bg-active);
-    caret-color: map_get($color-palette, input-text-border-active);
-  }
-  &:disabled {
-    opacity: map_get($color-palette, input-text-disabled-opacity);
-    color: map_get($color-palette, input-text-disabled-color);
-    pointer-events: none;
-  }
-  &:read-only {
+@mixin text-core {
+    @include placeholder-font(map_get($color-palette, input-text-placeholder-color), 14px, italic);
+
     border: 1px solid map_get($color-palette, input-text-border);
     background-color: map_get($color-palette, input-text-bg);
-    cursor: default;
-  }
-  &.has-error {
-    border: 1px solid map_get($color-palette, input-text-border-error);
-    background-color: map_get($color-palette, input-text-bg-error);
-    caret-color: map_get($color-palette, input-text-border-error);
-    &+.alloy-ic-error {
-      display: block;
-      position: absolute;
-      top: 8px;
-      right: -24px;
+    color: map_get($color-palette, input-text-color);
+    font-family: $body-font-family;
+    font-size: 14px;
+    font-weight: normal;
+    transition: border-color 0.25s ease-in-out;
+    &,
+    &:hover,
+    &.is-hovered,
+    &:focus,
+    &.is-focused,
+    &:active,
+    &.is-active {
+        box-shadow: none;
     }
-  }
-  &.grid-search {
-    padding-right: 34px;
-    font-size: 13px;
-  }
+    &:hover,
+    &.is-hovered {
+        border: 1px solid map_get($color-palette, input-text-border-hover);
+    }
+    &:focus,
+    &.is-focused,
+    &:active,
+    &.is-active {
+        border: 1px solid map_get($color-palette, input-text-border-active);
+        background-color: map_get($color-palette, input-text-bg-active);
+        caret-color: map_get($color-palette, input-text-border-active);
+    }
+    &:read-only {
+        border: 1px solid map_get($color-palette, input-text-border);
+        background-color: map_get($color-palette, input-text-bg);
+        cursor: default;
+    }
+    &.has-error {
+        border: 1px solid map_get($color-palette, input-text-border-error);
+        background-color: map_get($color-palette, input-text-bg-error);
+        caret-color: map_get($color-palette, input-text-border-error);
+    }
+    &.grid-search {
+        padding-right: 34px;
+        font-size: 13px;
+    }
+}
+
+alloy-textbox input[type="text"] {
+    @extend .alloy-textbox;
+}
+
+// Legacy <alloy-textbox> class with all its warts
+.alloy-textbox {
+    @include text-core;
+    //JEFF_COMMENT: Do we really need this position: relative? The input control itself can't have children and therefore this relative anchor is useless?
+    position: relative;
+    height: 32px;
+    padding-left: 12px;
+
+    // This fixes an issue in Firefox where it would clip text that go below the baseline (e.g., letters like p, y, g, etc)
+    // Apparently Firefox will not display text in input elements outside of the content box.
+    // This change makes the content-box 30px high and padding 0px instead of the content box being 14px (same as font size) and top/bottom padding 8px each.
+    // The font size stays at 14px, the total input box height stays at 32px, the border size stays at 1px.
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    // AJM: This works due to extra view heirarchy
+    &:disabled {
+        opacity: map_get($color-palette, input-text-disabled-opacity);
+        color: map_get($color-palette, input-text-disabled-color);
+        pointer-events: none;
+    }
+    &.has-error {
+        &+.alloy-ic-error {
+          display: block;
+          position: absolute;
+          top: 8px;
+          right: -24px;
+        }
+    }
+}
+
+// Class for textbox *directive*
+.alloy-input {
+    @include text-core;
+    height: 32px;
+    padding-left: 12px;
+
+    margin-bottom: 0; // AJM: This overrides a built-in Foundation 1rem margin-bottom
+
+    // AJM: Without the extra view bloat we can't just set color: transluscent white
+    &:disabled {
+        opacity: map_get($color-palette, input-text-disabled-opacity);
+        // TODO: AJM, this might not be the ideal way to handle the fade, but it works for now
+        background-color: transparent;
+        pointer-events: none;
+    }
+    &.has-error {
+        @extend .alloy-ic-errorRight;
+    }
 }

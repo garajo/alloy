@@ -9,11 +9,13 @@ export class TextboxPageComponent implements OnInit {
 
   public disabledSimple: boolean;
   public readonlySimple: boolean;
-  public width = 0;
+  public errorSimple: boolean;
+  public requiredSimple: boolean;
+
+  public width = 25;
   public maxLength: number;
   public placeholder = '';
   public defaultValue = '';
-  public requiredSimple: boolean;
   public regexPattern: string;
 
 
@@ -33,5 +35,9 @@ export class TextboxPageComponent implements OnInit {
 
   toggleRequiredSimple() {
     this.requiredSimple = !this.requiredSimple;
+  }
+
+  toggleErrorSimple() {
+    this.errorSimple = !this.errorSimple;
   }
 }

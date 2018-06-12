@@ -2,6 +2,7 @@
   position: relative;
 }
 
+// TODO: AJM We should consolidate these random input styling
 input[type="number"] {
   @extend input[type="text"];
 

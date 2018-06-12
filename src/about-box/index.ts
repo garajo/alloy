@@ -17,7 +17,6 @@ import { AlloyDirectivesModule } from '../directives/index';
         // Exporting this here (via the Angular export list) allows consumers to use the selector when they import this module
         AlloyAboutBox,
         BrowserAnimationsModule,
-        MatDialogModule
     ],
     entryComponents: [
         AlloyAboutBox

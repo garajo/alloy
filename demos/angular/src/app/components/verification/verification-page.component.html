@@ -1,0 +1,87 @@
+<div class="row align-middle">
+  <hr class="column stretch">
+  <h4 class="column shrink">Textbox Verification</h4>
+  <hr class="column stretch">
+</div>
+<div class="row align-middle">
+  <hr class="column shrink">
+  <label class="column shrink">Traditional Width</label>
+  <hr class="column stretch">
+</div>
+<div style="max-width: 75rem; margin: auto;">  <!-- match foundation page width-->
+  <input type="text" alloy value="default" readonly="true">
+  <input type="text" alloy value="width: 100px"  style="width: 100px;" readonly="true">
+  <input type="text" alloy value="width: auto" style="width: auto;" readonly="true">
+  <input type="text" alloy value="size=30, width: auto" size="30" style="width: auto;" readonly="true">
+  <input type="text" alloy value="width: 100%" style="width: 100%" readonly="true">
+  <input type="text" alloy value="width: 50%"  style="width: 50%" readonly="true">
+</div>
+<div class="row align-middle">
+  <hr class="column shrink">
+  <label class="columns shrink title">Foundation: Width (Note: Foundation overrides)</label>
+  <label class="column shrink border">row</label>
+  <label class="column shrink cell">cell</label>
+  <hr class="column stretch">
+</div>
+<div class="row align-middle border">
+  <input type="text" alloy class="column cell" value="default" readonly="true">
+  <input type="text" alloy class="column cell" value="width: auto" style="width: auto;" readonly="true">
+  <input type="text" alloy class="column cell" value="width: 100px" style="width: 100px;" readonly="true">
+  <input type="text" alloy class="column cell" value="width: 50%" style="width: 50%" readonly="true">
+  <input type="text" alloy class="column cell" value="width: 100%" style="width: 100%;" readonly="true">
+</div>
+<div class="row align-middle">
+  <hr class="column shrink">
+  <label class="columns shrink title">Foundation: Height</label>
+  <hr class="column stretch">
+</div>
+<div class="row align-middle border">
+  <input type="text" alloy class="column cell" value="default (32)" readonly="true">
+  <input type="text" alloy class="column cell" value="height: auto" style="height: auto;" readonly="true">
+  <input type="text" alloy class="column cell" value="height: 40px" style="height: 40px;" readonly="true">
+</div>
+<div class="row align-middle">
+  <hr class="column shrink">
+  <label class="column shrink title">Foundation: Margin (Note: padding isn't particularly useful)</label>
+  <hr class="column stretch">
+</div>
+<div class="row align-middle border">
+  <!-- Rows -->
+  <input type="text" alloy class="column cell small-2" value="default" readonly="true">
+  <input type="text" alloy class="column cell small-2" value="m-left: 10px" style="margin-left: 10px;" readonly="true">
+  <input type="text" alloy class="column cell small-2" value="m-top: 10px" style="margin-top: 10px" readonly="true">
+  <input type="text" alloy class="column cell small-2" value="m-bottom: 10px" style="margin-bottom: 10px"readonly="true">
+  <input type="text" alloy class="column cell small-2" value="m-right: 10px" style="margin-right: 10px"readonly="true">
+</div>
+<!-- Columns -->
+<div class="row align-middle border">
+  <input type="text" alloy class="column cell small-2" value="m-left: 10px, small-2" style="margin-left: 10px;" readonly="true">
+  <input type="text" alloy class="column cell small-2" value="m-left: 10px, small-2" style="margin-left: 10px;" readonly="true">
+  <label>Note: foundation maintains size of elements with 'small-2', allowing overall space to be consumed by margins!</label>
+</div>
+<div class="row align-middle border">
+  <input type="text" alloy class="column cell" value="m-left: 10px, !small-2" style="margin-left: 10px;" readonly="true">
+  <input type="text" alloy class="column cell" value="m-left: 10px, !small-2" style="margin-left: 10px;" readonly="true">
+  <input type="text" alloy class="column cell" value="m-left: 10px, !small-2" style="margin-left: 10px;" readonly="true">
+  <input type="text" alloy class="column cell" value="m-left: 10px, !small-2" style="margin-left: 10px;" readonly="true">
+  <input type="text" alloy class="column cell" value="m-left: 10px, !small-2" style="margin-left: 10px;" readonly="true">
+  <input type="text" alloy class="column cell" value="m-left: 10px, !small-2" style="margin-left: 10px;" readonly="true">
+</div>
+
+<hr class="column stretch">
+
+<div style="max-width: 75rem; margin: auto;">  <!-- match foundation page width-->
+  <label>Potentially deprecated: alloy-textbox</label>
+  <label>Issues:</label>
+  <li>Technically, just styling which alloy directive handles more gracefully</li>
+  <li>Width (and many other attributes) are not accessible</li>
+  <li>Margins and paddings inherited from who knows where</li>
+
+  <alloy-textbox defaultValue="width=50px" width="50px" style="width: 50px;" readonly="true"></alloy-textbox>
+  <alloy-textbox defaultValue="width=auto" width="auto" style="width:auto" readonly="true"></alloy-textbox>
+  <alloy-textbox defaultValue="size=30" size="30" style="size: 30;" readonly="true"></alloy-textbox>
+  <alloy-textbox defaultValue="width=100%" width="100%" style="width: 100%" readonly="true"></alloy-textbox>
+
+  <label>Plain input with .alloy-textbox, restores legacy input behavior</label>
+  <input type="text" class="alloy-textbox" value="class='alloy-textbox'" readonly="true">
+</div>

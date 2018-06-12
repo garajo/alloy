@@ -30,7 +30,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { ButtonPageComponent } from './components/button-page/button-page.component';
 import { CheckboxDynamicComponent } from './components/property-page/editors/dynamic-components/checkbox/checkbox-dynamic.component';
 import { CheckboxPageComponent } from './components/checkbox-page/checkbox-page.component';
-import { CompoundPageComponent } from './components/compound-page/compound-page.component';
 import { ContextmenuPageComponent } from './components/contextmenu-page/contextmenu-page.component';
 import { DisplaySettingsPageComponent } from './components/display-settings-page/display-settings-page.component';
 import { DropdownDynamicComponent } from './components/property-page/editors/dynamic-components/dropdown/dropdown-dynamic.component';
@@ -41,6 +40,7 @@ import { SwitcherPageComponent } from './components/switcher-page/switcher-page.
 import { TextareaPageComponent } from './components/textarea-page/textarea-page.component';
 import { TextboxPageComponent } from './components/textbox-page/textbox-page.component';
 import { TextfieldDynamicComponent } from './components/property-page/editors/dynamic-components/textfield/textfield-dynamic.component';
+import { VerificationPageComponent } from 'app/components/verification/verification-page.component';
 
 import { DataService } from './components/property-page/editors/services/data.service';
 import { EditorService } from './components/property-page/editors/services/editor.service';
@@ -85,7 +85,6 @@ export class AlloyDemoModule { }
     ButtonPageComponent,
     CheckboxDynamicComponent,
     CheckboxPageComponent,
-    CompoundPageComponent,
     ContextmenuPageComponent,
     DisplaySettingsPageComponent,
     DropdownDynamicComponent,
@@ -95,7 +94,10 @@ export class AlloyDemoModule { }
     SwitcherPageComponent,
     TextfieldDynamicComponent,
     TextboxPageComponent,
-    TextareaPageComponent
+    TextareaPageComponent,
+    SwitcherPageComponent,
+    ContextmenuPageComponent,
+    VerificationPageComponent
   ],
   imports: [
     AlloyDemoModule,

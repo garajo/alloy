@@ -11,31 +11,39 @@
             <div class="columns small-3">
                 <h6></h6>
                 <br>
-                <alloy-textbox [size]="width" [maxLength]="maxLength" [placeholder]="placeholder" [defaultValue]="defaultValue" [disabled]="disabledSimple" [readonly]="readonlySimple"></alloy-textbox>
+                <input type="text" alloy
+                  [value]="defaultValue"
+                  [size]="width"
+                  [maxLength]="maxLength"
+                  [placeholder]="placeholder"
+                  [disabled]="disabledSimple"
+                  [readonly]="readonlySimple"
+                  [error]="errorSimple"
+                  style="width: auto"> <!-- required for 'size'-->
             </div>
             <div class="columns small-3">
                 <div>
                     <h6>Set size of Input TextBox</h6>
                     <div>
-                        <input type="number" [(ngModel)]="width">
+                        <input type="range" alloy [(ngModel)]="width" min="1" max="30">
                     </div>
                 </div>
                 <div>
                     <h6>Set max length of Input TextBox</h6>
                     <div>
-                        <input type="number" [(ngModel)]="maxLength">
+                        <input type="number" alloy [(ngModel)]="maxLength">
                     </div>
                 </div>
                 <div>
                     <h6>Set placeholder for Input TextBox</h6>
                     <div>
-                        <input type="text" [(ngModel)]="placeholder">
+                        <input type="text" alloy [(ngModel)]="placeholder">
                     </div>
                 </div>
                 <div>
                     <h6>Set default value for Input TextBox</h6>
                     <div>
-                        <input type="text" [(ngModel)]="defaultValue">
+                        <input type="text" alloy [(ngModel)]="defaultValue">
                     </div>
                 </div>
                 <div>
@@ -51,21 +59,28 @@
                         <button id="readonly" type="button" class="button-standard" (click)="toggleReadOnlySimple()" [ngClass]="{'is-pressed': readonlySimple}">ReadOnly</button>
                     </div>
                 </div>
+                <div>
+                    <h6>Toggle Input Box Error State</h6>
+                    <div>
+                        <button id="error" type="button" class="button-standard" (click)="toggleErrorSimple()" [ngClass]="{'is-pressed': errorSimple}">Error</button>
+                    </div>
+                </div>
             </div>
             <div class="columns small-6">
                 <pre ngNonBindable>
-    &lt;alloy-textbox 
-        [size]="width" 
-        [maxLength]="maxLength" 
-        [placeholder]="placeholder" 
-        [defaultValue]="defaultValue" 
-        [disabled]="disabledSimple"
-        [readonly]="readonly"&gt;
-    &lt;/alloy-textbox&gt;
+    &lt;input type="text" alloy
+        [size]="number"
+        [maxlength]="number"
+        [placeholder]="string"
+        [value]="string"
+        [disabled]="bool"
+        [error]="bool"
+        [readonly]="bool"&gt;
                 </pre>
             </div>
         </div>
         <div class="row align-center">
+            <hr class="column stretch">
             <div class="columns small-12">
                 <br>
             </div>
@@ -73,7 +88,7 @@
         <div class="row align-center">
             <div class="columns small-3">
                 <form id="myform" ngNativeValidate>
-                    <alloy-textbox [required]="requiredSimple"></alloy-textbox>
+                    <input type="text" alloy [required]="requiredSimple">
                 </form>
                 <input type="submit" class="button-standard" form="myform">
             </div>
@@ -84,9 +99,7 @@
             </div>
             <div class="columns small-6">
                 <pre ngNonBindable>
-    &lt;alloy-textbox 
-        [required]="requiredSimple""&gt;
-    &lt;/alloy-textbox&gt;
+    &lt;input type="text" alloy [required]="bool""&gt;
                 </pre>
             </div>
         </div>
@@ -100,7 +113,7 @@
                 <h6></h6>
                 <br>
                 <form id="myform2" ngNativeValidate>
-                    <alloy-textbox [pattern]="regexPattern"></alloy-textbox>
+                    <input type="text" alloy [pattern]="regexPattern">
                 </form>
                 <input type="submit" class="button-standard" form="myform2">
             </div>
@@ -108,15 +121,13 @@
                 <div>
                     <h6>Set Regex Pattern for validation</h6>
                     <div>
-                        <input type="text" [(ngModel)]="regexPattern">
+                        <input type="text" alloy [(ngModel)]="regexPattern">
                     </div>
                 </div>
             </div>
             <div class="columns small-6">
                 <pre ngNonBindable>
-    &lt;alloy-textbox 
-        [pattern]="regexPattern"&gt;
-    &lt;/alloy-textbox&gt;
+    &lt;input type="text" alloy [pattern]="regexPattern"&gt;
                 </pre>
             </div>
         </div>

@@ -20,7 +20,7 @@
                         <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled('simple')" [ngClass]="{'is-pressed': disabledSimple}">Disabled</button>
                         <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly('simple')" [ngClass]="{'is-pressed': readonlySimple}">Readonly</button>
                         <button id="errors" type="button" class="button-standard" (click)="toggleErrorState('simple')" [ngClass]="{'is-pressed': errorsSimple}">Error</button>
-                        <label>Checkbox Size (px):</label><input type="text" [(ngModel)]="sizeSimple" (keypress)="isNumberKey($event)" maxlength="2">
+                        <label>Checkbox Size (px):</label><input type="text" alloy [(ngModel)]="sizeSimple" (keypress)="isNumberKey($event)" maxlength="2">
                     </div>
                 </div>
             </div>
