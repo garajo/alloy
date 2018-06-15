@@ -109,6 +109,12 @@ export class AlloyPropertyGridComponent implements OnInit, OnChanges, AfterViewI
     public onFocusOut(event: any): void {
         // console.log('focus out');
     }
+
+    @HostListener('document: scroll' , ['$event'])
+    // tslint:disable-next-line:no-any
+    public onDocumentScroll(event: any): void {
+        // console.log('Document on Scroll');
+    }
     // tslint:disable-next-line:member-ordering
     private subscription: ISubscription;
 

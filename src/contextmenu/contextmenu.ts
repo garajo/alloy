@@ -52,6 +52,24 @@ export class AlloyContextMenuAttachDirective {
         event.preventDefault();
         event.stopPropagation();
     }
+
+    // Added support for ag-grid scroll event
+    @HostListener('bodyScroll', ['$event'])
+    onBodyScroll($event) {
+        this.contextMenuService.closeAllContextMenus();
+    }
+
+    // Added support for attached component scroll event
+    @HostListener('scroll' , ['$event'])
+    onElementScroll($event) {
+        this.contextMenuService.closeAllContextMenus();
+    }
+
+    @HostListener('document:scroll', ['$event'])
+    onWindowScroll(event) {
+        // console.log('on window scroll');
+    }
+
 }
 
 /*====
