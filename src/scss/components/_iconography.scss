@@ -31,6 +31,8 @@ $prefix: alloy-ic-;
     background: transparent map_get($icon-pack, edit) no-repeat center center / $size;
   }
 
+  
+  
   &ph-menu-box {
     @include icon-base(ph-menu-box, 14px);
 
@@ -383,4 +385,10 @@ $prefix: alloy-ic-;
   &user-profile {
         @include icon-base(user-profile);
   }
+  
+  &delete-trash-can {
+    @include icon-base(delete-trash-can, 16px);
+}
+
+
 }
