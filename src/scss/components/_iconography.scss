@@ -388,7 +388,11 @@ $prefix: alloy-ic-;
   
   &delete-trash-can {
     @include icon-base(delete-trash-can, 16px);
-}
+  }
+
+  &copy {
+    @include icon-base(copy, 16px);
+  }
 
 
 }
