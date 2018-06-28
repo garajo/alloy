@@ -1,6 +1,6 @@
 {
     "name": "@keysight/alloy",
-    "version": "0.2.0-5",
+    "version": "0.2.0-6",
     "description": "KSF GUI HTML5 Component and Styling Library",
     "repository": {
         "type": "git",
