@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" width="32" height="32" viewBox="0 0 32.00 32.00" enable-background="new 0 0 32.00 32.00" xml:space="preserve">
 	<g>
-		<path fill="none" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" d="M 8.50002,16.5L 8.50002,9.99991C 8.50002,5.77829 11.8487,2.49995 15.9993,2.49995C 20.1514,2.49995 23.5001,5.77829 23.5001,9.99991L 23.5001,16.5"/>
-		<rect x="6.50001" y="16.5" fill="none" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" width="19" height="13"/>
+		<path fill="none" stroke-linejoin="miter" stroke="#000000" stroke-opacity="1" d="M 8.50002,16.5L 8.50002,9.99991C 8.50002,5.77829 11.8487,2.49995 15.9993,2.49995C 20.1514,2.49995 23.5001,5.77829 23.5001,9.99991L 23.5001,16.5"/>
+		<rect x="6.50001" y="16.5" fill="none" stroke-linejoin="miter" stroke="#000000" stroke-opacity="1" width="19" height="13"/>
 	</g>
 </svg>
