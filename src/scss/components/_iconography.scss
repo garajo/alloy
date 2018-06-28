@@ -394,5 +394,15 @@ $prefix: alloy-ic-;
     @include icon-base(copy, 16px);
   }
 
+  &setting-repair {
+    @include icon-base(setting-repair);
+  }
 
+  &multi-window-arrange {
+    @include icon-base(multi-window-arrange);
+  }
+
+  &locked {
+    @include icon-base(locked);
+  }
 }
