@@ -34,7 +34,6 @@ const external = [
   '@angular/cdk/coercion',
   '@angular/cdk/a11y',
   '@angular/cdk/overlay',
-  '@angular/cdk/rxjs',
   '@angular/material',
   '@angular/platform-browser',
   '@angular/platform-browser/animations',

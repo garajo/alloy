@@ -38,20 +38,20 @@ export class DropdownsPageComponent implements OnInit {
         { value: 'log_out', name: 'Log Out' }
     ];
 
-    add() {
-        this.modules.push({value: `${this.id}`, name: `Name ${this.id}`});
+    add(_modules) {
+        _modules.push({value: `${this.id}`, name: `Name ${this.id}`});
         this.id++;
     }
 
-    remove(_module) {
-        const id: number = this.modules.findIndex((m, i) => {
-            return this.modules[i].value === _module.value;
+    remove(_module, _modules) {
+        const id: number = _modules.findIndex((m, i) => {
+            return _modules[i].value === _module.value;
         });
 
         console.log('id', id);
 
         if (id >= 0) {
-            this.modules.splice(id, 1);
+            _modules.splice(id, 1);
         }
     }
 

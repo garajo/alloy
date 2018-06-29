@@ -26,13 +26,12 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { merge } from 'rxjs/observable/merge';
+import { filter, startWith } from 'rxjs/operators';
 
 import { ENTER, SPACE, UP_ARROW, DOWN_ARROW, HOME, END } from '../core/keyboard/keycodes';
 import { AlloyOption, AlloyOptionSelectionChange } from '../core/option/index';
 import { FocusKeyManager } from '../core/a11y/focus-key-manager';
 import { SelectionModel } from '../core/selection/selection';
-import { startWith, filter } from '../core/rxjs/index';
-
 
 /**
  * The following style constants are necessary to save here in order
@@ -382,9 +381,11 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     ngAfterContentInit() {
         this._initKeyManager();
 
-        this._changeSubscription = startWith.call(this.options.changes, null).subscribe(() => {
+        this._changeSubscription = this.options.changes.pipe(
+            startWith(null)
+        )
+        .subscribe(() => {
             this._resetOptions();
-
             if (this._control) {
                 // Defer setting the value in order to avoid the "Expression
                 // has changed after it was checked" errors from Angular.
@@ -676,15 +677,17 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
 
     /** Listens to user-generated selection events on each option. */
     private _listenToOptions(): void {
-        this._optionSubscription = filter.call(this.optionSelectionChanges,
-            event => event.isUserInput).subscribe(event => {
-                this._onSelect(event.source);
-                this._setValueWidth();
+        this._optionSubscription = this.optionSelectionChanges.pipe(
+            filter(event => event.isUserInput)
+        )
+        .subscribe(event => {
+            this._onSelect(event.source);
+            this._setValueWidth();
 
-                if (!this.multiple) {
-                    this.close();
-                }
-            });
+            if (!this.multiple) {
+                this.close();
+            }
+        });
     }
 
     /** Invoked when an option is clicked. */
@@ -831,7 +834,7 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
 
     /**
      * Checks that the attempted overlay position will fit within the viewport.
-     * If there is not sufficient space in the bottom, then move the panel 
+     * If there is not sufficient space in the bottom, then move the panel
      * vertically along the Y axis.
      */
     _movePanelAlongY(): void {

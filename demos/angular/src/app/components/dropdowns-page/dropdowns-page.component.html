@@ -59,12 +59,12 @@
 				<div>
 					<div>
 						<h6>Elements</h6>
-						<a (click)="add()">Add</a>
+						<a (click)="add(modules)">Add</a>
 					</div>
 					<div *ngFor="let module of modules" class="input-group">
 						<input type="text" alloy [(ngModel)]="module.value" placeholder="value">
 						<input type="text" alloy [(ngModel)]="module.name" placeholder="name">
-						&nbsp;<a (click)="remove(module)">X</a>
+						&nbsp;<a (click)="remove(module, modules)">X</a>
 					</div>
 				</div>
 			</div>
@@ -124,12 +124,12 @@
                     <div>
                         <div>
                             <h6>Elements</h6>
-                            <a (click)="add()">Add</a>
+                            <a (click)="add(alt_modules)">Add</a>
                         </div>
                         <div *ngFor="let module of alt_modules" class="input-group">
                             <input type="text" alloy [(ngModel)]="module.value" placeholder="value">
                             <input type="text" alloy [(ngModel)]="module.name" placeholder="name">
-                            &nbsp;<a (click)="remove(module)">X</a>
+                            &nbsp;<a (click)="remove(module, alt_modules)">X</a>
                         </div>
                     </div>
                 </div>
@@ -187,12 +187,12 @@
                     <div>
                         <div>
                             <h6>Elements</h6>
-                            <a (click)="add()">Add</a>
+                            <a (click)="add(icon_modules)">Add</a>
                         </div>
                         <div *ngFor="let module of icon_modules" class="input-group">
                             <input type="text" alloy [(ngModel)]="module.value" placeholder="value">
                             <input type="text" alloy [(ngModel)]="module.name" placeholder="name">
-                            &nbsp;<a (click)="remove(module)">X</a>
+                            &nbsp;<a (click)="remove(module, icon_modules)">X</a>
                         </div>
                     </div>
                 </div>
