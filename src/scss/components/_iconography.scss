@@ -394,6 +394,19 @@ $prefix: alloy-ic-;
     @include icon-base(copy, 16px);
   }
 
+  &filter {
+    @include icon-base(filter, 16px);
+  }
+
+  &bow-arrow-up {
+    @include icon-base(bow-arrow-down, 16px);
+    transform: rotate(180deg);
+  }
+
+  &bow-arrow-down {
+    @include icon-base(bow-arrow-down, 16px);
+  }
+
   &settings-repair {
     @include icon-base(settings-repair);
   }
@@ -404,5 +417,9 @@ $prefix: alloy-ic-;
 
   &locked {
     @include icon-base(locked);
+  }
+
+  &refresh {
+    @include icon-base(refresh);
   }
 }

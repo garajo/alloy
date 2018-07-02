@@ -321,10 +321,14 @@ $icon-pack: (
         computer:                             inline-image("#{$light-icons}/computer.svg"),
         delete-trash-can:                     inline-image("#{$light-icons}/delete-trash-can.svg"),
         copy:                                 inline-image("#{$light-icons}/copy.svg"),
+        filter:                               inline-image("#{$light-icons}/filter.svg"),
+        bow-arrow-up:                         inline-image("#{$light-icons}/bow-arrow-down.svg"),
+        bow-arrow-down:                       inline-image("#{$light-icons}/bow-arrow-down.svg"),
         settings-repair:                      inline-image("#{$light-icons}/settings_repair.svg"),
         locked:                               inline-image("#{$light-icons}/locked.svg"),
         multi-window-arrange:                 inline-image("#{$light-icons}/multi_window_arrange.svg"),
-        
+        refresh:                              inline-image("#{$light-icons}/refresh.svg"),
+
         // Title Bar
         keysight-logo-icon:                   inline-image("#{$icons}/keysight-logo-icon.png"),
         keysight-logo:                        inline-image("#{$light-icons}/keysight-logo.png"),
