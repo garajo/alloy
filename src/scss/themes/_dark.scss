@@ -25,17 +25,17 @@ $jacksons-purple:       #2E4585;
 
 //Opacity: Variables for opacity straight out of the Caranu spec. Those opacity values used heavily enough in the Dark skin to warrant their own variables. Tired of doing hex/decimal conversion.
 $opacity-HEXB2:          0.70;
-$opacity-HEX99:          0.60;         
-$opacity-HEX7F:          0.50;         
-$opacity-HEX66:          0.40;         
-$opacity-HEX4C:          0.30;         
-$opacity-HEX3F:          0.25;         
-$opacity-HEX33:          0.20;         
-$opacity-HEX28:          0.16;         
-$opacity-HEX19:          0.10;         
-$opacity-HEX14:          0.08;         
-$opacity-HEX0F:          0.06;         
-$opacity-HEX07:          0.03;     
+$opacity-HEX99:          0.60;
+$opacity-HEX7F:          0.50;
+$opacity-HEX66:          0.40;
+$opacity-HEX4C:          0.30;
+$opacity-HEX3F:          0.25;
+$opacity-HEX33:          0.20;
+$opacity-HEX28:          0.16;
+$opacity-HEX19:          0.10;
+$opacity-HEX14:          0.08;
+$opacity-HEX0F:          0.06;
+$opacity-HEX07:          0.03;
 
 $opacity-DEC30:          0.3;
 $opacity-DEC60:          0.6;
@@ -84,7 +84,7 @@ $color-palette: (
         button-min-max-hover-bg:                  rgba($glitter,$opacity-HEX14),
         button-min-max-active-bg:                 rgba($black,$opacity-HEX19),
         button-min-max-active-box-shadow:         rgba($black,$opacity-HEX4C),
-        
+
         // Menus
         menu-title-color:                         $french-gray,
         menu-title-hover-bg:                      rgba($glitter,$opacity-HEX14),
@@ -123,16 +123,16 @@ $color-palette: (
         toolbar-group-separator:                  rgba($black,$opacity-HEX66),
         button-toolbar-label-color:               $white,
         button-toolbar-hover-bg:                  rgba($glitter,$opacity-HEX14),
-        button-toolbar-focus-bg:                  rgba($black,$opacity-HEX19),                    
+        button-toolbar-focus-bg:                  rgba($black,$opacity-HEX19),
         button-toolbar-focus-border:              rgba($black,$opacity-HEX4C),
-        button-split-group-hover-bg:              rgba($glitter,0.05),                  //Caranu spec pg. 45 is the only spot that has this 0.05/#0C opacity. Let's consider it a one off and not promote it to a var for undo attention. 
+        button-split-group-hover-bg:              rgba($glitter,0.05),                  //Caranu spec pg. 45 is the only spot that has this 0.05/#0C opacity. Let's consider it a one off and not promote it to a var for undo attention.
         button-split-group-divider:               rgba($white,$opacity-HEX28),
 
         // Quick Access Toolbar
         button-quick-access-hover-bg:             rgba($glitter,$opacity-HEX14),
-        button-quick-access-active-border:        rgba($black,$opacity-HEX19),                     
+        button-quick-access-active-border:        rgba($black,$opacity-HEX19),
         button-quick-access-active-bg:            rgba($black,$opacity-HEX4C),
-        button-quick-access-disabled-opacity:     $opacity-DEC30,   
+        button-quick-access-disabled-opacity:     $opacity-DEC30,
         button-quick-access-disabled-text-color:  $white,
         button-group-box-border:                  rgba($glitter,$opacity-HEX28),
         button-group-box-bg:                      rgba($black,$opacity-HEX19),
@@ -152,7 +152,7 @@ $color-palette: (
         button-standard-pressed-color:            $white,
         button-standard-active-bg:                $jacksons-purple,
         button-standard-active-shadow-inset:      rgba($white,$opacity-HEX28),
-        button-standard-disabled-opacity:         $opacity-DEC30,                      //leave disabled opacity in decimal since the Caranu spec does    
+        button-standard-disabled-opacity:         $opacity-DEC30,                      //leave disabled opacity in decimal since the Caranu spec does
         button-standard-disabled-text-color:      $white,
         // -- Default
         button-default-border-inset:              rgba($cornflower-blue,$opacity-HEX7F),
@@ -179,13 +179,13 @@ $color-palette: (
         input-text-highlight-bg:                  $jacksons-purple,
         input-text-disabled-color:                $white,
         input-text-placeholder-color:             $french-gray,
-        
+
         // -- Radios
         radio-border:                             $french-gray,
         radio-border-hover:                       $white,
         radio-checked-bg:                         $cornflower-blue,
         radio-disabled:                           rgba($mountain-mist,$opacity-HEX4C),
-        
+
         // -- Switch
         switch-border:                            $french-gray,
         switch-bg:                                rgba($black,$opacity-HEX33),
@@ -194,14 +194,14 @@ $color-palette: (
         switch-border-checked:                    $cornflower-blue,
         switch-bg-checked:                        $cornflower-blue,
         switch-thumb-checked-bg:                  $white,
-        switch-disabled-opacity:                  $opacity-DEC30,                        //leave disabled opacity in decimal since the Caranu spec does    
-        
+        switch-disabled-opacity:                  $opacity-DEC30,                        //leave disabled opacity in decimal since the Caranu spec does
+
         // -- Combo box
         button-dropdown-combo-bg:                 rgba($black,$opacity-HEX33),
         button-dropdown-combo-bg-hover:           rgba($glitter,$opacity-HEX14),
         button-dropdown-combo-border:             rgba($glitter,$opacity-HEX4C),
         button-dropdown-combo-border-hover:       $mountain-mist,
-        
+
         // -- Spin
         button-spin-gradient-top:                 $shark,
         button-spin-gradient-bottom:              $jaguar,
@@ -209,7 +209,7 @@ $color-palette: (
         button-spin-gradient-top-hover:           #3F3F46,                            //infrequently used one off (non standard) color; usually for control hover states
         button-spin-gradient-bottom-hover:        #36373D,                            //infrequently used one off (non standard) color; usually for control hover states
         button-spin-bg-active:                    $cornflower-blue,
-        button-spin-opacity-disabled:             $opacity-DEC30,                       //leave disabled opacity in decimal since the Caranu spec does    
+        button-spin-opacity-disabled:             $opacity-DEC30,                       //leave disabled opacity in decimal since the Caranu spec does
 
         // Tree View
         list-item-color:                          $french-gray,
@@ -229,7 +229,7 @@ $color-palette: (
         data-grid-stripe-border:                  rgba($white,$opacity-HEX0F),
 
         // Property Panel
-        panel-bg:                                 #2D2D33,                           //JEFF_TODO Caranu spec pg. 32 Not a standard color but is supposed to be used in a property panel active tab and container background. Need to figure out why it's not being applied to the active tab 
+        panel-bg:                                 #2D2D33,                           //JEFF_TODO Caranu spec pg. 32 Not a standard color but is supposed to be used in a property panel active tab and container background. Need to figure out why it's not being applied to the active tab
         panel-tabs-shadow:                        rgba($black,$opacity-HEX66),
         panel-tab-bar-bg:                         $black-russian,
         panel-header-color:                       $white,
@@ -244,7 +244,7 @@ $color-palette: (
         // Property Grid
         grid-title-color:                         $white,
         grid-search-placeholder-color:            $french-gray,
-        grid-item-darkened-opacity:               $opacity-DEC30,                      //leave disabled opacity in decimal since the Caranu spec does    
+        grid-item-darkened-opacity:               $opacity-DEC30,                      //leave disabled opacity in decimal since the Caranu spec does
         propgrid-item-darkened-opacity:           $opacity-DEC60,                      //JEFF_TODO Need to rename this to reflect a style for read only properties of the property grid. Need to create a separate group for the property grid specific vars.
 
         // Scrollbars
@@ -286,7 +286,7 @@ $color-palette: (
         textarea-text-bg-error:                   #2B0A0A,
         textarea-text-border-error:               #E03030,
         textarea-text-highlight-bg:               $jacksons-purple,
-        textarea-text-disabled-opacity:           $opacity-DEC30,                        //leave disabled opacity in decimal since the Caranu spec does    
+        textarea-text-disabled-opacity:           $opacity-DEC30,                        //leave disabled opacity in decimal since the Caranu spec does
         textarea-text-disabled-color:             $white,
         textarea-text-placeholder-color:          $french-gray,
 
@@ -295,6 +295,7 @@ $color-palette: (
         notification-icon-ellipse:                $cornflower-blue,
 
         // Default properties and values that are shared by many/most controls
+        control-default-focus-color:              $cornflower-blue,
         control-default-disabled-opacity:         $opacity-DEC30,
         control-default-readonly-opacity:         $opacity-DEC60
 );
@@ -380,10 +381,10 @@ $icon-pack: (
         radio-checked:                        inline-image("#{$dark-icons}/radio-checked.png"),
         radio-disabled:                       inline-image("#{$dark-icons}/radio-disabled.png"),
         radio-checked-disabled:               inline-image("#{$dark-icons}/radio-checked-disabled.png"),
-        
+
         // -- Combo Box
         check:                                inline-image("#{$dark-icons}/check.png"),
-        
+
         // -- Spin Box
         arrow-up:                             inline-image("#{$dark-icons}/arrow-up.png"),
         arrow-up-active:                      inline-image("#{$dark-icons}/arrow-up-active.png"),

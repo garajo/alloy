@@ -47,7 +47,7 @@
     &:hover,
     &.is-hovered {
       background-color: map_get($color-palette, panel-splitter-bg-hover);
-      
+
       &::after {
         content: '';
         display: block;
@@ -68,9 +68,9 @@
 // *****SECTION #1*****: Existing Foundation control (no existing Alloy equivalents) style overrides.
 
 
-//These next two input-group controls come from the Foundation Forms controls. 
-//They are meant to be used within an input-group. 
-//Which is essentiall a combo of 3 controls: label on the left, input type in the middle, and usually a submit button on the right. 
+//These next two input-group controls come from the Foundation Forms controls.
+//They are meant to be used within an input-group.
+//Which is essentiall a combo of 3 controls: label on the left, input type in the middle, and usually a submit button on the right.
 //We just need to tweak there styles a bit to match the Caranu spec instead of the ugly Foundation defaults
 
 .input-group-button input[type="button"],
@@ -78,20 +78,20 @@
 {
     @extend .button-standard;
 
-    //For some reason the default input-group-button from foundation is really tall. Knowing that this is going to be next to usually a text input try and match its height. 
-    //Since the Alloy button-standard only sets a min-height of 32px and the Foundation input-group-button sets a height of 2.5 rem (40px) the foundation height will win unless 
+    //For some reason the default input-group-button from foundation is really tall. Knowing that this is going to be next to usually a text input try and match its height.
+    //Since the Alloy button-standard only sets a min-height of 32px and the Foundation input-group-button sets a height of 2.5 rem (40px) the foundation height will win unless
     height: 32px;
 }
 
 .input-group-label
 {
     //The foundation input-group-label has some gray background by default. Since it is just a label let's make the border/background disappear
-    background: transparent; 
+    background: transparent;
     border: none;
-    //For some reason the default input-group-label from foundation is really tall. Knowing that this is going to be next to usually a text input try and match its height. 
+    //For some reason the default input-group-label from foundation is really tall. Knowing that this is going to be next to usually a text input try and match its height.
     height: 32px;
 
-    //This Foundation type is really just a normal label. Pull in our Alloy base definition of lable for font family, font size, font color etc. 
+    //This Foundation type is really just a normal label. Pull in our Alloy base definition of lable for font family, font size, font color etc.
     @extend .label;
 }
 
@@ -111,11 +111,11 @@
 
     // Caranu spec pg. 22 padding for error text boxes calls for 9px 12px but the 9px top/bottom padding seems a little too large.
     // Plus most of our buttons and text fields and labels that errors may show up next to are total height of 32px. Padding of 4.5
-    // ends up creating a default height (if the message text doesn't wrap) of 32px 
+    // ends up creating a default height (if the message text doesn't wrap) of 32px
     //    (bounding-box = 21px, top+bottom padding = 9px, top+bottom border = 2px)
     padding: 4.5px 12px;
     //Caranu spec doesn't call for a standard margin. Consumers will have to set their own.
-    //The foundation callout is setting a weird margin bottom. Just set it to 0 and let consumers set. 
+    //The foundation callout is setting a weird margin bottom. Just set it to 0 and let consumers set.
     margin: 0px;
 
     //Pull in the Alloy standard/default for the font attributes of all controls
@@ -153,26 +153,26 @@ ul.listbox {
     button {
       // If its a button the Foundation or Caranu style (background color) will show up. In the default normal state I think we just want the parent container background
       background-color: transparent;
-      // Stretch the button as wide as the parent container (master list) 
+      // Stretch the button as wide as the parent container (master list)
       display: flex;
       width: 100%;
       border-width: 0px;
     }
 
     span {
-        // Stretch the span as wide as the parent container (master list) 
+        // Stretch the span as wide as the parent container (master list)
         display: block;
     }
 
     * {
       //All list item types will share these properties
-      
+
       position: relative;
-      //ListBox item height = 32 px. Pg. 29 Caranu spec. 
+      //ListBox item height = 32 px. Pg. 29 Caranu spec.
       height: 32px;
 
       //ListBox item height = 32 px = 9.5px padding top/bottom + 13 px sized text
-      //ListBox item width = 12px padding to the left/right. Pg. 29 Caranu spec. 
+      //ListBox item width = 12px padding to the left/right. Pg. 29 Caranu spec.
       padding: 9.5px 12px;
 
       color: map_get($color-palette, list-item-color);
@@ -219,7 +219,7 @@ ul.listbox {
   }
 }
 
-// Simple circular icon buttons that aren't images but actually try to style themselves using the gradient background and text color vars so theme switching works. 
+// Simple circular icon buttons that aren't images but actually try to style themselves using the gradient background and text color vars so theme switching works.
 .alloy-circular-buttons {
     // JEFF These two things are messing up the alignment
     //display: block;
@@ -245,4 +245,14 @@ ul.listbox {
 div.caranu-window-padding
 {
     padding: 16px !important;
+}
+
+.readonly {
+    cursor: default;
+    opacity: map_get($color-palette, control-default-readonly-opacity);
+}
+
+.disabled {
+    cursor: default;
+    opacity: map_get($color-palette, control-default-disabled-opacity);
 }

@@ -9,36 +9,22 @@ declare function require(name: string): string;
 })
 export class CheckboxPageComponent implements OnInit {
 
-    disabledSimple = false;
-
-    _checkedSimple = false;
-
-    @Input()
-    get checkedSimple() { return this._checkedSimple; }
-    set checkedSimple(value: boolean) {
-      console.log('checked simple');
-      this._checkedSimple = value;
-    }
-
-    readonlySimple = false;
-    errorsSimple = false;
-    sizeSimple = 14; //Default checkbox size based on Caranu style guide.
-
-    disabledIcon = false;
+    checkedSimple = false;
+    checkedLabel = false;
     checkedIcon = false;
-    readonlyIcon = false;
-    errorsIcon = true;
-
-    disabledMixed = false;
     checkedMixed = false;
-    readonlyMixed = false;
-    errorsMixed = false;
 
-    disabledFocus = false;
-    checkedFocus = false;
-    readonlyFocus = false;
-    errorsFocus = false;
+    checkedStyle = 'white';
+    disabledStyle = 'white';
+    readonlyStyle = 'white';
+    errorStyle = 'white';
+    sizeStyle = 'white';
 
+    disabled = false;
+    readonly = false;
+    error = false;
+
+    size = 14; // Default checkbox size based on Caranu style guide.
     errorMessage = 'Validation errors in checkbox';
     placeholder = 'Checkbox';
     iconSrc = '../../assets/userProfLogo.png';
@@ -47,84 +33,36 @@ export class CheckboxPageComponent implements OnInit {
 
     constructor() { }
 
-    toggleDisabled(checkboxtype: string) {
-        switch (checkboxtype) {
-            case 'simple':
-            this.disabledSimple = !this.disabledSimple;
-            break;
-            case 'icon':
-            this.disabledIcon = !this.disabledIcon;
-            break;
-            case 'mixed':
-            this.disabledMixed = !this.disabledMixed;
-            break;
-            case 'focus':
-            this.disabledFocus = !this.disabledFocus;
-            break;
-        }
+    toggleChecked() {
+      this.checkedSimple = !this.checkedSimple;
+      this.checkedLabel = this.checkedSimple;
+      this.checkedIcon = this.checkedSimple;
+      this.checkedMixed = this.checkedSimple;
+
+      this.checkedStyle = this.checkedSimple ? 'yellow' : 'white';
     }
 
-    toggleChecked(checkboxtype: string) {
-        switch (checkboxtype) {
-            case 'simple':
-            if (!this.disabledSimple && !this.readonlySimple) {
-                this.checkedSimple = !this.checkedSimple;
-            }
-            break;
-            case 'icon':
-            if (!this.disabledIcon && !this.readonlyIcon) {
-                this.checkedIcon = !this.checkedIcon;
-            }
-            break;
-            case 'mixed':
-            if (!this.disabledMixed && !this.readonlyMixed) {
-                this.checkedMixed = !this.checkedMixed;
-            }
-            break;
-            case 'focus':
-            if (!this.disabledFocus && !this.readonlyFocus) {
-                this.checkedFocus = !this.checkedFocus;
-            }
-            break;
-        }
+    toggleDisabled() {
+      this.disabled = !this.disabled;
+      this.disabledStyle = this.disabled ? 'yellow' : 'white';
     }
 
-    toggleReadonly(checkboxtype: string) {
-        switch (checkboxtype) {
-            case 'simple':
-            this.readonlySimple = !this.readonlySimple;
-            break;
-            case 'icon':
-            this.readonlyIcon = !this.readonlyIcon;
-            break;
-            case 'mixed':
-            this.readonlyMixed = !this.readonlyMixed;
-            break;
-            case 'focus':
-            this.readonlyFocus = !this.readonlyFocus;
-            break;
-        }
+    toggleReadonly() {
+      this.readonly = !this.readonly;
+      this.readonlyStyle = this.readonly ? 'yellow' : 'white';
     }
 
-    toggleErrorState(checkboxtype: string) {
-        switch (checkboxtype) {
-            case 'simple':
-            this.errorsSimple = !this.errorsSimple;
-            break;
-            case 'icon':
-            this.errorsIcon = !this.errorsIcon;
-            break;
-            case 'mixed':
-            this.errorsMixed = !this.errorsMixed;
-            break;
-            case 'focus':
-            this.errorsFocus = !this.errorsFocus;
-            break;
-        }
+    toggleError() {
+      this.error = !this.error;
+      this.errorStyle = this.error ? 'yellow' : 'white';
     }
 
-    focusOnCheckBox() {
-        this.focusCheckBox.focus();
+    addSizeStyle() {
+      this.sizeStyle = 'yellow';
+    }
+
+    removeSizeStyle() {
+      this.sizeStyle = 'white';
     }
 
     ngOnInit() {

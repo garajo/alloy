@@ -13,6 +13,8 @@ import { SwitcherPageComponent } from 'app/components/switcher-page/switcher-pag
 import { TextboxPageComponent } from './components/textbox-page/textbox-page.component';
 import { TextareaPageComponent } from './components/textarea-page/textarea-page.component';
 import { VerificationPageComponent } from './components/verification/verification-page.component';
+import { VerifiyTextboxComponent } from 'app/components/verification/textbox/verify-textbox.component';
+import { VerifyCheckboxComponent } from './components/verification/checkbox/verify-checkbox.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'dropdowns', pathMatch: 'full' },
@@ -29,7 +31,12 @@ const routes: Routes = [
     { path: 'switcher', component: SwitcherPageComponent},
     { path: 'textbox', component: TextboxPageComponent},
     { path: 'contextmenu', component: ContextmenuPageComponent },
-    { path: 'verification', component: VerificationPageComponent }
+    { path: 'verification', component: VerificationPageComponent,
+        children: [
+          { path: '', component: VerifiyTextboxComponent},
+          { path: 'textbox', component: VerifiyTextboxComponent },
+          { path: 'checkbox', component: VerifyCheckboxComponent }
+        ] }
 ];
 
 @NgModule({

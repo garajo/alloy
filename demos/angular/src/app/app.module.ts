@@ -14,6 +14,7 @@ import {
   AlloyButtonModule,
   AlloyCheckboxModule,
   AlloyContextmenuModule,
+  AlloyDirectivesModule,
   AlloyDisplaySettingsModule,
   AlloyDropdownModule,
   AlloyIconModule,
@@ -21,7 +22,6 @@ import {
   AlloyPropertyGridModule,
   AlloyPropertyGridMessageService,
   AlloySwitcherModule,
-  AlloyTextboxModule,
 } from '@keysight/alloy';
 
 import { AboutBoxPageComponent } from './components/about-box-page/about-box-page.component';
@@ -44,6 +44,8 @@ import { VerificationPageComponent } from 'app/components/verification/verificat
 
 import { DataService } from './components/property-page/editors/services/data.service';
 import { EditorService } from './components/property-page/editors/services/editor.service';
+import { VerifiyTextboxComponent } from './components/verification/textbox/verify-textbox.component';
+import { VerifyCheckboxComponent } from './components/verification/checkbox/verify-checkbox.component';
 
 
 /**
@@ -61,7 +63,7 @@ import { EditorService } from './components/property-page/editors/services/edito
     AlloyIconModule,
     AlloyNotificationIconModule,
     AlloySwitcherModule,
-    AlloyTextboxModule,
+    AlloyDirectivesModule
   ],
   entryComponents: [
     AlloyAboutBox
@@ -72,8 +74,8 @@ import { EditorService } from './components/property-page/editors/services/edito
     AlloyButtonModule,
     AlloyIconModule,
     AlloyNotificationIconModule,
-    AlloyTextboxModule,
-    AlloyContextmenuModule
+    AlloyContextmenuModule,
+    AlloyDirectivesModule
   ]
 })
 export class AlloyDemoModule { }
@@ -97,7 +99,9 @@ export class AlloyDemoModule { }
     TextareaPageComponent,
     SwitcherPageComponent,
     ContextmenuPageComponent,
-    VerificationPageComponent
+    VerificationPageComponent,
+    VerifyCheckboxComponent,
+    VerifiyTextboxComponent
   ],
   imports: [
     AlloyDemoModule,

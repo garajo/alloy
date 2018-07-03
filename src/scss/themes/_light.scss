@@ -27,21 +27,21 @@ $cornflower-blue:       #4C8EFF;
 $hover-blue:            #6C82A8;
 
 //Opacity: Variables for opacity straight out of the Caranu spec. Those opacity values used heavily enough in the Light skin to warrant their own variables. Tired of doing hex/decimal conversion.
-$opacity-HEXCC:          .80; 
+$opacity-HEXCC:          .80;
 $opacity-HEXB2:          .70;
-$opacity-HEX99:          .60;         
-$opacity-HEX7F:          .50;  
-$opacity-HEX66:          .40;         
-$opacity-HEX59:          .35;         
-$opacity-HEX4C:          .30;         
-$opacity-HEX3F:          .25;         
-$opacity-HEX33:          .20;         
-$opacity-HEX2D:          .18;         
-$opacity-HEX26:          .15;         
-$opacity-HEX1E:          .12;         
-$opacity-HEX14:          .08;         
-$opacity-HEX0F:          .06;         
-$opacity-HEX0A:          .04;     
+$opacity-HEX99:          .60;
+$opacity-HEX7F:          .50;
+$opacity-HEX66:          .40;
+$opacity-HEX59:          .35;
+$opacity-HEX4C:          .30;
+$opacity-HEX3F:          .25;
+$opacity-HEX33:          .20;
+$opacity-HEX2D:          .18;
+$opacity-HEX26:          .15;
+$opacity-HEX1E:          .12;
+$opacity-HEX14:          .08;
+$opacity-HEX0F:          .06;
+$opacity-HEX0A:          .04;
 
 $opacity-DEC36:          0.36;
 $opacity-DEC52:          0.52;
@@ -185,7 +185,7 @@ $color-palette: (
         input-text-border-error:                  #E03030,
         input-text-highlight-bg:                  #2E4585,
         input-text-highlight-color:               $white,
-        input-text-disabled-opacity:              $opacity-DEC52,                       //Since the spec declares this in decimal we will leave it without its own var        
+        input-text-disabled-opacity:              $opacity-DEC52,                       //Since the spec declares this in decimal we will leave it without its own var
         input-text-disabled-color:                rgba($black,$opacity-DEC36),          //Since the spec declares this in decimal we will leave it without its own var
         input-text-placeholder-color:             $smoky,
 
@@ -305,8 +305,9 @@ $color-palette: (
         notification-icon-ellipse:                $cornflower-blue,
 
         // Default properties and values that are shared by many/most controls
+        control-default-focus-color:              $cornflower-blue,
         control-default-disabled-opacity:         $opacity-DEC52,
-        control-default-readonly-opacity:         $opacity-DEC60 
+        control-default-readonly-opacity:         $opacity-DEC60
     );
 
 // Images & Icons
@@ -376,7 +377,7 @@ $icon-pack: (
         // Messaging
         information:                          inline-image("#{$light-icons}/information.svg"),
         warning:                              inline-image("#{$icons}/warning.svg"),
-        
+
         // -- Checkboxes
         checkbox:                             inline-image("#{$light-icons}/checkbox.png"),
         checkbox-hover:                       inline-image("#{$light-icons}/checkbox-hover.png"),
@@ -391,10 +392,10 @@ $icon-pack: (
         radio-checked:                        inline-image("#{$light-icons}/radio-checked.png"),
         radio-disabled:                       inline-image("#{$light-icons}/radio-disabled.png"),
         radio-checked-disabled:               inline-image("#{$light-icons}/radio-checked-disabled.png"),
-        
+
         // -- Combo Box
         check:                                inline-image("#{$light-icons}/check.png"),
-        
+
         // -- Spin Box
         arrow-up:                             inline-image("#{$light-icons}/arrow-up.png"),
         arrow-up-hover:                       inline-image("#{$light-icons}/arrow-up-hover.png"),

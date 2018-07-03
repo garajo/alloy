@@ -1,7 +1,7 @@
 import {
-    Directive, HostBinding, Input
+    Directive, HostBinding
 } from '@angular/core';
-import { ErrorDirective } from '../directives/error-directive';
+import { ErrorDirective } from './error.directive';
 
 @Directive({
     selector: `
@@ -24,4 +24,6 @@ import { ErrorDirective } from '../directives/error-directive';
 // The benefit is that bindings can automatically populate error state.
 export class AlloyTextboxDirective extends ErrorDirective {
     @HostBinding('class.alloy-input') true;
+    @HostBinding('class.has-error') get errorIcon() { return this.error; };
+    @HostBinding('title') get title() { return this.errorMessage; };
 }

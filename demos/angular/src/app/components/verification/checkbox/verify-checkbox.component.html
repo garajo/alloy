@@ -1,0 +1,81 @@
+<div class="row align-middle">
+  <hr class="column stretch">
+  <h4 class="column shrink">Checkbox Verification</h4>
+  <hr class="column stretch">
+</div>
+<div class="row align-middle">
+  <hr class="column shrink">
+  <label class="column shrink">Traditional Width</label>
+  <hr class="column stretch">
+</div>
+<div style="max-width: 75rem; margin: auto;">  <!-- match foundation page width-->
+  <input type="checkbox" alloy label="default">
+  <input type="checkbox" alloy label="width: 100px"  style="width: 100px;">
+  <input type="checkbox" alloy label="width: auto" style="width: auto;">
+  <input type="checkbox" alloy label="size=30 (label isn't designed to resize atm)" size="30">
+  <input type="checkbox" alloy label="width: 100%" style="width: 100%">
+  <input type="checkbox" alloy label="width: 50%"  style="width: 50%">
+</div>
+<div class="row align-middle">
+  <hr class="column shrink">
+  <label class="columns shrink title">Foundation: Width (Note: Foundation overrides)</label>
+  <label class="column shrink border">row</label>
+  <label class="column shrink cell">cell</label>
+  <hr class="column stretch">
+</div>
+<div class="row align-middle border">
+  <input type="text" alloy class="column cell" value="default" readonly="true">
+  <input type="text" alloy class="column cell" value="width: auto" style="width: auto;" readonly="true">
+  <input type="text" alloy class="column cell" value="width: 100px" style="width: 100px;" readonly="true">
+  <input type="text" alloy class="column cell" value="width: 50%" style="width: 50%" readonly="true">
+  <input type="text" alloy class="column cell" value="width: 100%" style="width: 100%;" readonly="true">
+</div>
+<div class="row align-middle border">
+  <input type="checkbox" alloy class="column cell" label="default">
+  <input type="checkbox" alloy class="column cell" label="width: auto" style="width: auto;">
+  <input type="checkbox" alloy class="column cell" label="width: 100px" style="width: 100px;">
+  <input type="checkbox" alloy class="column cell" label="width: 50%" style="width: 50%">
+  <input type="checkbox" alloy class="column cell" label="width: 100%" style="width: 100%;">
+</div>
+<div class="row align-middle">
+  <hr class="column shrink">
+  <label class="columns shrink title">Foundation: Height</label>
+  <hr class="column stretch">
+</div>
+<div class="row align-middle border">
+  <input type="text" alloy class="column cell" value="default (32)" readonly="true">
+  <input type="checkbox" alloy class="column cell" label="default (32)">
+</div>
+<div class="row align-middle border">
+  <input type="text" alloy class="column cell" value="height: auto" style="height: auto;" readonly="true">
+  <input type="checkbox" alloy class="column cell" label="height: auto" style="height: auto;">
+</div>
+<div class="row align-middle border">
+  <input type="text" alloy class="column cell" value="height: 40px" style="height: 40px;" readonly="true">
+  <input type="checkbox" alloy class="column cell" label="height: 40px (not a current use-case, but needs discussion)" style="height: 40px;">
+</div>
+<div class="row align-middle">
+  <hr class="column shrink">
+  <label class="column shrink title">Foundation: Margin (Note: padding isn't particularly useful)</label>
+  <hr class="column stretch">
+</div>
+<div class="row align-middle border">
+  <!-- Rows -->
+  <input type="text" alloy class="column cell small-2" value="m-top: 10px" style="margin-top: 10px" readonly="true">
+  <input type="checkbox" alloy class="column cell small-2" label="m-top: 10px" style="margin-top: 10px">
+  <input type="text" alloy class="column cell small-2" value="m-bottom: 10px" style="margin-bottom: 10px" readonly="true">
+  <input type="checkbox" alloy class="column cell small-2" label="m-bottom: 10px" style="margin-bottom: 10px">
+</div>
+<!-- Columns -->
+<div class="row align-middle border">
+  <input type="text" alloy class="column cell small-2" value="m-left: 10px, small-2" style="margin-left: 10px;" readonly="true">
+</div>
+<div class="row align-middle border">
+  <input type="checkbox" alloy class="column cell small-2" label="m-left: 10px, small-2" style="margin-left: 10px;">
+</div>
+<div class="row align-middle border">
+  <input type="text" alloy class="column cell small-2" value="m-right: 10px, small-2" style="margin-right: 10px;" readonly="true">
+</div>
+<div class="row align-middle border">
+  <input type="checkbox" alloy class="column cell small-2" label="m-right: 10px, small-2" style="margin-right: 10px;">
+</div>

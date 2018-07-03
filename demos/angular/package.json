@@ -4,7 +4,7 @@
   "license": "",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --poll=20000 --aot --prod -o",
+    "start": "ng serve --poll=20000 --dev",
     "startNonProd": "ng serve --poll=20000 --aot",
     "build": "ng build --aot --prod",
     "build:watch": "ng build --poll=20000 --aot --prod",
