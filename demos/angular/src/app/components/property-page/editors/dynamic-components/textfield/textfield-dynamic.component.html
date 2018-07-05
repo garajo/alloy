@@ -6,9 +6,9 @@
                 <input formControlName="serverErrors" type="hidden"/>
                 <!-- Should always have an input-group around a text box that also has an error icon. This allows the error icon be "anchored" via the relative position propery of the input-group-->
                 <div class="input-group">
-                        <input #textInputBox type="text"
+                        <input #textInputBox type="text" alloy
                                 formControlName="textfieldControlName"
-                                *ngIf="!params.node.data.readOnly" 
+                                *ngIf="!params.node.data.readOnly"
                                 [class.has-error]="textfieldForm.controls['textfieldControlName'].errors" />
                         <div class="alloy-ic-error" data-toggle="tooltip" title="{{messageTooltip}}"></div>
                         <p class="ag-cell-readonly" *ngIf="params.node.data.readOnly">{{params.node.data.value}}</p>
