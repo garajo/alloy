@@ -7,9 +7,9 @@ import { AlloyOptionModule } from '../core/option/index';
 
 @NgModule({
     imports: [
+        AlloyOptionModule,
         CommonModule,
-        OverlayModule,
-        AlloyOptionModule
+        OverlayModule
     ],
     exports: [
         AlloyDropdown,

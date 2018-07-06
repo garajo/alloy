@@ -28,7 +28,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { merge } from 'rxjs/observable/merge';
 import { filter, startWith } from 'rxjs/operators';
 
-import { ENTER, SPACE, UP_ARROW, DOWN_ARROW, HOME, END } from '../core/keyboard/keycodes';
+import { ENTER, SPACE, UP_ARROW, DOWN_ARROW, HOME, END, ESCAPE } from '../core/keyboard/keycodes';
 import { AlloyOption, AlloyOptionSelectionChange } from '../core/option/index';
 import { FocusKeyManager } from '../core/a11y/focus-key-manager';
 import { SelectionModel } from '../core/selection/selection';
@@ -150,6 +150,9 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     /** Whether the component is in multiple selection mode. */
     private _multiple: boolean = false;
 
+    /** Whether the component options are filterable. */
+    private _filterable: boolean = false;
+
     /** Deals with the selection logic. */
     _selectionModel: SelectionModel<AlloyOption>;
 
@@ -222,6 +225,9 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
 
     /** Trigger that opens the select. */
     @ViewChild('trigger') trigger: ElementRef;
+
+    /** Reference of dropdown filter inputbox. */
+    @ViewChild('filterInput') filterInput: ElementRef;
 
     /** Overlay pane containing the options. */
     // @ViewChild(ConnectedOverlayDirective) overlayDir: ConnectedOverlayDirective;
@@ -322,6 +328,13 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
         this._multiple = coerceBooleanProperty(value);
     }
 
+    /** Whether the user should be allowed to filter options. */
+    @Input()
+    get filterable(): boolean { return this._filterable; }
+    set filterable(value: boolean) {
+        this._filterable = value;
+    }
+
     /** Tab index for the select element. */
     @Input()
     get tabIndex(): number { return (this.disabled || this.readonly) ? -1 : this._tabIndex; }
@@ -351,7 +364,7 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     /** Event emitted when the selected value has been changed by the user. */
     @Output() change: EventEmitter<AlloyDropdownChange> = new EventEmitter<AlloyDropdownChange>();
 
-
+    public noMatch = false;
     public eRef: ElementRef;
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
@@ -406,6 +419,32 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
         }
     }
 
+    /** Listen for (keyup) keystrokes from dropdown filter inputbox. For option filtering. */
+    onFilterKeyUp(event): void {
+        event.stopPropagation();
+
+        const value = event.target.value;
+        const keyCode = event.keyCode;
+
+        if (keyCode === ESCAPE) this.toggle();
+
+        // If found, set option.matched to true, else false
+        this.options.toArray().forEach(option => {
+            option.matched = option.viewValue.toLowerCase().includes(value.toLowerCase());
+        });
+
+        // Check if there is a matching option, otherwise show 'No match found!'
+        this.noMatch = !this.options.toArray().some((option) => option.matched);
+    }
+
+    /** Focus search inputbox and clear input when dropdown open(). */
+    filterInputFocus(): void {
+        this.filterInput.nativeElement.value = '';
+        setTimeout(() => {
+            this.filterInput.nativeElement.focus();
+        }, 5);
+    }
+
     /** Toggles the overlay panel open or closed. */
     toggle(): void {
 
@@ -429,6 +468,13 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
 
         this._calculateOverlayPosition();
         this._panelOpen = true;
+
+        /** Focuses on input, reset to default values */
+        if (this.filterable) {
+            this.filterInputFocus();
+            this.options.toArray().map((s) => { s.matched = true });
+            this.noMatch = false;
+        }
     }
 
     /** Closes the overlay panel and focuses the host element. */
@@ -1004,7 +1050,6 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     private _getItemCount(): number {
         return this.options.length;
     }
-
 }
 
 /** Clamps a value n between min and max values. */

@@ -40,6 +40,7 @@ export class AlloyOptionSelectionChange {
         '[attr.aria-selected]': 'selected.toString()',
         '[attr.aria-disabled]': 'disabled.toString()',
         '[class.alloy-option-disabled]': 'disabled',
+        '[class.option-not-matched]': 'matched == false',
         '(click)': '_selectViaInteraction()',
         '(keydown)': '_handleKeydown($event)',
         'class': 'alloy-option',
@@ -58,6 +59,9 @@ export class AlloyOption {
 
     /** Whether the wrapping component is in multiple selection mode. */
     multiple: boolean = false;
+
+    /** Whether option is found during filtering. */
+    matched = true;
 
     /** The unique ID of the option. */
     get id() { return this._id; }

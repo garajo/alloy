@@ -27,6 +27,11 @@
         [ngClass]="{'is-open': panelOpen, 'right-align': right_align, 'left-align': !right_align}"
         [style.transform]="_transformPanelY">
         <ul class="menu vertical">
+            <div *ngIf="filterable" class="search-container">
+                <input type="text" class="alloy-input dropdown-filter" placeholder="Search" (keyup)="onFilterKeyUp($event)" #filterInput>
+                <span class="alloy-ic-mag-glass"></span>
+                <li *ngIf="noMatch" class="no-match"><a>No match found!</a></li>
+            </div>
             <ng-content></ng-content>
         </ul>
     </div>

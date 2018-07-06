@@ -17,6 +17,7 @@ export class DropdownsPageComponent implements OnInit {
     disabledState = false;
     readOnlyState = false;
     errorState = false;
+    filterState = true;
     errorMessage = 'Validation errors in dropdown';
 
 
@@ -65,6 +66,10 @@ export class DropdownsPageComponent implements OnInit {
 
     toggleDisabledState() {
         this.disabledState = !this.disabledState;
+    }
+
+    toggleFiltering() {
+        this.filterState = !this.filterState;
     }
 
     constructor() { }

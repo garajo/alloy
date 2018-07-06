@@ -16,7 +16,8 @@
                     [disabled]="disabledState"
                     [readonly]="readOnlyState"
                     [errors]="errorState"
-                    [errorMessage]="errorMessage">
+                    [errorMessage]="errorMessage"
+                    [filterable]="filterState">
 					<alloy-option *ngFor="let module of modules" [value]="module.value">
 						{{ module.name }}
 					</alloy-option>
@@ -38,25 +39,32 @@
                 <div>
                     <h6>Error State</h6>
                     <div class="input-group">
-                        <button type="button" class="button-standard" (click)="toggleErrorState()" [ngClass]="{'is-pressed': errorState}">Error</button>
+                        <button alloy-button standard (click)="toggleErrorState()" [ngClass]="{'is-pressed': errorState}">Error</button>
                     </div>
                 </div>
                 <br>
                 <div>
                     <h6>Read-only State</h6>
                     <div class="input-group">
-                        <button type="button" class="button-standard" (click)="toggleReadonlyState()" [ngClass]="{'is-pressed': readOnlyState}">Read-only</button>
+                        <button alloy-button standard (click)="toggleReadonlyState()" [ngClass]="{'is-pressed': readOnlyState}">Read-only</button>
                     </div>
                 </div>
                 <br>
                 <div>
                     <h6>Disabled State</h6>
                     <div class="input-group">
-                        <button type="button" class="button-standard" (click)="toggleDisabledState()" [ngClass]="{'is-pressed': disabledState}">Disabled</button>
+                        <button alloy-button standard (click)="toggleDisabledState()" [ngClass]="{'is-pressed': disabledState}">Disabled</button>
                     </div>
                 </div>
                 <br>
-				<div>
+                <div>
+                    <h6>Filtering</h6>
+                    <div class="input-group">
+                        <button alloy-button standard (click)="toggleFiltering()" [ngClass]="{'is-pressed': filterState}">filterable</button>
+                    </div>
+                </div>
+                <br>
+                <div>
 					<div>
 						<h6>Elements</h6>
 						<a (click)="add(modules)">Add</a>
@@ -74,7 +82,9 @@
                             [placeholder]=&quot;placeholder&quot;
                             [disabled]=&quot;disabledState&quot;
                             [readonly]=&quot;readOnlyState&quot;
-                            [errors]=&quot;errorState&quot; [errorMessage]=&quot;errorMessage&quot;
+                            [errors]=&quot;errorState&quot; 
+                            [errorMessage]=&quot;errorMessage&quot; 
+                            [filterable]=&quot;filterState&quot;
                         &lt;alloy-option *ngFor=&quot;let m of modules&quot; [value]=&quot;m.value&quot;&gt;
                             {{ m.name }}
                         &lt;/alloy-option&gt;

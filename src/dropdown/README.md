@@ -63,3 +63,14 @@ If you want one of your options to reset the dropdown's value, you can omit spec
 - <kbd>DOWN_ARROW</kbd>: Focus next option
 - <kbd>UP_ARROW</kbd>: Focus previous option
 - <kbd>ENTER</kbd> or <kbd>SPACE</kbd>: dropdown focused item
+
+### Filtering
+
+You can allow users to do a search on the dropdown by adding `[filterable]` binding.
+
+*my-comp.html*
+```html
+<alloy-dropdown [filterable]="true">
+   <alloy-option *ngFor="let state of states" [value]="state.code">{{ state.name }}</alloy-option>
+</alloy-dropdown>
+```

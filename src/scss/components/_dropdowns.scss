@@ -78,6 +78,27 @@
       pointer-events: none;
     }
 
+    .search-container {
+        position: relative;
+
+        input.dropdown-filter {
+            border: none;
+            height: 40px;
+            padding-right: 38px;
+        }
+
+        .alloy-ic-mag-glass {
+            position: absolute;
+            top: 10px; right: 10px;
+            width: 20px;
+            height: 20px;
+            border: none;
+            background-color: transparent;
+            margin: 0px;
+            cursor: default;         
+        }
+    }
+
      li {
       width: 100%;
 
@@ -103,14 +124,20 @@
         }
       }
 
-      &:hover,
+      &.no-match {
+        font-style: italic;
+        opacity: map_get($color-palette, control-default-disabled-opacity);
+        pointer-events: none;
+    }
+
+      &:hover:not(.no-match),
       &.is-hovered {
         a {
           background-color: map_get($color-palette, menu-hover-bg);
         }
       }
 
-      &:active,
+      &:active:not(.no-match),
       &.is-active {
         a {
           background-color: map_get($color-palette, menu-active-bg);
@@ -137,6 +164,11 @@
           }
         }
       }
+    }
+    alloy-option {
+        &.option-not-matched {
+            display: none;
+        }
     }
   }
 }
