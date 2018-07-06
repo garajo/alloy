@@ -1,15 +1,14 @@
 <form novalidate [formGroup]="checkboxForm">
     <div class="ag-grid-editable-properties">
-        <alloy-checkbox
+        <input type="checkbox" alloy
             formControlName="checkboxFormControl"
             [disabled]="this.params?.node.data.readOnly"
             (change)=onChange($event.target.checked)
-            [errors]="checkboxForm.controls['checkboxFormControl'].errors"
+            [error]="checkboxForm.controls['checkboxFormControl'].errors"
             [errorMessage]="messageTooltip">
             <!-- This hidden input is used to allow the server errors validator to get access to the serverErrors data
                 The formControlName - serverErrors has it's value set to the string array of server errors in the typescript
                 which then can be gotten in the validator -->
             <input formControlName="serverErrors" type="hidden" />
-        </alloy-checkbox>
     </div>
 </form>

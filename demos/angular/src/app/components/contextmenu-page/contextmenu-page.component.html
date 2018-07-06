@@ -36,8 +36,8 @@
                     [enabled]="{{ isEnabled }}"
                     <br> [visible]="{{ isVisible }}"
                     <br>
-                    <alloy-checkbox [checked]="isEnabled" [label]="'Toggle enable/disable'" (click)="onEnabled()"></alloy-checkbox>
-                    <alloy-checkbox [checked]="isVisible" [label]="'Toggle visibility'" (click)="onVisible()"></alloy-checkbox>
+                    <input type="checkbox" alloy [checked]="isEnabled" [label]="'Toggle enable/disable'" (click)="onEnabled()">
+                    <input type="checkbox" alloy [checked]="isVisible" [label]="'Toggle visibility'" (click)="onVisible()">
                 </div>
 
 
@@ -50,7 +50,7 @@
     &lt;element *ngFor=&quot;let item of items&quot; [alloyContextMenu]=&quot;basicMenu&quot; [alloyContextMenuData]=&quot;items&quot;&gt;
         Right Click: {{item?.name}}
     &lt;/element&gt;
-    
+
     &lt;alloy-contextmenu&gt;
         &lt;ng-template contextMenuItem let-item (execute)=&quot;onContextMenuItemClick($event)&quot;&gt;
             Add {{ item?.name }}
@@ -66,7 +66,7 @@
             You cannot see this if visible is False
         &lt;/ng-template>
     &lt;/alloy-contextmenu&gt;
-    
+
     // Component
     items: any[] = [....];
     @ViewChild(AlloyContextMenuComponent) public basicMenu: AlloyContextMenuComponent;
@@ -141,7 +141,7 @@
     &lt;element #contextMenuSubject&gt;
         Menu Item A
     &lt;/element&gt;
-    
+
     // COMPONENT
     @ViewChild('contextMenuSubject') public contextMenuSubject: ElementRef;
     this.manualAttachingContextMenu.api.attachListener(this.contextMenuSubject.nativeElement, 'Manual Attached Menu Data');
@@ -165,10 +165,10 @@
             Menu Item A
         &lt;/ng-template&gt;
     &lt;/alloy-contextmenu&gt;
-    
+
     // PARENT COMPONENT
     @ViewChild(AlloyContextMenu) public manualAttachingContextMenu: AlloyContextMenu;
-    
+
     // CHILD COMPONENT
     this.alloyContextMenu.api.attachListener(this.contextMenuSubject.nativeElement, 'Different component');
                                     </pre>
