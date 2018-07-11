@@ -3,7 +3,7 @@
 
     <!-- JEFF_TODO Why do we have this mixed approach for styling? Some ng classes being set, some properties being set, some ngif to show/hide things?-->
 
-    <button
+    <button cdk-overlay-origin
         type="button"
         [ngClass]="{'lightweight': !alternate_style,
                     'button-standard': alternate_style,
@@ -11,21 +11,34 @@
                     }"
                     class="dropdown"
                     (click)="toggle()"
+                    #origin="cdkOverlayOrigin"
                     #trigger>
             <label *ngIf="!icon">{{placeholder}}</label>
             <div *ngIf="icon && isIconClass" class="{{ icon }}"></div>
             <img *ngIf="icon && !isIconClass" src="{{ icon }}" >
     </button>
-
+</div>
+<ng-template
+    cdk-connected-overlay
+    hasBackdrop
+    backdropClass="cdk-overlay-transparent-backdrop"
+    [origin]="origin"
+    [open]="panelOpen"
+    [positions]="_positions"
+    [minWidth]="_triggerRect?.width"
+    [offsetY]="_offsetY"
+    (backdropClick)="close()"
+    (attach)="_onAttached()"
+    (detach)="close()">
 
     <!-- In support of the error state ... we show a red X icon to the right with an error message tooltip-->
     <div [ngClass]="{'has-error': errors}" data-tooltip data-disable-hover="false" title="{{errorMessage}}"></div>
 
-    <!-- The drop down pane - this is absolute positioned relative to the overall dropdown-group. See the style for more detail-->
-    <div 
+    <div
+        #panel
         class="dropdown-pane bottom" 
         [ngClass]="{'is-open': panelOpen, 'right-align': right_align, 'left-align': !right_align}"
-        [style.transform]="_transformPanelY">
+        [style.transformOrigin]="_transformOrigin">
         <ul class="menu vertical">
             <div *ngIf="filterable" class="search-container">
                 <input type="text" class="alloy-input dropdown-filter" placeholder="Search" (keyup)="onFilterKeyUp($event)" #filterInput>
@@ -35,4 +48,4 @@
             <ng-content></ng-content>
         </ul>
     </div>
-</div>
+</ng-template>
