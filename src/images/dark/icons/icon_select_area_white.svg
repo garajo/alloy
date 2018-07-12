@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" width="32" height="32" viewBox="0 0 32.00 32.00" enable-background="new 0 0 32.00 32.00" xml:space="preserve">
+	<path fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" d="M 23.373,18.7838L 23.6559,25.9371L 29.0001,23.2095L 23.373,18.7838 Z "/>
+	<line fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" x1="26.1007" y1="24.128" x2="28.8426" y2="29.5"/>
+	<rect x="1.75" y="1.74998" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="1.75" y="4.74998" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="4.75" y="1.74998" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="7.75" y="1.74999" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="10.75" y="1.74999" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="13.75" y="1.74999" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="16.75" y="1.75" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="19.75" y="1.75" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="19.75" y="4.75001" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="1.75" y="7.74999" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="19.75" y="7.75001" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="1.75" y="10.75" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="19.75" y="10.75" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="1.75" y="13.75" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="19.75" y="13.75" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="1.75" y="16.75" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="4.75" y="16.75" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="19.75" y="16.75" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="7.75" y="16.75" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="10.75" y="16.75" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="13.75" y="16.7499" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+	<rect x="16.75" y="16.7499" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linecap="square" stroke-linejoin="miter" width="1.5" height="1.5"/>
+</svg>

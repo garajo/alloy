@@ -306,33 +306,187 @@ $icons:                 "icons";
 $dark-icons:            "dark/icons";
 
 $icon-pack: (
-        // General
-        delete:                               inline-image("#{$icons}/delete.svg"),
-        edit:                                 inline-image("#{$dark-icons}/edit.svg"),
-        computer:                             inline-image("#{$dark-icons}/computer.svg"),
-        delete-trash-can:                     inline-image("#{$dark-icons}/delete-trash-can.svg"),
-        copy:                                 inline-image("#{$dark-icons}/copy.svg"),
-        filter:                               inline-image("#{$dark-icons}/filter.svg"),
-        bow-arrow-up:                         inline-image("#{$dark-icons}/bow-arrow-down.svg"),
-        bow-arrow-down:                       inline-image("#{$dark-icons}/bow-arrow-down.svg"),  
-        settings-repair:                      inline-image("#{$dark-icons}/settings_repair.svg"),
-        locked:                               inline-image("#{$dark-icons}/locked.svg"),
-        multi-window-arrange:                 inline-image("#{$dark-icons}/multi_window_arrange.svg"),
-        refresh:                              inline-image("#{$dark-icons}/refresh.svg"),
-        
-        // Title Bar
+
+        // *** Just going to alpha sort all the new/updated icons. Easier to find things
+
+        add-bookmark:                         inline-image("#{$dark-icons}/icon_add_bookmark_white.svg"),
+        // JEFF_TODO bow-arrow names need to be fixed
+        bow-arrow-down:                       inline-image("#{$dark-icons}/icon_arrow_down_white.svg"),
+        // This bow-arrow-up icon is created by rotating bow-arrow-down 180 degrees in the class/style
+        // bow-arrow-up:                         inline-image("#{$dark-icons}/icon_arrow_down_white.svg"),
+        autorange:                            inline-image("#{$dark-icons}/icon_autorange_white.svg"),
+        autoscale-x:                          inline-image("#{$dark-icons}/icon_autoscale_x_white.svg"),
+        autoscale-xy:                         inline-image("#{$dark-icons}/icon_autoscale_xy_white.svg"),
+        autoscale-y:                          inline-image("#{$dark-icons}/icon_autoscale_y_white.svg"),
+        back:                                 inline-image("#{$dark-icons}/icon_back_white.svg"),
+        backspace:                            inline-image("#{$dark-icons}/icon_backspace_white.svg"),
+        band-power:                           inline-image("#{$dark-icons}/icon_band_power_white.svg"),
+        base-station:                         inline-image("#{$dark-icons}/icon_base_station_white.svg"),
+        bookmark:                             inline-image("#{$dark-icons}/icon_bookmark_white.svg"),
+        calendar:                             inline-image("#{$dark-icons}/icon_calendar_white.svg"),
+        channel-mode-selector:                inline-image("#{$dark-icons}/icon_channel_mode_selector_white.svg"),
+        chart-bubble:                         inline-image("#{$dark-icons}/icon_chart_bubble_white.svg"),
+        chart-line:                           inline-image("#{$dark-icons}/icon_chart_line_white.svg"),
+        chart-pareto:                         inline-image("#{$dark-icons}/icon_chart_pareto_white.svg"),
+        chart-trend:                          inline-image("#{$dark-icons}/icon_chart_trend_white.svg"),
+        close-file:                           inline-image("#{$dark-icons}/icon_close_file_white.svg"),
+        collapse-all:                         inline-image("#{$dark-icons}/icon_collapse_all_white.svg"),
+        collapse:                             inline-image("#{$dark-icons}/icon_collapse_white.svg"),
+        copy:                                 inline-image("#{$dark-icons}/icon_copy_white.svg"),
+        cut:                                  inline-image("#{$dark-icons}/icon_cut_white.svg"),
+        data-from-hardware:                   inline-image("#{$dark-icons}/icon_data_from_hardware_white.svg"),
+        data-from-recording:                  inline-image("#{$dark-icons}/icon_data_from_recording_white.svg"),
+        debug:                                inline-image("#{$dark-icons}/icon_debug_white.svg"),
+        disconnect:                           inline-image("#{$dark-icons}/icon_disconnect_white.svg"),
+        dock:                                 inline-image("#{$dark-icons}/icon_dock_white.svg"),
+        document:                             inline-image("#{$dark-icons}/icon_document_white.svg"),
+        download:                             inline-image("#{$dark-icons}/icon_download_white.svg"),
+        duplicate-window:                     inline-image("#{$dark-icons}/icon_duplicate_window_white.svg"),
+        edit:                                 inline-image("#{$dark-icons}/icon_edit_white.svg"),
+        ellipses:                             inline-image("#{$dark-icons}/icon_ellipsis_white.svg"),
+        exit:                                 inline-image("#{$dark-icons}/icon_exit_white.svg"),
+        expand-all:                           inline-image("#{$dark-icons}/icon_expand_all_white.svg"),
+        expand:                               inline-image("#{$dark-icons}/icon_expand_white.svg"),
+        export:                               inline-image("#{$dark-icons}/icon_export_white.svg"),
+        fast-forward:                         inline-image("#{$dark-icons}/icon_fast_forward_white.svg"),
+        fast-rewind:                          inline-image("#{$dark-icons}/icon_fast_rewind_white.svg"),
+        filter:                               inline-image("#{$dark-icons}/icon_filter_white.svg"),
+        fit-to-screen:                        inline-image("#{$dark-icons}/icon_fit_to_screen_white.svg"),
+        float:                                inline-image("#{$dark-icons}/icon_float_white.svg"),
+        folder:                               inline-image("#{$dark-icons}/icon_folder_white.svg"),
+        fullscreen-off:                       inline-image("#{$dark-icons}/icon_fullscreen_off_white.svg"),
+        fullscreen-on:                        inline-image("#{$dark-icons}/icon_fullscreen_on_white.svg"),
+        getting-started:                      inline-image("#{$dark-icons}/icon_getting_started_white.svg"),
+        graph:                                inline-image("#{$dark-icons}/icon_graph_white.svg"),
+        help:                                 inline-image("#{$dark-icons}/icon_help_white.svg"),
+        home:                                 inline-image("#{$dark-icons}/icon_home_white.svg"),
+        import:                               inline-image("#{$dark-icons}/icon_import_white.svg"),
+        information:                          inline-image("#{$dark-icons}/icon_information_white.svg"),
+        instrument-available:                 inline-image("#{$dark-icons}/icon_instrument_available_white.svg"),
+        instrument-not-available:             inline-image("#{$dark-icons}/icon_instrument_not_available_white.svg"),
+        keyboard:                             inline-image("#{$dark-icons}/icon_keyboard_white.svg"),
+        license:                              inline-image("#{$dark-icons}/icon_license_white.svg"),
+        lightning-bolt:                       inline-image("#{$dark-icons}/icon_lightning_bolt_white.svg"),
+        link-selector:                        inline-image("#{$dark-icons}/icon_link_selector_white.svg"),
+        locked:                               inline-image("#{$dark-icons}/icon_locked_white.svg"),
+        marker:                               inline-image("#{$dark-icons}/icon_marker_white.svg"),
+        marker-hide-all:                      inline-image("#{$dark-icons}/icon_marker_hide_all_white.svg"),
+        marker-peak-higher:                   inline-image("#{$dark-icons}/icon_marker_peak_higher_white.svg"),
+        marker-peak-left:                     inline-image("#{$dark-icons}/icon_marker_peak_left_white.svg"),
+        marker-peak-lower:                    inline-image("#{$dark-icons}/icon_marker_peak_lower_white.svg"),
+        marker-peak-minimum:                  inline-image("#{$dark-icons}/icon_marker_peak_minimum_white.svg"),
+        marker-peak-right:                    inline-image("#{$dark-icons}/icon_marker_peak_right_white.svg"),
+        marker-peak-search:                   inline-image("#{$dark-icons}/icon_marker_peak_search_white.svg"),
+        menu:                                 inline-image("#{$dark-icons}/icon_menu_white.svg"),
+        minus:                                inline-image("#{$dark-icons}/icon_minus_white.svg"),
+        mobile-base-station:                  inline-image("#{$dark-icons}/icon_mobile_base_station_white.svg"),
+        mobile-station:                       inline-image("#{$dark-icons}/icon_mobile_station_white.svg"),
+        multi-window-arrange:                 inline-image("#{$dark-icons}/icon_multi_window_arrange_white.svg"),
+        network-connection:                   inline-image("#{$dark-icons}/icon_network_connection_white.svg"),
+        new-document:                         inline-image("#{$dark-icons}/icon_new_document_white.svg"),
+        new-folder:                           inline-image("#{$dark-icons}/icon_new_folder_white.svg"),
+        new-library-file:                     inline-image("#{$dark-icons}/icon_new_library_file_white.svg"),
+        next:                                 inline-image("#{$dark-icons}/icon_next_white.svg"),
+        not-pinned:                           inline-image("#{$dark-icons}/icon_not_pinned_white.svg"),
+        notification-badge:                   inline-image("#{$dark-icons}/icon_notification_badge_white.svg"),
+        notification-badge-large:             inline-image("#{$dark-icons}/icon_notification_badge_large_white.svg"),
+        notification:                         inline-image("#{$dark-icons}/icon_notification_white.svg"),
+        notification-error-list:              inline-image("#{$dark-icons}/icon_notification_error_list_white.svg"),
+        numberpad:                            inline-image("#{$dark-icons}/icon_numberpad_white.svg"),
+        open-file:                            inline-image("#{$dark-icons}/icon_open_file_white.svg"),
+        open-lab-setup:                       inline-image("#{$dark-icons}/icon_open_lab_setup_white.svg"),
+        orientation-xy:                       inline-image("#{$dark-icons}/icon_orientation_xy_white.svg"),
+        orientation-xz:                       inline-image("#{$dark-icons}/icon_orientation_xz_white.svg"),
+        orientation-yz:                       inline-image("#{$dark-icons}/icon_orientation_yz_white.svg"),
+        output:                               inline-image("#{$dark-icons}/icon_output_white.svg"),
+        page-down:                            inline-image("#{$dark-icons}/icon_page_down_white.svg"),
+        page-up:                              inline-image("#{$dark-icons}/icon_page_up_white.svg"),
+        paste:                                inline-image("#{$dark-icons}/icon_paste_white.svg"),
+        pause:                                inline-image("#{$dark-icons}/icon_pause_white.svg"),
+        pinned:                               inline-image("#{$dark-icons}/icon_pinned_white.svg"),
+        play-beginning:                       inline-image("#{$dark-icons}/icon_play_beginning_white.svg"),
+        play-end:                             inline-image("#{$dark-icons}/icon_play_end_white.svg"),
+        play-with_debug:                      inline-image("#{$dark-icons}/icon_play_with_debug_white.svg"),
+        plus:                                 inline-image("#{$dark-icons}/icon_plus_white.svg"),
+        pointer:                              inline-image("#{$dark-icons}/icon_pointer_white.svg"),
+        presets-menu:                         inline-image("#{$dark-icons}/icon_presets_menu_white.svg"),
+        previous:                             inline-image("#{$dark-icons}/icon_previous_white.svg"),
+        print:                                inline-image("#{$dark-icons}/icon_print_white.svg"),
+        property-panel:                       inline-image("#{$dark-icons}/icon_property_panel_white.svg"),
+        radiation-pattern:                    inline-image("#{$dark-icons}/icon_radiation_pattern_white.svg"),
+        recent:                               inline-image("#{$dark-icons}/icon_recent_white.svg"),
+        recording-full-time:                  inline-image("#{$dark-icons}/icon_recording_full_time_white.svg"),
+        recording-loop-at-end:                inline-image("#{$dark-icons}/icon_recording_loop_at_end_white.svg"),
+        recording-set-start:                  inline-image("#{$dark-icons}/icon_recording_set_start_white.svg"),
+        recording-set-stop:                   inline-image("#{$dark-icons}/icon_recording_set_stop_white.svg"),
+        redo:                                 inline-image("#{$dark-icons}/icon_redo_white.svg"),
+        refresh:                              inline-image("#{$dark-icons}/icon_refresh_white.svg"),
+        rf-emitting:                          inline-image("#{$dark-icons}/icon_rf_emitting_white.svg"),
+        save-as:                              inline-image("#{$dark-icons}/icon_save_as_white.svg"),
+        save:                                 inline-image("#{$dark-icons}/icon_save_white.svg"),
+        search:                               inline-image("#{$dark-icons}/icon_search_white.svg"),
+        select-area:                          inline-image("#{$dark-icons}/icon_select_area_white.svg"),
+        self-diagnostic:                      inline-image("#{$dark-icons}/icon_self_diagnostic_white.svg"),
+        settings-repair:                      inline-image("#{$dark-icons}/icon_settings_repair_white.svg"),
+        sound:                                inline-image("#{$dark-icons}/icon_sound_white.svg"),
+        sound-muted:                          inline-image("#{$dark-icons}/icon_sound_muted_white.svg"),
+        sweep-continuous:                     inline-image("#{$dark-icons}/icon_sweep_continuous_white.svg"),
+        sweep-single:                         inline-image("#{$dark-icons}/icon_sweep_single_white.svg"),
+        sync:                                 inline-image("#{$dark-icons}/icon_sync_white.svg"),
+        time-gate:                            inline-image("#{$dark-icons}/icon_time_gate_white.svg"),
+        tools:                                inline-image("#{$dark-icons}/icon_tools_white.svg"),
+        trash-can:                            inline-image("#{$dark-icons}/icon_trash_can_white.svg"),
+        undo:                                 inline-image("#{$dark-icons}/icon_undo_white.svg"),
+        unlocked:                             inline-image("#{$dark-icons}/icon_unlocked_white.svg"),
+        update-firmware:                      inline-image("#{$dark-icons}/icon_update_firmware_white.svg"),
+        updates-check-for:                    inline-image("#{$dark-icons}/icon_updates_check_for_white.svg"),
+        USB:                                  inline-image("#{$dark-icons}/icon_USB_white.svg"),
+        use-tabbed-dialog:                    inline-image("#{$dark-icons}/icon_use_tabbed_dialog_white.svg"),
+        user-profile:                         inline-image("#{$dark-icons}/icon_user_profile_white.svg"),
+        web-link:                             inline-image("#{$dark-icons}/icon_web_link_white.svg"),
+        window-close:                         inline-image("#{$dark-icons}/icon_window_close_white.svg"),
+        window-maximize:                      inline-image("#{$dark-icons}/icon_window_maximize_white.svg"),
+        window-minimize:                      inline-image("#{$dark-icons}/icon_window_minimize_white.svg"),
+        window-restore:                       inline-image("#{$dark-icons}/icon_window_restore_white.svg"),
+        x-times-fast-forward:                 inline-image("#{$dark-icons}/icon_x_times_fast_forward_white.svg"),
+        x-times-fast-rewind:                  inline-image("#{$dark-icons}/icon_x_times_fast_rewind_white.svg"),
+        zoom-in:                              inline-image("#{$dark-icons}/icon_zoom_in_white.svg"),
+        zoom-out:                             inline-image("#{$dark-icons}/icon_zoom_out_white.svg"),
+
+
+
+        // *** Colored (non monochrome) icons have their own alpha sorted list
+
+        condition-ok:                         inline-image("#{$icons}/icon_condition_ok_colored.svg"),
+        cumulative-history:                   inline-image("#{$icons}/icon_cumulative_history_colored.svg"),
+        delete:                               inline-image("#{$icons}/icon_delete_colored.svg"),
+        digital-persistence:                  inline-image("#{$icons}/icon_digital_persistence_colored.svg"),
+        error:                                inline-image("#{$icons}/icon_error_colored.svg"),
+        play:                                 inline-image("#{$icons}/icon_play_colored.svg"),
+        record:                               inline-image("#{$icons}/icon_record_colored.svg"),
+        spectogram:                           inline-image("#{$icons}/icon_spectogram_colored.svg"),
+        status-okay:                          inline-image("#{icons}/icon_status_okay_colored.svg"),
+        stop:                                 inline-image("#{$icons}/icon_stop_colored.svg"),
+        warning:                              inline-image("#{$icons}/icon_warning_colored.svg"),
+
+
+
+        // *** Logo/branding stuff deserves its own section. Let's not lose these uber important branded icons in the sea of general icons
+
         keysight-logo-icon:                   inline-image("#{$icons}/keysight-logo-icon.png"),
         keysight-logo:                        inline-image("#{$dark-icons}/keysight-logo.png"),
-        keysight-logo-signature:              inline-image("#{$dark-icons}/keysight-logo-signature.png"),
         keysight-logo-pathwave:               inline-image("#{$dark-icons}/keysight-logo-pathwave.svg"),
-        close-x:                              inline-image("#{$icons}/close-x.png"),
-        close-x-hover:                        inline-image("#{$icons}/close-x.png"),
-        close-x-active:                       inline-image("#{$icons}/close-x.png"),
-        maximize:                             inline-image("#{$dark-icons}/maximize.png"),
-        minimize:                             inline-image("#{$dark-icons}/minimize.png"),
-        settings:                             inline-image("#{$dark-icons}/settings.svg"),
-        user-profile:                         inline-image("#{$dark-icons}/user_profile.svg"),
-        tools:                                inline-image("#{$dark-icons}/tools.svg"),
+        keysight-logo-signature:              inline-image("#{$dark-icons}/keysight-logo-signature.png"),
+
+
+
+        // *** JEFF_TODO Older icons need to be updated. Request svgs from icon team.
+
+        computer:                             inline-image("#{$dark-icons}/computer.svg"),
+
+
+
+        // *** Junk leftover from original UPro placehoder icons. Many/most are being used but need to be replaced with some official from Caranu/Alloy
 
         // Menus
         ph-menu-box:                          inline-image("#{$dark-icons}/ph-menu-box.png"),
@@ -346,26 +500,6 @@ $icon-pack: (
         caret-down-hover:                     inline-image("#{$dark-icons}/caret-down-hover.png"),
         caret-down-active:                    inline-image("#{$dark-icons}/caret-down-hover.png"),
         caret-down-alt-active:                inline-image("#{$icons}/caret-down-alt-active.png"),
-
-        // Quick Access Toolbar
-        folder:                               inline-image("#{$dark-icons}/folder.png"),
-        save:                                 inline-image("#{$dark-icons}/save.png"),
-        undo:                                 inline-image("#{$dark-icons}/undo.png"),
-        redo:                                 inline-image("#{$dark-icons}/redo.png"),
-        stop:                                 inline-image("#{$icons}/stop.png"),
-        play:                                 inline-image("#{$icons}/play.png"),
-        ellipses:                             inline-image("#{$dark-icons}/ellipses.png"),
-        download:                             inline-image("#{$dark-icons}/download.png"),
-        remove:                               inline-image("#{$dark-icons}/remove.png"),
-        target:                               inline-image("#{$dark-icons}/target.png"),
-        property:                             inline-image("#{$dark-icons}/property.png"),
-
-        // Input & Messaging
-        error:                                inline-image("#{$icons}/error.svg"),
-
-        // Messaging
-        information:                          inline-image("#{$dark-icons}/information.svg"),
-        warning:                              inline-image("#{$icons}/warning.svg"),
 
         // -- Checkboxes
         checkbox:                             inline-image("#{$dark-icons}/checkbox.png"),
@@ -395,14 +529,14 @@ $icon-pack: (
         panel-splitter-cursor-hover:          inline-image("#{$icons}/splitter-cursor.png"),
         panel-splitter-vertical-cursor-hover: inline-image("#{$icons}/splitter-vertical-cursor.png"),
 
-        // Property Grid
-        mag-glass:                            inline-image("#{$dark-icons}/mag-glass.svg"),
-        clear:                                inline-image("#{$icons}/clear.svg"),
-
         // Scrollbar
         scroll-caret-down:                    inline-image("#{$dark-icons}/scroll-caret-down.png"),
         scroll-caret-down-hover:              inline-image("#{$dark-icons}/scroll-caret-down-hover.png"),
         scroll-caret-down-active:             inline-image("#{$dark-icons}/scroll-caret-down-hover.png"),
+
+        remove:                               inline-image("#{$dark-icons}/remove.png"),
+        target:                               inline-image("#{$dark-icons}/target.png"),
+
 );
 
 @import "../components/_styles";

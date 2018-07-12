@@ -9,8 +9,8 @@
                         <input #textInputBox type="text" alloy
                                 formControlName="textfieldControlName"
                                 *ngIf="!params.node.data.readOnly"
-                                [class.has-error]="textfieldForm.controls['textfieldControlName'].errors" />
-                        <div class="alloy-ic-error" data-toggle="tooltip" title="{{messageTooltip}}"></div>
+                                [error]="textfieldForm.controls['textfieldControlName'].errors"
+                                [errorMessage]="messageTooltip"/>
                         <p class="ag-cell-readonly" *ngIf="params.node.data.readOnly">{{params.node.data.value}}</p>
                 </div>
         </div>

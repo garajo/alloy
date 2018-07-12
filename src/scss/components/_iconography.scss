@@ -2,76 +2,644 @@ $prefix: alloy-ic-;
 
 .#{$prefix} {
 
-  &tools {
-    // JEFF_TODO Should these icons really be 24pxs? Most of the Caranu spec says icons should be 16x16; especially for the titlebar area
-    $size: 24px;
+    // *** Just going to alpha sort all the new/updated icons. Easier to find things
 
-    display: inline-block;
-    @include size($size);
-
-    background: transparent map_get($icon-pack, tools) no-repeat center center / $size;
-  }
-
-  &computer {
-    // JEFF_TODO Should these icons really be 24pxs? Most of the Caranu spec says icons should be 16x16; especially for the titlebar area
-    $size: 24px;
-
-    display: inline-block;
-    @include size($size);
-
-    background: transparent map_get($icon-pack, computer) no-repeat center center / $size;
-  }
-
-  &edit {
-    $size: 16px;
-
-    display: inline-block;
-    @include size($size);
-
-    background: transparent map_get($icon-pack, edit) no-repeat center center / $size;
-  }
-
-  
-  
-  &ph-menu-box {
-    @include icon-base(ph-menu-box, 14px);
-
-    &.small {
-        $size: 11px;
-
-        @include size($size);
-
-        background-size: $size;
-    }
-  }
-
-  &ph-toolbar-box {
-    // This is just a sample icon but according to the Caranu spec pg. 45 it does look like toolbar icons should be 24x24 (image) but the target area for invocation (mouse hover, touch etc.) should be 48x48 (not visual)
-    $size: 24px;
-    @include icon-base(ph-toolbar-box, $size);
-
-    &.is-active {
-        background: transparent map_get($icon-pack, ph-toolbar-box-active) no-repeat center center / $size;
+    &add-bookmark {
+        @include icon-base(add-bookmark);
     }
 
-    &.small {
-        &,
-        &.is-active {
+    &bow-arrow-down {
+        @include icon-base(bow-arrow-down);
+    }
+
+    &bow-arrow-up {
+        @include icon-base(bow-arrow-down);
+        transform: rotate(180deg);
+    }
+
+    &autorange {
+        @include icon-base(autorange);
+    }
+
+    &autoscale-x {
+        @include icon-base(autoscale-x);
+    }
+
+    &autoscale-xy {
+        @include icon-base(autoscale-xy);
+    }
+
+    &autoscale-y {
+        @include icon-base(autoscale-y);
+    }
+
+    &back {
+        @include icon-base(back);
+    }
+
+    &backspace {
+        @include icon-base(backspace);
+    }
+
+    &band-power {
+        @include icon-base(band-power);
+    }
+
+    &base-station {
+        @include icon-base(base-station);
+    }
+
+    &bookmark {
+        @include icon-base(bookmark);
+    }
+
+    &calendar {
+        @include icon-base(calendar);
+    }
+
+    &channel-mode-selector {
+        @include icon-base(channel-mode-selector);
+    }
+
+    &chart-bubble{
+        @include icon-base(chart-bubble);
+    }
+
+    &chart-line {
+        @include icon-base(chart-line);
+    }
+
+    &chart-pareto {
+        @include icon-base(chart-pareto);
+    }
+
+    &chart-trend {
+        @include icon-base(chart-trend);
+    }
+
+    &close-file {
+        @include icon-base(close-file);
+    }
+
+    &collapse-all {
+        @include icon-base(collapse-all);
+    }
+
+    &collapse {
+        @include icon-base(collapse);
+    }
+
+    &condition-ok { // Single svg file with colored content
+        @include icon-base(condition-ok);
+    }
+
+    &copy {
+        @include icon-base(copy);
+    }
+
+    &cumulative-history { // Single svg file with colored content
+        @include icon-base(cumulative-history);
+    }
+
+    &cut {
+        @include icon-base(cut);
+    }
+
+    &data-from-hardware {
+        @include icon-base(data-from-hardware);
+    }
+
+    &data-from-recording {
+        @include icon-base(data-from-recording);
+    }
+
+    &debug {
+        @include icon-base(debug);
+    }
+
+    &delete { // Single svg file with colored content
+        @include icon-base(delete);
+    }
+
+    &digital-persistence { // Single svg file with colored content
+        @include icon-base(digital-persistence);
+    }
+
+    &disconnect {
+        @include icon-base(disconnect);
+    }
+
+    &dock {
+        @include icon-base(dock);
+    }
+
+    &document {
+        @include icon-base(document);
+    }
+
+    &download {
+        @include icon-base(download);
+    }
+
+    &duplicate-window {
+        @include icon-base(duplicate-window);
+    }
+
+    &edit {
+        @include icon-base(edit);
+    }
+
+    &ellipses {
+        @include icon-base(ellipses);
+    }
+
+    // JEFF_TODO Would like deprecate this error class/state. It's being used in AlloyDropDown and kcs-navbar but both those should be updated to use the new error directive approach
+    &error { // Single svg file with colored content
+        @include icon-base(error);
+        // This original class/style turned off its display until the error state was called for.
+        // It's still needed for now while we have an alloy-ic-error icon but we should look at consolidating this error and the next error-msg?
+        display: none;
+    }
+
+    // Why do we have 2 error classes/styles? This alternate one must be used by some consumer somewhere?
+    &error-msg { // Single svg file with colored content
+        @include icon-base(error);
+    }
+
+    &errorRight { // Single svg file with colored content
         $size: 16px;
-
-        @include size($size);
-
-        background: transparent map_get($icon-pack, ph-toolbar-box-active) no-repeat center center / $size;
-        }
+        background: transparent map_get($icon-pack, error) no-repeat center right / $size;
+        background-origin: content-box;
     }
-  }
 
-  &ph-spacer {
-    display: inline-block;
-    @include size(16px);
+    &exit {
+        @include icon-base(exit);
+    }
 
-    background-color: map_get($color-palette, style-guide-spacer-bg);
-  }
+    // JEFF_TODO Double chevron. Does this replace the existing "caret" pngs
+    &expand-all {
+        @include icon-base(expand-all);
+    }
+
+    // JEFF_TODO Single chevron. Does this replace the existing "caret" pngs
+    &expand {
+        @include icon-base(expand);
+    }
+
+    &export {
+        @include icon-base(export);
+    }
+
+    &fast-forward {
+        @include icon-base(fast-forward);
+    }
+
+    &fast-rewind {
+        @include icon-base(fast-rewind);
+    }
+
+    &filter {
+        @include icon-base(filter);
+    }
+
+    &fit-to-screen {
+        @include icon-base(fit-to-screen);
+    }
+
+    &float {
+        @include icon-base(float);
+    }
+
+    &folder {
+        @include icon-base(folder);
+    }
+
+    &fullscreen-off {
+        @include icon-base(fullscreen-off);
+    }
+
+    &fullscreen-on {
+        @include icon-base(fullscreen-on);
+    }
+
+    &getting-started {
+        @include icon-base(getting-started);
+    }
+
+    &graph {
+        @include icon-base(graph);
+    }
+
+    &help {
+        @include icon-base(help);
+    }
+
+    &home {
+        @include icon-base(home);
+    }
+
+    &information {
+        @include icon-base(information);
+    }
+
+    &import {
+        @include icon-base(import);
+    }
+
+    &instrument-available {
+        @include icon-base(instrument-available);
+    }
+
+    &instrument-not-available {
+        @include icon-base(instrument-not-available);
+    }
+
+    &keyboard {
+        @include icon-base(keyboard);
+    }
+
+    &license {
+        @include icon-base(license);
+    }
+
+    &lightning-bolt {
+        @include icon-base(lightning-bolt);
+    }
+
+    &link-selector {
+        @include icon-base(link-selector);
+    }
+
+    &locked {
+        @include icon-base(locked);
+    }
+
+    &marker {
+        @include icon-base(marker);
+    }
+
+    &marker-hide-all {
+        @include icon-base(marker-hide-all);
+    }
+
+    &marker-peak-higher {
+        @include icon-base(marker-peak-higher);
+    }
+
+    &marker-peak-left {
+        @include icon-base(marker-peak-left);
+    }
+
+    &marker-peak-lower {
+        @include icon-base(marker-peak-lower);
+    }
+
+    &marker-peak-minimum {
+        @include icon-base(marker-peak-minimum);
+    }
+
+    &marker-peak-right {
+        @include icon-base(marker-peak-right);
+    }
+
+    &marker-peak-search {
+        @include icon-base(marker-peak-search);
+    }
+
+    &menu {
+        // JEFF_TODO Should these icons really be 24pxs? Most of the Caranu spec says icons should be 16x16; especially for the titlebar area
+        // The answer is "I think so"; at least those icons that show up on a toolbar the Caranu spec calls for 24x24; as opposed to title/header icons which are the default 16x16
+        // This guy is the hamburger menu icon; responsive menu when things get squished
+        @include icon-base(menu, 24px);
+    }
+
+    &minus{
+        @include icon-base(minus);
+    }
+
+    &mobile-base-station {
+        @include icon-base(mobile-base-station);
+    }
+
+    &mobile-station {
+        @include icon-base(mobile-station);
+    }
+
+    &multi-window-arrange {
+        @include icon-base(multi-window-arrange);
+    }
+
+    &network-connection {
+        @include icon-base(network-connection);
+    }
+
+    &new-document {
+        @include icon-base(new-document);
+    }
+
+    &new-folder {
+        @include icon-base(new-folder);
+    }
+
+    &new-library-file {
+        @include icon-base(new-library-file);
+    }
+
+    &next {
+        @include icon-base(next);
+    }
+
+    &not-pinned {
+        @include icon-base(not-pinned);
+    }
+
+    &notification-badge {
+        @include icon-base(notification-badge);
+    }
+
+    &notification-badge-large {
+        @include icon-base(notification-badge-large);
+    }
+
+    &notification {
+        @include icon-base(notification);
+    }
+
+    &notification-error-list {
+        @include icon-base(notification-error-list);
+    }
+
+    &numberpad {
+        @include icon-base(numberpad);
+    }
+
+    &open-file {
+        @include icon-base(open-file);
+    }
+
+    &open-lab-setup {
+        @include icon-base(open-lab-setup);
+    }
+
+    &orientation-xy {
+        @include icon-base(orientation-xy);
+    }
+
+    &orientation-xz {
+        @include icon-base(orientation-xz);
+    }
+
+    &output {
+        @include icon-base(output);
+    }
+
+    &page-down {
+        @include icon-base(page-down);
+    }
+
+    &page-up {
+        @include icon-base(page-up);
+    }
+
+    &paste {
+        @include icon-base(paste);
+    }
+
+    &pause {
+        @include icon-base(pause);
+    }
+
+    &pinned {
+        @include icon-base(pinned);
+    }
+
+    &play {
+        @include icon-base(play);
+    }
+
+    &play-beginning {
+        @include icon-base(play-beginning);
+    }
+
+    &play-end {
+        @include icon-base(play-end);
+    }
+
+    &play-with-debug {
+        @include icon-base(play-with-debug);
+    }
+
+    &plus {
+        @include icon-base(plus);
+    }
+
+    &pointer {
+        @include icon-base(pointer);
+    }
+
+    &presets-menu {
+        @include icon-base(presets-menu);
+    }
+
+    &previous {
+        @include icon-base(previous);
+    }
+
+    &print {
+        @include icon-base(print);
+    }
+
+    &property-panel {
+        @include icon-base(property-panel);
+    }
+
+    &radiation-pattern {
+        @include icon-base(radiation-pattern);
+    }
+
+    &recent {
+        @include icon-base(recent);
+    }
+
+    &record { // Single svg file with colored content
+        @include icon-base(record);
+    }
+
+    &recording-full-time {
+        @include icon-base(recording-full-time);
+    }
+
+    &recording-loop-at-end {
+        @include icon-base(recording-loop-at-end);
+    }
+
+    &recording-set-start {
+        @include icon-base(recording-set-start);
+    }
+
+    &recording-set-stop {
+        @include icon-base(recording-set-stop);
+    }
+
+    &redo {
+        @include icon-base(redo);
+    }
+
+    &refresh {
+        @include icon-base(refresh);
+    }
+
+    &rf-emitting {
+        @include icon-base(rf-emitting);
+    }
+
+    &save-as {
+        @include icon-base(save-as);
+    }
+
+    &save {
+        @include icon-base(save);
+    }
+
+    //&mag-glass, // This old name has been deprecated
+    &search {
+        @include icon-base(search);
+    }
+
+    &select-area {
+        @include icon-base(select-area);
+    }
+
+    &self-diagnostic {
+        @include icon-base(self-diagnostic);
+    }
+
+    &settings-repair {
+        @include icon-base(settings-repair);
+    }
+
+    &sound {
+        @include icon-base(sound);
+    }
+
+    &sound-muted {
+        @include icon-base(sound-muted);
+    }
+
+    &spectogram { // Single svg file with colored content
+        @include icon-base(spectogram);
+    }
+
+    &status-okay { // Single svg file with colored content
+        @include icon-base(status-okay);
+    }
+
+    &stop {
+        @include icon-base(stop);
+    }
+
+    &sweep-continuous {
+        @include icon-base(sweep-continuous);
+    }
+
+    &sweep-single {
+        @include icon-base(sweep-single);
+    }
+
+    &sync {
+        @include icon-base(sync);
+    }
+
+    &time-gate {
+        @include icon-base(time-gate);
+    }
+
+    //&settings, //This old/incorrect name has been deprecated. Settings icon was added but people didn't notice it already existed in the correctly names tools icon
+    &tools {
+        // JEFF_TODO Should these icons really be 24pxs? Most of the Caranu spec says icons should be 16x16; especially for the titlebar area
+        // The answer is "I think so"; at least those icons that show up on a toolbar the Caranu spec calls for 24x24; as opposed to title/header icons which are the default 16x16
+        @include icon-base(tools, 24px);
+    }
+
+    //&delete-trash-can, // This old name has been deprecated
+    &trash-can {
+        @include icon-base(trash-can);
+    }
+
+    &undo {
+        @include icon-base(undo);
+    }
+
+    &unlocked {
+        @include icon-base(unlocked);
+    }
+
+    &update-firmware {
+        @include icon-base(update-firmware);
+    }
+
+    &updates-check-for {
+        @include icon-base(updates-check-for);
+    }
+
+    &USB {
+        @include icon-base(USB);
+    }
+
+    &use-tabbed-dialog {
+        @include icon-base(use-tabbed-dialog);
+    }
+
+    &user-profile {
+        @include icon-base(user-profile);
+    }
+
+    &warning { // Single svg file with colored content
+        @include icon-base(warning);
+    }
+
+    &web-link {
+        @include icon-base(web-link);
+    }
+
+    // &close-x,   // This old name has been deprecated
+    &window-close {
+        @include icon-base(window-close);
+    }
+
+    //&maximize,  // This old name has been deprecated
+    &window-maximize {
+        @include icon-base(window-maximize);
+    }
+
+    //&minimize, // This old name has been deprecated
+    &window-minimize {
+        @include icon-base(window-minimize);
+    }
+
+    &window-restore {
+        @include icon-base(window-restore);
+    }
+
+    &x-times-fast-forward {
+        @include icon-base(x-times-fast-forward);
+    }
+
+    &x-times-fast-rewind {
+        @include icon-base(x-times-fast-rewind);
+    }
+
+    &zoom-in {
+        @include icon-base(zoom-in);
+    }
+
+    &zoom-out {
+        @include icon-base(zoom-out);
+    }
+
+
+
+  // *** Logo/branding stuff deserves its own section. Let's not lose these uber important branded icons in the sea of general icons
 
   // This is a new branding logo class that exposes the existing red wave icon by itself: as such I'm going to use the correct Caranu spec sizes
   // Since this is a new class; we have the advantage to snap it to the naming scheme. If Alloy adopters just want the Keysight red wave icon here it is.
@@ -127,54 +695,58 @@ $prefix: alloy-ic-;
     background: transparent map_get($icon-pack, keysight-logo-signature) no-repeat left center / $width $height;
   }
 
-  &close-x {
-    $size: 16px;
 
-    display: inline-block;
-    @include size($size);
 
-    background: transparent map_get($icon-pack, close-x) no-repeat center center / $size;
+  // *** JEFF_TODO Older icons need to be updated. Ask branding team to create svgs
 
-    &:hover {
-        background: transparent map_get($icon-pack, close-x-hover) no-repeat center center / $size;
-    }
+  &computer {
+    // JEFF_TODO Should these icons really be 24pxs? Most of the Caranu spec says icons should be 16x16; especially for the titlebar area
+    // The answer is "I think so"; at least those icons that show up on a toolbar the Caranu spec calls for 24x24; as opposed to title/header icons which are the default 16x16
+    @include icon-base(computer, 24px);
+  }
 
-    &:active,
-    &.is-active,
-    &:focus {
-        background: transparent map_get($icon-pack, close-x-active) no-repeat center center / $size;
+
+
+  // *** Junk leftover from original UPro placehoder icons. Many/most are being used but need to be replaced with some official from Caranu/Alloy
+
+  &ph-menu-box {
+    @include icon-base(ph-menu-box, 14px);
+
+    &.small {
+        $size: 11px;
+
+        @include size($size);
+
+        background-size: $size;
     }
   }
 
-  &maximize {
-    $size: 16px;
+  &ph-toolbar-box {
+    // This is just a sample icon but according to the Caranu spec pg. 45 it does look like toolbar icons should be 24x24 (image) but the target area for invocation (mouse hover, touch etc.) should be 48x48 (not visual)
+    $size: 24px;
+    @include icon-base(ph-toolbar-box, $size);
 
-    display: inline-block;
-    @include size($size);
+    &.is-active {
+        background: transparent map_get($icon-pack, ph-toolbar-box-active) no-repeat center center / $size;
+    }
 
-    &,
-    &:hover,
-    &:active,
-    &.is-active,
-    &:focus {
-        background: transparent map_get($icon-pack, maximize) no-repeat center center / $size;
+    &.small {
+        &,
+        &.is-active {
+        $size: 16px;
+
+        @include size($size);
+
+        background: transparent map_get($icon-pack, ph-toolbar-box-active) no-repeat center center / $size;
+        }
     }
   }
 
-  &minimize {
-    $width: 16px;
-    $height: 1px;
-
+  &ph-spacer {
     display: inline-block;
-    @include size($width, $height);
+    @include size(16px);
 
-    &,
-    &:hover,
-    &:active,
-    &.is-active,
-    &:focus {
-        background: transparent map_get($icon-pack, minimize) no-repeat bottom 8px center / $width $height;
-    }
+    background-color: map_get($color-palette, style-guide-spacer-bg);
   }
 
   &caret {
@@ -227,72 +799,6 @@ $prefix: alloy-ic-;
         background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $width $height;
         }
     }
-  }
-
-  &qa-toolbar {
-    $size: 16px;
-
-    display: block;
-    @include size($size);
-
-    &.folder {
-        background: transparent map_get($icon-pack, folder) no-repeat center center / 13px 17px;
-    }
-
-    &.save {
-        background: transparent map_get($icon-pack, save) no-repeat center center / 14px;
-    }
-
-    &.undo {
-        background: transparent map_get($icon-pack, undo) no-repeat center center / 15px 16px;
-    }
-
-    &.redo {
-        background: transparent map_get($icon-pack, redo) no-repeat center center / 15px 16px;
-    }
-
-    &.play {
-        background: transparent map_get($icon-pack, play) no-repeat center center / 12px 16px;
-    }
-
-    &.stop {
-        background: transparent map_get($icon-pack, stop) no-repeat center center / 14px;
-    }
-
-    &.ellipses {
-        background: transparent map_get($icon-pack, ellipses) no-repeat center center / 12px 2px;
-    }
-
-    &.download {
-        background: transparent map_get($icon-pack, download) no-repeat center center / 16px 15px;
-    }
-
-    &.remove {
-        background: transparent map_get($icon-pack, remove) no-repeat center center / 16px 15px;
-    }
-
-    &.target {
-        background: transparent map_get($icon-pack, target) no-repeat center center / 14px;
-    }
-
-    &.property {
-        background: transparent map_get($icon-pack, property) no-repeat center center / 16px;
-    }
-  }
-
-  &error {
-    $size: 16px;
-
-    display: none;
-    @include size($size);
-
-    background: transparent map_get($icon-pack, error) no-repeat center center / $size;
-  }
-
-  &errorRight {
-    $size: 16px;
-    background: transparent map_get($icon-pack, error) no-repeat center right / $size;
-    background-origin: content-box;
   }
 
   &check {
@@ -354,72 +860,12 @@ $prefix: alloy-ic-;
     }
   }
 
-  &mag-glass {
-    @include icon-base(mag-glass);
+  &remove {
+    @include icon-base(remove);
   }
 
-  &clear {
-    @include icon-base(clear);
+  &target {
+    @include icon-base(target);
   }
 
-  &delete {
-    @include icon-base(delete);
-  }
-
-  &error-msg {
-    @include icon-base(error);
-  }
-
-  &warning {
-    @include icon-base(warning);
-  }
-
-  &information {
-    @include icon-base(information);
-  }
-
-  &settings {
-        @include icon-base(settings);
-  }
-
-  &user-profile {
-        @include icon-base(user-profile);
-  }
-  
-  &delete-trash-can {
-    @include icon-base(delete-trash-can, 16px);
-  }
-
-  &copy {
-    @include icon-base(copy, 16px);
-  }
-
-  &filter {
-    @include icon-base(filter, 16px);
-  }
-
-  &bow-arrow-up {
-    @include icon-base(bow-arrow-down, 16px);
-    transform: rotate(180deg);
-  }
-
-  &bow-arrow-down {
-    @include icon-base(bow-arrow-down, 16px);
-  }
-
-  &settings-repair {
-    @include icon-base(settings-repair);
-  }
-
-  &multi-window-arrange {
-    @include icon-base(multi-window-arrange);
-  }
-
-  &locked {
-    @include icon-base(locked);
-  }
-
-  &refresh {
-    @include icon-base(refresh);
-  }
 }

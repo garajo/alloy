@@ -7,27 +7,26 @@ declare function require(name: string): string;
 })
 export class ButtonPageComponent {
 
-    disabledDefault = false;    
+    disabledDefault = false;
     disabledStandard = false;
-    disabledQuickAccess = false;    
+    disabledQuickAccess = false;
     disabledToolbar = false;
     clickedStandard = false;
-    clickedDefault = false;      
+    clickedDefault = false;
     clickedToolbar = false;
     clickedQuickAccess = false;
     hoveredStandard = false;
-    hoveredDefault = false; 
-    hoveredToolbar = false;    
-    hoveredQuickAccess = false;    
+    hoveredDefault = false;
+    hoveredToolbar = false;
+    hoveredQuickAccess = false;
     placeholder = 'This is a button';
-    iconSrc = '../../assets/userProfLogo.png';
-    
+
     constructor() { }
 
     toggleDisabledDefault() {
         this.disabledDefault = !this.disabledDefault;
     }
-    
+
     toggleDisabledStandard() {
         this.disabledStandard = !this.disabledStandard;
     }

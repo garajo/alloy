@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" width="32" height="32" viewBox="0 0 32.00 32.00" enable-background="new 0 0 32.00 32.00" xml:space="preserve">
+	<rect x="3.44197" y="9.07887" fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#000000" stroke-opacity="1" width="25.058" height="13.9211"/>
+	<path fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#000000" stroke-opacity="1" d="M 5.29812,10.935C 5.29812,12.3074 5.29812,19.7716 5.29812,21.1438C 6.50834,21.1438 16.1529,21.1438 17.3631,21.1438C 17.3631,19.7716 17.3631,12.3074 17.3631,10.935C 16.1529,10.935 6.50834,10.935 5.29812,10.935 Z "/>
+	<path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 24.3237,10.935L 27.1079,10.935L 27.1079,13.7192L 24.3237,13.7192L 24.3237,10.935"/>
+	<path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 24.3237,15.1114L 27.1079,15.1114L 27.1079,17.8956L 24.3237,17.8956L 24.3237,15.1114"/>
+	<path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 23.3956,18.8237C 24.164,18.8237 24.7877,19.4473 24.7877,20.2158C 24.7877,20.9842 24.164,21.6079 23.3956,21.6079C 22.6272,21.6079 22.0035,20.9842 22.0035,20.2158C 22.0035,19.4473 22.6272,18.8237 23.3956,18.8237"/>
+	<path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 19.6833,10.935L 22.4675,10.935L 22.4675,13.7192L 19.6833,13.7192L 19.6833,10.935"/>
+	<path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 19.6833,15.1114L 22.4675,15.1114L 22.4675,17.8956L 19.6833,17.8956L 19.6833,15.1114"/>
+	<line fill="none" stroke-width="3" stroke-linejoin="miter" stroke="#ED2726" stroke-opacity="1" x1="7.06831" y1="6.25504" x2="24.9325" y2="25.745"/>
+	<line fill="none" stroke-width="3" stroke-linejoin="miter" stroke="#ED2726" stroke-opacity="1" x1="24.9317" y1="6.25504" x2="7.06749" y2="25.745"/>
+</svg>

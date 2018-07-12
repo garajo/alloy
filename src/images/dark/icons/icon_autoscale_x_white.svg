@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" width="32" height="32" viewBox="0 0 32.00 32.00" enable-background="new 0 0 32.00 32.00" xml:space="preserve">
+	<path fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" d="M 23.0635,13.9312L 23.0635,16.1025L 23.0635,18.0689L 23.0635,20.0178L 24.6772,18.9254L 27.735,16.8566L 29.0001,16.0001L 27.735,15.1436L 24.6772,13.0747L 23.0635,11.9823L 23.0635,13.9312 Z "/>
+	<line fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" x1="23.5343" y1="16.0001" x2="19.1033" y2="16.0001"/>
+	<path fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" d="M 8.93652,11.9823L 7.32281,13.0747L 4.26505,15.1436L 2.99992,16.0001L 4.26505,16.8566L 7.32281,18.9254L 8.93652,20.0178L 8.93652,18.0689L 8.93652,16.1025L 8.93652,13.9312L 8.93652,11.9823 Z "/>
+	<line fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" x1="8.46574" y1="16.0001" x2="12.8967" y2="16.0001"/>
+</svg>

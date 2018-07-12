@@ -27,7 +27,6 @@ export class CheckboxPageComponent implements OnInit {
     size = 14; // Default checkbox size based on Caranu style guide.
     errorMessage = 'Validation errors in checkbox';
     placeholder = 'Checkbox';
-    iconSrc = '../../assets/userProfLogo.png';
 
     @ViewChild('focusCheckBox') focusCheckBox: FocusableOption;
 

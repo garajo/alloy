@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" width="32" height="32" viewBox="0 0 32.00 32.00" enable-background="new 0 0 32.00 32.00" xml:space="preserve">
+	<path fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" d="M 24.5211,8.6003L 18.4207,2.50002L 4.49996,2.50002L 4.4999,25.5L 24.521,25.5L 24.5211,8.6003 Z "/>
+	<path fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" d="M 18.4207,2.50002L 18.4207,8.6003L 24.3495,8.6003"/>
+	<line fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" x1="7.68394" y1="6.46527" x2="15.9304" y2="6.46527"/>
+	<line fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" x1="7.69439" y1="6.45482" x2="15.9409" y2="6.45482"/>
+	<line fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" x1="7.69439" y1="8.98538" x2="15.9409" y2="8.98538"/>
+	<line fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" x1="7.69439" y1="11.516" x2="22.0412" y2="11.516"/>
+	<line fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" x1="7.69439" y1="14.0467" x2="22.0412" y2="14.0467"/>
+	<line fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" x1="7.69439" y1="16.5773" x2="22.0412" y2="16.5773"/>
+	<line fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" x1="7.69439" y1="19.1079" x2="22.0412" y2="19.1079"/>
+	<line fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" x1="7.69439" y1="21.6385" x2="22.0412" y2="21.6385"/>
+	<path fill="#ED1C24" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 29,24.4932C 29,27.5165 26.5491,29.9674 23.5258,29.9674C 20.5025,29.9674 18.0515,27.5165 18.0515,24.4932C 18.0515,21.4698 20.5025,19.019 23.5258,19.019C 26.5491,19.019 29,21.4698 29,24.4932 Z "/>
+</svg>

@@ -269,7 +269,7 @@ button {
 }
 
 .button-close-x {
-  @extend .alloy-ic-close-x;
+  @extend .alloy-ic-window-close;
 
   &:hover {
     background-color: map_get($color-palette, button-close-x-hover-bg);
@@ -284,11 +284,11 @@ button {
 }
 
 .button-maximize {
-  @extend .alloy-ic-maximize;
+  @extend .alloy-ic-window-maximize;
 }
 
 .button-minimize {
-  @extend .alloy-ic-minimize;
+  @extend .alloy-ic-window-minimize;
 }
 
 .button-maximize,

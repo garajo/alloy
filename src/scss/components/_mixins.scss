@@ -113,11 +113,21 @@
 }
 
 // Base formating for iconography classes
-@mixin icon-base($name, $size: 20px) {
+// Why was the default set to 20px? I see exactly zero spots in the Caranu spec calling for a 20x20px icons.
+// There is only 16x16 (most) and as an alternate 24x24(usually only in toolbars and tab icons)
+// Consumers will have to derive/tweak if they want some other non Caranu size
+@mixin icon-base($name, $size: 16px) {
   display: inline-block;
   @include size($size);
 
   background: transparent map-get($icon-pack, $name) no-repeat center center / $size;
+}
+
+@mixin icon-base-non-uniform($name, $width, $height) {
+  display: inline-block;
+  @include size($width, $height);
+
+  background: transparent map-get($icon-pack, $name) no-repeat center center / $width $height;
 }
 
 // Mixin to abstract the responsive logo behavior; assume your "logo" experience consists of an icon to the left + some other UI to the right (usually text in the form of an image as well)

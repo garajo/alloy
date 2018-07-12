@@ -7,7 +7,6 @@ declare function require(name: string): string;
 })
 export class DropdownsPageComponent implements OnInit {
     private id = 0;
-    public profImage = require('../../../assets/userProfLogo.png');
 
     selectedValue: string;
     alt_selectedValue: string;

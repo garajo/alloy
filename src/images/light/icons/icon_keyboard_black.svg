@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" width="32" height="32" viewBox="0 0 32.00 32.00" enable-background="new 0 0 32.00 32.00" xml:space="preserve">
+	<rect x="4.83503" y="11.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="7.83498" y="11.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="10.835" y="11.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="13.8349" y="11.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="16.835" y="11.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="19.835" y="11.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="22.8349" y="11.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="25.8351" y="11.8351" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="4.83506" y="14.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="7.83503" y="14.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="10.8351" y="14.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="13.835" y="14.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="16.8349" y="14.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="19.835" y="14.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="22.8351" y="14.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="25.835" y="14.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="4.83519" y="18.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<rect x="7.99998" y="18.8351" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="16" height="1.33"/>
+	<rect x="25.835" y="18.835" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="1.33" height="1.33"/>
+	<path fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#000000" stroke-opacity="1" d="M 29.5002,23.5015L 2.50008,23.5013L 2.50008,8.50128L 29.5002,8.50146L 29.5002,23.5015 Z "/>
+</svg>

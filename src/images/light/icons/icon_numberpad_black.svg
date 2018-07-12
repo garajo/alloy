@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" width="32" height="32" viewBox="0 0 32.00 32.00" enable-background="new 0 0 32.00 32.00" xml:space="preserve">
+	<g>
+		<g>
+			<rect x="8.00003" y="23" fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="10" height="3.99998"/>
+			<path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 24,27L 20,27L 20,23L 24,23L 24,27 Z "/>
+			<path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 24,21L 20,21L 20,17L 24,17L 24,21 Z "/>
+			<path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 18,21L 14,21L 14,17L 18,17L 18,21 Z "/>
+			<path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 24,15L 20,15L 20,11L 24,11L 24,15 Z "/>
+			<path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 18,15L 14,15L 14,11L 18,11L 18,15 Z "/>
+			<path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 24,9.00004L 20,9L 20,5.00002L 24,5.00002L 24,9.00004 Z "/>
+			<path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 18,9.00004L 14,9L 14,5.00002L 18,5.00002L 18,9.00004 Z "/>
+			<path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 12,21L 8.00002,21L 8.00002,17L 12,17L 12,21 Z "/>
+			<path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 12,15L 8.00002,15L 8.00002,11L 12,11L 12,15 Z "/>
+			<path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 12,9.00004L 8.00002,9L 8.00002,5.00002L 12,5.00002L 12,9.00004 Z "/>
+		</g>
+		<rect x="5.49997" y="2.49998" fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#000000" stroke-opacity="1" width="21" height="27"/>
+	</g>
+</svg>

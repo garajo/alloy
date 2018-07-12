@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" width="32" height="32" viewBox="0 0 32.00 32.00" enable-background="new 0 0 32.00 32.00" xml:space="preserve">
+	<g>
+		<path fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" d="M 2.50008,14.5L 29.5,14.5L 29.5,29.5L 2.50002,29.5L 2.50008,14.5 Z "/>
+		<path fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" d="M 4.50016,16.5C 4.50016,17.9782 4.5001,26.0218 4.5001,27.5C 5.80417,27.5 16.1961,27.5 17.5001,27.5C 17.5001,26.0218 17.5002,17.9782 17.5002,16.5C 16.1962,16.5 5.80424,16.5 4.50016,16.5 Z "/>
+	</g>
+	<rect x="25" y="16.5" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="3" height="3"/>
+	<rect x="25" y="21" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="3" height="3"/>
+	<ellipse fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" cx="24" cy="26.5" rx="1.5" ry="1.5"/>
+	<rect x="20" y="16.5" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="3" height="3"/>
+	<rect x="20" y="21" fill="#FFFFFF" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" width="3" height="3"/>
+	<line fill="none" stroke-width="1.33" stroke-linejoin="miter" stroke="#00C800" stroke-opacity="1" x1="15.5" y1="13" x2="15.5" y2="7.54531"/>
+	<path fill="#00C800" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 19.5,8.63626L 15.5,2.09081L 11.5,8.63626L 19.5,8.63626 Z "/>
+</svg>

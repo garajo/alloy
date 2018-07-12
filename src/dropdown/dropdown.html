@@ -42,7 +42,7 @@
         <ul class="menu vertical">
             <div *ngIf="filterable" class="search-container">
                 <input type="text" class="alloy-input dropdown-filter" placeholder="Search" (keyup)="onFilterKeyUp($event)" #filterInput>
-                <span class="alloy-ic-mag-glass"></span>
+                <span class="alloy-ic-search"></span>
                 <li *ngIf="noMatch" class="no-match"><a>No match found!</a></li>
             </div>
             <ng-content></ng-content>

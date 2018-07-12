@@ -92,18 +92,38 @@ export class AlloyCheckboxDirective extends ErrorDirective implements AfterViewI
     /**
      * Source of the img label
      */
-    private iconSource?: string;
+    private imageSource?: string;
     /**
      * Sets an image 'label' for the checkbox, equivalent of <img src=>
      */
-    @Input() set icon(value: string) {
-        this.iconSource = value;
+    @Input() set image(value: string) {
+        this.imageSource = value;
         this.reconstructor();
     }
     /**
      * Returns the current checkbox image label if one exists.
      */
-    get icon() { return this.iconSource; }
+    get image() { return this.imageSource; }
+
+    /**
+     * Class representing the img label
+     */
+    private iconClass?: string;
+    /**
+     * Sets an image 'label' for the checkbox, equivalent of <img class="alloy-ic-*">
+     */
+    @Input() set icon(value: string) {
+        // Cleanup an existing class if one exists
+        if (this.img) {
+            this.renderer.removeClass(this.img, this.iconClass);
+        }
+        this.iconClass = value;
+        this.reconstructor();
+    }
+    /**
+     * Returns the current checkbox image label if one exists.
+     */
+    get icon() { return this.iconClass; }
 
     /**
      * Element holding the image label if imageSource exists.
@@ -183,23 +203,30 @@ export class AlloyCheckboxDirective extends ErrorDirective implements AfterViewI
         this.renderer.setStyle(this.actualCheckbox, 'background-size', this._size + 'px');
         let margin = -this._size;
 
-        if (this.labelString || this.iconSource) {
+        if (this.labelString || this.iconClass) {
             margin += 10;   // caranu spacing for a label/img
         }
 
         this.renderer.setStyle(this.actualCheckbox, 'margin-right', margin + 'px');
 
-        if (this.iconSource) {
+        if (this.iconClass || this.imageSource) {
             if (!this.img) {
-                this.img = this.renderer.createElement('img');
-                this.renderer.setAttribute(this.img, 'src', this.iconSource);
+                this.img = this.renderer.createElement('i');
                 this.renderer.addClass(this.img, 'has-icon');
                 this.renderer.appendChild(this.parent, this.img);
             }
-            this.renderer.setAttribute(this.img, 'src', this.iconSource);
+
+            if (this.imageSource) {
+                this.renderer.setStyle(this.img, 'background', `url(${this.iconClass})`);
+            }
+
+            if (this.iconClass) {
+                // prior class removal handled by setter
+                this.renderer.addClass(this.img, this.iconClass);
+            }
 
             if (this.labelString) {
-                this.renderer.setStyle(this.img, 'margin-right', '10px');
+                this.renderer.setStyle(this.img, 'margin-right', '10px');   // TODO: AJM: This must go
             }
         } else if (this.img) {
             this.renderer.removeChild(this.parent, this.img);

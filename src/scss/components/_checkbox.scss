@@ -20,10 +20,9 @@
 
     margin: 0;
     position: relative;
-    vertical-align: middle;
 
     label > & {
-        top: -1.5px;  // AJM: Checkboxes sit low in the water *only* inside a label (center v. baseline?)
+        top: 1px;  // AJM: Checkbox default size of 14 is off from the typical 16 (Could implement this better/more robust)
     }
 }
 
@@ -109,6 +108,10 @@
 
 // Label wrapper for a checkbox, handles clicks and general styling of children based on state
 .alloy-check-wrapper {
+    * {
+        vertical-align: text-top;
+    }
+
     cursor: pointer;
 
     // Caranu pg 18.
