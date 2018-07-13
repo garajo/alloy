@@ -307,10 +307,7 @@ $prefix: alloy-ic-;
     }
 
     &menu {
-        // JEFF_TODO Should these icons really be 24pxs? Most of the Caranu spec says icons should be 16x16; especially for the titlebar area
-        // The answer is "I think so"; at least those icons that show up on a toolbar the Caranu spec calls for 24x24; as opposed to title/header icons which are the default 16x16
-        // This guy is the hamburger menu icon; responsive menu when things get squished
-        @include icon-base(menu, 24px);
+        @include icon-base(menu);
     }
 
     &minus{
@@ -556,9 +553,7 @@ $prefix: alloy-ic-;
 
     //&settings, //This old/incorrect name has been deprecated. Settings icon was added but people didn't notice it already existed in the correctly names tools icon
     &tools {
-        // JEFF_TODO Should these icons really be 24pxs? Most of the Caranu spec says icons should be 16x16; especially for the titlebar area
-        // The answer is "I think so"; at least those icons that show up on a toolbar the Caranu spec calls for 24x24; as opposed to title/header icons which are the default 16x16
-        @include icon-base(tools, 24px);
+        @include icon-base(tools);
     }
 
     //&delete-trash-can, // This old name has been deprecated
