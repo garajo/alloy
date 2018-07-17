@@ -7,7 +7,7 @@
                 <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled()" [ngClass]="{'is-pressed': disabled}">Disabled</button>
                 <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly()" [ngClass]="{'is-pressed': readonly}">Readonly</button>
                 <button id="errors" type="button" class="button-standard" (click)="toggleError()" [ngClass]="{'is-pressed': error}">Error</button>
-                <label>Checkbox Size (px):</label><input type="text" alloy [(ngModel)]="size" (keypress)="isNumberKey($event)" (focus)="addSizeStyle()" (blur)="removeSizeStyle()" maxlength="2">
+                <label><i>Experimental</i> Checkbox Size (px):</label><input type="text" alloy [(ngModel)]="size" (keypress)="isNumberKey($event)" (focus)="addSizeStyle()" (blur)="removeSizeStyle()" maxlength="2">
                 <br>
             </div>
         </div>

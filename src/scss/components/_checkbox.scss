@@ -1,6 +1,7 @@
 @mixin iconSpec {
-    $height: 24px;
-    $width: 24px;
+    // pg. 18, only reference to icon/text widget
+    $height: 16px;
+    $width: 16px;
 
     @include size($height, $width);
 }
@@ -15,106 +16,12 @@
     margin-left: 8px;
 }
 
-@mixin check-core($size) {
-    @include size($size);
-
-    margin: 0;
-    position: relative;
-
-    label > & {
-        top: 1px;  // AJM: Checkbox default size of 14 is off from the typical 16 (Could implement this better/more robust)
-    }
-}
-
-// DEPRECATED (Target 1.0.0) Legacy checkbox wrapper
-.checkbox-container {
-  display: flex;
-  align-items: center;
-
-  label {
-    // See Caranu spec pg. 18 Graphic button as an example. Label should be 10 pixels to the right of any left icon associated with it
-    margin-left: 10px;
-  }
-
-  .has-icon {
-    @include iconSpec();
-    cursor: default;
-
-    // See Caranu spec pg. 18 Graphic button as an example. Label should be 10 pixels to the right of any left icon associated with it
-    margin-left: 10px;
-  }
-
-  .has-error {
-    @include errorSpec();
-    //The global .alloy-ic-error icon is invisible by default. Consumers need to turn it on.
-    display: block;
-  }
-
-  &.readonly {
-    cursor: default;
-    opacity: map_get($color-palette, control-default-readonly-opacity);
-  }
-
-  &.disabled {
-    cursor: default;
-    opacity: map_get($color-palette, control-default-disabled-opacity);
-  }
-}
-
-// DEPRECATED (Target 1.0.0) Legacy checkbox
-.checkbox {
-    $size: 14px;
-
-    &,
-    * {
-      @include size($size);
-    }
-
-    input[type="checkbox"] {
-      &+ span {
-        margin: 0;
-
-        display:inline-block;
-        vertical-align: top;
-
-        background: transparent map_get($icon-pack, checkbox) no-repeat center center / $size;
-      }
-
-      &.is-hovered + span {
-        background: transparent map_get($icon-pack, checkbox-hover) no-repeat center center / $size;
-      }
-
-      &.has-error + span {
-        background: transparent map_get($icon-pack, checkbox-error) no-repeat center center / $size;
-      }
-
-      &.is-hovered.has-error + span{
-        background: transparent map_get($icon-pack, checkbox-hover-error) no-repeat center center / $size;
-      }
-
-      &.hover-disable {
-        cursor: default;
-      }
-
-      &:checked + span {
-        background: transparent map_get($icon-pack, checkbox-checked) no-repeat center center / $size;
-      }
-
-      &:checked.has-error + span {
-          background: transparent map_get($icon-pack, checkbox-checked-error) no-repeat center center / $size;
-        }
-    }
-}
-
 // Label wrapper for a checkbox, handles clicks and general styling of children based on state
 .alloy-check-wrapper {
-    * {
-        vertical-align: text-top;
-    }
-
+    position: relative;
     cursor: pointer;
 
-    // Caranu pg 18.
+    // Caranu pg 18., leveraging button
     padding-left: 12px;
     padding-right: 12px;
 
@@ -123,7 +30,7 @@
         content: '';
         // The global .alloy-ic-error icon is invisible by default. Consumers need to turn it on.
         display: inline-block;
-        vertical-align: bottom;     // AJM: I can't quite explain this one, why does bottom center?
+        vertical-align: text-top;
     }
 
     &.readonly {
@@ -147,44 +54,41 @@
     }
 }
 
-// Actual alloy checkbox.  Input content cannot be styled, so behold:
-// We will 'size clone' and shift the styled span over the invisible input and let the click fall through.
-// If you don't want a label you only need the span barnacle.
-// If you want a label you should still wrap it so the label implicitly handles clicks.
+// Actual alloy checkbox.  Input content cannot be styled, so we style a label wrapper.
+// Structure: <label> [span] <div (icon)> <span (text)> </label>
 .alloy-check {
+    position: absolute; // AJM: Remove the checkbox from the flow, also eliminates foundation concerns
     $size: 14px;
-    @include check-core($size);
+    @include size($size);
     cursor: pointer;
     opacity: 0;         // Hide the ugly input
 
-    // AJM: This overrides a foundation style that trumps our specific checkbox styling
-    label > &/*[type='checkbox']*/ {
-        margin-right: 0;
-    }
-
-    // span holds the actual check styling
-    &+ span {
-        @include check-core($size);
+    // First span holds the actual check styling
+    & + span {
+        @include size($size);
 
         display: inline-block;      // Span is inline by default (no width)
-        left: -$size;               // Shift the overlay over the invisible input
-        pointer-events: none;       // Let the click fall through to the invisible input
-
-        label > & { //TODO: AJM: I don't think we're addressing visual for pure HTML here
-            // See Caranu spec pg. 18 Graphic button as an example. Label should be 10 pixels to the right of any left icon associated with it
-            margin-right: 10 - $size;   // even though we pushed the span over, the DOM honors it's original position so shift by size
-        }
-
         background: transparent map_get($icon-pack, checkbox) no-repeat center center / $size;
+        vertical-align: text-top;
+        margin-top: 1px;    // AJM: This manages the slight difference between equivalent text/check height
     }
 
-    // An image will be after the span
-    &+ span+ img {
+    // The icon is defined as the background of a div
+    & ~ div {
         @include iconSpec();
         cursor: pointer;
+        margin-left: 10px;
+        vertical-align: text-top;
     }
 
-    &.is-hovered + span {
+    // Last span wraps the text allowing us to determine emptiness.  If not empty we need an inner margin.
+    & ~ span:last-of-type {
+        &:not(:empty) {
+            margin-left: 10px;
+        }
+    }
+
+    &:hover + span {
         background: transparent map_get($icon-pack, checkbox-hover) no-repeat center center / $size;
     }
 
@@ -196,13 +100,16 @@
         background: transparent map_get($icon-pack, checkbox-error) no-repeat center center / $size;
     }
 
-    &.is-hovered.has-error + span{
+    // TODO: AJM: This hover effect is barely noticeable
+    &:hover.has-error + span{
         background: transparent map_get($icon-pack, checkbox-hover-error) no-repeat center center / $size;
     }
 
     &:checked.has-error + span {
         background: transparent map_get($icon-pack, checkbox-checked-error) no-repeat center center / $size;
     }
+
+    // TODO: AJM: We're missing checked/hover & checked/hover/error
 
     // AJM: Custom focus styling applies even when clicked which is a poor UX.  FocusMonitor adds modality to focus.
     // This won't support focus in html.  There's a bug that fires mouse events as 'program' for nested labels right now.
@@ -211,3 +118,83 @@
         outline: 2px dashed map_get($color-palette, control-default-focus-color) /*another foundation wart -->*/!important;
     }
 }
+
+// DEPRECATED (Target 1.0.0) Legacy checkbox wrapper
+.checkbox-container {
+    display: flex;
+    align-items: center;
+
+    label {
+      // See Caranu spec pg. 18 Graphic button as an example. Label should be 10 pixels to the right of any left icon associated with it
+      margin-left: 10px;
+    }
+
+    .has-icon {
+      @include iconSpec();
+      cursor: default;
+
+      // See Caranu spec pg. 18 Graphic button as an example. Label should be 10 pixels to the right of any left icon associated with it
+      margin-left: 10px;
+    }
+
+    .has-error {
+      @include errorSpec();
+      //The global .alloy-ic-error icon is invisible by default. Consumers need to turn it on.
+      display: block;
+    }
+
+    &.readonly {
+      cursor: default;
+      opacity: map_get($color-palette, control-default-readonly-opacity);
+    }
+
+    &.disabled {
+      cursor: default;
+      opacity: map_get($color-palette, control-default-disabled-opacity);
+    }
+  }
+
+  // DEPRECATED (Target 1.0.0) Legacy checkbox
+  .checkbox {
+      $size: 14px;
+
+      &,
+      * {
+        @include size($size);
+      }
+
+      input[type="checkbox"] {
+        &+ span {
+          margin: 0;
+
+          display:inline-block;
+          vertical-align: top;
+
+          background: transparent map_get($icon-pack, checkbox) no-repeat center center / $size;
+        }
+
+        &.is-hovered + span {
+          background: transparent map_get($icon-pack, checkbox-hover) no-repeat center center / $size;
+        }
+
+        &.has-error + span {
+          background: transparent map_get($icon-pack, checkbox-error) no-repeat center center / $size;
+        }
+
+        &.is-hovered.has-error + span{
+          background: transparent map_get($icon-pack, checkbox-hover-error) no-repeat center center / $size;
+        }
+
+        &.hover-disable {
+          cursor: default;
+        }
+
+        &:checked + span {
+          background: transparent map_get($icon-pack, checkbox-checked) no-repeat center center / $size;
+        }
+
+        &:checked.has-error + span {
+            background: transparent map_get($icon-pack, checkbox-checked-error) no-repeat center center / $size;
+          }
+      }
+  }

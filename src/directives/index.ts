@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ElementFocusDirective } from './elementFocus.directive';
 import { AlloyCheckboxDirective } from './checkbox.directive';
 import { AlloyTextboxDirective } from './textbox.directive';
-import { ErrorDirective } from './error.directive';
+import { FocusMonitor } from '@angular/cdk/a11y';
 
 @NgModule({
     exports: [
@@ -16,7 +16,8 @@ import { ErrorDirective } from './error.directive';
         ElementFocusDirective,
         AlloyCheckboxDirective,
         AlloyTextboxDirective
-    ]
+    ],
+    providers: [FocusMonitor]
 })
 export class AlloyDirectivesModule { }
 

@@ -16,12 +16,12 @@ export class AlloyCheckboxDirective extends ErrorDirective implements AfterViewI
     // If readonly or disabled we disable interation.  Value doesn't matter to add it, null removes it
     @HostBinding('attr.disabled') get disabledAttribute() { return this.isDisabled === true || this.isReadonly ? '' : null; }
 
-    /** Checkbox size */
+    /** *Experimental* Checkbox size */
     private _size = 14;
     /**
      * Returns the current size of the checkbox *box*.
      */
-    get size() { return this.size; }
+    get size() { return this._size; }
     /**
      * Sets the current checkbox size.  Note: currently only applies to the box itself, not the labels.
      */
@@ -42,9 +42,9 @@ export class AlloyCheckboxDirective extends ErrorDirective implements AfterViewI
         this.isReadonly = value;
         // If we have a label wrapper style the whole thing
         if (this.isReadonly) {
-            this.renderer.addClass(this.parent, 'readonly');
+            this.renderer.addClass(this.labelElement, 'readonly');
         } else {
-            this.renderer.removeClass(this.parent, 'readonly');
+            this.renderer.removeClass(this.labelElement, 'readonly');
         }
     }
     /**
@@ -63,9 +63,9 @@ export class AlloyCheckboxDirective extends ErrorDirective implements AfterViewI
         this.isDisabled = value;
         // If we have a label wrapper style the whole thing
         if (this.isDisabled) {
-            this.renderer.addClass(this.parent, 'disabled');
+            this.renderer.addClass(this.labelElement, 'disabled');
         } else {
-            this.renderer.removeClass(this.parent, 'disabled');
+            this.renderer.removeClass(this.labelElement, 'disabled');
         }
     }
     /**
@@ -114,8 +114,8 @@ export class AlloyCheckboxDirective extends ErrorDirective implements AfterViewI
      */
     @Input() set icon(value: string) {
         // Cleanup an existing class if one exists
-        if (this.img) {
-            this.renderer.removeClass(this.img, this.iconClass);
+        if (this.iconElement) {
+            this.renderer.removeClass(this.iconElement, this.iconClass);
         }
         this.iconClass = value;
         this.reconstructor();
@@ -128,22 +128,29 @@ export class AlloyCheckboxDirective extends ErrorDirective implements AfterViewI
     /**
      * Element holding the image label if imageSource exists.
      */
-    private img: ElementRef;
+    private iconElement: ElementRef;
 
     /**
      * Element holding the text label if labelString exists.
      */
-    private labelText: ElementRef;
+    private labelTextNode: ElementRef;
 
     /**
      * Element wrapper for the checkbox (label)
      */
-    private parent: ElementRef;
+    private labelElement: ElementRef;
+
+    /**
+     * Text node wrapper for the checkbox (label)
+     * css cannot reference a text node directly,
+     * so we need this wrapper to apply styling.
+     */
+    private labelSpan: ElementRef;
 
     /**
      * Element holding the styling for the checkbox (span)
      */
-    private actualCheckbox: any;
+    private checkboxElement: any;
 
     // label AND input fire when the box itself is clicked.  Let label handle things.
     @HostListener('click', ['$event']) onClick($event) {
@@ -158,14 +165,14 @@ export class AlloyCheckboxDirective extends ErrorDirective implements AfterViewI
         let originalStyle = this.el.nativeElement.attributes['style'];
 
         // If we don't have a label wrapper, create one
-        this.parent = this.renderer.parentNode(el.nativeElement);
-        if (!(this.parent instanceof HTMLLabelElement)) {
+        this.labelElement = this.renderer.parentNode(el.nativeElement);
+        if (!(this.labelElement instanceof HTMLLabelElement)) {
             const label = this.renderer.createElement('label');
             this.renderer.addClass(label, 'alloy-check-wrapper');
-            this.renderer.insertBefore(this.parent, label, this.el.nativeElement);
-            this.renderer.removeChild(this.parent, this.el.nativeElement);
+            this.renderer.insertBefore(this.labelElement, label, this.el.nativeElement);
+            this.renderer.removeChild(this.labelElement, this.el.nativeElement);
             this.renderer.appendChild(label, this.el.nativeElement);
-            this.parent = label;
+            this.labelElement = label;
 
             // apply each of the classes to the parent, and remove them from the input
             // ex: `column`: we want this to apply to the outermost element, label, not the inner input
@@ -173,73 +180,70 @@ export class AlloyCheckboxDirective extends ErrorDirective implements AfterViewI
             // Is there ever a case we want to apply a class to the input?
             if (originalClasses) {
                 originalClasses.split(' ').forEach(element => {
-                    this.renderer.addClass(this.parent, element);
+                    this.renderer.addClass(this.labelElement, element);
                     this.renderer.removeClass(this.el.nativeElement, element);
                 });
             }
 
             if (originalStyle) {
-                this.renderer.setAttribute(this.parent, originalStyle.name, originalStyle.value);
+                this.renderer.setAttribute(this.labelElement, originalStyle.name, originalStyle.value);
                 this.renderer.removeAttribute(this.el.nativeElement, originalStyle.name);   // Don't want these applied to the box
             }
         }
 
         // We must add the span because that's what actually gets the check styling
-        this.actualCheckbox = this.renderer.createElement('span');
-        this.renderer.appendChild(this.parent, this.actualCheckbox);
+        this.checkboxElement = this.renderer.createElement('span');
+        this.renderer.appendChild(this.labelElement, this.checkboxElement);
+        // We must add this span to style the text in relation to the checkbox/icon
+        this.labelSpan = this.renderer.createElement('span');
+        this.renderer.appendChild(this.labelElement, this.labelSpan);
     }
 
     /**
      * Handles constructing the DOM for the checkbox based on changes to the features (img, text) or style
      */
     reconstructor() {
-        // Need the boxes to size as one, el for click, actualCheckbox for visual; then translate actualCheckbox over el
-        this.renderer.setStyle(this.el.nativeElement, 'height', this._size + 'px');
-        this.renderer.setStyle(this.el.nativeElement, 'width', this._size + 'px');
-
-        this.renderer.setStyle(this.actualCheckbox, 'height', this._size + 'px');
-        this.renderer.setStyle(this.actualCheckbox, 'width', this._size + 'px');
-        this.renderer.setStyle(this.actualCheckbox, 'left', -this._size + 'px');
-        this.renderer.setStyle(this.actualCheckbox, 'background-size', this._size + 'px');
-        let margin = -this._size;
-
-        if (this.labelString || this.iconClass) {
-            margin += 10;   // caranu spacing for a label/img
+        // AJM: This is experimental.  We attempt to proportionately scale font/icon/check
+        if (this.size) {
+            this.renderer.setStyle(this.checkboxElement, 'height', this._size + 'px');
+            this.renderer.setStyle(this.checkboxElement, 'width', this._size + 'px');
+            this.renderer.setStyle(this.checkboxElement, 'background-size', this._size + 'px');
+            if (this.iconElement) {
+                let iconSize = this._size * 1.143;
+                this.renderer.setStyle(this.iconElement, 'height', iconSize + 'px');
+                this.renderer.setStyle(this.iconElement, 'width', iconSize + 'px');
+                this.renderer.setStyle(this.iconElement, 'background-size', iconSize + 'px');
+            }
+            this.renderer.setStyle(this.labelElement, 'font-size', this._size /* * 0.85 */ + 'px');
         }
 
-        this.renderer.setStyle(this.actualCheckbox, 'margin-right', margin + 'px');
-
         if (this.iconClass || this.imageSource) {
-            if (!this.img) {
-                this.img = this.renderer.createElement('i');
-                this.renderer.addClass(this.img, 'has-icon');
-                this.renderer.appendChild(this.parent, this.img);
+            if (!this.iconElement) {
+                this.iconElement = this.renderer.createElement('div');
+                this.renderer.addClass(this.iconElement, 'has-icon');
+                this.renderer.insertBefore(this.labelElement, this.iconElement, this.labelSpan);
             }
 
             if (this.imageSource) {
-                this.renderer.setStyle(this.img, 'background', `url(${this.iconClass})`);
+                this.renderer.setStyle(this.iconElement, 'background', `url(${this.iconClass})`);
             }
 
             if (this.iconClass) {
                 // prior class removal handled by setter
-                this.renderer.addClass(this.img, this.iconClass);
+                this.renderer.addClass(this.iconElement, this.iconClass);
             }
-
-            if (this.labelString) {
-                this.renderer.setStyle(this.img, 'margin-right', '10px');   // TODO: AJM: This must go
-            }
-        } else if (this.img) {
-            this.renderer.removeChild(this.parent, this.img);
-            this.img = null;
+        } else if (this.iconElement) {
+            this.renderer.removeChild(this.labelElement, this.iconElement);
+            this.iconElement = null;
         }
 
-        if (this.labelText) {
-            this.renderer.removeChild(this.parent, this.labelText);
+        if (this.labelTextNode) {
+            this.renderer.removeChild(this.labelSpan, this.labelTextNode);
         }
 
         if (this.labelString) {
-            this.labelText = this.renderer.createText(this.labelString);
-            this.renderer.appendChild(this.parent, this.labelText);
+            this.labelTextNode = this.renderer.createText(this.labelString);
+            this.renderer.appendChild(this.labelSpan, this.labelTextNode);
         }
     }
 
@@ -254,12 +258,12 @@ export class AlloyCheckboxDirective extends ErrorDirective implements AfterViewI
     onError(errorState: boolean, errorMessage: string) {
         // AJM: The title change is destructive, we could store/restore if needed
         if (errorState) {
-            this.renderer.setAttribute(this.parent, 'title', errorMessage);
-            this.renderer.addClass(this.parent, 'has-error');
+            this.renderer.setAttribute(this.labelElement, 'title', errorMessage);
+            this.renderer.addClass(this.labelElement, 'has-error');
             this.renderer.addClass(this.el.nativeElement, 'has-error');
         } else {
-            this.renderer.removeAttribute(this.parent, 'title');
-            this.renderer.removeClass(this.parent, 'has-error');
+            this.renderer.removeAttribute(this.labelElement, 'title');
+            this.renderer.removeClass(this.labelElement, 'has-error');
             this.renderer.removeClass(this.el.nativeElement, 'has-error');
         }
     }
