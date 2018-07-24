@@ -1,3 +1,5 @@
+
+
 @mixin iconSpec {
     // pg. 18, only reference to icon/text widget
     $height: 16px;
@@ -18,8 +20,13 @@
 
 // Label wrapper for a checkbox, handles clicks and general styling of children based on state
 .alloy-check-wrapper {
-    position: relative;
     cursor: pointer;
+    width: max-content;
+
+    // Turn off all child cursors
+    * {
+        cursor: pointer;
+    }
 
     // Caranu pg 18., leveraging button
     padding-left: 12px;
@@ -60,7 +67,7 @@
     position: absolute; // AJM: Remove the checkbox from the flow, also eliminates foundation concerns
     $size: 14px;
     @include size($size);
-    cursor: pointer;
+    // cursor: pointer;
     opacity: 0;         // Hide the ugly input
 
     // First span holds the actual check styling
@@ -88,7 +95,7 @@
         }
     }
 
-    &:hover + span {
+    &:hover :not(:disabled) + span {
         background: transparent map_get($icon-pack, checkbox-hover) no-repeat center center / $size;
     }
 
@@ -101,7 +108,7 @@
     }
 
     // TODO: AJM: This hover effect is barely noticeable
-    &:hover.has-error + span{
+    &:hover.has-error :not(:disabled) + span{
         background: transparent map_get($icon-pack, checkbox-hover-error) no-repeat center center / $size;
     }
 

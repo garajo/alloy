@@ -1,14 +1,331 @@
 button {
-  @extend .button;
-
-  margin: 0;
-
-  &,
-  * {
-    font-family: $body-font-family;
-  }
+    // TODO: AJM: The following are foundation hacks.  We could remove the foundation button mixin, but that will affect legacy styling too (1.0.0)
+    &:focus {
+        /*nullify foundation cruft...*/
+    }
+    line-height: normal;
 }
 
+@mixin buttonCore {
+    @extend .alloy-controls-font;
+    * {
+        vertical-align: middle;
+    }
+
+    // AJM: Custom focus styling applies even when clicked which is a poor UX.  FocusMonitor adds modality to focus.
+    // This won't support focus in html.  There's a bug that fires mouse events as 'program' for nested labels right now.
+    // So for now we support only keyboard, uncomment 'program' if fixed.
+    &.cdk-keyboard-focused/* , &.cdk-program-focused */ {
+        outline: 2px dashed map_get($color-palette, control-default-focus-color) /*another foundation wart -->*/!important;
+        outline-offset: -2px;   // Use an inset overlay since siblings can overlap an external outline
+    }
+}
+
+@mixin setChildSpacing($spacing) {
+    // Last span wraps the text allowing us to determine emptiness.  If div (icon) AND not empty we need an inner margin.
+    & > div ~ span:last-of-type {
+        &:not(:empty) {
+            margin-left: $spacing;
+        }
+    }
+}
+
+@mixin setIconSize($size) {
+    & > div {   // TODO: AJM: Let's name the icon!
+        @include size($size);
+        background-size: $size;
+    }
+}
+
+.alloy-button-standard {
+    @include gradientVertical(map_get($color-palette, button-standard-gradient-top), map_get($color-palette, button-standard-gradient-bottom));
+    @include buttonCore;
+    @include setChildSpacing(10px);
+    @include setIconSize(16px);
+
+    min-width: 80px;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 1px;
+    color: map_get($color-palette, button-standard-color);
+    box-shadow: $button-standard-box-shadow;
+
+    color: map_get($color-palette, button-standard-color);
+
+    &:hover {
+        @include gradientVertical(map_get($color-palette, button-standard-hover-gradient-top), map_get($color-palette, button-standard-hover-gradient-bottom));
+        box-shadow: $button-standard-hover-box-shadow;
+    }
+    &.alloy-toggled {
+        color: map_get($color-palette, button-standard-checked-color);
+        background: map_get($color-palette, button-standard-checked-bg);
+        box-shadow: $button-standard-checked-box-shadow;
+    }
+    &.alloy-toggled:hover {
+        background: map_get($color-palette, button-standard-checked-hover-bg);
+    }
+    &:active, &.alloy-toggled:active {
+        color: map_get($color-palette, button-standard-active-color);
+        background: map_get($color-palette, button-standard-active-bg);
+        box-shadow: $button-standard-active-box-shadow;
+    }
+    &:disabled {
+        opacity: map_get($color-palette, button-standard-disabled-opacity);
+        color: map_get($color-palette, button-standard-disabled-text-color);
+        pointer-events: none;
+    }
+}
+
+// Toggle has slightly different margins (p19)
+.alloy-button-standard[toggle] {
+    width: max-content;
+
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.alloy-button-default {
+    @extend .alloy-button-standard;
+    box-shadow: $button-default-box-shadow;
+    &:hover {
+        box-shadow: $button-default-hover-box-shadow;
+    }
+    &:checked:hover {
+        background: map_get($color-palette, button-standard-checked-hover-bg);
+    }
+    &:active {
+        box-shadow: $button-default-active-box-shadow;
+    }
+}
+
+.alloy-button-toolbar {
+    @include buttonCore();
+    @include setChildSpacing(8px);
+    @include setIconSize(24px);
+
+    background-color: transparent;
+    color: map_get($color-palette, button-toolbar-label-color);
+
+    border-radius: 2px;
+
+    height: 48px;
+    line-height: 48px;  // This ensures icons can center based on text.
+    width: max-content;
+
+    padding-left: 12px;
+    padding-right: 12px;
+
+    // TODO: AJM: The two checked states are placeholders until we can toggle icon color. (p45)
+    &.alloy-toggled {
+        background-color: map_get($color-palette, button-toolbar-checked-bg);
+    }
+    &:hover {
+        background-color: map_get($color-palette, button-toolbar-hover-bg);
+    }
+    &.alloy-toggled:hover {
+        background-color: map_get($color-palette, button-toolbar-checked-hover-bg);
+    }
+    &:active, &.alloy-toggled:active {
+        background-color: map_get($color-palette, button-toolbar-active-bg);
+        box-shadow: $button-toolbar-active-box-shadow;
+    }
+    &:disabled {
+        opacity: map_get($color-palette, control-default-disabled-opacity);
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
+
+.alloy-button-quickaccess {
+    @include buttonCore;
+    width: 48px;
+    height: 32px;
+    border-radius: 2px;
+
+    // AJM: I dislike defining the internals with margin, but the border/negative space can only be done with margin
+    margin-top: 1px;
+    margin-bottom: 1px;
+
+    &:hover {
+      background-color: map_get($color-palette, button-quick-access-hover-bg);
+    }
+
+    &:active {
+      background-color: map_get($color-palette, button-quick-access-active-bg);
+      box-shadow: $button-quickaccess-active-box-shadow;
+    }
+    &:disabled {
+        opacity: map_get($color-palette, button-standard-disabled-opacity);
+        color: map_get($color-palette, button-standard-disabled-text-color);
+        pointer-events: none;
+    }
+}
+
+// TODO: AJM: Needed these for testing, but the various bars should move to _toolbar
+.quick-access-bar {         //p52
+    display: inline-flex;   // Ditch the inter-child block spacing
+    align-items: flex-end;  // Bottom-align
+
+    &.primary > .quick-access-group-box:not(:first-child) {
+        margin-left: 16px;
+    }
+
+    &.secondary > .quick-access-group-box:not(:last-child) {
+        margin-right: 16px;
+    }
+}
+
+.quick-access-group-box {   // p52
+    display: inline-flex;   // Ditch the inter-child block spacing
+    border: inset 1px map_get($color-palette, quick-access-group-box-border);
+    border-bottom: none;
+    background-color: map_get($color-palette, quick-acess-group-box-bg);
+}
+
+.toolbar {  // p45,87
+    @include linear-gradient-vertical($toolbar-background);
+    display: inline-flex;
+    width: 100%;
+    padding: 4px 0;
+
+    box-shadow: 0 1px 0 0 map_get($color-palette, toolbar-shadow-inset-top) inset,
+                0 -1px 0 0 map_get($color-palette, toolbar-shadow-inset-bottom) inset,
+                0 2px 6px 0 map_get($color-palette, toolbar-shadow);
+
+    .separator {
+        display: inline-block;
+
+        height: 56px; // TODO: AJM: not a fan of hard-wired px here
+        width: 1px;
+        background-color: map_get($color-palette, toolbar-group-separator);
+
+        margin: -4px 12px;  // -4px negates the padding, alternatively we could select for toolbar buttons for margin
+    }
+
+    // TODO: AJM: Need classes for expanded/collapsed, set by the collapse-button
+
+    .collapse-button {
+        @extend .alloy-ic-caret.down;
+        margin-left: auto;
+        margin-bottom: 12px;
+        margin-right: 16px;
+
+        .is-toggled {
+            @extend .alloy-ic-caret.up;
+        }
+    }
+}
+
+.button-close-x,
+.button-maximize,
+.button-minimize {
+    @include size(48px, 30px); // p47
+    margin: 1px 0;
+    padding: 7px 16px;
+    border-radius: 2px;
+    transition: none;
+    &,
+    * {
+        vertical-align: top;
+    }
+    &:focus {
+        background-color: transparent;
+    }
+}
+
+.button-close-x {
+    @extend .alloy-ic-window-close;
+    &:hover,
+    &:focus {
+        background-color: map_get($color-palette, button-close-x-hover-bg);
+    }
+    &:active {
+        background-color: map_get($color-palette, button-close-x-active-bg);
+        box-shadow: inset 0 0 0 1px map_get($color-palette, button-close-x-active-box-shadow);
+    }
+}
+
+.button-maximize {
+    @extend .alloy-ic-window-maximize;
+}
+
+.button-minimize {
+    @extend .alloy-ic-window-minimize;
+}
+
+.button-maximize,
+.button-minimize {
+    &:hover,
+    &:focus {
+        background-color: map_get($color-palette, button-min-max-hover-bg);
+    }
+    &:active {
+        background-color: map_get($color-palette, button-min-max-active-bg);
+        box-shadow: inset 0 0 0 1px map_get($color-palette, button-min-max-active-box-shadow);
+    }
+}
+
+.button-caret-up {
+    @extend .button-toolbar;
+    @extend .alloy-ic-caret.up;
+}
+
+// TODO: AJM: We should really make this a directive and inject the bits and pieces like checkbox
+.split-button-group {
+    button {
+        padding-right: 6px;
+        &:first-of-type {
+            @include border-right-radius(0);
+        }
+    }
+    &:hover {
+        .button-toolbar {
+            border: inset 1px transparent;
+            background-color: map_get($color-palette, button-split-group-hover-bg);
+            &:hover {
+                background-color: map_get($color-palette, button-toolbar-hover-bg);
+            }
+            &.arrow-only {
+                border-left: 1px solid map_get($color-palette, button-split-group-divider);
+            }
+        }
+    }
+}
+
+// Deprecated alias of .quick-access-group-box, target (1.0.0)
+.button-group-box {
+    @extend .button-group;      // AJM: excluded from the refactored class since it's a foundation class
+    @extend .quick-access-group-box;
+
+    // AJM: This is all wrong or unneeded
+    margin: 0;
+
+    &:first-child {
+        &:not(:only-child) {
+            margin-right: 11px;
+        }
+    }
+    &:not(:first-child) {
+        margin-left: 11px;
+    }
+    &:not(:last-child) {
+        margin-right: -4px;
+    }
+
+    button {
+        &,
+        &:hover,
+        &:active,
+        &:focus,
+        &.is-active {
+            border-radius: 0;
+        }
+    }
+}
+
+// Deprecated, target (1.0.0)
 .button-standard {
   &,
   &:focus {
@@ -95,7 +412,7 @@ button {
 
   &:active,
   &.is-pressed {
-    background: map_get($color-palette, button-standard-pressed-bg);
+    background: map_get($color-palette, button-standard-active-bg);
 
     @if $theme-light == true {
       border: none;
@@ -107,23 +424,24 @@ button {
       }
     }
 
-    color: map_get($color-palette, button-standard-pressed-color);
+    color: map_get($color-palette, button-standard-active-color);
   }
 
 
+  // AJM: Sounds like this is a workaround for :active being wrong
   &.is-active {
-    background: map_get($color-palette, button-standard-active-bg);
+    background: map_get($color-palette, button-standard-checked-bg);
 
     @if $theme-light == true {
-      box-shadow: inset 0 2px 0 0 map_get($color-palette, button-standard-active-shadow-inset),
+      box-shadow: inset 0 2px 0 0 map_get($color-palette, button-standard-checked-shadow-inset),
                   0 1px 3px 0 map_get($color-palette, button-standard-shadow);
 
       &:before {
-        border: 1px solid map_get($color-palette, button-standard-active-border-inset);
+        border: 1px solid map_get($color-palette, button-standard-checked-border-inset);
       }
 
     } @else {
-      box-shadow: inset 0 1px 0 0 map_get($color-palette, button-standard-active-shadow-inset),
+      box-shadow: inset 0 1px 0 0 map_get($color-palette, button-standard-checked-shadow-inset),
                   0 1px 3px 0 map_get($color-palette, button-standard-shadow),
                   0 1px 0 0 map_get($color-palette, button-standard-shadow);
     }
@@ -141,6 +459,7 @@ button {
   }
 }
 
+// Deprecated, target (1.0.0)
 .button-default {
   @extend .button-standard;
 
@@ -216,20 +535,21 @@ button {
 
   &.is-active {
     @if $theme-light == true {
-      box-shadow: inset 0 2px 0 0 map_get($color-palette, button-standard-active-shadow-inset),
+      box-shadow: inset 0 2px 0 0 map_get($color-palette, button-standard-checked-shadow-inset),
                   0 1px 3px 0 map_get($color-palette, button-standard-shadow);
 
       &:after {
-        border: 1px solid map_get($color-palette, button-standard-active-border-inset);
+        border: 1px solid map_get($color-palette, button-standard-checked-border-inset);
       }
 
     } @else {
-      box-shadow: inset 0 1px 0 0 map_get($color-palette, button-standard-active-shadow-inset),
+      box-shadow: inset 0 1px 0 0 map_get($color-palette, button-standard-checked-shadow-inset),
                   0 1px 3px 0 map_get($color-palette, button-standard-shadow),
                   0 1px 0 0 map_get($color-palette, button-standard-shadow);
     }
   }
 
+  // TODO: AJM: Disabled should be just the standard opacity change.  Why would we remove the 'default' border?
   &:disabled,
   &.is-disabled {
     @if $theme-light == true {
@@ -247,67 +567,11 @@ button {
   }
 }
 
-.button-close-x,
-.button-maximize,
-.button-minimize {
-  @include size(48px, 32px);
-
-  margin: 1px 0;
-  padding: 7px 16px;
-  border-radius: 2px;
-
-  transition: none;
-
-  &,
-  * {
-    vertical-align: top;
-  }
-
-  &:focus {
-    background-color: transparent;
-  }
-}
-
-.button-close-x {
-  @extend .alloy-ic-window-close;
-
-  &:hover {
-    background-color: map_get($color-palette, button-close-x-hover-bg);
-  }
-
-  &:active,
-  &.is-active,
-  &:focus {
-    background-color: map_get($color-palette, button-close-x-active-bg);
-    box-shadow: inset 0 0 0 1px map_get($color-palette, button-close-x-active-box-shadow);
-  }
-}
-
-.button-maximize {
-  @extend .alloy-ic-window-maximize;
-}
-
-.button-minimize {
-  @extend .alloy-ic-window-minimize;
-}
-
-.button-maximize,
-.button-minimize {
-  &:hover {
-    background-color: map_get($color-palette, button-min-max-hover-bg);
-  }
-
-  &:active,
-  &.is-active {
-    background-color: map_get($color-palette, button-min-max-active-bg);
-    box-shadow: inset 0 0 0 1px map_get($color-palette, button-min-max-active-box-shadow);
-  }
-}
-
+// Deprecated, target (1.0.0)
 .button-toolbar, .button-toolbar:focus {
   padding: 11px;
   border: 1px solid transparent;
-
+  color: map_get($color-palette, button-toolbar-label-color);
   background: transparent;
 
   * {
@@ -324,7 +588,7 @@ button {
     margin-left: 8px;
 
     // JEFF This is kind of silly to assume a toolbar button will always have an icon and therefore 8px are reserved on the left
-    // Give a way for the consumer of Alloy to use toolbar buttons and their labels without icons 
+    // Give a way for the consumer of Alloy to use toolbar buttons and their labels without icons
     &.no-icon
     {
       margin-left: 0px;
@@ -349,14 +613,14 @@ button {
   }
 
   &:active {
-    border: 1px solid map_get($color-palette, button-toolbar-focus-border);
+    border: 1px solid map_get($color-palette, button-toolbar-active-border);
 
-    background-color: map_get($color-palette, button-toolbar-focus-bg);
+    background-color: map_get($color-palette, button-toolbar-active-bg);
   }
 
-  //JEFF_NOTE: Alloy toolbar buttons don't have a disabled state (they should!) let's add one here. 
+  //JEFF_NOTE: Alloy toolbar buttons don't have a disabled state (they should!) let's add one here.
   &:disabled,
-  &.is-disabled 
+  &.is-disabled
   {
       opacity: map_get($color-palette, button-standard-disabled-opacity);
 
@@ -377,38 +641,7 @@ button {
   }
 }
 
-.split-button-group {
-  button {
-    padding-right: 6px;
-
-    &:first-of-type {
-      @include border-right-radius(0);
-    }
-  }
-
-  &:hover {
-    .button-toolbar {
-      border: inset 1px transparent;
-
-      background-color: map_get($color-palette, button-split-group-hover-bg);
-
-      &:hover,
-      &.is-hovered {
-        background-color: map_get($color-palette, button-toolbar-hover-bg);
-      }
-
-      &.arrow-only {
-        border-left: 1px solid map_get($color-palette, button-split-group-divider);
-      }
-    }
-  }
-}
-
-.button-caret-up {
-  @extend .button-toolbar;
-  @extend .alloy-ic-caret.up;
-}
-
+// Deprecated, target (1.0.0)
 .button-quick-access, .button-quick-access:focus {
   height: 32px;
 
@@ -444,7 +677,7 @@ button {
 
   // ARJUN_NOTE: Alloy quick access buttons don't have a disabled state (they should!) let's add one here.
   &:disabled,
-  &.is-disabled 
+  &.is-disabled
   {
       opacity: map_get($color-palette, button-quick-access-disabled-opacity);
 
@@ -456,40 +689,7 @@ button {
   }
 }
 
-.button-group-box {
-  @extend .button-group;
-
-  margin: 0;
-  border: inset 1px map_get($color-palette, button-group-box-border);
-  border-bottom: none;
-
-  background-color: map_get($color-palette, button-group-box-bg);
-
-  &:first-child {
-    &:not(:only-child) {
-      margin-right: 11px;
-    }
-  }
-
-  &:not(:first-child) {
-    margin-left: 11px;
-  }
-
-  &:not(:last-child) {
-    margin-right: -4px;
-  }
-
-  button {
-    &,
-    &:hover,
-    &:active,
-    &:focus,
-    &.is-active {
-      border-radius: 0;
-    }
-  }
-}
-
+// TODO: AJM: Requires refactor
 button.dropdown {
   $caret-width: 11px;
   $caret-height: 7px;
@@ -528,7 +728,7 @@ button.dropdown {
   }
 
   &.nocaret::after {
-    //Remove the "after the content" content. IOW if you turn on this class the caret will be removed.  
+    //Remove the "after the content" content. IOW if you turn on this class the caret will be removed.
     content:none;
   }
 
@@ -684,6 +884,7 @@ button.dropdown {
   }
 }
 
+// TODO: AJM: Requires refactor
 .spin {
   position: relative;
   width: 24px;
@@ -764,6 +965,7 @@ button.dropdown {
   }
 }
 
+// TODO: AJM: Requires refactor
 .button-scroll {
   $caret-width: 6px;
   $caret-height: 5px;

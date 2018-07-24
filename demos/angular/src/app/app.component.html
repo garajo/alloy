@@ -3,41 +3,62 @@
 		<div class="top-bar-title">
 			<span class="alloy-ic-keysight-logo"></span>
 			<label class="app-title">Style Guide</label>
-		</div>
+    </div>
+    <div class="top-bar-right">
+        <button type="button" class="button-minimize"></button>
+        <button type="button" class="button-maximize"></button>
+        <button type="button" class="button-close-x"></button>
+    </div>
+  </div>
+  <div class="title-bar-section">
+    <div class="quick-access-bar primary">
+      <button alloy quickaccess icon="alloy-ic-graph" (click)="onThemeClick()"></button>
+      <div class="quick-access-group-box">
+        <button alloy quickaccess icon="alloy-ic-play"></button>
+        <button alloy quickaccess icon="alloy-ic-stop"></button>
+      </div>
+      <button alloy quickaccess icon="alloy-ic-ellipses"></button>
+    </div>
+    <ul class="tabs tab-bar hack" data-tabs>
+      <li class="tabs-title"><a>Tab 1</a></li>
+      <li class="tabs-title"><a>Tab 2</a></li>
+    </ul>
+    <div class="quick-access-bar secondary">
+        <div class="quick-access-group-box">
+          <button alloy quickaccess icon="alloy-ic-download"></button>
+          <button alloy quickaccess icon="alloy-ic-remove"></button>
+          <button alloy quickaccess icon="alloy-ic-target"></button>
+        </div>
+        <button alloy quickaccess icon="alloy-ic-property-panel"></button>
+      </div>
+  </div>
+  <div class="toolbar">
+    <button alloy toolbar icon="alloy-ic-home"></button>
+    <button alloy toolbar icon="alloy-ic-document"></button>
+    <button alloy toolbar toggle icon="alloy-ic-folder"></button>
+    <span class="separator"></span>
+    <button alloy toolbar icon="alloy-ic-menu"></button>
+    <button alloy toolbar icon="alloy-ic-tools"></button>
 
-		<ul class="tabs tab-bar">
-<!--
-			<li class="tabs-title"><a routerLink="/containers">Containers</a></li>
-			<li class="tabs-title"><a routerLink="/menus">Menus</a></li>
-			<li class="tabs-title"><a routerLink="/buttons">Buttons</a></li>
-			<li class="tabs-title"><a routerLink="/text-box">Text Box</a></li>
--->
-			<li class="tabs-title"><a routerLink="/textarea" >Textarea</a></li>
-			<li class="tabs-title"><a routerLink="/notification-icon" >Notification Icon</a></li>
-			<li class="tabs-title"><a routerLink="/about-box" >About Box</a></li>
-			<li class="tabs-title"><a routerLink="/display-settings">Display Settings</a></li>
-			<li class="tabs-title"><a routerLink="/button" >Buttons</a></li>
-			<li class="tabs-title"><a routerLink="/checkbox" >Checkbox</a></li>
-			<li class="tabs-title"><a routerLink="/dropdowns">Dropdowns</a></li>
-			<li class="tabs-title"><a routerLink="/propertygrid">Property Grid</a></li>
-			<li class="tabs-title"><a routerLink="/textbox">Textbox</a></li>
-      <li class="tabs-title"><a routerLink="/switcher">Switcher</a></li>
-      <li class="tabs-title"><a routerLink="/contextmenu">Contextmenu</a></li>
-      <li class="tabs-title"><a routerLink="/verification">Verification</a></li>
-<!--
-			<li class="tabs-title"><a routerLink="/combobox" >Combo Box</a></li>
-			<li class="tabs-title"><a routerLink="/tab-control">Tab Control</a></li>
-			<li class="tabs-title"><a routerLink="/tab-property-panel">Property Panel &amp; Grid</a></li>
-			<li class="tabs-title"><a routerLink="/tab-tree-view-data-grid">Tree View &amp; Data Grid</a></li>
- -->
-		</ul>
-		<div class="top-bar-right">
-			<button type="button" class="button-minimize"></button>
-			<button type="button" class="button-maximize"></button>
-			<button type="button" class="button-close-x"></button>
-		</div>
-	</div>
+  </div>
 </header>
-<div class="tabs-content content">
-	<router-outlet></router-outlet>
+<div class="tab-container vertical">
+		<ul class="tabs tab-bar">
+        <li class="tabs-title"><a routerLink="/textarea" >Textarea</a></li>
+        <li class="tabs-title"><a routerLink="/notification-icon" >Notification Icon</a></li>
+        <li class="tabs-title"><a routerLink="/about-box" >About Box</a></li>
+        <li class="tabs-title"><a routerLink="/display-settings">Display Settings</a></li>
+        <li class="tabs-title"><a routerLink="/button" >Buttons</a></li>
+        <li class="tabs-title"><a routerLink="/checkbox" >Checkbox</a></li>
+        <li class="tabs-title"><a routerLink="/dropdowns">Dropdowns</a></li>
+        <li class="tabs-title"><a routerLink="/propertygrid">Property Grid</a></li>
+        <li class="tabs-title"><a routerLink="/textbox">Textbox</a></li>
+        <li class="tabs-title"><a routerLink="/switcher">Switcher</a></li>
+        <li class="tabs-title"><a routerLink="/contextmenu">Contextmenu</a></li>
+        <li class="tabs-title"><a routerLink="/verification">Verification</a></li>
+      </ul>
+    <div class="tabs-content content">
+        <router-outlet></router-outlet>
+      </div>
 </div>
+

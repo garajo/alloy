@@ -126,8 +126,11 @@ $color-palette: (
         toolbar-group-separator:                  rgba($bunting,$opacity-HEX4C),
         button-toolbar-label-color:               $smoky,
         button-toolbar-hover-bg:                  rgba($hover-blue,$opacity-HEX33),
-        button-toolbar-focus-bg:                  rgba($hover-blue,$opacity-HEX33),
-        button-toolbar-focus-border:              rgba($bunting,$opacity-HEX33),
+        button-toolbar-active-bg:                 rgba($hover-blue,$opacity-HEX33),
+        button-toolbar-active-border:             rgba($bunting,$opacity-HEX33),
+        // AJM: Checked states are placeholders until we can toggle icon colors on-the-fly (pg 87)
+        button-toolbar-checked-bg:                rgba($hawkes-blue,$opacity-HEX4C),
+        button-toolbar-checked-hover-bg:          rgba($hawkes-blue,$opacity-HEX7F),
         button-split-group-hover-bg:              rgba($hover-blue,$opacity-HEX14),
         button-split-group-divider:               rgba($bunting,$opacity-HEX33),
 
@@ -137,8 +140,8 @@ $color-palette: (
         button-quick-access-active-bg:            rgba($hover-blue,$opacity-HEX1E),
         button-quick-access-disabled-opacity:     $opacity-DEC52,                       //Since the spec declares this in decimal we will leave it without its own var
         button-quick-access-disabled-text-color:  rgba($black,$opacity-DEC36),          //Since the spec declares this in decimal we will leave it without its own var
-        button-group-box-border:                  rgba($bunting,$opacity-HEX26),
-        button-group-box-bg:                      rgba($white,$opacity-HEX33),
+        quick-access-group-box-border:            rgba($bunting,$opacity-HEX26),
+        quick-acess-group-box-bg:                 rgba($white,$opacity-HEX33),
 
         // Buttons
 
@@ -152,11 +155,13 @@ $color-palette: (
         button-standard-hover-gradient-top:       #EDF4FF,
         button-standard-hover-gradient-bottom:    #CDDFFF,
         button-standard-hover-border-inset:       rgba($cornflower-blue,$opacity-HEX4C),
-        button-standard-pressed-bg:               $cornflower-blue,
-        button-standard-pressed-color:            $white,
-        button-standard-active-bg:                $hawkes-blue,
-        button-standard-active-border-inset:      rgba($black,$opacity-HEX26),
-        button-standard-active-shadow-inset:      rgba($white,$opacity-HEX66),
+        button-standard-active-bg:                $cornflower-blue,
+        button-standard-active-color:             $white,
+        button-standard-checked-color:            $black,
+        button-standard-checked-bg:               $hawkes-blue,
+        button-standard-checked-hover-bg:         #e8f0ff,    // AJM: This is a placeholder, need official toggled hover spec
+        button-standard-checked-border-inset:     rgba($black,$opacity-HEX26),
+        button-standard-checked-shadow-inset:     rgba($white,$opacity-HEX66),
         button-standard-disabled-opacity:         $opacity-DEC52,                       //Since the spec declares this in decimal we will leave it without its own var
         button-standard-disabled-text-color:      rgba($black,$opacity-DEC36),          //Since the spec declares this in decimal we will leave it without its own var
 
@@ -551,5 +556,33 @@ $icon-pack: (
         target:                               inline-image("#{$light-icons}/target.png"),
 
 );
+
+$button-standard-box-shadow:        0 0px 0px 1px map_get($color-palette, button-standard-border) inset,
+                                    0 2px 0px 0 map_get($color-palette, button-standard-shadow-inset) inset,
+                                    0 1px 3px 0 map_get($color-palette, button-standard-shadow);
+
+$button-standard-hover-box-shadow:  0 0px 0px 1px map_get($color-palette, button-standard-hover-border-inset) inset,
+                                    0 2px 0px 0 map_get($color-palette, button-standard-shadow-inset) inset,
+                                    0 1px 3px 0 map_get($color-palette, button-standard-shadow);
+
+$button-standard-active-box-shadow: 0 1px 3px 0 map_get($color-palette, button-standard-shadow);
+
+$button-standard-checked-box-shadow:0 0px 0px 1px map_get($color-palette, button-standard-checked-border-inset) inset,
+                                    0 1px 0px 0 map_get($color-palette, button-standard-checked-shadow-inset) inset,
+                                    0 1px 3px 0 map_get($color-palette, button-standard-shadow);
+
+$button-default-box-shadow:         0 0px 0px 1px map_get($color-palette, button-default-border-inset) inset,
+                                    0 0px 4px 0 map_get($color-palette, button-default-shadow-inset) inset,
+                                    0 2px 0px 0 map_get($color-palette, button-standard-shadow-inset) inset,
+                                    0 1px 3px 0 map_get($color-palette, button-standard-shadow);
+
+$button-default-hover-box-shadow:   0 0px 0px 1px map_get($color-palette, button-default-hover-border-inset) inset,
+                                    0 0px 4px 0 map_get($color-palette, button-default-hover-shadow-inset) inset,
+                                    0 2px 0px 0 map_get($color-palette, button-standard-shadow-inset) inset,
+                                    0 1px 3px 0 map_get($color-palette, button-standard-shadow);
+
+$button-default-active-box-shadow:  $button-standard-active-box-shadow;
+
+$toolbar-background: map_get($color-palette, nav-tab-bar-gradient-top) 0%, map_get($color-palette, nav-tab-bar-gradient-mid) 92%, map_get($color-palette, nav-tab-bar-gradient-bottom) 100%;
 
 @import "../components/_styles";

@@ -123,8 +123,11 @@ $color-palette: (
         toolbar-group-separator:                  rgba($black,$opacity-HEX66),
         button-toolbar-label-color:               $white,
         button-toolbar-hover-bg:                  rgba($glitter,$opacity-HEX14),
-        button-toolbar-focus-bg:                  rgba($black,$opacity-HEX19),
-        button-toolbar-focus-border:              rgba($black,$opacity-HEX4C),
+        button-toolbar-active-bg:                 rgba($black,$opacity-HEX19),
+        button-toolbar-active-border:             rgba($black,$opacity-HEX4C),
+        // AJM: Checked states are placeholders until we can toggle icon colors on-the-fly (pg 45)
+        button-toolbar-checked-bg:                rgba($cornflower-blue,$opacity-HEX4C),
+        button-toolbar-checked-hover-bg:          rgba($cornflower-blue,$opacity-HEX7F),
         button-split-group-hover-bg:              rgba($glitter,0.05),                  //Caranu spec pg. 45 is the only spot that has this 0.05/#0C opacity. Let's consider it a one off and not promote it to a var for undo attention.
         button-split-group-divider:               rgba($white,$opacity-HEX28),
 
@@ -134,8 +137,8 @@ $color-palette: (
         button-quick-access-active-bg:            rgba($black,$opacity-HEX4C),
         button-quick-access-disabled-opacity:     $opacity-DEC30,
         button-quick-access-disabled-text-color:  $white,
-        button-group-box-border:                  rgba($glitter,$opacity-HEX28),
-        button-group-box-bg:                      rgba($black,$opacity-HEX19),
+        quick-access-group-box-border:            rgba($glitter,$opacity-HEX28),
+        quick-acess-group-box-bg:                 rgba($black,$opacity-HEX19),
 
         // Buttons
 
@@ -148,16 +151,20 @@ $color-palette: (
         button-standard-hover-gradient-top:       #3F3F46,                           //infrequently used one off (non standard) color; usually for control hover states
         button-standard-hover-gradient-bottom:    #36373D,                           //infrequently used one off (non standard) color; usually for control hover states
         button-standard-hover-shadow-inset:       rgba($white,$opacity-HEX28),
-        button-standard-pressed-bg:               $cornflower-blue,
-        button-standard-pressed-color:            $white,
-        button-standard-active-bg:                $jacksons-purple,
-        button-standard-active-shadow-inset:      rgba($white,$opacity-HEX28),
+        button-standard-active-bg:                $cornflower-blue,
+        button-standard-active-color:             $white,
+        button-standard-checked-color:            $white,
+        button-standard-checked-bg:               $jacksons-purple,
+        button-standard-checked-hover-bg:         #455fa8,    // AJM: This is a placeholder, need official toggled hover spec
+        button-standard-checked-shadow-inset:     rgba($white,$opacity-HEX28),
         button-standard-disabled-opacity:         $opacity-DEC30,                      //leave disabled opacity in decimal since the Caranu spec does
         button-standard-disabled-text-color:      $white,
         // -- Default
         button-default-border-inset:              rgba($cornflower-blue,$opacity-HEX7F),
         button-default-shadow-inset:              rgba($cornflower-blue,$opacity-HEX7F),
+         //AJM: The spec 14 (8%) makes it darker since it allows more of the dark button through.  B2(70%) is closer to the intended look.
         button-default-hover-border-inset:        rgba($cornflower-blue,$opacity-HEX14),
+        button-default-hover-border-fixed:        rgba($cornflower-blue,$opacity-HEXB2),
         button-default-hover-shadow-inset:        rgba($white,$opacity-HEX28),
         // -- Dropdown
         button-dropdown-color:                    $white,
@@ -538,5 +545,38 @@ $icon-pack: (
         target:                               inline-image("#{$dark-icons}/target.png"),
 
 );
+
+$button-standard-box-shadow:        0 1px 1px 0 map_get($color-palette, button-standard-shadow-inset) inset,
+                                    0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                                    0 1px 0px 0 map_get($color-palette, button-standard-shadow);
+
+$button-standard-hover-box-shadow:  0 1px 1px 0 map_get($color-palette, button-standard-hover-shadow-inset) inset,
+                                    0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                                    0 1px 0px 0 map_get($color-palette, button-standard-shadow);
+
+$button-standard-active-box-shadow: 0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                                    0 1px 0px 0 map_get($color-palette, button-standard-shadow);
+
+$button-standard-checked-box-shadow:0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                                    0 1px 0px 0 map_get($color-palette, button-standard-checked-shadow-inset);
+
+$button-default-box-shadow:         0 0px 0px 1px map_get($color-palette, button-default-border-inset) inset,
+                                    0 0px 4px 0 map_get($color-palette, button-default-shadow-inset) inset,
+                                    0 1px 1px 0 map_get($color-palette, button-standard-shadow-inset) inset,
+                                    0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                                    0 1px 0px 0 map_get($color-palette, button-standard-shadow);
+
+$button-default-hover-box-shadow:   0 0px 0px 1px map_get($color-palette, button-default-hover-border-fixed) inset,
+                                    0 0px 4px 0 map_get($color-palette, button-default-shadow-inset) inset,
+                                    0 1px 1px 0 map_get($color-palette, button-default-hover-shadow-inset) inset,
+                                    0 1px 3px 0 map_get($color-palette, button-standard-shadow),
+                                    0 1px 0px 0 map_get($color-palette, button-standard-shadow);
+
+$button-default-active-box-shadow:  $button-standard-active-box-shadow;
+
+$button-toolbar-active-box-shadow:  0 0px 0px 1px map_get($color-palette, button-toolbar-active-border) inset;
+$button-quickaccess-active-box-shadow:  0 0px 0px 1px map_get($color-palette, button-quick-access-active-border) inset;
+
+$toolbar-background: map_get($color-palette, nav-tab-bar-gradient-top), map_get($color-palette, nav-tab-bar-gradient-bottom);
 
 @import "../components/_styles";

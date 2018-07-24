@@ -23,7 +23,7 @@ import { ErrorDirective } from './error.directive';
 // if (widget instanceof ErrorDirective) widget.error = errorState;
 // The benefit is that bindings can automatically populate error state.
 export class AlloyTextboxDirective extends ErrorDirective {
-    @HostBinding('class.alloy-input') true;
+    @HostBinding('class.alloy-text') true;
     @HostBinding('class.has-error') get errorIcon() { return this.error; };
     @HostBinding('title') get title() { return this.errorMessage; };
 }

@@ -1,0 +1,82 @@
+<div class="row align-middle">
+  <hr class="column stretch">
+  <h4 class="column shrink">Checkbox Verification</h4>
+  <hr class="column stretch">
+</div>
+<div class="row align-middle">
+  <hr class="column shrink">
+  <label class="column shrink">Traditional Width</label>
+  <hr class="column stretch">
+</div>
+<div style="max-width: 75rem; margin: auto;">  <!-- match foundation page width-->
+  <div><button alloy label="Should be standard"></button></div>
+  <div><button alloy standard label="Should be standard"></button></div>
+  <div><button alloy standard label="w80px" style="width:80px;"></button></div>
+  <div><button alloy standard label="wMin" style="width:40px;"></button></div>
+  <div><button alloy standard label="w160px" style="width:160px;"></button></div>
+  <div><button alloy standard label="w50%" style="width:50%;"></button></div>
+  <div><button alloy standard label="w100%" style="width:100%;"></button></div>
+</div>
+<div class="row align-middle">
+  <hr class="column shrink">
+  <label class="columns shrink title">Foundation: Width (Note: Foundation 'column' overrides)</label>
+  <label class="column shrink border">row</label>
+  <label class="column shrink cell">cell</label>
+  <hr class="column stretch">
+</div>
+<div class="row align-middle border">
+  <input type="text" alloy class="column cell" value="default" readonly="true">
+  <input type="text" alloy class="column cell" value="width: auto" style="width: auto;" readonly="true">
+  <input type="text" alloy class="column cell" value="width: 100px" style="width: 100px;" readonly="true">
+  <input type="text" alloy class="column cell" value="width: 50%" style="width: 50%" readonly="true">
+  <input type="text" alloy class="column cell" value="width: 100%" style="width: 100%;" readonly="true">
+</div>
+<div class="row align-middle border">
+  <button alloy label="default" class="column cell"></button>
+  <button alloy label="width: auto" class="column cell" style="width: auto;"></button>
+  <button alloy label="w100px" class="column cell" style="width: 100px;"></button>
+  <button alloy label="width: 50%" class="column cell" style="width: 50%"></button>
+  <button alloy label="width: 100%" class="column cell" style="width: 100%;"></button>
+</div>
+<div class="row align-middle">
+  <hr class="column shrink">
+  <label class="columns shrink title">Foundation: Height</label>
+  <hr class="column stretch">
+</div>
+<div class="row align-middle border">
+  <input type="text" alloy class="column cell" value="default (32)" readonly="true">
+  <button alloy label="default (32)" class="column cell"></button>
+</div>
+<div class="row align-middle border">
+  <input type="text" alloy class="column cell" value="height: auto" style="height: auto;" readonly="true">
+  <button alloy label="height: auto" class="column cell" style="height: auto;"></button>
+</div>
+<div class="row align-middle border">
+  <input type="text" alloy class="column cell" value="height: 40px" style="height: 40px;" readonly="true">
+  <button alloy label="height: 40px" class="column cell" style="height: 40px;"></button>
+</div>
+<div class="row align-middle">
+  <hr class="column shrink">
+  <label class="column shrink title">Foundation: Margin</label>
+  <hr class="column stretch">
+</div>
+<div class="row align-middle border">
+  <!-- Rows -->
+  <input type="text" alloy class="column cell small-2" value="m-top: 10px" style="margin-top: 10px" readonly="true">
+  <button alloy label="m-top: 10px" class="column cell small-2" style="margin-top: 10px"></button>
+  <input type="text" alloy class="column cell small-2" value="m-bottom: 10px" style="margin-bottom: 10px" readonly="true">
+  <button alloy label="m-bottom: 10px" class="column cell small-2" style="margin-bottom: 10px"></button>
+</div>
+<!-- Columns -->
+<div class="row align-middle border">
+  <input type="text" alloy class="column cell small-2" value="m-left: 10px, small-2" style="margin-left: 10px;" readonly="true">
+</div>
+<div class="row align-middle border">
+  <button alloy label="m-left: 10px, small-2" class="column cell small-2" style="margin-left: 10px"></button>
+</div>
+<div class="row align-middle border">
+  <input type="text" alloy class="column cell small-2" value="m-right: 10px, small-2" style="margin-right: 10px;" readonly="true">
+</div>
+<div class="row align-middle border">
+  <button alloy label="m-right: 10px, small-2" class="column cell small-2" style="margin-right: 10px"></button>
+</div>

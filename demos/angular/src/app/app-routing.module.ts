@@ -9,12 +9,13 @@ import { DisplaySettingsPageComponent } from './components/display-settings-page
 import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-page.component';
 import { NotificationIconPageComponent } from './components/notification-icon-page/notification-icon-page.component';
 import { PropertyEditorComponent } from './components/property-page/property-editor.component';
-import { SwitcherPageComponent } from 'app/components/switcher-page/switcher-page.component';
+import { SwitcherPageComponent } from './components/switcher-page/switcher-page.component';
 import { TextboxPageComponent } from './components/textbox-page/textbox-page.component';
 import { TextareaPageComponent } from './components/textarea-page/textarea-page.component';
 import { VerificationPageComponent } from './components/verification/verification-page.component';
-import { VerifiyTextboxComponent } from 'app/components/verification/textbox/verify-textbox.component';
+import { VerifiyTextboxComponent } from './components/verification/textbox/verify-textbox.component';
 import { VerifyCheckboxComponent } from './components/verification/checkbox/verify-checkbox.component';
+import { VerifyButtonComponent } from './components/verification/button/verify-button.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'dropdowns', pathMatch: 'full' },
@@ -34,8 +35,9 @@ const routes: Routes = [
     { path: 'verification', component: VerificationPageComponent,
         children: [
           { path: '', component: VerifiyTextboxComponent},
-          { path: 'textbox', component: VerifiyTextboxComponent },
-          { path: 'checkbox', component: VerifyCheckboxComponent }
+          { path: 'button', component: VerifyButtonComponent },
+          { path: 'checkbox', component: VerifyCheckboxComponent },
+          { path: 'textbox', component: VerifiyTextboxComponent }
         ] }
 ];
 

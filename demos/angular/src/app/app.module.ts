@@ -40,12 +40,13 @@ import { SwitcherPageComponent } from './components/switcher-page/switcher-page.
 import { TextareaPageComponent } from './components/textarea-page/textarea-page.component';
 import { TextboxPageComponent } from './components/textbox-page/textbox-page.component';
 import { TextfieldDynamicComponent } from './components/property-page/editors/dynamic-components/textfield/textfield-dynamic.component';
-import { VerificationPageComponent } from 'app/components/verification/verification-page.component';
+import { VerificationPageComponent } from './components/verification/verification-page.component';
 
 import { DataService } from './components/property-page/editors/services/data.service';
 import { EditorService } from './components/property-page/editors/services/editor.service';
 import { VerifiyTextboxComponent } from './components/verification/textbox/verify-textbox.component';
 import { VerifyCheckboxComponent } from './components/verification/checkbox/verify-checkbox.component';
+import { VerifyButtonComponent } from './components/verification/button/verify-button.component';
 
 
 /**
@@ -101,7 +102,8 @@ export class AlloyDemoModule { }
     ContextmenuPageComponent,
     VerificationPageComponent,
     VerifyCheckboxComponent,
-    VerifiyTextboxComponent
+    VerifiyTextboxComponent,
+    VerifyButtonComponent
   ],
   imports: [
     AlloyDemoModule,

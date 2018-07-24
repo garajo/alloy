@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-declare function require(name: string): string;
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-button-page',
@@ -7,68 +6,45 @@ declare function require(name: string): string;
 })
 export class ButtonPageComponent {
 
-    disabledDefault = false;
-    disabledStandard = false;
-    disabledQuickAccess = false;
-    disabledToolbar = false;
-    clickedStandard = false;
-    clickedDefault = false;
-    clickedToolbar = false;
-    clickedQuickAccess = false;
-    hoveredStandard = false;
-    hoveredDefault = false;
-    hoveredToolbar = false;
-    hoveredQuickAccess = false;
-    placeholder = 'This is a button';
+    private disabled = false;
+    get showDisabled() {return this.disabled; }
+    set showDisabled(value: boolean) { this.disabled = value; }
+
+    showChecked = false;
+    showLabel = false;
+    showIcon = false;
+    showToggle = false;
+
+    toggleAttribute = 'toggle';
+    standardAttribute = 'standard';
+    defaultAttribute = 'default';
+    toolbarAttribute = 'toolbar';
+    quickAccessAttribute = 'quickaccess';
+    labelAttribute = 'label'
+    iconAttribute = 'icon'
+
+    element = 'button alloy';
+    attribute: string;
 
     constructor() { }
 
-    toggleDisabledDefault() {
-        this.disabledDefault = !this.disabledDefault;
-    }
+    // Automatically generates an HTML preview for a clicked button.
+    onClick(event: any) {
+      if (event.currentTarget.getAttribute(this.standardAttribute) != null) {
+        this.attribute = this.standardAttribute;
+      }
+      if (event.currentTarget.getAttribute(this.defaultAttribute) != null) {
+        this.attribute = this.defaultAttribute;
+      }
+      if (event.currentTarget.getAttribute(this.toolbarAttribute) != null) {
+        this.attribute = this.toolbarAttribute;
+      }
+      if (event.currentTarget.getAttribute(this.quickAccessAttribute) != null) {
+        this.attribute = this.quickAccessAttribute;
+      }
 
-    toggleDisabledStandard() {
-        this.disabledStandard = !this.disabledStandard;
+      this.showToggle = event.currentTarget.getAttribute(this.toggleAttribute) !== null;
+      this.showLabel = event.currentTarget.getAttribute(this.labelAttribute) !== null;
+      this.showIcon = event.currentTarget.getAttribute(this.iconAttribute) !== null;
     }
-
-    toggleDisabledQuickAccess() {
-        this.disabledQuickAccess = !this.disabledQuickAccess;
-    }
-
-    toggleDisabledToolbar() {
-        this.disabledToolbar = !this.disabledToolbar;
-    }
-
-    toggleClickedStandard() {
-        this.clickedStandard = !this.clickedStandard;
-    }
-
-    toggleClickedQuickAccess() {
-        this.clickedQuickAccess = !this.clickedQuickAccess;
-    }
-
-    toggleClickedDefault() {
-        this.clickedDefault = !this.clickedDefault;
-    }
-
-    toggleClickedToolbar() {
-        this.clickedToolbar = !this.clickedToolbar;
-    }
-
-    toggleHoveredToolbar() {
-        this.hoveredToolbar = !this.hoveredToolbar;
-    }
-
-    toggleHoveredQuickAccess() {
-        this.hoveredQuickAccess = !this.hoveredQuickAccess;
-    }
-
-    toggleHoveredDefault() {
-        this.hoveredDefault = !this.hoveredDefault;
-    }
-
-    toggleHoveredStandard() {
-        this.hoveredStandard = !this.hoveredStandard;
-    }
-
 }

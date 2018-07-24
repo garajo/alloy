@@ -1,192 +1,100 @@
 <div class="tabs-panel is-active">
 
+  <div class="content-container">
+    <div class="row align-center">
+      <div class="columns small-12">
+        <h3>Button</h3>
+        <hr class="row stretch">
+        <h6>
+          <b>
+            <span style="color: lightblue">{{element}}</span>
+            <span style="color: orange">{{attribute}}</span>
+          </b>
+          <span *ngIf="showToggle" style="color: magenta">toggle</span>
+          <span *ngIf="showLabel" style="color: peru">[label]="string"</span>
+          <span *ngIf="showIcon" style="color: mediumslateblue">[icon]="className"</span>
+          <span *ngIf="showDisabled" style="color: lightseagreen">[disabled]="boolean"</span>
+          <span *ngIf="showToggle" style="color: magenta">(toggle)=$event[boolean]</span>
+        </h6>
+        <hr class="row stretch">
+        <button alloy toggle (toggle)="showDisabled=$event">Disable Buttons</button> <!--standard is default (implied here)-->
+      </div>
+    </div>
+
+    <!-- Standard Button -->
+    <div class="content-container">
+      <div class="row align-center">
+        <div class="columns small-12">
+          <h3>Standard</h3>
+          <br>
+        </div>
+      </div>
+      <div class="row align-center">
+        <div class="columns">
+          <button alloy standard label="Simple" [disabled]="showDisabled" (click)="onClick($event)"></button>
+          <button alloy standard label="Simple" icon="alloy-ic-user-profile" [disabled]="showDisabled" (click)="onClick($event)"></button>
+        </div>
+      </div>
+    </div>
+
     <!-- Default Button -->
     <div class="content-container">
-            <div class="row align-center">
-                <div class="columns small-12">
-                    <h3>Standard Button</h3>
-                    <br>
-                </div>
-            </div>
-            <div class="row align-center">
-                <div class="columns">
-                    <button alloy-button default [disabled]="disabledDefault" [hover]="hoveredDefault" [active]="clickedDefault">
-                        Default Button
-                    </button>
-                </div>
-                <div class="columns">
-                    <div>
-                        <h5>Button States</h5>
-                        <div>
-                            <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledDefault()" [ngClass]="{'is-pressed': disabledDefault}">Disabled</button>
-                        </div>
-                        <div>
-                            <button id="hover" type="button" class="button-standard" (click)="toggleHoveredDefault()" [ngClass]="{'is-pressed': hoveredDefault}">Hover</button>
-                        </div>
-                        <div>
-                            <button id="clicked" type="button" class="button-standard" (click)="toggleClickedDefault()" [ngClass]="{'is-pressed': clickedDefault}">Active</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="columns small-7">
-                    <pre ngNonBindable>
-    &lt;button alloy-button default 
-        [disabled]=&quot;disabled&quot;
-        [hover]=&quot;hover&quot;
-        [active]=&quot;active&quot;
-        Default Button
-    &lt;/button &gt;
-                    </pre>
-                </div>
-                <div class="row align-center">
-                    <div class="columns small-4">
-                    </div>
-                    <div class="columns small-8">
-                    </div>
-                </div>
-            </div>
+      <div class="row align-center">
+        <div class="columns">
+          <h3>Default</h3>
+          <button alloy default label="Simple" [disabled]="showDisabled" (click)="onClick($event)"></button>
         </div>
+      </div>
+    </div>
 
     <!-- Toolbar Button -->
     <div class="content-container">
-        <div class="row align-center">
-            <div class="columns small-12">
-                <h3>Toolbar Button</h3>
-                <br>
-            </div>
+      <div class="row align-center">
+        <div class="columns small-12">
+          <h3>Toolbar</h3>
+          <br>
         </div>
-        <div class="row align-center">
-            <div class="columns">
-                <button alloy-button toolbar [disabled]="disabledToolbar" [hover]="hoveredToolbar" [active]="clickedToolbar">
-                    Toolbar Button
-                    <alloy-icon class='alloy-ic-ph-menu-box'></alloy-icon>
-                </button>
-            </div>
-            <div class="columns">
-                <div>
-                    <h5>Button States</h5>
-                    <div>
-                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledToolbar()" [ngClass]="{'is-pressed': disabledToolbar}">Disabled</button>
-                    </div>
-                    <div>
-                        <button id="hover" type="button" class="button-standard" (click)="toggleHoveredToolbar()" [ngClass]="{'is-pressed': hoveredToolbar}">Hover</button>
-                    </div>
-                    <div>
-                        <button id="clicked" type="button" class="button-standard" (click)="toggleClickedToolbar()" [ngClass]="{'is-pressed': clickedToolbar}">Active</button>
-                    </div>
-                </div>
-            </div>
-            <div class="columns small-7">
-                <pre ngNonBindable>
-&lt;button alloy-button toolbar
-    [disabled]=&quot;disabled&quot;
-    [hover]=&quot;hover&quot;
-    [active]=&quot;active&quot;&gt;
-    Toolbar Button
-    &lt;alloy-icon class=&quot;alloy-ic-ph-menu-box&quot;&gt;&lt;/alloy-icon&gt;
-&lt;/button&gt;
-                </pre>
-            </div>
-            <div class="row align-center">
-                <div class="columns small-4">
-                </div>
-                <div class="columns small-8">
-                </div>
-            </div>
+      </div>
+      <div class="row align-center">
+        <div class="columns">
+          <button alloy toolbar icon='alloy-ic-home' (click)="onClick($event)" [disabled]="showDisabled"></button>
+          <button alloy toolbar toggle icon='alloy-ic-rf-emitting' label="Toggle" (click)="onClick($event)" [disabled]="showDisabled"></button>
+          <button alloy toolbar toggle icon='alloy-ic-rf-emitting' (click)="onClick($event)" [disabled]="showDisabled"></button>
         </div>
+      </div>
     </div>
 
-      <!-- Standard Button -->
-      <div class="content-container">
-            <div class="row align-center">
-                <div class="columns small-12">
-                    <h3>Standard Button</h3>
-                    <br>
-                </div>
-            </div>
-            <div class="row align-center">
-                <div class="columns">
-                    <button alloy-button standard [disabled]="disabledStandard" [hover]="hoveredStandard" [active]="clickedStandard">
-                        Standard Button
-                    </button>
-                </div>
-                <div class="columns">
-                    <div>
-                        <h5>Button States</h5>
-                        <div>
-                            <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledStandard()" [ngClass]="{'is-pressed': disabledStandard}">Disabled</button>
-                        </div>
-                        <div>
-                            <button id="hover" type="button" class="button-standard" (click)="toggleHoveredStandard()" [ngClass]="{'is-pressed': hoveredStandard}">Hover</button>
-                        </div>
-                        <div>
-                            <button id="clicked" type="button" class="button-standard" (click)="toggleClickedStandard()" [ngClass]="{'is-pressed': clickedStandard}">Active</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="columns small-7">
-                    <pre ngNonBindable>
-    &lt;button alloy-button regular 
-        [disabled]=&quot;disabled&quot;
-        [hover]=&quot;hover&quot;
-        [active]=&quot;active&quot;
-        Standard Button
-    &lt;/button &gt;
-                    </pre>
-                </div>
-                <div class="row align-center">
-                    <div class="columns small-4">
-                    </div>
-                    <div class="columns small-8">
-                    </div>
-                </div>
-            </div>
+    <!-- Quick Access Button -->
+    <div class="content-container">
+      <div class="row align-center">
+        <div class="columns small-12">
+          <h3>Quick Access</h3>
+          <br>
         </div>
-
-         <!-- Quick Access Button -->
-      <div class="content-container">
-        <div class="row align-center">
-            <div class="columns small-12">
-                <h3>Quick Access Button</h3>
-                <br>
-            </div>
+      </div>
+      <div class="row align-center align-middle">
+        <div class="columns">
+          <button alloy quickaccess icon="alloy-ic-user-profile" [disabled]="showDisabled" (click)="onClick($event)"></button>
+          <div class="quick-access-group-box">
+            <button alloy quickaccess icon="alloy-ic-play" [disabled]="showDisabled" (click)="onClick($event)"></button>
+            <button alloy quickaccess icon="alloy-ic-stop" [disabled]="showDisabled" (click)="onClick($event)"></button>
+          </div>
         </div>
-        <div class="row align-center">
-            <div class="columns">
-                <button alloy-button quickaccess [disabled]="disabledQuickAccess" [hover]="hoveredQuickAccess" [active]="clickedQuickAccess">
-                    <alloy-icon class='alloy-ic-ph-menu-box'></alloy-icon>
-                </button>
-            </div>
-            <div class="columns">
-                <div>
-                    <h5>Button States</h5>
-                    <div>
-                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledQuickAccess()" [ngClass]="{'is-pressed': disabledQuickAccess}">Disabled</button>
-                    </div>
-                    <div>
-                        <button id="hover" type="button" class="button-standard" (click)="toggleHoveredQuickAccess()" [ngClass]="{'is-pressed': hoveredQuickAccess}">Hover</button>
-                    </div>
-                    <div>
-                        <button id="clicked" type="button" class="button-standard" (click)="toggleClickedQuickAccess()" [ngClass]="{'is-pressed': clickedQuickAccess}">Active</button>
-                    </div>
-                </div>
-            </div>
-            <div class="columns small-7">
-                <pre ngNonBindable>
-&lt;button alloy-button quickaccess
-    [disabled]=&quot;disabled&quot;
-    [hover]=&quot;hover&quot;
-    [active]=&quot;active&quot;
-    &lt;alloy-icon class=&quot;alloy-ic-ph-menu-box&quot;&gt;&lt;/alloy-icon&gt;    
-&lt;/button &gt;
-                </pre>
-            </div>
-            <div class="row align-center">
-                <div class="columns small-4">
-                </div>
-                <div class="columns small-8">
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-</div>
+
+    <!-- Toggle Button -->
+    <div class="content-container">
+      <div class="row align-center">
+        <div class="columns small-12">
+          <h3>Toggle</h3>
+          <br>
+        </div>
+      </div>
+      <div class="row align-middle">
+        <button alloy standard toggle label="12" (click)="onClick($event)" [disabled]="showDisabled"></button>
+        <button alloy standard toggle icon="alloy-ic-save-as" (click)="onClick($event)" [disabled]="showDisabled"></button>
+        <button alloy standard toggle label="Mix it up" icon="alloy-ic-save-as" (click)="onClick($event)" [disabled]="showDisabled"></button>
+      </div>
+    </div>
+  </div>

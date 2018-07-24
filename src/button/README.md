@@ -1,49 +1,40 @@
 # Alloy Button
 
-`<alloy-button>` is a form control for adding a button, similar to the native
-`<input type="button">` element.
+`<button alloy>` adds caranu styling to the native element.
 
-In your template, create an `alloy-button` element. Note that you can disable, select, or hover a button by adding the respective boolean attributes (e.g. disabled, hover, active) or
-binding to it. Currently, alloy supports default, standard, quick-access, and toolbar button styling.
+The available styles are:
 
-*my-comp.html*
+* Standard - This is the implied style. `<button alloy standard>` or  `<button alloy>`
+* Default - The button attached to the 'enter' key. `<button alloy default>`
+* Quick Access - The button styling for a quick access bar. `<button alloy quickaccess>`
+* Toolbar - The button styling for a tool bar. `<button alloy toolbar>`
+
 ```html
-<button alloy-button quick-access [disabled]="disabled" [hover]="hovered" [active]="clicked">
+<button alloy |type| [disabled]="disabled">
 </button>
 ```
 
+`Alloy Button` supports `IdentityDirective` and hence supports the `label` and `icon` attributes.
+
 ### Label binding
 
-You can place a label inside of an alloy button by simply using plain text.
-
-*my-comp.html*
 ```html
-<button alloy-button default>
-    My Label
-</button>
+<button alloy default label="My Label"></button>
 ```
 
 ### Icon binding
 
-You can place an icon in a button using the alloy icon directive.
-
-*my-comp.html*
 ```html
-<button alloy-button toolbar>
-    <alloy-icon class="my-icon-class"></alloy-icon>
-</button>
+<button alloy toolbar icon="my-icon-class"></button>
 ```
 
 ### Mixed binding
 
-You can apply both a label as well as an icon to the button by adding both an icon directive and plain text.
-The icon will appear to whichever order of the plain text you add it. The following places the icon to the right
-of the label.
-
-*my-comp.html*
 ```html
-<button alloy-button standard>
-    My Label
-    <alloy-icon class="my-icon-class"></alloy-icon>
-</button>
+<button alloy standard label="My Label" icon="my-icon-class"></button>
+```
+
+`Alloy Button` also supports the `ToggleDirective` and hence supports the `(toggle)` event.  $event is a boolean state of the button.
+```html
+<button alloy standard toggle (toggle)="onToggled($event)" label="My Label"></button>
 ```

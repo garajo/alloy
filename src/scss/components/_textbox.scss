@@ -80,8 +80,8 @@ alloy-textbox input[type="text"] {
     }
 }
 
-// Class for textbox *directive*
-.alloy-input {
+// Class for textbox *directive*, prefer alloy-text, alloy-input deprecated (1.0.0)
+.alloy-text, .alloy-input {
     @include text-core;
     height: 32px;
     padding-left: 12px;

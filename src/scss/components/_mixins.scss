@@ -30,6 +30,14 @@
   background-repeat: no-repeat;
 }
 
+// TODO: We could make this even more generic, we could also use a prefixer
+@mixin linear-gradient-vertical ($color-stops...) {
+    background-image: -webkit-linear-gradient(top, $color-stops);   // Safari 5.1-6, Chrome 10+
+    background-image: -o-linear-gradient(top, $color-stops);        // Opera 12
+    background-image: linear-gradient(to bottom, $color-stops);     // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+    background-repeat: no-repeat;
+  }
+
 @mixin border-top-radius ($radius: 0) {
   border-top-right-radius: $radius;
   border-top-left-radius: $radius;

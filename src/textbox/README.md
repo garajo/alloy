@@ -38,6 +38,15 @@ Notably `checkbox`, `range` (slider) and `radio` are not implemented here.  The 
         input [type=week] [alloy],
 ```
 
+# Angular
+
+`app.module.ts`
+```ts
+  imports: [
+    AlloyDirectivesModule
+  ]
+```
+
 # Migration Notes
 
 ## Angular
@@ -61,7 +70,7 @@ native elements you may get the legacy styling (with all its warts):
 or the fixed styling with:
 
 ```html
-<input class="alloy-input">
+<input class="alloy-text">
 ```
 
 You can apply the legacy styling universally in your app with "alloy-*textbox*":
@@ -73,11 +82,11 @@ input [type="number"] {
 }
 ```
 
-or the fixed styling with "alloy-*input*":
+or the fixed styling with "alloy-*text*":
 
 ```css
 input [type="text"],
 input [type="number"] {
-    @extend .alloy-input
+    @extend .alloy-text
 }
 ```
