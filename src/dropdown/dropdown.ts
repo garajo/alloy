@@ -102,7 +102,6 @@ export class AlloyDropdownChange {
 export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     ControlValueAccessor {
 
-
     private _disabled: boolean;
 
     /** Whether or not the overlay panel is open. */
@@ -222,6 +221,8 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
             overlayY: 'bottom',
         },
     ];
+
+    _maxPanelHeight = '0px';
 
     /** Trigger that opens the select. */
     @ViewChild('trigger') trigger: ElementRef;
@@ -374,8 +375,7 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
         private elementRef: ElementRef,
         private _viewportRuler: ViewportRuler,
         @Self() @Optional() public _control: NgControl,
-        @Attribute('tabindex') tabIndex: string,
-        ) {
+        @Attribute('tabindex') tabIndex: string) {
         this.eRef = elementRef;
         if (this._control) {
             this._control.valueAccessor = this;
@@ -646,9 +646,9 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
      * present in the DOM.
      */
     private _setScrollTop(): void {
-        // const scrollContainer =
-        //     this.overlayDir.overlayRef.overlayElement.querySelector('.mat-select-panel');
-        // scrollContainer!.scrollTop = this._scrollTop;
+        const scrollContainer =
+            this.overlayDir.overlayRef.overlayElement.querySelector('.dropdown-pane');
+        scrollContainer!.scrollTop = this._scrollTop;
     }
 
     /**
@@ -863,33 +863,37 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     /** Calculates the scroll position and x- and y-offsets of the overlay panel. */
     private _calculateOverlayPosition(): void {
         const items = this._getItemCount();
-        const panelHeight = items * SELECT_ITEM_HEIGHT;
+        let panelHeight = items * SELECT_ITEM_HEIGHT;
+        if(this._filterable){
+            panelHeight += SELECT_ITEM_HEIGHT;
+        }
+        const viewportRect = this._viewportRuler.getViewportRect();
+        if (panelHeight > viewportRect.height) {
+            const remainder = viewportRect.height % SELECT_ITEM_HEIGHT;
+            panelHeight = viewportRect.height - remainder;
+        }
+        this._maxPanelHeight = panelHeight + SELECT_PANEL_VIEWPORT_PADDING + 'px';
         const scrollContainerHeight = items * SELECT_ITEM_HEIGHT;
 
         // The farthest the panel can be scrolled before it hits the bottom
         const maxScroll = scrollContainerHeight - panelHeight;
 
-        /**
-         * Commented material-select code
-         * This block dynamically adjusts the offsetY based on the option selected from the panel 
-         */
-        // if (this._selectionModel.hasValue()) {
-        //     let selectedOptionOffset = this._getOptionIndex(this._selectionModel.selected[0])!;
+        if (this._selectionModel.hasValue()) {
+            let selectedOptionOffset = this._getOptionIndex(this._selectionModel.selected[0])!;
 
-        //     // We must maintain a scroll buffer so the selected option will be scrolled to the
-        //     // center of the overlay panel rather than the top.
-        //     const scrollBuffer = panelHeight / 2;
-        //     this._scrollTop = this._calculateOverlayScroll(selectedOptionOffset, scrollBuffer, maxScroll);
-        //     this._offsetY = this._calculateOverlayOffsetY(selectedOptionOffset, scrollBuffer, maxScroll);
-        // } else {
-        //     // If no option is selected, the panel centers on the first option. In this case,
-        //     // we must only adjust for the height difference between the option element
-        //     // and the trigger element, then multiply it by -1 to ensure the panel moves
-        //     // in the correct direction up the page.
-        //     this._offsetY = (SELECT_ITEM_HEIGHT - SELECT_TRIGGER_HEIGHT) / 2 * -1;
-        // }
-        this._offsetY = this._getTriggerRect().height;
-        this._checkOverlayWithinViewport(maxScroll);
+            // We must maintain a scroll buffer so the selected option will be scrolled to the
+            // center of the overlay panel rather than the top.
+            const scrollBuffer = panelHeight / 2;
+            this._scrollTop = this._calculateOverlayScroll(selectedOptionOffset, scrollBuffer, maxScroll);
+            this._offsetY = this._calculateOverlayOffsetY(selectedOptionOffset, scrollBuffer, maxScroll);
+        } else {
+            // If no option is selected, the panel centers on the first option. In this case,
+            // we must only adjust for the height difference between the option element
+            // and the trigger element, then multiply it by -1 to ensure the panel moves
+            // in the correct direction up the page.
+            this._offsetY = (SELECT_ITEM_HEIGHT - SELECT_TRIGGER_HEIGHT) / 2 * -1;
+        }
+        this._checkOverlayWithinViewport(maxScroll, panelHeight);
     }
 
     /**
@@ -898,16 +902,26 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
      * y-offset so the panel can open fully on-screen.
      * This implementation attempts to comply with the Caranu specs
      */
-    private _checkOverlayWithinViewport(maxScroll: number): void {
+    private _checkOverlayWithinViewport(maxScroll: number, panelHeight: number): void {
         const viewportRect = this._viewportRuler.getViewportRect();
         const triggerRect = this._getTriggerRect();
 
+        const topSpaceAvailable = triggerRect.top - SELECT_PANEL_VIEWPORT_PADDING;
         const bottomSpaceAvailable =
             viewportRect.height - triggerRect.bottom - SELECT_PANEL_VIEWPORT_PADDING;
 
-        const totalPanelHeight = this._getItemCount() * SELECT_ITEM_HEIGHT;
-        if (totalPanelHeight > bottomSpaceAvailable){
-            this._offsetY = -totalPanelHeight-SELECT_PANEL_VIEWPORT_PADDING;
+        const panelHeightTop = Math.abs(this._offsetY);
+        const panelHeightBottom = panelHeight - panelHeightTop - triggerRect.height;
+        if( panelHeight  < bottomSpaceAvailable ){
+            this._offsetY = this._getTriggerRect().height;
+        } else if (panelHeight < topSpaceAvailable) {
+            this._offsetY = -panelHeight - SELECT_PANEL_VIEWPORT_PADDING;
+        } else if (panelHeightBottom > bottomSpaceAvailable) {
+            this._adjustPanelUp(panelHeightBottom, bottomSpaceAvailable);
+        } else if (panelHeightTop > topSpaceAvailable) {
+            this._adjustPanelDown(panelHeightTop, topSpaceAvailable, maxScroll);
+        } else {
+            this._transformOrigin = this._getOriginBasedOnOption();
         }
     }
 
@@ -997,7 +1011,7 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
         // effect.
         if (this._scrollTop <= 0) {
             this._scrollTop = 0;
-            this._offsetY = 0;
+            // this._offsetY = 0;
             this._transformOrigin = `50% bottom 0px`;
         }
     }
@@ -1018,7 +1032,7 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
         // to take effect.
         if (this._scrollTop >= maxScroll) {
             this._scrollTop = maxScroll;
-            this._offsetY = 0;
+            // this._offsetY = 0;
             this._transformOrigin = `50% top 0px`;
             return;
         }

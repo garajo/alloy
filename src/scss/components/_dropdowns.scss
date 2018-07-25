@@ -54,6 +54,8 @@ $cdk-z-index-overlay: 1000;
 
   padding: 0;
   border: none;
+  min-width: 100%;
+  overflow: auto;
 
   background-color: transparent;
 
@@ -85,8 +87,6 @@ $cdk-z-index-overlay: 1000;
       position: absolute;
       top: 0; left: 0;
       @include size(100%);
-
-      border: inset 1px map_get($color-palette, menu-border-inset-active);
 
       pointer-events: none;
     }

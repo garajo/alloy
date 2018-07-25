@@ -36,9 +36,10 @@
 
     <div
         #panel
-        class="dropdown-pane bottom" 
+        class="dropdown-pane bottom"
         [ngClass]="{'is-open': panelOpen, 'right-align': right_align, 'left-align': !right_align}"
-        [style.transformOrigin]="_transformOrigin">
+        [style.transformOrigin]="_transformOrigin"
+        [style.max-height] = "_maxPanelHeight">
         <ul class="menu vertical">
             <div *ngIf="filterable" class="search-container">
                 <input type="text" class="alloy-input dropdown-filter" placeholder="Search" (keyup)="onFilterKeyUp($event)" #filterInput>
