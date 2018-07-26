@@ -864,8 +864,10 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     private _calculateOverlayPosition(): void {
         const items = this._getItemCount();
         let panelHeight = items * SELECT_ITEM_HEIGHT;
-        if(this._filterable){
+        let scrollContainerHeight = items * SELECT_ITEM_HEIGHT;
+        if (this._filterable) {
             panelHeight += SELECT_ITEM_HEIGHT;
+            scrollContainerHeight += SELECT_ITEM_HEIGHT;
         }
         const viewportRect = this._viewportRuler.getViewportRect();
         if (panelHeight > viewportRect.height) {
@@ -873,7 +875,6 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
             panelHeight = viewportRect.height - remainder;
         }
         this._maxPanelHeight = panelHeight + SELECT_PANEL_VIEWPORT_PADDING + 'px';
-        const scrollContainerHeight = items * SELECT_ITEM_HEIGHT;
 
         // The farthest the panel can be scrolled before it hits the bottom
         const maxScroll = scrollContainerHeight - panelHeight;
