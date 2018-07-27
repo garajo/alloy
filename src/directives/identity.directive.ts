@@ -1,7 +1,7 @@
 import { Directive, Input, ElementRef, Renderer2 } from '@angular/core';
 
 @Directive({
-    selector: `[label], [icon], [image]`
+    selector: `[alloyLabel], [alloyIcon], [alloyImage]`
 })
 /**
  * This directive adds a universal identity to an element consisting of an optional icon (or image) and/or label.
@@ -19,7 +19,7 @@ export class AlloyIdentityDirective {
     /**
      * Sets a string label for the checkbox.
      */
-    @Input() set label(value: string) {
+    @Input('alloyLabel') set label(value: string) {
         this.labelString = value;
         this.reconstructor();
     }
@@ -35,7 +35,7 @@ export class AlloyIdentityDirective {
     /**
      * Sets an image 'label' for the checkbox, equivalent of <img src=>
      */
-    @Input() set image(value: string) {
+    @Input('alloyImage') set image(value: string) {
         this.imageSource = value;
         this.reconstructor();
     }
@@ -51,11 +51,7 @@ export class AlloyIdentityDirective {
     /**
      * Sets an image 'label' for the checkbox, equivalent of <img class="alloy-ic-*">
      */
-    @Input() set icon(value: string) {
-        // Cleanup an existing class if one exists
-        if (this.iconElement) {
-            this.renderer.removeClass(this.iconElement, this.iconClass);
-        }
+    @Input('alloyIcon') set icon(value: string) {
         this.iconClass = value;
         this.reconstructor();
     }
@@ -105,12 +101,12 @@ export class AlloyIdentityDirective {
             }
 
             if (this.imageSource) {
-                this.renderer.setStyle(this.iconElement, 'background', `url(${this.imageSource})`);
+                this.renderer.setStyle(this.iconElement, 'background', `url(${this.imageSource}) no-repeat`);
             }
 
             if (this.iconClass) {
-                // prior class removal handled by setter
-                this.renderer.addClass(this.iconElement, this.iconClass);
+                // addClass, removeClass don't support spaces (two classes), so we add it as an attribute as a whole.
+                this.renderer.setAttribute(this.iconElement, 'class', this.iconClass);
             }
         } else if (this.iconElement) {
             this.renderer.removeChild(this.parentElement, this.iconElement);

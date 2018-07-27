@@ -7,14 +7,15 @@
         <hr class="row stretch">
         <h6>
           <b>
-            <span style="color: lightblue">{{element}}</span>
+            <span style="color: lightblue">&lt;{{element}}</span>
             <span style="color: orange">{{attribute}}</span>
           </b>
           <span *ngIf="showToggle" style="color: magenta">toggle</span>
-          <span *ngIf="showLabel" style="color: peru">[label]="string"</span>
-          <span *ngIf="showIcon" style="color: mediumslateblue">[icon]="className"</span>
+          <span *ngIf="showLabel" style="color: peru">[alloyLabel]="string"</span>
+          <span *ngIf="showIcon" style="color: mediumslateblue">[alloyIcon]="className"</span>
           <span *ngIf="showDisabled" style="color: lightseagreen">[disabled]="boolean"</span>
           <span *ngIf="showToggle" style="color: magenta">(toggle)=$event[boolean]</span>
+          &gt;&lt;/button&gt;
         </h6>
         <hr class="row stretch">
         <button alloy toggle (toggle)="showDisabled=$event">Disable Buttons</button> <!--standard is default (implied here)-->
@@ -31,8 +32,9 @@
       </div>
       <div class="row align-center">
         <div class="columns">
-          <button alloy standard label="Simple" [disabled]="showDisabled" (click)="onClick($event)"></button>
-          <button alloy standard label="Simple" icon="alloy-ic-user-profile" [disabled]="showDisabled" (click)="onClick($event)"></button>
+          <button alloy standard alloyLabel="Simple" [disabled]="showDisabled" (click)="onClick($event)"></button>
+          <button alloy standard alloyLabel="Simple" alloyIcon="alloy-ic-user-profile" [disabled]="showDisabled" (click)="onClick($event)"></button>
+          <button alloy standard alloyLabel="Back" alloyIcon="alloy-ic-caret left" [disabled]="showDisabled" (click)="onClick($event)"></button>
         </div>
       </div>
     </div>
@@ -42,7 +44,7 @@
       <div class="row align-center">
         <div class="columns">
           <h3>Default</h3>
-          <button alloy default label="Simple" [disabled]="showDisabled" (click)="onClick($event)"></button>
+          <button alloy default alloyLabel="Simple" [disabled]="showDisabled" (click)="onClick($event)"></button>
         </div>
       </div>
     </div>
@@ -57,9 +59,9 @@
       </div>
       <div class="row align-center">
         <div class="columns">
-          <button alloy toolbar icon='alloy-ic-home' (click)="onClick($event)" [disabled]="showDisabled"></button>
-          <button alloy toolbar toggle icon='alloy-ic-rf-emitting' label="Toggle" (click)="onClick($event)" [disabled]="showDisabled"></button>
-          <button alloy toolbar toggle icon='alloy-ic-rf-emitting' (click)="onClick($event)" [disabled]="showDisabled"></button>
+          <button alloy toolbar alloyIcon='alloy-ic-home' (click)="onClick($event)" [disabled]="showDisabled"></button>
+          <button alloy toolbar toggle alloyIcon='alloy-ic-rf-emitting' alloyLabel="Toggle" (click)="onClick($event)" [disabled]="showDisabled"></button>
+          <button alloy toolbar toggle alloyIcon='alloy-ic-rf-emitting' (click)="onClick($event)" [disabled]="showDisabled"></button>
         </div>
       </div>
     </div>
@@ -74,10 +76,10 @@
       </div>
       <div class="row align-center align-middle">
         <div class="columns">
-          <button alloy quickaccess icon="alloy-ic-user-profile" [disabled]="showDisabled" (click)="onClick($event)"></button>
+          <button alloy quickaccess alloyIcon="alloy-ic-user-profile" [disabled]="showDisabled" (click)="onClick($event)"></button>
           <div class="quick-access-group-box">
-            <button alloy quickaccess icon="alloy-ic-play" [disabled]="showDisabled" (click)="onClick($event)"></button>
-            <button alloy quickaccess icon="alloy-ic-stop" [disabled]="showDisabled" (click)="onClick($event)"></button>
+            <button alloy quickaccess alloyIcon="alloy-ic-play" [disabled]="showDisabled" (click)="onClick($event)"></button>
+            <button alloy quickaccess alloyIcon="alloy-ic-stop" [disabled]="showDisabled" (click)="onClick($event)"></button>
           </div>
         </div>
       </div>
@@ -92,9 +94,9 @@
         </div>
       </div>
       <div class="row align-middle">
-        <button alloy standard toggle label="12" (click)="onClick($event)" [disabled]="showDisabled"></button>
-        <button alloy standard toggle icon="alloy-ic-save-as" (click)="onClick($event)" [disabled]="showDisabled"></button>
-        <button alloy standard toggle label="Mix it up" icon="alloy-ic-save-as" (click)="onClick($event)" [disabled]="showDisabled"></button>
+        <button alloy standard toggle alloyLabel="12" (click)="onClick($event)" [disabled]="showDisabled"></button>
+        <button alloy standard toggle alloyIcon="alloy-ic-save-as" (click)="onClick($event)" [disabled]="showDisabled"></button>
+        <button alloy standard toggle alloyLabel="Mix it up" alloyIcon="alloy-ic-save-as" (click)="onClick($event)" [disabled]="showDisabled"></button>
       </div>
     </div>
   </div>

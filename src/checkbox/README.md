@@ -3,23 +3,34 @@
 **`<alloy-checkbox>` <span style="color:red">is now deprecated**<span>.
 Instances of `<alloy-checkbox>` should be migrated to the new directive:
 
+## Migration
+
+Deprecated:
+
 ```html
-<!-- All attributes align -->
-<alloy-checkbox></alloy-checkbox> -> <input type="checkbox" alloy>
+<alloy-checkbox label="string" icon="className"></allow-checkbox>
+```
+
+becomes:
+
+```html
+<input type="checkbox" alloy alloyLabel="string" alloyIcon="className">
 ```
 
 ## Full API
 
 ```html
 <input type="checkbox" alloy
-   [label]="string"
-   [icon]="sourceString"
+   [alloyLabel]="string"
+   [alloyIcon]="sourceString"
    [disabled]="boolean"
    [checked]="boolean"
    [readonly]="boolean"
    [size]="number"
    [error]="boolean" [errorMessage]="string">
 ```
+
+`alloyIcon` and `alloyLabel` are attributes of the generic `IdentityDirective` which is supported in many widgets.
 
 ### Attributes
 
@@ -32,23 +43,23 @@ Instances of `<alloy-checkbox>` should be migrated to the new directive:
 
 ### Label binding
 
-You can bind a label to a dynamic value by adding `[label]` binding.
+You can bind a label to a dynamic value by adding `[alloyLabel]` binding.
 
 ```html
 <input type="checkbox" alloy
-   [label]="string">
+   [alloyLabel]="string">
 ```
 
 ### Icon binding
 
-You can bind an icon to a dynamic value by adding `[icon]` binding.
+You can bind an icon to a dynamic value by adding `[alloyIcon]` binding.
 
 ```html
 <input type="checkbox" alloy
-   [icon]="sourceString">
+   [alloyIcon]="className">
 ```
 
 ### Mixed binding
 
-You can bind both a label as well as an icon to the checkbox by adding both `[label]` and `[icon]` bindings.
+You can bind both a label as well as an icon to the checkbox by adding both `[alloyLabel]` and `[alloyIcon]` bindings.
 The icon will appear to the left of the label.

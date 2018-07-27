@@ -17,9 +17,9 @@
             <hr class="row stretch">
             <h6>
                 &lt;<span style="color: lightblue">input type="<span style="color: lightgreen">checkbox</span>"</span> <b><span style="color: orange">alloy</span></b><br>&nbsp;&nbsp;
-                [label]="string"<br>&nbsp;&nbsp;
-                [icon]="className (preferred)"<br>&nbsp;&nbsp;
-                [image]="sourceString"<br>&nbsp;&nbsp;
+                [alloyLabel]="string"<br>&nbsp;&nbsp;
+                [alloyIcon]="className (preferred)"<br>&nbsp;&nbsp;
+                [alloyImage]="sourceString"<br>&nbsp;&nbsp;
                 <span [ngStyle]=" {'color': disabledStyle} ">[disabled]="boolean"</span><br>&nbsp;&nbsp;
                 <span [ngStyle]=" {'color': checkedStyle} ">[checked]="boolean"</span><br>&nbsp;&nbsp;
                 <span [ngStyle]=" {'color': readonlyStyle} ">[readonly]="boolean"</span><br>&nbsp;&nbsp;
@@ -52,7 +52,7 @@
         <div class="content-container">
           <div class="row align-center">
               <div class="columns small-12">
-                  <h5>New Checkbox ([label]="string")</h5>
+                  <h5>New Checkbox ([alloyLabel]="string")</h5>
               </div>
           </div>
           <div class="row align-center">
@@ -62,7 +62,7 @@
                     [disabled]="disabled"
                     [checked]="checkedLabel"
                     [readonly]="readonly"
-                    label="Checkbox"
+                    alloyLabel="Checkbox"
                     [error]="error"
                     [errorMessage]="errorMessage">
               </div>
@@ -72,7 +72,7 @@
       <div class="content-container">
           <div class="row align-center">
               <div class="columns small-12">
-                  <h5>New Icon Checkbox ([icon]="className")</h5>
+                  <h5>New Icon Checkbox ([alloyIcon]="className")</h5>
               </div>
           </div>
           <div class="row align-center">
@@ -82,7 +82,7 @@
                     [disabled]="disabled"
                     [checked]="checkedIcon"
                     [readonly]="readonly"
-                    icon="alloy-ic-user-profile"
+                    alloyIcon="alloy-ic-user-profile"
                     [error]="error"
                     [errorMessage]="errorMessage">
               </div>
@@ -102,8 +102,8 @@
               [disabled]="disabled"
               [checked]="checkedMixed"
               [readonly]="readonly"
-              icon="alloy-ic-user-profile"
-              label="Mix it up!"
+              alloyIcon="alloy-ic-user-profile"
+              alloyLabel="Mix it up!"
               [error]="error"
               [errorMessage]="errorMessage">
           </div>

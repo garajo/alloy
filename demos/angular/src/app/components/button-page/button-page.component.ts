@@ -20,8 +20,8 @@ export class ButtonPageComponent {
     defaultAttribute = 'default';
     toolbarAttribute = 'toolbar';
     quickAccessAttribute = 'quickaccess';
-    labelAttribute = 'label'
-    iconAttribute = 'icon'
+    labelAttribute = 'alloyLabel'
+    iconAttribute = 'alloyIcon'
 
     element = 'button alloy';
     attribute: string;

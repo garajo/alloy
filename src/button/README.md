@@ -14,27 +14,27 @@ The available styles are:
 </button>
 ```
 
-`Alloy Button` supports `IdentityDirective` and hence supports the `label` and `icon` attributes.
+`Alloy Button` supports `IdentityDirective` and hence supports the `alloyLabel` and `alloyIcon` attributes.
 
 ### Label binding
 
 ```html
-<button alloy default label="My Label"></button>
+<button alloy default alloyLabel="My Label"></button>
 ```
 
 ### Icon binding
 
 ```html
-<button alloy toolbar icon="my-icon-class"></button>
+<button alloy toolbar alloyIcon="my-icon-class"></button>
 ```
 
 ### Mixed binding
 
 ```html
-<button alloy standard label="My Label" icon="my-icon-class"></button>
+<button alloy standard alloyLabel="My Label" alloyIcon="my-icon-class"></button>
 ```
 
 `Alloy Button` also supports the `ToggleDirective` and hence supports the `(toggle)` event.  $event is a boolean state of the button.
 ```html
-<button alloy standard toggle (toggle)="onToggled($event)" label="My Label"></button>
+<button alloy standard toggle (toggle)="onToggled($event)" alloyLabel="My Label"></button>
 ```

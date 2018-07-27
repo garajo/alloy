@@ -140,6 +140,8 @@ button {
 
 .alloy-button-quickaccess {
     @include buttonCore;
+    @include setIconSize(16px);
+
     width: 48px;
     height: 32px;
     border-radius: 2px;
@@ -327,6 +329,8 @@ button {
 
 // Deprecated, target (1.0.0)
 .button-standard {
+  @extend .button;
+
   &,
   &:focus {
     position: relative;
@@ -569,6 +573,8 @@ button {
 
 // Deprecated, target (1.0.0)
 .button-toolbar, .button-toolbar:focus {
+  @extend .button;
+
   padding: 11px;
   border: 1px solid transparent;
   color: map_get($color-palette, button-toolbar-label-color);
@@ -643,6 +649,8 @@ button {
 
 // Deprecated, target (1.0.0)
 .button-quick-access, .button-quick-access:focus {
+  @extend .button;
+
   height: 32px;
 
   padding: 8px 15px;
@@ -691,6 +699,7 @@ button {
 
 // TODO: AJM: Requires refactor
 button.dropdown {
+  @extend .button;
   $caret-width: 11px;
   $caret-height: 7px;
   $icon-width: 24px;
@@ -886,6 +895,8 @@ button.dropdown {
 
 // TODO: AJM: Requires refactor
 .spin {
+  @extend .button;
+
   position: relative;
   width: 24px;
 
@@ -967,6 +978,8 @@ button.dropdown {
 
 // TODO: AJM: Requires refactor
 .button-scroll {
+  @extend .button;
+
   $caret-width: 6px;
   $caret-height: 5px;
   $size: 16px;
