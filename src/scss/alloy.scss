@@ -7,13 +7,13 @@
 @import 'alloy_base';
 
 // Since this is the default (non customized) alloy pull in the alloy dark theme and all of its glory
-@import 'themes/_dark.scss'; 
+@import 'themes/_dark.scss';
 
 body {
    &.light {
 
         // Pull in Alloy light theme but wrap it here in its body/.light combo. This allows for the customized version of Alloy light to be imported without the body/light combo
-        @import 'themes/_light.scss'; 
+        @import 'themes/_light.scss';
 
         //Need to put these body level properties here. Dark puts them in the _dark.scss but doesn't have the requirement of scoping them with the .light class
         background:             $white;

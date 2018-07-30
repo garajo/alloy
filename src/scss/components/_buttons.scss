@@ -329,8 +329,6 @@ button {
 
 // Deprecated, target (1.0.0)
 .button-standard {
-  @extend .button;
-
   &,
   &:focus {
     position: relative;
@@ -465,8 +463,6 @@ button {
 
 // Deprecated, target (1.0.0)
 .button-default {
-  @extend .button-standard;
-
   position: relative;
 
   @if $theme-light == true {
@@ -573,8 +569,6 @@ button {
 
 // Deprecated, target (1.0.0)
 .button-toolbar, .button-toolbar:focus {
-  @extend .button;
-
   padding: 11px;
   border: 1px solid transparent;
   color: map_get($color-palette, button-toolbar-label-color);
@@ -649,8 +643,6 @@ button {
 
 // Deprecated, target (1.0.0)
 .button-quick-access, .button-quick-access:focus {
-  @extend .button;
-
   height: 32px;
 
   padding: 8px 15px;
@@ -699,11 +691,15 @@ button {
 
 // TODO: AJM: Requires refactor
 button.dropdown {
-  @extend .button;
+    @extend .button;
   $caret-width: 11px;
   $caret-height: 7px;
   $icon-width: 24px;
   $icon-height: 24px;
+
+  // AJM: Hack for dropdown showing a blue border from god knows where
+  // This is a sloppy blind patch, but this code is barely readable and just needs to be eradicated ASAP
+  border: none;
 
   * {
     vertical-align: middle;
@@ -783,6 +779,9 @@ button.dropdown {
       top: 5px;
 
       margin-left: 8px;
+        // AJM: Hack for dropdown showing a blue border from god knows where
+        // This is a sloppy blind patch, but this code is barely readable and just needs to be eradicated ASAP
+        border: none;
     }
 
     label {
@@ -853,6 +852,9 @@ button.dropdown {
 
       &:after {
         background: transparent map_get($icon-pack, caret-down-active) no-repeat center center / $caret-width $caret-height;
+                // AJM: Hack for dropdown showing a blue border from god knows where
+        // This is a sloppy blind patch, but this code is barely readable and just needs to be eradicated ASAP
+        border: none;
 
         transform: rotate(180deg);
       }
@@ -861,6 +863,9 @@ button.dropdown {
     &.lightweight {
       &:after {
         background: transparent map_get($icon-pack, caret-down-alt-active) no-repeat center center / $caret-width $caret-height;
+                // AJM: Hack for dropdown showing a blue border from god knows where
+        // This is a sloppy blind patch, but this code is barely readable and just needs to be eradicated ASAP
+        border: none;
 
         transform: rotate(180deg);
       }
@@ -882,6 +887,9 @@ button.dropdown {
 
       &:after {
         background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $caret-width $caret-height;
+                // AJM: Hack for dropdown showing a blue border from god knows where
+        // This is a sloppy blind patch, but this code is barely readable and just needs to be eradicated ASAP
+        border: none;
 
         transform: rotate(180deg);
       }
@@ -895,8 +903,6 @@ button.dropdown {
 
 // TODO: AJM: Requires refactor
 .spin {
-  @extend .button;
-
   position: relative;
   width: 24px;
 
@@ -978,8 +984,6 @@ button.dropdown {
 
 // TODO: AJM: Requires refactor
 .button-scroll {
-  @extend .button;
-
   $caret-width: 6px;
   $caret-height: 5px;
   $size: 16px;
