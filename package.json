@@ -1,6 +1,6 @@
 {
     "name": "@keysight/alloy",
-    "version": "0.2.0-20",
+    "version": "0.2.0-21",
     "description": "KSF GUI HTML5 Component and Styling Library",
     "scripts": {
         "build": "gulp build",
