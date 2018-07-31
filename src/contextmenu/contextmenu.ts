@@ -112,7 +112,8 @@ export class AlloyContextMenuAPI {
     }
 
     // If you cannot access DOM element of the `target`, you can attach a listener to listen for contextmenu event manually.
-    attachListener(target: any, contextMenuData: any, customContextMenuTemplate?: AlloyContextMenuComponent) {
-        this.renderer.listen(target, 'contextmenu', (event) => this.onContextMenu(event, contextMenuData, customContextMenuTemplate));
+    // returns the 'unlistener' to allow unregistering of the event handler
+    attachListener(target: any, contextMenuData: any, customContextMenuTemplate?: AlloyContextMenuComponent): () => void {
+        return this.renderer.listen(target, 'contextmenu', (event) => this.onContextMenu(event, contextMenuData, customContextMenuTemplate));
     }
 }
