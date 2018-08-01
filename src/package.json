@@ -1,46 +1,44 @@
 {
-    "name": "@keysight/alloy",
-    "version": "0.2.0-22",
-    "description": "KSF GUI HTML5 Component and Styling Library",
-    "repository": {
-        "type": "git",
-        "url": "ssh://git@bitbucket.it.keysight.com:7999/ksfgui/alloy.git"
-    },
-    "author": {
-        "name": "Roman Minkin",
-        "email": "roman.minkin@keysight.com"
-    },
-    "keywords": [
-        "angular",
-        "ksf",
-        "alloy"
-    ],
-    "license": "",
-    "module": "alloy.js",
-    "typings": "alloy.d.ts",
-    "dependencies": {
-        "@angular/animations": "^4.3.1",
-        "@angular/cdk": "^2.0.0-beta.11",
-        "@angular/material": "^2.0.0-beta.11",
-        "ag-grid": "14.1.0",
-        "ag-grid-angular": "14.1.0",
-        "ngx-contextmenu": "=2.0.0-beta.7",
-        "foundation-sites": "=6.3.1",
-        "ts-keycode-enum": "=1.0.4"
-    },
-    "devDependencies": {
-        
-    },
-    "peerDependencies": {
-        "@angular/common": "^4.3.1",
-        "@angular/core": "^4.3.1",
-        "@angular/forms": "^4.3.1",
-        "@angular/platform-browser": "^4.3.1",
-        "@angular/platform-browser-dynamic": "^4.3.1",
-        "rxjs": "^5.1.0",
-        "zone.js": "^0.8.4"
-    },
-    "publishConfig": {
-        "registry": "http://artifactory.it.keysight.com/artifactory/api/npm/npm-local-ksf/"
-    }
+  "name": "@keysight/alloy",
+  "version": "0.2.0-22",
+  "description": "KSF GUI HTML5 Component and Styling Library",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@bitbucket.it.keysight.com:7999/ksfgui/alloy.git"
+  },
+  "author": {
+    "name": "Roman Minkin",
+    "email": "roman.minkin@keysight.com"
+  },
+  "keywords": [
+    "angular",
+    "ksf",
+    "alloy"
+  ],
+  "license": "",
+  "module": "alloy.js",
+  "typings": "alloy.d.ts",
+  "dependencies": {
+    "@angular/animations": "^4.3.1",
+    "@angular/cdk": "^2.0.0-beta.11",
+    "@angular/material": "^2.0.0-beta.11",
+    "ag-grid": "14.1.0",
+    "ag-grid-angular": "14.1.0",
+    "ngx-contextmenu": "=2.0.0-beta.7",
+    "foundation-sites": "=6.3.1",
+    "ts-keycode-enum": "=1.0.4"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "@angular/common": "^4.3.1",
+    "@angular/core": "^4.3.1",
+    "@angular/forms": "^4.3.1",
+    "@angular/platform-browser": "^4.3.1",
+    "@angular/platform-browser-dynamic": "^4.3.1",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  },
+  "publishConfig": {
+    "registry": "http://artifactory.it.keysight.com/artifactory/api/npm/npm-local-ksf/"
+  }
 }
