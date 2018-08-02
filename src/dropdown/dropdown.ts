@@ -14,8 +14,7 @@ import {
     AfterContentInit,
     ViewEncapsulation,
     EventEmitter,
-    ChangeDetectorRef,
-    HostListener
+    ChangeDetectorRef
 } from '@angular/core';
 
 import { ConnectedOverlayDirective, ViewportRuler } from '@angular/cdk/overlay';
@@ -107,6 +106,9 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     /** Whether or not the overlay panel is open. */
     private _panelOpen = false;
 
+    /** internal property to determine is more than one option has been selected */
+    public multipleSelected = false;
+
     /** Subscriptions to option events. */
     private _optionSubscription: Subscription | null;
 
@@ -152,6 +154,13 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     /** Whether the component options are filterable. */
     private _filterable: boolean = false;
 
+    /** Whether the options allow a selectAll function */
+    private _selectAllOption: boolean = false;
+
+    /** label to be displayed for selectAll */
+    public selectAllLabel: string = 'Select All';
+    public isSelectAll: boolean = false;
+
     /** Deals with the selection logic. */
     _selectionModel: SelectionModel<AlloyOption>;
 
@@ -193,6 +202,9 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
 
     /** Whether the panel's animation is done. */
     _panelDoneAnimating: boolean = false;
+
+    /** the initial placeholder determined by user */
+    initialPlaceholder: string;
 
     /**
      * The y-offset of the overlay panel in relation to the trigger's top start corner.
@@ -254,6 +266,7 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     get placeholder() { return this._placeholder; }
     set placeholder(value: string) {
         this._placeholder = value;
+        this.initialPlaceholder = value;
 
         // Must wait to record the trigger width to ensure placeholder width is included.
         Promise.resolve(null).then(() => this._setTriggerWidth());
@@ -339,6 +352,13 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
         this._filterable = value;
     }
 
+    /** Whether Select ALl should be allowed */
+    @Input()
+    get selectAllOption(): boolean { return this._selectAllOption; }
+    set selectAllOption(value: boolean) {
+        this._selectAllOption = value;
+    }
+
     /** Tab index for the select element. */
     @Input()
     get tabIndex(): number { return (this.disabled || this.readonly) ? -1 : this._tabIndex; }
@@ -387,13 +407,6 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
         this._selectionModel = new SelectionModel<AlloyOption>(this.multiple, undefined, false);
     }
 
-    @HostListener('document:click', ['$event'])
-    handleClickOutsideDropdown(event) {
-        if (!this.eRef.nativeElement.contains(event.target)){
-            this.close();
-        }
-    }
-
     ngAfterContentInit() {
         this._initKeyManager();
 
@@ -421,6 +434,22 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
             this._tabSubscription.unsubscribe();
         }
     }
+
+    onSelectAll(): void {
+        if (this._selectionModel.selected.length === this.options.length) {
+            this._clearSelection();
+
+        } else {
+            this.options.forEach(option => {
+                this._selectionModel.select(option);
+                    option.select();
+            });
+        }
+        this.setSelectAllLabel();
+        this.setPlaceholder();
+        this._propagateChanges();
+    }
+
 
     /** Listen for (keyup) keystrokes from dropdown filter inputbox. For option filtering. */
     onFilterKeyUp(event): void {
@@ -471,6 +500,10 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
 
         this._calculateOverlayPosition();
         this._panelOpen = true;
+
+        if (this._multiple) {
+            this.options.toArray().map((s) => { s.multiple = true })
+        }
 
         /** Focuses on input, reset to default values */
         if (this.filterable) {
@@ -768,8 +801,44 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
             this._propagateChanges();
         }
 
-        this._placeholder = option.viewValue;
+        if (this._multiple) {
+            if (this.selectAllOption) {
+                this.setSelectAllLabel();
+            }
+            this.multipleSelected = false;
+            this.setPlaceholder();
+
+        } else {
+            this._placeholder = option.viewValue;
+        }
         this._changeDetectorRef.markForCheck();
+    }
+
+    private setPlaceholder(): void {
+
+        if (this._selectionModel.selected.length > 0) {
+            this._placeholder = this._selectionModel.selected[0].viewValue;
+            if (this._selectionModel.selected.length > 1) {
+                // const values = this._selectionModel.selected.map(element => {
+                //     return element.viewValue;
+                // }).join(', ');
+                const values = '[' + this._selectionModel.selected.length + ']' + ' Selected';
+                this._placeholder = values;
+                this.multipleSelected = true;
+            }
+        } else {
+            this._placeholder = this.initialPlaceholder;
+        }
+    }
+
+    private setSelectAllLabel(): void {
+        if (this._selectionModel.selected.length === this.options.length) {
+            this.isSelectAll = true;
+            this.selectAllLabel = 'Deselect All';
+        } else {
+            this.isSelectAll = false;
+            this.selectAllLabel = 'Select All';
+        }
     }
 
     /**
@@ -865,7 +934,7 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
         const items = this._getItemCount();
         let panelHeight = items * SELECT_ITEM_HEIGHT;
         let scrollContainerHeight = items * SELECT_ITEM_HEIGHT;
-        if (this._filterable) {
+        if (this._filterable || this._multiple) {
             panelHeight += SELECT_ITEM_HEIGHT;
             scrollContainerHeight += SELECT_ITEM_HEIGHT;
         }

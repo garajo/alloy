@@ -34,7 +34,6 @@ export class AlloyOptionSelectionChange {
         'role': 'option',
         '[attr.tabindex]': '_getTabIndex()',
         '[class.alloy-selected]': 'selected',
-        '[class.alloy-option-multiple]': 'multiple',
         '[class.alloy-active]': 'active',
         '[id]': 'id',
         '[attr.aria-selected]': 'selected.toString()',
@@ -81,7 +80,7 @@ export class AlloyOption {
     @Output() onSelectionChange = new EventEmitter<AlloyOptionSelectionChange>();
 
     constructor(
-        private _element: ElementRef) { }
+        private _element: ElementRef) {}
 
     /**
      * Whether or not the option is currently active and ready to be selected.

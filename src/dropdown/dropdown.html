@@ -13,7 +13,7 @@
                     (click)="toggle()"
                     #origin="cdkOverlayOrigin"
                     #trigger>
-            <label *ngIf="!icon">{{placeholder}}</label>
+            <label  [ngClass]="{'isSelected': multipleSelected }" *ngIf="!icon">{{placeholder}}</label>
             <div *ngIf="icon && isIconClass" class="{{ icon }}"></div>
             <img *ngIf="icon && !isIconClass" src="{{ icon }}" >
     </button>
@@ -37,7 +37,7 @@
     <div
         #panel
         class="dropdown-pane bottom"
-        [ngClass]="{'is-open': panelOpen, 'right-align': right_align, 'left-align': !right_align}"
+        [ngClass]="{'is-open': panelOpen, 'right-align': right_align, 'left-align': !right_align, 'alloy-dropdown-multiple': multiple}"
         [style.transformOrigin]="_transformOrigin"
         [style.max-height] = "_maxPanelHeight">
         <ul class="menu vertical">
@@ -46,6 +46,15 @@
                 <span class="alloy-ic-search"></span>
                 <li *ngIf="noMatch" class="no-match"><a>No match found!</a></li>
             </div>
+            <li *ngIf="selectAllOption">
+                <a class="select-all-option" (click)="onSelectAll()">
+                    <div class="checkbox">
+                        <input #checkbox [checked]="isSelectAll" type="checkbox"/>
+                        <span></span>
+                    </div>
+                    {{selectAllLabel}}
+                </a>
+            </li>
             <ng-content></ng-content>
         </ul>
     </div>

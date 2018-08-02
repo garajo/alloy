@@ -1,6 +1,14 @@
-<li #li [ngClass]="{'has-icon': selected}">
+<li #li [ngClass]="{'has-icon': selected && !multiple }">
     <a>
-        <i class="alloy-ic-check" *ngIf="selected"></i>
+        <i class="alloy-ic-check" *ngIf="selected && !multiple"></i>
+
+         <div *ngIf="multiple" class="checkbox">
+            <input #checkbox
+                   type="checkbox"
+                   [checked]="selected"
+                   />
+            <span></span>
+        </div>
         <ng-content></ng-content>
     </a>
 </li>

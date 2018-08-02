@@ -64,6 +64,14 @@ If you want one of your options to reset the dropdown's value, you can omit spec
 - <kbd>UP_ARROW</kbd>: Focus previous option
 - <kbd>ENTER</kbd> or <kbd>SPACE</kbd>: dropdown focused item
 
+#### Multiple Selection
+
+you can allow user to do multiple selection by adding the `multiple` attribute. Using [selectAllOption], you can add a checkbox at the top of the list to allow toggling of select/deselect all.
+
+*my-comp.html*
+```html
+<alloy-dropdown multiple>
+   <alloy-option *ngFor="let state of states" [selectAllOption]="state.code" [value]="state.code">{{ state.name }}</alloy-option>
 ### Filtering
 
 You can allow users to do a search on the dropdown by adding `[filterable]` binding.

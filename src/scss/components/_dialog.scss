@@ -6,19 +6,6 @@
     box-shadow: 0 1px 86px 0 map_get($color-palette, dialog-box-shadow) !important;
 }
 
-// these next 3 classes make the dialog box appear in the center of window
-.cdk-global-overlay-wrapper,.cdk-overlay-container {
-    pointer-events:none;top:0;left:0;height:100%;width:100%
-}
-
-.cdk-overlay-container {
-    position:fixed;z-index:1000
-}
-
-.cdk-global-overlay-wrapper {
-    display:flex;position:absolute;z-index:1000
-}
-
 .dialog {
     min-width: 550px;
     min-height: 300px;

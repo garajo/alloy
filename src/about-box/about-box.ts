@@ -37,6 +37,7 @@ export class AlloyAboutBox implements OnInit {
     private _version = '';
 
   constructor(public dialogRef: MatDialogRef<AlloyAboutBox>) {
+    this.dialogRef.disableClose = true;
   }
 
   ngOnInit() {
@@ -55,7 +56,7 @@ export class AlloyAboutBox implements OnInit {
     set content(value: string) {
         this._content = value;
     }
-    
+
     /** About box copyright to be shown */
     @Input()
     get copyright() { return this._copyright; }

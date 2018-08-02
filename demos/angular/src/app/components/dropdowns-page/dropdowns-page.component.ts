@@ -18,6 +18,7 @@ export class DropdownsPageComponent implements OnInit {
     errorState = false;
     filterState = true;
     errorMessage = 'Validation errors in dropdown';
+    selectAllOptionState = true;
 
 
     modules = [
@@ -36,6 +37,12 @@ export class DropdownsPageComponent implements OnInit {
         { value: 'edit_prof', name: 'Edit Profile' },
         { value: 'view_sett', name: 'View Settings' },
         { value: 'log_out', name: 'Log Out' }
+    ];
+
+    multiple_modules = [
+        { value: 'wf-0', name: 'Waveforms Filename' },
+        { value: 'wl-1', name: 'Waveform Length' },
+        { value: 'cf-2', name: 'Carrier Frequency' }
     ];
 
     add(_modules) {
@@ -69,6 +76,10 @@ export class DropdownsPageComponent implements OnInit {
 
     toggleFiltering() {
         this.filterState = !this.filterState;
+    }
+
+    toggleSelectAllOption() {
+        this.selectAllOptionState = !this.selectAllOptionState;
     }
 
     constructor() { }

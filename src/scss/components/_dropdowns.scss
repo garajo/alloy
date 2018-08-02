@@ -1,3 +1,4 @@
+
 .dropdown-group {
   position: relative;
   //Fix so that "siblings" to this container don't go on their own rows; we want things to be on the same row by default
@@ -25,12 +26,12 @@
     pointer-events: none;
     opacity: map_get($color-palette, control-default-readonly-opacity);
   }
-  
+
   //Disabled opacity is explicitly here (after the read only) so it takes precedent
   &.disabled {
     // This simple property allowed us to remove large amounts of code to prevent widget interaction when disabled
     pointer-events: none;
-    opacity: map_get($color-palette, control-default-disabled-opacity);        
+    opacity: map_get($color-palette, control-default-disabled-opacity);
   }
 
 }
@@ -182,6 +183,28 @@ $cdk-z-index-overlay: 1000;
         &.option-not-matched {
             display: none;
         }
+    }
+  }
+
+  &.alloy-dropdown-multiple {
+    ul.menu.vertical {
+      li {
+        a {
+          padding-left: 20px;
+          .checkbox {
+            display: inline;
+            margin-right: 20px;
+            }
+          }
+        }
+      }
+
+    alloy-option {
+      .checkbox {
+        > span {
+          margin-top: 3px;
+        }
+      }
     }
   }
 }

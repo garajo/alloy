@@ -25,6 +25,7 @@ export class AlloyDisplaySettingsDialog implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<AlloyDisplaySettingsDialog>,
     private alloyThemingService: AlloyThemingService) {
+      this.dialogRef.disableClose = true;
   }
 
   ngOnInit() {
