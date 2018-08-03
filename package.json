@@ -73,7 +73,7 @@
         "ts-keycode-enum": "=1.0.4",
         "ts-node": "~2.0.0",
         "tslint": "~4.5.0",
-        "typescript": "^2.4.1",
+        "typescript": "2.3.x",
         "zone.js": "^0.8.4"
     },
     "engines": {

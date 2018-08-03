@@ -18,11 +18,11 @@ import { FocusMonitor } from '@angular/cdk/a11y';
 // }
 type Styles = 'standard' | 'default' | 'quickaccess' | 'toolbar';
 const Styles = {
-    get Standard(): Styles { return 'standard'; },
-    get Default(): Styles { return 'default'; },
-    get Quickaccess(): Styles { return 'quickaccess'; },
-    get Toolbar(): Styles { return 'toolbar'; }
-}
+    Standard: 'standard' as Styles,
+    Default: 'default' as Styles,
+    Quickaccess: 'quickaccess' as Styles,
+    Toolbar: 'toolbar' as Styles
+};
 @Directive({
     selector: `button [alloy]`
 })

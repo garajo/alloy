@@ -766,9 +766,9 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     /** Listens to user-generated selection events on each option. */
     private _listenToOptions(): void {
         this._optionSubscription = this.optionSelectionChanges.pipe(
-            filter(event => event.isUserInput)
+            filter((event: AlloyOptionSelectionChange) => event.isUserInput)
         )
-        .subscribe(event => {
+        .subscribe((event: AlloyOptionSelectionChange) => {
             this._onSelect(event.source);
             this._setValueWidth();
 

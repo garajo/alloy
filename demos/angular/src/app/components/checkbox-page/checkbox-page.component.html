@@ -3,7 +3,7 @@
         <div class="row align-center">
             <div class="columns small-12">
                 <h3>Checkbox</h3>
-                <button id="checked" type="button" class="button-standard" (click)="toggleChecked()" [ngClass]="{'is-pressed': checked}">Checked</button>
+                <button id="checked" alloy standard toggle (click)="toggleChecked()">Checked</button>
                 <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled()" [ngClass]="{'is-pressed': disabled}">Disabled</button>
                 <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly()" [ngClass]="{'is-pressed': readonly}">Readonly</button>
                 <button id="errors" type="button" class="button-standard" (click)="toggleError()" [ngClass]="{'is-pressed': error}">Error</button>
