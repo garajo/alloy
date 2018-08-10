@@ -24,6 +24,6 @@ import { ErrorDirective } from './error.directive';
 // The benefit is that bindings can automatically populate error state.
 export class AlloyTextboxDirective extends ErrorDirective {
     @HostBinding('class.alloy-text') true;
-    @HostBinding('class.has-error') get errorIcon() { return this.error; };
-    @HostBinding('title') get title() { return this.errorMessage; };
+    @HostBinding('class.has-error') get errorIcon() { return this.error; }
+    @HostBinding('attr.title') get title() { return this.errorMessage; }
 }

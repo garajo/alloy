@@ -10,6 +10,7 @@ export class TextboxPageComponent implements OnInit {
   public disabledSimple: boolean;
   public readonlySimple: boolean;
   public errorSimple: boolean;
+  public errorMessage: string;
   public requiredSimple: boolean;
 
   public width = 25;
@@ -39,5 +40,6 @@ export class TextboxPageComponent implements OnInit {
 
   toggleErrorSimple() {
     this.errorSimple = !this.errorSimple;
+    this.errorMessage = this.errorSimple ? 'test' : null;
   }
 }

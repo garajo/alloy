@@ -189,7 +189,9 @@ export class AlloyCheckboxDirective extends ErrorDirective implements AfterViewI
     onError(errorState: boolean, errorMessage: string) {
         // AJM: The title change is destructive, we could store/restore if needed
         if (errorState) {
-            this.renderer.setAttribute(this.labelElement, 'title', errorMessage);
+            if (errorMessage) {
+                this.renderer.setAttribute(this.labelElement, 'title', errorMessage);
+            }
             this.renderer.addClass(this.labelElement, 'has-error');
             this.renderer.addClass(this.el.nativeElement, 'has-error');
         } else {
