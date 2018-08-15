@@ -1,5 +1,7 @@
 import { Directive, Input, ElementRef, Renderer2 } from '@angular/core';
 
+const LABEL_CLASS_NAME = 'alloyLabel';
+const ICON_CLASS_NAME = 'alloyIcon';
 @Directive({
     selector: `[alloyLabel], [alloyIcon], [alloyImage]`
 })
@@ -19,7 +21,7 @@ export class AlloyIdentityDirective {
     /**
      * Sets a string label for the checkbox.
      */
-    @Input('alloyLabel') set label(value: string) {
+    @Input(LABEL_CLASS_NAME) set label(value: string) {
         this.labelString = value;
         this.reconstructor();
     }
@@ -51,7 +53,7 @@ export class AlloyIdentityDirective {
     /**
      * Sets an image 'label' for the checkbox, equivalent of <img class="alloy-ic-*">
      */
-    @Input('alloyIcon') set icon(value: string) {
+    @Input(ICON_CLASS_NAME) set icon(value: string) {
         this.iconClass = value;
         this.reconstructor();
     }
@@ -61,14 +63,25 @@ export class AlloyIdentityDirective {
     get icon() { return this.iconClass; }
 
     /**
+     * Represents the order of the label/icon
+     */
+    private flip = false;
+    /**
+     * Set true if you want the label to precede the icon
+     */
+    @Input('alloyFlip') set isFlipped(value: boolean) {
+        this.flip = value !== false;
+        this.reconstructor();
+    }
+    /**
+     * Returns true if the label/icon order is reversed
+     */
+    get isFlipped() { return this.flip; }
+
+    /**
      * Element to inject icon and label into.  Either @Host or the target of `assignTo`.
      */
     private parentElement: any;
-
-    /**
-     * Element holding the text label if labelString exists.
-     */
-    private labelTextNode: ElementRef;
 
     /**
      * Text node wrapper. CSS cannot reference a text node directly, so we need this wrapper to apply styling.
@@ -86,7 +99,6 @@ export class AlloyIdentityDirective {
       ) {
         this.parentElement = elementRef.nativeElement;
         this.renderer = renderer;
-        this.createLabel();
         this.reconstructor();
     }
 
@@ -94,10 +106,36 @@ export class AlloyIdentityDirective {
      * Handles constructing the DOM for the identity based on changes to the features (icon or label)
      */
     reconstructor() {
+        // Cleanup old versions
+        if (this.labelSpan) {
+            this.renderer.removeChild(this.parentElement, this.labelSpan);
+            this.labelSpan = null;
+        }
+
+        if (this.iconElement) {
+            this.renderer.removeChild(this.parentElement, this.iconElement);
+            this.iconElement = null;
+        }
+
+        // Construct the label (span)
+        if (this.label) {
+            this.labelSpan = this.renderer.createElement('span');
+            this.renderer.addClass(this.labelSpan, LABEL_CLASS_NAME);
+            this.renderer.appendChild(this.parentElement, this.labelSpan);
+            const labelTextNode = this.renderer.createText(this.labelString);
+            this.renderer.appendChild(this.labelSpan, labelTextNode);
+        }
+
+        // Construct the icon (div)
         if (this.iconClass || this.imageSource) {
             if (!this.iconElement) {
                 this.iconElement = this.renderer.createElement('div');
-                this.renderer.insertBefore(this.parentElement, this.iconElement, this.labelSpan);
+                if (this.isFlipped) {
+                    this.renderer.appendChild(this.parentElement, this.iconElement);
+                } else {
+                    this.renderer.insertBefore(this.parentElement, this.iconElement, this.labelSpan);
+                    this.renderer.addClass(this.iconElement, ICON_CLASS_NAME);
+                }
             }
 
             if (this.imageSource) {
@@ -106,28 +144,13 @@ export class AlloyIdentityDirective {
 
             if (this.iconClass) {
                 // addClass, removeClass don't support spaces (two classes), so we add it as an attribute as a whole.
-                this.renderer.setAttribute(this.iconElement, 'class', this.iconClass);
+                // TODO: split the input by space and add each class
+                this.renderer.setAttribute(this.iconElement, 'class', ICON_CLASS_NAME + ' ' + this.iconClass);
             }
         } else if (this.iconElement) {
             this.renderer.removeChild(this.parentElement, this.iconElement);
             this.iconElement = null;
         }
-
-        if (this.labelTextNode) {
-            this.renderer.removeChild(this.labelSpan, this.labelTextNode);
-        }
-
-        if (this.labelString) {
-            this.labelTextNode = this.renderer.createText(this.labelString);
-            this.renderer.appendChild(this.labelSpan, this.labelTextNode);
-        }
-    }
-
-    createLabel() {
-        // TODO: AJM: We can probably make this entirely dynamic (ie: no guaranteed span).
-        // We must add this span to style the text in relation to siblings
-        this.labelSpan = this.renderer.createElement('span');
-        this.renderer.appendChild(this.parentElement, this.labelSpan);
     }
 
     setSize(iconSize: number, fontSize: number) {
@@ -156,7 +179,6 @@ export class AlloyIdentityDirective {
 
         // Setup directive for new parent
         this.parentElement = parentNativeElement;
-        this.createLabel();
         this.reconstructor();
     }
 }

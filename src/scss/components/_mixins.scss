@@ -181,3 +181,24 @@
       }
   }
 }
+
+@mixin setIdentity($iconSize, $fontSize, $spacing) {
+    .alloyIcon {
+        background-size: $iconSize;
+        height: $iconSize;
+        width: $iconSize;
+    }
+
+    .alloyLabel {
+        font-size: $fontSize;
+    }
+
+    // Below we set the spacing between the icon and label regardless of order
+    .alloyLabel + .alloyIcon {
+        margin-left: $spacing;
+    }
+
+    .alloyIcon + .alloyLabel {
+        margin-left: $spacing;
+    }
+}

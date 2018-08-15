@@ -774,6 +774,8 @@ $prefix: alloy-ic-;
     }
 
     // For carets used as expanders, Caranu specifies that hover & pressed state are the same color
+    // TODO: AJM: This should not be a default behavior for an icon especially given sizing constants
+    // It belongs in the definition for expander
     &:hover,
     &.is-hover,
     &:active,

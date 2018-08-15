@@ -14,6 +14,7 @@ export class ButtonPageComponent {
     showLabel = false;
     showIcon = false;
     showToggle = false;
+    showFlip = false;
 
     toggleAttribute = 'toggle';
     standardAttribute = 'standard';
@@ -22,6 +23,7 @@ export class ButtonPageComponent {
     quickAccessAttribute = 'quickaccess';
     labelAttribute = 'alloyLabel'
     iconAttribute = 'alloyIcon'
+    flipAttribute = 'alloyFlip'
 
     element = 'button alloy';
     attribute: string;
@@ -46,5 +48,6 @@ export class ButtonPageComponent {
       this.showToggle = event.currentTarget.getAttribute(this.toggleAttribute) !== null;
       this.showLabel = event.currentTarget.getAttribute(this.labelAttribute) !== null;
       this.showIcon = event.currentTarget.getAttribute(this.iconAttribute) !== null;
+      this.showFlip = event.currentTarget.getAttribute(this.flipAttribute) !== null;
     }
 }

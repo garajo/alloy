@@ -11,8 +11,9 @@
             <span style="color: orange">{{attribute}}</span>
           </b>
           <span *ngIf="showToggle" style="color: magenta">toggle</span>
-          <span *ngIf="showLabel" style="color: peru">[alloyLabel]="string"</span>
+          <span *ngIf="showLabel" style="color: mediumslateblue">[alloyLabel]="string"</span>
           <span *ngIf="showIcon" style="color: mediumslateblue">[alloyIcon]="className"</span>
+          <span *ngIf="showFlip" style="color: mediumslateblue">alloyFlip</span>
           <span *ngIf="showDisabled" style="color: lightseagreen">[disabled]="boolean"</span>
           <span *ngIf="showToggle" style="color: magenta">(toggle)=$event[boolean]</span>
           &gt;&lt;/button&gt;
@@ -35,6 +36,7 @@
           <button alloy standard alloyLabel="Simple" [disabled]="showDisabled" (click)="onClick($event)"></button>
           <button alloy standard alloyLabel="Simple" alloyIcon="alloy-ic-user-profile" [disabled]="showDisabled" (click)="onClick($event)"></button>
           <button alloy standard alloyLabel="Back" alloyIcon="alloy-ic-caret left" [disabled]="showDisabled" (click)="onClick($event)"></button>
+          <button alloy standard alloyLabel="Select" alloyIcon="alloy-ic-caret right" alloyFlip [disabled]="showDisabled" (click)="onClick($event)"></button>
         </div>
       </div>
     </div>
