@@ -242,6 +242,11 @@ $color-palette: (
         data-grid-row-stripe-bg:                  rgba($black,$opacity-HEX0A),
         data-grid-stripe-border:                  rgba($black,$opacity-HEX0F),
 
+        // Progress bar
+        progress-bar-background:                  rgba($bunting, $opacity-HEX26),
+        progress-bar-color:                       $cornflower-blue,
+        progress-ring-color:                      $cornflower-blue,
+
         // Property Panel
         panel-bg:                                 #F2F4FA,
         panel-tabs-shadow:                        rgba($black,$opacity-HEX33),

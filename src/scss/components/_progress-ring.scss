@@ -1,0 +1,61 @@
+@mixin alloy-progress-ring( $name: 'small', $size: 50px, $balls: 8, $animation-duration: 2000ms, $ball-arc: 120deg, $first-ball-angle: 220deg) {
+    $className: "ring-#{$name}";
+
+    $delay: $animation-duration / $balls / 3;
+    $angularSeparation: $ball-arc / $balls;
+
+    // We create an orbit animation for each ball.  This allows us to simply set the initial rest location and rotate 360.
+    @for $ball from 1 through ($balls) {
+        $startPoint: ($first-ball-angle - $angularSeparation * ($ball - 1));
+        @keyframes #{$className}-orbit-#{$ball} {
+            0% {
+                opacity: 1;
+                transform: rotate($startPoint);
+            }
+            100% {
+                opacity: 1;
+                transform: rotate($startPoint + 360deg);
+            }
+        }
+    }
+    .#{$className} {
+        position: relative;
+        width: $size;
+        height: $size;
+        margin: auto;
+    }
+    // Behaves like a clock hand rotating the ball (:after) around
+    .#{$className} .circle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation-iteration-count: infinite;
+        animation-duration: $animation-duration;
+        opacity: 0;
+    }
+    .#{$className} .circle:after {
+        content: '';
+        position: absolute;
+
+        // Slide the ball over to 12 o'clock
+        top: 0%;
+        left: 50%;
+
+        // 70% is roughly sqrt(2) allowing marginal separation
+        $ballSize: 70% / ($balls - 1);
+
+        width: $ballSize;
+        height: $ballSize;
+
+        border-radius: 100%;
+        // JEFF_TODO For some reason the progress ring mixin doesn't have access to the Alloy scss vars (can't figure out what progress-ring-color is). 
+        background: #4C8EFF;//map_get($color-palette, progress-ring-color);
+    }
+    // Each ball gets its custom animation
+    @for $ball from 1 through ($balls) {
+        .#{$className} .circle:nth-child(#{$ball}) {
+            animation-name: #{$className}-orbit-#{$ball};
+            animation-delay: ($delay * ($ball - 1));
+        }
+    }
+}

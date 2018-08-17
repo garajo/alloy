@@ -19,6 +19,7 @@ import {
   AlloyDropdownModule,
   AlloyIconModule,
   AlloyNotificationIconModule,
+  AlloyProgressRingModule,
   AlloyPropertyGridModule,
   AlloyPropertyGridMessageService,
   AlloySwitcherModule,
@@ -35,6 +36,7 @@ import { DisplaySettingsPageComponent } from './components/display-settings-page
 import { DropdownDynamicComponent } from './components/property-page/editors/dynamic-components/dropdown/dropdown-dynamic.component';
 import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-page.component';
 import { NotificationIconPageComponent } from './components/notification-icon-page/notification-icon-page.component';
+import { ProgressBarPageComponent } from './components/progress-bar-page/progress-bar-page.component';
 import { PropertyEditorComponent } from './components/property-page/property-editor.component';
 import { SwitcherPageComponent } from './components/switcher-page/switcher-page.component';
 import { TextareaPageComponent } from './components/textarea-page/textarea-page.component';
@@ -64,7 +66,8 @@ import { VerifyButtonComponent } from './components/verification/button/verify-b
     AlloyIconModule,
     AlloyNotificationIconModule,
     AlloySwitcherModule,
-    AlloyDirectivesModule
+    AlloyDirectivesModule,
+    AlloyProgressRingModule
   ],
   entryComponents: [
     AlloyAboutBox
@@ -76,7 +79,8 @@ import { VerifyButtonComponent } from './components/verification/button/verify-b
     AlloyIconModule,
     AlloyNotificationIconModule,
     AlloyContextmenuModule,
-    AlloyDirectivesModule
+    AlloyDirectivesModule,
+    AlloyProgressRingModule
   ]
 })
 export class AlloyDemoModule { }
@@ -93,6 +97,7 @@ export class AlloyDemoModule { }
     DropdownDynamicComponent,
     DropdownsPageComponent,
     NotificationIconPageComponent,
+    ProgressBarPageComponent,
     PropertyEditorComponent,
     SwitcherPageComponent,
     TextfieldDynamicComponent,

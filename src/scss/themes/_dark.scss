@@ -235,6 +235,11 @@ $color-palette: (
         data-grid-row-stripe-bg:                  rgba($white,$opacity-HEX07),
         data-grid-stripe-border:                  rgba($white,$opacity-HEX0F),
 
+        // Progress bar
+        progress-bar-background:                  rgba($glitter,$opacity-HEX28),
+        progress-bar-color:                       $cornflower-blue,
+        progress-ring-color:                      $cornflower-blue,
+
         // Property Panel
         panel-bg:                                 #2D2D33,                           //JEFF_TODO Caranu spec pg. 32 Not a standard color but is supposed to be used in a property panel active tab and container background. Need to figure out why it's not being applied to the active tab
         panel-tabs-shadow:                        rgba($black,$opacity-HEX66),

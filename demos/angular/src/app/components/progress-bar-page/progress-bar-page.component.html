@@ -1,0 +1,61 @@
+<div class="tabs-panel is-active">
+
+  <div class="content-container">
+    <div class="row align-center">
+      <div class="columns small-12">
+        <h3>Progress Controls</h3>
+        <hr class="row stretch">
+        <h6>
+          &lt;alloy-progress-ring
+            <span style="color: orange">{{ringSize}}</span>
+            &gt;&lt;/alloy-progress-ring&gt;
+        </h6>
+        <hr class="row stretch">
+      </div>
+    </div>
+
+    <!-- Indeterminate Progress Ring -->
+    <div class="content-container">
+      <div class="row align-center">
+        <div class="columns small-12">
+          <h3>Indeterminate Progress Ring</h3>
+          <br>
+        </div>
+      </div>
+      <div class="row align-center">
+        <div class="columns">
+          <button alloy standard alloyLabel="icon" (click)="onClick($event)"></button>
+          <button alloy standard alloyLabel="small" (click)="onClick($event)"></button>
+          <button alloy standard alloyLabel="medium" (click)="onClick($event)"></button>
+          <button alloy standard alloyLabel="large" (click)="onClick($event)"></button>
+          <alloy-progress-ring icon></alloy-progress-ring>
+          <alloy-progress-ring small></alloy-progress-ring>
+          <alloy-progress-ring medium></alloy-progress-ring>
+          <alloy-progress-ring large></alloy-progress-ring>
+        </div>
+      </div>
+    </div>
+
+    <!-- Indeterminate Progress Bar -->
+    <div class="content-container">
+      <div class="row align-center">
+        <div class="columns">
+          <h3>Indeterminate Progress Bar - WIP</h3>
+          <br>
+          <progress></progress>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="content-container">
+      <div class="row align-center">
+        <div class="columns small-12">
+          <h3>Progress Bar - WIP</h3>
+          <br>
+            <progress max="100" value="33"></progress>
+        </div>
+      </div>
+    </div>
+
+  </div>
