@@ -670,6 +670,7 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
     _onAttached(): void {
         this._changeDetectorRef.detectChanges();
         this.panel.nativeElement.scrollTop = this._scrollTop;
+        this._calculateOverlayOffsetX();
         this._setScrollTop();
     }
 
@@ -1030,6 +1031,18 @@ export class AlloyDropdown implements AfterContentInit, OnDestroy, OnInit,
      * content width in order to constrain the panel within the viewport.
      */
     private _calculateOverlayOffsetX(): void {
+        const viewportRect = this._viewportRuler.getViewportRect();
+        const panelContainer = this.overlayDir.overlayRef.overlayElement.querySelector('.dropdown-pane');
+        let offsetX = 0;
+        const rightOverflow = this._triggerRect.left + panelContainer.clientWidth - viewportRect.width;
+
+        if (rightOverflow > 0) {
+          offsetX -= rightOverflow + SELECT_PANEL_VIEWPORT_PADDING;
+        }
+        // Set the offset directly in order to avoid having to go through change detection and
+        // potentially triggering "changed after it was checked" errors.
+        this.overlayDir.offsetX = offsetX;
+        this.overlayDir.overlayRef.updatePosition();
     }
 
     /**
