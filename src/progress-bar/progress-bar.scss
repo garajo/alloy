@@ -1,0 +1,6 @@
+@import '../scss/components/progress';
+
+$balls: 5;
+
+// // TODO: AJM: Ideally I'd like to export this value to ts so we can make all edits here, punting for now
+@include alloy-progress-bar();

@@ -1,0 +1,9 @@
+<div class="progress-bar">
+    <!-- determinate -->
+    <div *ngIf="value != null" class="progress" [ngStyle]="progressTransform()"></div>
+
+    <!-- indeterminate -->
+    <ng-container *ngIf="value == null">
+        <div *ngFor="let i of Arr(balls).fill(0)" class="circle"></div>
+    </ng-container>
+</div>

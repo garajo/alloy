@@ -15,6 +15,7 @@ export * from './dropdown/index';
 export * from './icon/index';
 
 export * from './notification-icon/index';
+export * from './progress-bar/index'
 export * from './progress-ring/index'
 export * from './property-grid/index';
 export * from './textbox/index';

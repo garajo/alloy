@@ -1,4 +1,6 @@
-@import "../scss/components/_progress-ring.scss";
+@import '../scss/components/_progress.scss';
+
+//TODO: AJM: Ideally the following would be in scss alongside the components, but our scss is not designed for that
 
 // Edit these to define the style characteristics
 $icon-size: 32px;

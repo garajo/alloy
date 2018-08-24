@@ -5,12 +5,6 @@
       <div class="columns small-12">
         <h3>Progress Controls</h3>
         <hr class="row stretch">
-        <h6>
-          &lt;alloy-progress-ring
-            <span style="color: orange">{{ringSize}}</span>
-            &gt;&lt;/alloy-progress-ring&gt;
-        </h6>
-        <hr class="row stretch">
       </div>
     </div>
 
@@ -19,19 +13,31 @@
       <div class="row align-center">
         <div class="columns small-12">
           <h3>Indeterminate Progress Ring</h3>
-          <br>
+          <h6>
+            &lt;<span style="color: lightblue"><b>alloy-progress-ring</b></span>
+              <span style="color: orange"><em>size</em></span>
+              <span style="color: mediumslateblue">alloyLabel="Busy"</span>
+              &gt;&lt;/alloy-progress-ring&gt;
+          </h6>
+          <hr class="row stretch">
         </div>
       </div>
       <div class="row align-center">
-        <div class="columns">
-          <button alloy standard alloyLabel="icon" (click)="onClick($event)"></button>
-          <button alloy standard alloyLabel="small" (click)="onClick($event)"></button>
-          <button alloy standard alloyLabel="medium" (click)="onClick($event)"></button>
-          <button alloy standard alloyLabel="large" (click)="onClick($event)"></button>
+        <div class="columns shrink">
+          <label style="color: orange; text-align: center"><em>icon</em></label>
           <alloy-progress-ring icon></alloy-progress-ring>
-          <alloy-progress-ring small></alloy-progress-ring>
+        </div>
+        <div class="columns shrink">
+          <label style="color: orange; text-align: center"><em>small</em></label>
+          <alloy-progress-ring small alloyLabel="Busy"></alloy-progress-ring>
+        </div>
+        <div class="columns shrink">
+          <label style="color: orange; text-align: center"><em>medium</em></label>
           <alloy-progress-ring medium></alloy-progress-ring>
-          <alloy-progress-ring large></alloy-progress-ring>
+        </div>
+        <div class="columns shrink">
+          <label style="color: orange; text-align: center"><em>large</em></label>
+          <alloy-progress-ring large alloyLabel="Busy"></alloy-progress-ring>
         </div>
       </div>
     </div>
@@ -40,9 +46,15 @@
     <div class="content-container">
       <div class="row align-center">
         <div class="columns">
-          <h3>Indeterminate Progress Bar - WIP</h3>
-          <br>
-          <progress></progress>
+            <h3>Indeterminate Progress Bar</h3>
+            <h6>
+              &lt;<span style="color: lightblue"><b>alloy-progress-bar</b></span>
+                  <span style="color: mediumslateblue">alloyLabel="Processing"</span>
+
+                &gt;&lt;/alloy-progress-bar&gt;
+            </h6>
+            <hr class="row stretch">
+          <alloy-progress-bar alloyLabel="Processing"></alloy-progress-bar>
         </div>
       </div>
     </div>
@@ -51,9 +63,16 @@
     <div class="content-container">
       <div class="row align-center">
         <div class="columns small-12">
-          <h3>Progress Bar - WIP</h3>
-          <br>
-            <progress max="100" value="33"></progress>
+            <h3>Determinate Progress Bar</h3>
+            <h6>
+              &lt;<span style="color: lightblue"><b>alloy-progress-bar</b></span>
+                <span style="color: lightseagreen">value="{{value}}"</span>
+                <span style="color: mediumslateblue">alloyLabel="Downloading"</span>
+                &gt;&lt;/alloy-progress-bar&gt;
+            </h6>
+            <hr class="row stretch">
+            <button alloy standard alloyLabel="Increment" (click)="increment()"></button>
+            <alloy-progress-bar [value]="value" alloyLabel="Downloading"></alloy-progress-bar>
         </div>
       </div>
     </div>

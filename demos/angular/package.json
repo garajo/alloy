@@ -5,13 +5,16 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --poll=20000 --dev",
+    "prep": "npm install ../../src",
+    "live": "ng serve --dev",
     "startNonProd": "ng serve --poll=20000 --aot",
     "build": "ng build --aot --prod",
     "build:watch": "ng build --poll=20000 --aot --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "demo": "cd ../.. && npm install && npm run build && cd ./dist && npm link && cd ../demos/angular && npm install && npm link @keysight/alloy && npm start"
+    "demo": "cd ../.. && npm install && npm run build && cd ./dist && npm link && cd ../demos/angular && npm install && npm link @keysight/alloy && npm start",
+    "quick": "cd ../.. && npm run build && cd ./dist && npm link && cd ../demos/angular && npm link @keysight/alloy && npm start"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +28,7 @@
     "@angular/platform-browser": "^4.3.1",
     "@angular/platform-browser-dynamic": "^4.3.1",
     "@angular/router": "^4.3.1",
+    "@keysight/alloy": "file:../../src",
     "clean-css": "^4.1.11",
     "core-js": "^2.4.1",
     "rxjs": "^5.1.0",

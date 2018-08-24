@@ -1,0 +1,163 @@
+alloy-progress-bar {
+    display: inline-block;
+    height: 4px;
+    width: 100%;
+
+    .progress-bar {
+        height: 100%;
+        background: map_get($color-palette, progress-bar-background);
+    }
+
+    .progress {
+        height: 100%;
+        background: map_get($color-palette, progress-bar-color);
+
+        animation: none;
+        transform-origin: top left;
+        transition: transform 250ms ease;
+    }
+
+    // indeterminate
+    &.indeterminate-bar {
+        .progress-bar {
+            background: transparent;
+            position: relative;
+            margin: auto;
+            width: 100%;
+            overflow: hidden;
+        }
+    }
+
+    .alloyLabel {
+        display: inline-block;
+        margin-top: 12px;
+    }
+}
+
+alloy-progress-ring {
+    display: inline-block;
+}
+
+@keyframes indeterminate-bar {
+    0% {left: 0%;}
+    75% {left:100%;}
+    100% {left:100%;}
+}
+
+@mixin alloy-progress-bar( $balls: 5, $height: 4px, $animation-duration: 3000ms) {
+    $delay: $animation-duration / $balls / 3;
+
+    .indeterminate-bar .circle {
+        width: $height;
+        height: $height;
+        position: absolute;
+        left: -$height;
+        background-color: map_get($color-palette, progress-bar-color);
+        border-radius: 50%;
+        animation: indeterminate-bar $animation-duration infinite cubic-bezier(.2,.64,.81,.23);
+    }
+
+    @for $ball from 1 through ($balls) {
+        .indeterminate-bar .circle:nth-child(#{$ball}) {
+            animation-delay: ($delay * ($ball - 1));
+        }
+    }
+}
+
+@mixin alloy-progress-ring( $name: 'small', $size: 50px, $balls: 8, $animation-duration: 2000ms, $ball-arc: 120deg, $first-ball-angle: 220deg) {
+    $className: "ring-#{$name}";
+
+    $delay: $animation-duration / $balls / 3;
+    $angularSeparation: $ball-arc / $balls;
+
+    // We create an orbit animation for each ball.  This allows us to simply set the initial rest location and rotate 360.
+    @for $ball from 1 through ($balls) {
+        $startPoint: ($first-ball-angle - $angularSeparation * ($ball - 1));
+        @keyframes #{$className}-orbit-#{$ball} {
+            0% {
+                opacity: 1;
+                transform: rotate($startPoint);
+            }
+            100% {
+                opacity: 1;
+                transform: rotate($startPoint + 360deg);
+            }
+        }
+    }
+    .#{$className} {
+        display: inline-block;  // For the label
+        position: relative;
+        width: $size;
+        height: $size;
+        margin: auto;
+    }
+    // Behaves like a clock hand rotating the ball (:after) around
+    .#{$className} .circle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation-iteration-count: infinite;
+        animation-duration: $animation-duration;
+        opacity: 0;
+    }
+    .#{$className} .circle:after {
+        content: '';
+        position: absolute;
+
+        // Slide the ball over to 12 o'clock
+        top: 0%;
+        left: 50%;
+
+        // 70% is roughly sqrt(2) allowing marginal separation
+        $ballSize: 70% / ($balls - 1);
+
+        width: $ballSize;
+        height: $ballSize;
+
+        border-radius: 50%;
+        background: map_get($color-palette, progress-ring-color);
+    }
+
+    .#{$className} + .alloyLabel {
+        line-height: $size;
+        vertical-align: text-bottom;
+        margin-left: 6px;
+    }
+
+    // Each ball gets its custom animation
+    @for $ball from 1 through ($balls) {
+        .#{$className} .circle:nth-child(#{$ball}) {
+            animation-name: #{$className}-orbit-#{$ball};
+            animation-delay: ($delay * ($ball - 1));
+        }
+    }
+}
+
+//TODO: AJM: Ideally the following would be in scss alongside the components, but our scss is not designed for that
+
+// Edit these to define the style characteristics
+$icon-size: 32px;
+$small-size: 50px;
+$medium-size: 100px;
+$large-size: 200px;
+
+// icon-size requires much smaller balls
+$icon-balls: 5;
+$small-balls: 5;
+$medium-balls: 8;
+$large-balls: 8;
+
+// TODO: AJM: Ideally I'd like to export these values to ts so we can make all edits here, punting for now
+// :export {
+//     iconBalls: $icon-balls;
+//     smallBalls: $small-balls;
+//     mediumBalls: $medium-balls;
+//     largeBalls: $large-balls;
+// }
+
+@include alloy-progress-ring($name:"icon",      $size: $icon-size,      $balls: $icon-balls);
+@include alloy-progress-ring($name:"small",     $size: $small-size,     $balls: $small-balls);
+@include alloy-progress-ring($name:"medium",    $size: $medium-size,    $balls: $medium-balls);
+@include alloy-progress-ring($name:"large",     $size: $large-size,     $balls: $large-balls);
+
+@include alloy-progress-bar();

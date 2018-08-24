@@ -19,15 +19,12 @@
 @import "_misc";
 
 //Additional control styles that were added to Alloy
-
-@import "_progress-bar";        //Progress bars (Caranu spec. pgs. 25/67)
-@import "_progress-ring";       //Indeterminate progress ring (Caranu spec. pgs. 25/67)
-
 @import "label";                //Need to ensure this is after typography as it uses vars from there
 @import "_notification-icon";   //Style for notification-icon
 @import "_textbox";             //Style for textbox.
 @import "_textarea";            //Style for the textarea.
 @import "_checkbox";
+@import "_progress";            //Progress bars (Caranu spec. pgs. 25/67)
 @import "_switcher";
 @import "_about-box";
 @import "_dialog";

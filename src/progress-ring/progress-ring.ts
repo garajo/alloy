@@ -16,10 +16,9 @@ const Styles = {
     Large: 'ring-large' as Styles,
 };
 @Component({
-    moduleId: module.id,
     selector: `alloy-progress-ring`,
-    styleUrls: ['./progress-ring.scss'],
-    templateUrl: './progress-ring.html'
+    // styleUrls: ['progress-ring.scss'],  //TODO: Broken in alloy right now
+    templateUrl: 'progress-ring.html'
 })
 export class AlloyProgressRing {
     Arr = Array;    // Ghetto ngRepeat

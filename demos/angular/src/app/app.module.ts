@@ -19,6 +19,7 @@ import {
   AlloyDropdownModule,
   AlloyIconModule,
   AlloyNotificationIconModule,
+  AlloyProgressBarModule,
   AlloyProgressRingModule,
   AlloyPropertyGridModule,
   AlloyPropertyGridMessageService,
@@ -51,7 +52,6 @@ import { VerifyCheckboxComponent } from './components/verification/checkbox/veri
 import { VerifyButtonComponent } from './components/verification/button/verify-button.component';
 import { IconPageComponent } from './components/icon-page/icon-page.component';
 
-
 /**
  * NgModule that includes all Alloy modules that are required to serve the demo app.
  * This approach allows to perform tree shaking.
@@ -68,7 +68,8 @@ import { IconPageComponent } from './components/icon-page/icon-page.component';
     AlloyNotificationIconModule,
     AlloySwitcherModule,
     AlloyDirectivesModule,
-    AlloyProgressRingModule
+    AlloyProgressBarModule,
+    AlloyProgressRingModule,
   ],
   entryComponents: [
     AlloyAboutBox
@@ -81,6 +82,7 @@ import { IconPageComponent } from './components/icon-page/icon-page.component';
     AlloyNotificationIconModule,
     AlloyContextmenuModule,
     AlloyDirectivesModule,
+    AlloyProgressBarModule,
     AlloyProgressRingModule
   ]
 })
