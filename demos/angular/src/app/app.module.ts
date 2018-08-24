@@ -49,6 +49,7 @@ import { EditorService } from './components/property-page/editors/services/edito
 import { VerifiyTextboxComponent } from './components/verification/textbox/verify-textbox.component';
 import { VerifyCheckboxComponent } from './components/verification/checkbox/verify-checkbox.component';
 import { VerifyButtonComponent } from './components/verification/button/verify-button.component';
+import { IconPageComponent } from './components/icon-page/icon-page.component';
 
 
 /**
@@ -108,7 +109,8 @@ export class AlloyDemoModule { }
     VerificationPageComponent,
     VerifyCheckboxComponent,
     VerifiyTextboxComponent,
-    VerifyButtonComponent
+    VerifyButtonComponent,
+    IconPageComponent
   ],
   imports: [
     AlloyDemoModule,

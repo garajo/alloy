@@ -1,0 +1,7 @@
+<h4>All icons prefixed by {{iconPrefix}}*</h4>
+<div class="row">
+  <div *ngFor="let icon of icons" class="column small-3 align-center">
+    <div class="{{iconPrefix + icon}} icon"></div>
+    <label class="label">{{icon}}</label>
+  </div>
+</div>
