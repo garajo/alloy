@@ -21,6 +21,8 @@ export class ButtonPageComponent {
     defaultAttribute = 'default';
     toolbarAttribute = 'toolbar';
     quickAccessAttribute = 'quickaccess';
+    switchAttribute = 'switch';
+
     labelAttribute = 'alloyLabel'
     iconAttribute = 'alloyIcon'
     flipAttribute = 'alloyFlip'
@@ -43,6 +45,9 @@ export class ButtonPageComponent {
       }
       if (event.currentTarget.getAttribute(this.quickAccessAttribute) != null) {
         this.attribute = this.quickAccessAttribute;
+      }
+      if (event.currentTarget.getAttribute(this.switchAttribute) != null) {
+        this.attribute = this.switchAttribute;
       }
 
       this.showToggle = event.currentTarget.getAttribute(this.toggleAttribute) !== null;

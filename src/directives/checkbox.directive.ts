@@ -13,27 +13,7 @@ import { AlloyIdentityDirective } from './identity.directive';
 // if (widget instanceof ErrorDirective) widget.error = errorState;
 // The benefit is that bindings can automatically populate error state.
 export class AlloyCheckboxDirective extends ErrorDirective implements AfterViewInit, OnDestroy {
-    // There are currently four modes: checkbox, toggle, toolbar, switch.
-    // Checkbox is the default, but last in trumps if someone sets multiple (which is an erroneous state)
-
-    // TODO: AJM: We can drastically clean this up with an enum
-    // Default mode
-    private check = true;
-    @HostBinding('class.alloy-check') @Input('check')
-    get isCheckmark() { return this.check; }
-    set isCheckmark(value: any) {
-        this.resetPriorClasses();
-        this.check = value !== false;
-    }
-
-    private switch = false;
-    @HostBinding('class.alloy-button-switch') @Input('switch')
-    set isSwitchButton(value: any) {
-        throw new Error('Not implemented yet.');    // TODO:
-        // this.resetPriorClasses();
-        // this.switch = value !== false;
-    }
-    get isSwitchButton() { return this.switch; }
+    @HostBinding('class.alloy-check') true;
 
     // If readonly or disabled we disable interation.  Value doesn't matter to add it, null removes it
     @HostBinding('attr.disabled') get disabledAttribute() { return this.isDisabled === true || this.isReadonly ? '' : null; }
@@ -131,7 +111,7 @@ export class AlloyCheckboxDirective extends ErrorDirective implements AfterViewI
             this.renderer.removeChild(this.labelElement, this.el.nativeElement);
             this.renderer.appendChild(label, this.el.nativeElement);
             this.labelElement = label;
-            this.styleWrapper();
+            this.renderer.addClass(this.labelElement, 'alloy-check-wrapper');
 
             // apply each of the classes to the parent, and remove them from the input
             // ex: `column`: we want this to apply to the outermost element, label, not the inner input
@@ -166,11 +146,9 @@ export class AlloyCheckboxDirective extends ErrorDirective implements AfterViewI
     reconstructor() {
         // AJM: This is experimental.  We attempt to proportionately scale font/icon/check
         if (this.size) {
-            if (this.isCheckmark) {
-                this.renderer.setStyle(this.styledElement, 'height', this._size + 'px');
-                this.renderer.setStyle(this.styledElement, 'width', this._size + 'px');
-                this.renderer.setStyle(this.styledElement, 'background-size', this._size + 'px');
-            }
+            this.renderer.setStyle(this.styledElement, 'height', this._size + 'px');
+            this.renderer.setStyle(this.styledElement, 'width', this._size + 'px');
+            this.renderer.setStyle(this.styledElement, 'background-size', this._size + 'px');
 
             if (this.identityDirective) {
                 this.identityDirective.setSize(this._size * 1.143, this._size);
@@ -206,22 +184,5 @@ export class AlloyCheckboxDirective extends ErrorDirective implements AfterViewI
      */
     focus(): void {
         this.focusMonitor.focusVia(this.el.nativeElement, 'keyboard');
-    }
-
-    // These methods manage syncing the styling of the host and the label wrapper
-    styleWrapper() {
-        if (this.isCheckmark) {
-            this.renderer.addClass(this.labelElement, 'alloy-check-wrapper');
-        } else if (this.isSwitchButton) {
-            this.renderer.addClass(this.labelElement, 'alloy-switch-wrapper');
-        }
-    }
-
-    resetPriorClasses() {
-        this.check = false;
-        this.switch = false;
-
-        this.renderer.removeClass(this.labelElement, 'alloy-check-wrapper');
-        this.renderer.removeClass(this.labelElement, 'alloy-switch-wrapper');
     }
 }

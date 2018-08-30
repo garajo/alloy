@@ -4,6 +4,8 @@
         vertical-align: middle;
     }
 
+    user-select: none;
+
     // AJM: Custom focus styling applies even when clicked which is a poor UX.  FocusMonitor adds modality to focus.
     // This won't support focus in html.  There's a bug that fires mouse events as 'program' for nested labels right now.
     // So for now we support only keyboard, uncomment 'program' if fixed.
@@ -95,11 +97,11 @@
     &.alloy-toggled {
         background-color: map_get($color-palette, button-toolbar-checked-bg);
     }
-    &:hover {
+    &:enabled:hover {
         background-color: map_get($color-palette, button-toolbar-hover-bg);
-    }
-    &.alloy-toggled:hover {
-        background-color: map_get($color-palette, button-toolbar-checked-hover-bg);
+        &.alloy-toggled {
+            background-color: map_get($color-palette, button-toolbar-checked-hover-bg);
+        }
     }
     &:active, &.alloy-toggled:active {
         background-color: map_get($color-palette, button-toolbar-active-bg);
@@ -136,6 +138,71 @@
         opacity: map_get($color-palette, button-standard-disabled-opacity);
         color: map_get($color-palette, button-standard-disabled-text-color);
         pointer-events: none;
+    }
+}
+
+.alloy-button-switch {
+    @include size(44px, 16px);
+
+    position: absolute;
+
+    border: 1px solid map_get($color-palette, switch-border);
+    border-radius: 32px;
+
+    background: map_get($color-palette, switch-bg);
+
+    &:after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 2px; left: 2px;
+        width: 19px;
+        height: 10px;
+        transition: left 0.25s ease-out;
+
+        border-radius: 16px;
+
+        background: map_get($color-palette, switch-thumb-bg);
+        border: map_get($color-palette, switch-border);
+    }
+
+    &.alloy-toggled {
+        border-color: transparent;
+        background: map_get($color-palette, switch-bg-checked);
+
+        &:after {
+            left: 21px;
+            background: map_get($color-palette, switch-thumb-bg-checked);
+        }
+    }
+
+    // :hover trumps :active, so deconflict
+    &:enabled:hover:not(:active) {
+        border: 1px solid map_get($color-palette, switch-border-hover);
+        &:after {
+            background: map_get($color-palette, switch-thumb-bg-hover);
+        }
+
+        &.alloy-toggled {
+            border-color: transparent;
+            background: map_get($color-palette, switch-bg-checked-hover);
+            &:after {
+                background: map_get($color-palette, switch-thumb-bg-checked-hover);
+            }
+        }
+    }
+
+    &:active, &:active {
+        border-color: transparent;
+        background: map_get($color-palette, switch-bg-pressed);
+
+        &:after {
+            background: map_get($color-palette, switch-thumb-bg-pressed);
+        }
+    }
+
+    &:disabled {
+        opacity: map_get($color-palette, switch-disabled-opacity);
     }
 }
 

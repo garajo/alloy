@@ -193,15 +193,21 @@ $color-palette: (
         radio-checked-bg:                         $cornflower-blue,
         radio-disabled:                           rgba($mountain-mist,$opacity-HEX4C),
 
-        // -- Switch
-        switch-border:                            $french-gray,
-        switch-bg:                                rgba($black,$opacity-HEX33),
-        switch-thumb-bg:                          $mountain-mist,
+        // -- Switch (based on switch addendum)
+        switch-border:                            $mountain-mist,
         switch-border-hover:                      $white,
-        switch-border-checked:                    $cornflower-blue,
+        switch-bg:                                rgba($black,$opacity-HEX33),
         switch-bg-checked:                        $cornflower-blue,
-        switch-thumb-checked-bg:                  $white,
-        switch-disabled-opacity:                  $opacity-DEC30,                        //leave disabled opacity in decimal since the Caranu spec does
+        switch-bg-checked-hover:                #6FB3FF,
+        switch-bg-pressed:                        $mountain-mist,
+
+        switch-thumb-bg:                          $mountain-mist,
+        switch-thumb-bg-hover:                    $white,
+        switch-thumb-bg-checked:                  $white,
+        switch-thumb-bg-checked-hover:            $white,
+        switch-thumb-bg-pressed:                  $white,
+        switch-disabled-opacity:                  0.52,
+
 
         // -- Combo box
         button-dropdown-combo-bg:                 rgba($black,$opacity-HEX33),

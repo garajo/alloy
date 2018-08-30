@@ -20,12 +20,24 @@
 
 // Label wrapper for a checkbox, handles clicks and general styling of children based on state
 .alloy-check-wrapper {
-    cursor: pointer;
     width: max-content;
 
-    // Turn off all child cursors
-    * {
+    $size: 14px;
+
+    // Must apply cursor to itself and all children or will not be applied
+    // to certain elements (like input) or in certain conditions (light theme)
+    &:not(.disabled) {
+        * {
+            cursor: pointer;
+        }
         cursor: pointer;
+    }
+
+    &.disabled {
+        * {
+            cursor: default;
+        }
+        cursor: default;
     }
 
     // Caranu pg 18., leveraging button
@@ -50,14 +62,14 @@
         }
     }
 
-    &.disabled {
-        cursor: default;
-        opacity: map_get($color-palette, control-default-disabled-opacity);
+    // TODO: AJM: We're missing checked/hover & checked/hover/error
+    &:hover > .alloy-check:not(:disabled):not(:checked) + span {
+        background: transparent map_get($icon-pack, checkbox-hover) no-repeat center center / $size;
+    }
 
-        // Turn off all child cursors
-        * {
-            cursor: default;
-        }
+    // TODO: AJM: This hover effect is barely noticeable
+    &:hover > .alloy-check.has-error:not(:disabled):not(:checked) + span{
+        background: transparent map_get($icon-pack, checkbox-hover-error) no-repeat center center / $size;
     }
 }
 
@@ -83,7 +95,6 @@
     // The icon is defined as the background of a div
     & ~ div {
         @include iconSpec();
-        cursor: pointer;
         margin-left: 10px;
         vertical-align: text-top;
     }
@@ -95,10 +106,6 @@
         }
     }
 
-    &:hover :not(:disabled) + span {
-        background: transparent map_get($icon-pack, checkbox-hover) no-repeat center center / $size;
-    }
-
     &:checked + span {
         background: transparent map_get($icon-pack, checkbox-checked) no-repeat center center / $size;
     }
@@ -107,16 +114,9 @@
         background: transparent map_get($icon-pack, checkbox-error) no-repeat center center / $size;
     }
 
-    // TODO: AJM: This hover effect is barely noticeable
-    &:hover.has-error :not(:disabled) + span{
-        background: transparent map_get($icon-pack, checkbox-hover-error) no-repeat center center / $size;
-    }
-
     &:checked.has-error + span {
         background: transparent map_get($icon-pack, checkbox-checked-error) no-repeat center center / $size;
     }
-
-    // TODO: AJM: We're missing checked/hover & checked/hover/error
 
     // AJM: Custom focus styling applies even when clicked which is a poor UX.  FocusMonitor adds modality to focus.
     // This won't support focus in html.  There's a bug that fires mouse events as 'program' for nested labels right now.

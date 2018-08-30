@@ -25,6 +25,7 @@ $cornflower-blue:       #4C8EFF;
 
 // Not a declared standard color but is pervasively used throughout the light spec. More heavily used than many standard colors. Should probably be considered for promotion to the standard palette.
 $hover-blue:            #6C82A8;
+$manatee:               #8A93A3;    // Unofficial, but used throughout radio and switch
 
 //Opacity: Variables for opacity straight out of the Caranu spec. Those opacity values used heavily enough in the Light skin to warrant their own variables. Tired of doing hex/decimal conversion.
 $opacity-HEXCC:          .80;
@@ -200,15 +201,20 @@ $color-palette: (
         radio-checked-bg:                         $cornflower-blue,
         radio-disabled:                           rgba(#8a93a3,$opacity-DEC52),  //Since the spec declares this in decimal we will leave it without its own var
 
-        // -- Switch
-        switch-border:                            #8A93A3,
-        switch-bg:                                transparent,
-        switch-thumb-bg:                          #8A93A3,
-        switch-border-hover:                      $black,
-        switch-border-checked:                    $cornflower-blue,
+        // -- Switch (based on switch addendum)
+        switch-border:                            $manatee,
+        switch-border-hover:                      $smoky,
+        switch-bg:                                none,
         switch-bg-checked:                        $cornflower-blue,
-        switch-thumb-checked-bg:                  $white,
-        switch-disabled-opacity:                  $opacity-DEC52,                 //Since the spec declares this in decimal we will leave it without its own var
+        switch-bg-checked-hover:                #6FB3FF,
+        switch-bg-pressed:                        $manatee,
+
+        switch-thumb-bg:                          $manatee,
+        switch-thumb-bg-hover:                    $smoky,
+        switch-thumb-bg-checked:                  $white,
+        switch-thumb-bg-checked-hover:            $white,
+        switch-thumb-bg-pressed:                  $white,
+        switch-disabled-opacity:                  0.52,
 
         // -- Combo box
         button-dropdown-combo-bg:                 rgba(#F0F1F7,$opacity-HEXCC),

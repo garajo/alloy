@@ -3,7 +3,9 @@ import {
 } from '@angular/core';
 
 @Directive({
-    selector: `[toggle]`
+    selector: `
+        [toggle],
+        button [alloy] [switch]`  // TODO: remove when angular adds way to dynamically add directives
 })
 
 /**

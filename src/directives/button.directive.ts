@@ -6,22 +6,26 @@ import {
     AfterViewInit,
     OnDestroy,
     HostBinding,
+    Optional,
 } from '@angular/core';
 import { FocusMonitor } from '@angular/cdk/a11y';
+import { AlloyToggleDirective } from './toggle.directive';
 
 // TODO: AJM: Need upgraded ng/ts for this enum to work.
 // enum Styles {
 //     Standard = 'standard',
 //     Default = 'default',
 //     Quickaccess = 'quickaccess',
-//     Toolbar = 'toolbar'
+//     Toolbar = 'toolbar',
+//     Switch = 'switch'
 // }
-type Styles = 'standard' | 'default' | 'quickaccess' | 'toolbar';
+type Styles = 'standard' | 'default' | 'quickaccess' | 'toolbar' | 'switch';
 const Styles = {
     Standard: 'standard' as Styles,
     Default: 'default' as Styles,
     Quickaccess: 'quickaccess' as Styles,
-    Toolbar: 'toolbar' as Styles
+    Toolbar: 'toolbar' as Styles,
+    Switch: 'switch' as Styles
 };
 @Directive({
     selector: `button [alloy]`
@@ -65,10 +69,20 @@ export class AlloyButtonDirective implements AfterViewInit, OnDestroy {
         }
     }
 
+    @HostBinding(`class.alloy-button-${Styles.Switch}`) @Input(Styles.Switch)
+    get isSwitch() { return this.currentStyle === Styles.Switch; }
+    set isSwitch(value: any) {
+        if (value !== null) {
+            this.currentStyle = Styles.Switch;
+        }
+        this.toggleDirective.isToggled = value;
+    }
+
     constructor(
         elementRef: ElementRef,
         renderer: Renderer2,
         private focusMonitor: FocusMonitor,
+        @Optional() private toggleDirective: AlloyToggleDirective
       ) {
         this.elementRef = elementRef;
         this.renderer = renderer;

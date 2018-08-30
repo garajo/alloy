@@ -102,4 +102,19 @@
         <button alloy standard toggle alloyLabel="Mix it up" alloyIcon="alloy-ic-save-as" (click)="onClick($event)" [disabled]="showDisabled"></button>
       </div>
     </div>
+
+    <!-- Switch Button -->
+    <div class="content-container">
+      <div class="row align-center">
+        <div class="columns small-12">
+          <h3>Switch</h3>
+          <br>
+        </div>
+      </div>
+      <div class="row align-center">
+        <div class="columns">
+          <button alloy [switch]="test" (click)="onClick($event)" [disabled]="showDisabled"></button>
+        </div>
+      </div>
+    </div>
   </div>
