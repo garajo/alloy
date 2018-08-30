@@ -6,6 +6,12 @@
                 <br>
             </div>
         </div>
+        <div class="row">
+            <div class="columns small-3" align="center">
+                <alloy-switcher [disabled]="switchDisabled"></alloy-switcher>
+                <br>
+            </div>
+        </div>
         <div class="row align-center">
             <div class="columns small-3" align="center">
                 <alloy-switcher (onSwitchListener)="onSwitch($event)" [onSwitchStatus]="switchStatus" [disabled]="switchDisabled"></alloy-switcher>

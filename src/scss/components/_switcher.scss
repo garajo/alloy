@@ -14,6 +14,11 @@
       border-radius: 32px;
   
       background: map_get($color-palette, switch-bg);
+
+      &:hover,
+      &.is-hovered {
+          border: 1px solid map_get($color-palette, switch-border-hover);
+      }
   
       &:after {
         top: 2px; left: 2px;
@@ -25,26 +30,28 @@
         background: map_get($color-palette, switch-thumb-bg);
       }
     }
-  
-    &:hover,
-    &.is-hovered {
-      .switch-paddle {
-        border: 1px solid map_get($color-palette, switch-border-hover);
-      }
-    }
-  
+
     .switch-input {
+      display: none;
       &:checked~.switch-paddle,
       &.is-checked~.switch-paddle {
-        border: 1px solid map_get($color-palette, switch-border-checked);
-  
+        border: 1px solid map_get($color-palette, switch-bg-checked);
         background: map_get($color-palette, switch-bg-checked);
-  
+
+        &:hover,
+        &.is-hovered {
+            border: 1px solid map_get($color-palette, switch-border-hover);
+        }
+
         &:after {
           left: 21px;
   
-          background: map_get($color-palette, switch-thumb-checked-bg);
+          background: map_get($color-palette, switch-thumb-bg-checked);
         }
+      }
+
+      &:disabled + .switch-paddle {
+        pointer-events: none;
       }
   
       &:disabled~.switch-paddle,
