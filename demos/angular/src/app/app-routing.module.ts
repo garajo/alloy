@@ -18,6 +18,7 @@ import { VerifiyTextboxComponent } from './components/verification/textbox/verif
 import { VerifyCheckboxComponent } from './components/verification/checkbox/verify-checkbox.component';
 import { VerifyButtonComponent } from './components/verification/button/verify-button.component';
 import { IconPageComponent } from './components/icon-page/icon-page.component';
+import { VerifyDropdownComponent } from './components/verification/dropdown/verify-dropdown.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'dropdowns', pathMatch: 'full' },
@@ -40,7 +41,8 @@ const routes: Routes = [
           { path: '', component: VerifiyTextboxComponent},
           { path: 'button', component: VerifyButtonComponent },
           { path: 'checkbox', component: VerifyCheckboxComponent },
-          { path: 'textbox', component: VerifiyTextboxComponent }
+          { path: 'textbox', component: VerifiyTextboxComponent },
+          { path: 'dropdown', component: VerifyDropdownComponent }
         ] }
 ];
 

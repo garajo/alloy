@@ -7,8 +7,16 @@ import { AlloyButtonDirective } from './button.directive';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { AlloyToggleDirective } from './toggle.directive';
 import { AlloyIdentityDirective } from './identity.directive';
+import { AlloySelectDirective } from './select.directive';
+import { CommonModule } from '@angular/common';
+import { DropdownOverlay } from '../dropdown-overlay/dropdown-overlay';
+import { AlloyDropdownOverlayModule } from '../dropdown-overlay/index';
 
 @NgModule({
+    imports: [
+        CommonModule,
+        AlloyDropdownOverlayModule
+    ],
     exports: [
         // Exporting this here (via the Angular export list) allows consumers to use this selector when they import this module
         ElementFocusDirective,
@@ -16,7 +24,8 @@ import { AlloyIdentityDirective } from './identity.directive';
         AlloyCheckboxDirective,
         AlloyIdentityDirective,
         AlloyTextboxDirective,
-        AlloyToggleDirective
+        AlloyToggleDirective,
+        AlloySelectDirective
     ],
     declarations: [
         ElementFocusDirective,
@@ -24,9 +33,13 @@ import { AlloyIdentityDirective } from './identity.directive';
         AlloyCheckboxDirective,
         AlloyIdentityDirective,
         AlloyTextboxDirective,
-        AlloyToggleDirective
+        AlloyToggleDirective,
+        AlloySelectDirective
     ],
-    providers: [FocusMonitor]
+    providers: [FocusMonitor],
+    entryComponents: [DropdownOverlay]
+
+
 })
 export class AlloyDirectivesModule { }
 
@@ -37,4 +50,5 @@ export { AlloyCheckboxDirective } from './checkbox.directive';
 export { AlloyIdentityDirective } from './identity.directive';
 export { AlloyTextboxDirective } from './textbox.directive';
 export { AlloyToggleDirective } from './toggle.directive';
+export { AlloySelectDirective } from './select.directive';
 export { ErrorDirective } from './error.directive';

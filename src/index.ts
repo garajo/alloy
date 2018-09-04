@@ -20,6 +20,7 @@ export * from './progress-ring/index'
 export * from './property-grid/index';
 export * from './textbox/index';
 export * from './switcher/index';
+export * from './dropdown-overlay/index';
 
 // Make available any/all services & directives that Alloy may proffer
 export * from './app/services/index';

@@ -51,6 +51,7 @@ import { VerifiyTextboxComponent } from './components/verification/textbox/verif
 import { VerifyCheckboxComponent } from './components/verification/checkbox/verify-checkbox.component';
 import { VerifyButtonComponent } from './components/verification/button/verify-button.component';
 import { IconPageComponent } from './components/icon-page/icon-page.component';
+import { VerifyDropdownComponent } from './components/verification/dropdown/verify-dropdown.component';
 
 /**
  * NgModule that includes all Alloy modules that are required to serve the demo app.
@@ -112,7 +113,8 @@ export class AlloyDemoModule { }
     VerifyCheckboxComponent,
     VerifiyTextboxComponent,
     VerifyButtonComponent,
-    IconPageComponent
+    IconPageComponent,
+    VerifyDropdownComponent
   ],
   imports: [
     AlloyDemoModule,

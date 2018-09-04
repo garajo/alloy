@@ -98,7 +98,7 @@ $color-palette: (
         menu-shadow-inset-active:                 $white,
         menu-text-active-color:                   $black,
         menu-text-color:                          $black,
-        menu-divider-color:                       $black,
+        menu-divider-color:                       rgba($bunting,$opacity-HEX4C),
         menu-hover-bg:                            rgba($hover-blue,$opacity-HEX33),
         menu-active-bg:                           $cornflower-blue,
 

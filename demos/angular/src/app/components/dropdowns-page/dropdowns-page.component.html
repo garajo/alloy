@@ -1,40 +1,38 @@
 <div class="tabs-panel is-active">
 
     <!-- Simple Dropdown -- Lightweight -->
-	<div class="content-container">
-		<div class="row align-center">
-			<div class="columns small-12">
-				<h3>Simple Dropdown -- Lightweight</h3>
-				<br>
-			</div>
-		</div>
-		<div class="row align-center">
-			<div class="columns">
-                <alloy-dropdown
-                    [(ngModel)]="selectedValue"
-                    [placeholder]="placeholder"
-                    [disabled]="disabledState"
-                    [readonly]="readOnlyState"
-                    [errors]="errorState"
-                    [errorMessage]="errorMessage"
-                    [filterable]="filterState">
-					<alloy-option *ngFor="let module of modules" [value]="module.value">
-						{{ module.name }}
-					</alloy-option>
-				</alloy-dropdown>
-			</div>
-			<div class="columns">
-				<div>
-					<h6>Selected value</h6>
-					<span>"{{selectedValue}}"</span>
-				</div>
-				<br>
-				<div>
-					<h6>Placeholder</h6>
-					<div class="input-group">
-						<input type="text" alloy [(ngModel)]="placeholder">
-					</div>
-				</div>
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h3>Simple Dropdown -- Lightweight</h3>
+                <br>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <select alloy 
+                        [(ngModel)]="selectedValue"
+                        [placeholder]="placeholder"
+                        [disabled]="disabledState"
+                        [readonly]="readOnlyState"
+                        [filterable]="filterState">
+                    <option *ngFor="let module of modules" [value]="module.value">
+                        {{ module.name }}
+                    </option>
+                </select>
+            </div>
+            <div class="columns">
+                <div>
+                    <h6>Selected value</h6>
+                    <span>"{{selectedValue}}"</span>
+                </div>
+                <br>
+                <div>
+                    <h6>Placeholder</h6>
+                    <div class="input-group">
+                        <input type="text" alloy [(ngModel)]="placeholder">
+                    </div>
+                </div>
                 <br>
                 <div>
                     <h6>Error State</h6>
@@ -65,94 +63,95 @@
                 </div>
                 <br>
                 <div>
-					<div>
-						<h6>Elements</h6>
-						<a (click)="add(modules)">Add</a>
-					</div>
-					<div *ngFor="let module of modules" class="input-group">
-						<input type="text" alloy [(ngModel)]="module.value" placeholder="value">
-						<input type="text" alloy [(ngModel)]="module.name" placeholder="name">
-						&nbsp;<a (click)="remove(module, modules)">X</a>
-					</div>
-				</div>
-			</div>
-			<div class="columns small-7">
-				<pre ngNonBindable>
-                    &lt;alloy-dropdown [(ngModel)]=&quot;selectedValue&quot;&gt;
-                            [placeholder]=&quot;placeholder&quot;
-                            [disabled]=&quot;disabledState&quot;
-                            [readonly]=&quot;readOnlyState&quot;
-                            [errors]=&quot;errorState&quot; 
-                            [errorMessage]=&quot;errorMessage&quot; 
-                            [filterable]=&quot;filterState&quot;
-                        &lt;alloy-option *ngFor=&quot;let m of modules&quot; [value]=&quot;m.value&quot;&gt;
-                            {{ m.name }}
-                        &lt;/alloy-option&gt;
-                    &lt;/alloy-dropdown&gt;
+                    <div>
+                        <h6>Elements</h6>
+                        <a (click)="add(modules)">Add</a>
+                    </div>
+                    <div *ngFor="let module of modules" class="input-group">
+                        <input type="text" alloy [(ngModel)]="module.value" placeholder="value">
+                        <input type="text" alloy [(ngModel)]="module.name" placeholder="name"> &nbsp;
+                        <a (click)="remove(module, modules)">X</a>
+                    </div>
+                </div>
+            </div>
+            <div class="columns small-7">
+                <pre ngNonBindable>
+&lt;select alloy [(ngModel)]=&quot;selectedValue&quot;&gt;
+        [placeholder]=&quot;placeholder&quot;
+        [disabled]=&quot;disabledState&quot;
+        [readonly]=&quot;readOnlyState&quot;
+        [filterable]=&quot;filterState&quot;
+    &lt;option *ngFor=&quot;let m of modules&quot; [value]=&quot;m.value&quot;&gt;
+        {{ m.name }}
+    &lt;/option&gt;
+&lt;/select&gt;
 				</pre>
-				<br>
-				<div>
-				<pre>{{modules | json}}</pre>
-			</div>
-		</div>
-		<div class="row align-center">
-			<div class="columns small-4">
-			</div>
-			<div class="columns small-8">
-			</div>
-		</div>
-    </div>
-    <!-- Simple Dropdown - Alternate -->
-    <div class="content-container">
-            <div class="row align-center">
-                <div class="columns small-12">
-                    <h3>Simple Dropdown -- Alternate</h3>
-                    <br>
+                <br>
+                <div>
+                    <pre>{{modules | json}}</pre>
                 </div>
             </div>
             <div class="row align-center">
-                <div class="columns">
-                    <alloy-dropdown [(ngModel)]="alt_selectedValue" [placeholder]="placeholder" [alternate_style]="true">
-                        <alloy-option *ngFor="let module of alt_modules" [value]="module.value">
-                            {{ module.name }}
-                        </alloy-option>
-                    </alloy-dropdown>
+                <div class="columns small-4">
                 </div>
-                <div class="columns">
-                    <div>
-                        <h6>Selected value</h6>
-                        <span>"{{alt_selectedValue}}"</span>
-                    </div>
-                    <br>
-                    <div>
-                        <h6>Placeholder</h6>
-                        <div class="input-group">
-                            <input type="text" alloy [(ngModel)]="placeholder">
-                        </div>
-                    </div>
-                    <br>
-                    <div>
-                        <div>
-                            <h6>Elements</h6>
-                            <a (click)="add(alt_modules)">Add</a>
-                        </div>
-                        <div *ngFor="let module of alt_modules" class="input-group">
-                            <input type="text" alloy [(ngModel)]="module.value" placeholder="value">
-                            <input type="text" alloy [(ngModel)]="module.name" placeholder="name">
-                            &nbsp;<a (click)="remove(module, alt_modules)">X</a>
-                        </div>
+                <div class="columns small-8">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Simple Dropdown - Alternate -->
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h3>Simple Dropdown -- Alternate</h3>
+                <br>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <select alloy [(ngModel)]="alt_selectedValue" [placeholder]="placeholder" [alternateStyle]="true">
+                    <option *ngFor="let module of alt_modules" [value]="module.value">
+                        {{ module.name }}
+                    </option>
+                </select>
+            </div>
+            <div class="columns">
+                <div>
+                    <h6>Selected value</h6>
+                    <span>"{{alt_selectedValue}}"</span>
+                </div>
+                <br>
+                <div>
+                    <h6>Placeholder</h6>
+                    <div class="input-group">
+                        <input type="text" alloy [(ngModel)]="placeholder">
                     </div>
                 </div>
-                <div class="columns small-7">
-                    <pre ngNonBindable>
-                        &lt;alloy-dropdown [(ngModel)]=&quot;selectedValue&quot; [alternate]=&quot;true&quot;&gt;
-                            &lt;alloy-option *ngFor=&quot;let m of alt_modules&quot; [value]=&quot;m.value&quot;&gt;
-                                {{ m.name }}
-                            &lt;/alloy-option&gt;
-                        &lt;/alloy-dropdown&gt;
-                    </pre>
-                    <br>
+                <br>
+                <div>
                     <div>
+                        <h6>Elements</h6>
+                        <a (click)="add(alt_modules)">Add</a>
+                    </div>
+                    <div *ngFor="let module of alt_modules" class="input-group">
+                        <input type="text" alloy [(ngModel)]="module.value" placeholder="value">
+                        <input type="text" alloy [(ngModel)]="module.name" placeholder="name"> &nbsp;
+                        <a (click)="remove(module, alt_modules)">X</a>
+                    </div>
+                </div>
+            </div>
+            <div class="columns small-7">
+                <pre ngNonBindable>
+&lt;select Alloy [(ngModel)]=&quot;selectedValue&quot;
+        [placeholder]=&quot;placeholder&quot;&gt;
+        [alternateStyle]=&quot;true&quot;&gt;
+    &lt;option *ngFor=&quot;let m of alt_modules&quot; [value]=&quot;m.value&quot;&gt;
+        {{ m.name }}
+    &lt;/option&gt;
+&lt;/select&gt;
+                </pre>
+                <br>
+                <div>
                     <pre>{{alt_modules | json}}</pre>
                 </div>
             </div>
@@ -162,62 +161,38 @@
                 <div class="columns small-8">
                 </div>
             </div>
+        </div>
     </div>
-    <!-- Icon Dropdown -- Lightweight -->
+    <!-- Icon and Label Dropdown -- Lightweight -->
     <div class="content-container">
-            <div class="row align-center">
-                <div class="columns small-12">
-                    <h3>Icon Dropdown</h3>
-                    <br>
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h3>Icon and Label Dropdown</h3>
+                <br>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <select alloy [(ngModel)]="icon_selectedValue" alloyIcon="alloy-ic-tools">
+                    <option *ngFor="let module of icon_modules" [value]="module.value">
+                        {{ module.name }}
+                    </option>
+                </select>
+            </div>
+            <div class="columns">
+                <div>
+                    <h6>Selected value</h6>
+                    <span>"{{icon_selectedValue}}"</span>
                 </div>
             </div>
-            <div class="row align-center">
-                <div class="columns">
-                    <!-- If i wanted a right-aligned dd menu... -->
-                    <!-- <alloy-dropdown [(ngModel)]="icon_selectedValue" [right_align]="true" icon='alloy-ic-tools'> -->
-                    <alloy-dropdown [(ngModel)]="icon_selectedValue" icon='alloy-ic-tools'>
-                        <alloy-option *ngFor="let module of icon_modules" [value]="module.value">
-                            {{ module.name }}
-                        </alloy-option>
-                    </alloy-dropdown>
-                </div>
-                <div class="columns">
-                    <div>
-                        <h6>Selected value</h6>
-                        <span>"{{icon_selectedValue}}"</span>
-                    </div>
-                    <br>
-                    <div>
-                        <h6>Placeholder</h6>
-                        <div class="input-group">
-                            <input type="text" alloy [(ngModel)]="placeholder">
-                        </div>
-                    </div>
-                    <br>
-                    <div>
-                        <div>
-                            <h6>Elements</h6>
-                            <a (click)="add(icon_modules)">Add</a>
-                        </div>
-                        <div *ngFor="let module of icon_modules" class="input-group">
-                            <input type="text" alloy [(ngModel)]="module.value" placeholder="value">
-                            <input type="text" alloy [(ngModel)]="module.name" placeholder="name">
-                            &nbsp;<a (click)="remove(module, icon_modules)">X</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="columns small-7">
-                    <pre ngNonBindable>
-                        &lt;alloy-dropdown [(ngModel)]=&quot;selectedValue&quot; icon=&quot;alloy-ic-tools&quot;&gt;
-                            &lt;alloy-option *ngFor=&quot;let m of icon_modules&quot; [value]=&quot;m.value&quot;&gt;
-                                {{ m.name }}
-                            &lt;/alloy-option&gt;
-                        &lt;/alloy-dropdown&gt;
-                    </pre>
-                    <br>
-                    <div>
-                    <pre>{{icon_modules | json}}</pre>
-                </div>
+            <div class="columns small-7">
+                <pre ngNonBindable>
+&lt;select alloy [(ngModel)]=&quot;selectedValue&quot; alloyIcon=&quot;alloy-ic-tools&quot;&gt;
+    &lt;option *ngFor=&quot;let m of icon_modules&quot; [value]=&quot;m.value&quot;&gt;
+        {{ m.name }}
+    &lt;/option&gt;
+&lt;/select&gt;
+                </pre>
             </div>
             <div class="row align-center">
                 <div class="columns small-4">
@@ -225,108 +200,79 @@
                 <div class="columns small-8">
                 </div>
             </div>
-    </div>
-
-</div>
-
-<!--multiple Dropdown-->
-<div class="content-container">
-    <div class="row align-center">
-        <div class="columns small-12">
-            <h3>Multiple Select Dropdown -- Lightweight</h3>
-            <br>
         </div>
-    </div>
-    <div class="row align-center">
-        <div class="columns">
-            <alloy-dropdown multiple
-                [(ngModel)]="selectedValue"
-                [placeholder]="placeholder"
-                [disabled]="disabledState"
-                [readonly]="readOnlyState"
-                [errors]="errorState"
-                [errorMessage]="errorMessage"
-                [selectAllOption]="selectAllOptionState">
-                <alloy-option *ngFor="let module of multiple_modules" [value]="module.value">
-                    {{ module.name }}
-                </alloy-option>
-            </alloy-dropdown>
-        </div>
-        <div class="columns">
-            <div>
-                <h6>Selected value</h6>
-                <span>"{{selectedValue}}"</span>
+        <div class="row align-center">
+            <div class="columns">
+                <select alloy [(ngModel)]="label_selectedValue" alloyLabel="Settings">
+                    <option *ngFor="let module of icon_modules" [value]="module.value">
+                        {{ module.name }}
+                    </option>
+                </select>
             </div>
-            <br>
-            <div>
-                <h6>Placeholder</h6>
-                <div class="input-group">
-                    <input type="text" alloy [(ngModel)]="placeholder">
-                </div>
-            </div>
-            <br>
-            <div>
-                <h6>Error State</h6>
-                <div class="input-group">
-                    <button type="button" class="button-standard" (click)="toggleErrorState()" [ngClass]="{'is-pressed': errorState}">Error</button>
-                </div>
-            </div>
-            <br>
-            <div>
-                <h6>Read-only State</h6>
-                <div class="input-group">
-                    <button type="button" class="button-standard" (click)="toggleReadonlyState()" [ngClass]="{'is-pressed': readOnlyState}">Read-only</button>
-                </div>
-            </div>
-            <br>
-            <div>
-                <h6>Disabled State</h6>
-                <div class="input-group">
-                    <button type="button" class="button-standard" (click)="toggleDisabledState()" [ngClass]="{'is-pressed': disabledState}">Disabled</button>
-                </div>
-            </div>
-            <br>
-            <div>
-                <h6>SelectAll State</h6>
-                <div class="input-group">
-                    <button type="button" class="button-standard" (click)="toggleSelectAllOption()" [ngClass]="{'is-pressed': selectAllOptionState}">Select All</button>
-                </div>
-            </div>
-            <br>
-            <div>
+            <div class="columns">
                 <div>
-                    <h6>Elements</h6>
-                    <a (click)="add(multiple_modules)">Add</a>
+                    <h6>Selected value</h6>
+                    <span>"{{label_selectedValue}}"</span>
                 </div>
-                <div *ngFor="let module of multiple_modules" class="input-group">
-                    <input type="text" alloy [(ngModel)]="module.value" placeholder="value">
-                    <input type="text" alloy [(ngModel)]="module.name" placeholder="name">
-                    &nbsp;<a (click)="remove(module, multiple_modules)">X</a>
+            </div>
+            <div class="columns small-7">
+                <pre ngNonBindable>
+&lt;select alloy [(ngModel)]=&quot;selectedValue&quot; alloyLabel=&quot;Settings&quot;&gt;
+    &lt;option *ngFor=&quot;let m of icon_modules&quot; [value]=&quot;m.value&quot;&gt;
+        {{ m.name }}
+    &lt;/option&gt;
+&lt;/select&gt;
+                </pre>
+            </div>
+            <div class="row align-center">
+                <div class="columns small-4">
+                </div>
+                <div class="columns small-8">
                 </div>
             </div>
         </div>
-        <div class="columns small-7">
-            <pre ngNonBindable>
-                &lt;alloy-dropdown multiple [(ngModel)]=&quot;selectedValue&quot;&gt;
-                        [placeholder]=&quot;placeholder&quot;
-                        [disabled]=&quot;disabledState&quot;
-                        [readonly]=&quot;readOnlyState&quot;
-                        [errors]=&quot;errorState&quot; [errorMessage]=&quot;errorMessage&quot;
-                        [selectAllOption]==&quot;selectAllOptionState&quot;
-                    &lt;alloy-option *ngFor=&quot;let m of modules&quot; [value]=&quot;m.value&quot;&gt;
-                        {{ m.name }}
-                    &lt;/alloy-option&gt;
-                &lt;/alloy-dropdown&gt;
-            </pre>
-            <br>
-            <div>
-            <pre>{{modules | json}}</pre>
-        </div>
     </div>
-    <div class="row align-center">
-        <div class="columns small-4">
+
+    <!--multiple Dropdown-->
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h3>Multiple Select Dropdown -- Lightweight</h3>
+                <br>
+            </div>
         </div>
-        <div class="columns small-8">
+        <div class="row align-center">
+            <div class="columns">
+                <select multiple alloy [(ngModel)]="selectedValue" placeholder="Select Multiple" [hasSelectAll]="selectAllOptionState">
+                    <option *ngFor="let module of multiple_modules" [value]="module.value">
+                        {{ module.name }}
+                    </option>
+                </select>
+            </div>
+            <div class="columns">
+                <div>
+                    <h6>Selected value</h6>
+                    <span>"{{selectedValue}}"</span>
+                </div>
+                <br>
+                <div>
+                    <h6>SelectAll State</h6>
+                    <div class="input-group">
+                        <button type="button" class="button-standard" (click)="toggleSelectAllOption()" [ngClass]="{'is-pressed': selectAllOptionState}">Select All</button>
+                    </div>
+                </div>
+            </div>
+            <div class="columns small-7">
+                <pre ngNonBindable>
+&lt;select multiple alloy [(ngModel)]=&quot;selectedValue&quot;&gt
+        placeholder=&quot;Select Multiple&quot;
+        [hasSelectAll]=&quot;selectAllOptionState&quot;
+    &lt;option *ngFor=&quot;let m of modules&quot; [value]=&quot;m.value&quot;&gt;
+        {{ m.name }}
+    &lt;/option&gt;
+&lt;/select&gt;
+                </pre>
+            </div>
         </div>
     </div>
 </div>

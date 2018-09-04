@@ -1,0 +1,275 @@
+// Make sure select is never shown
+.select-button select {
+  display: none !important;
+}
+
+.select-button {
+  $caret-width: 11px;
+  $caret-height: 7px;
+  $icon-width: 24px;
+  $icon-height: 24px;
+  @include setIdentity(16px, 14px, 6px);
+
+  padding-left: 12px;
+  line-height: 32px;
+
+  position: relative;
+
+  // Overflow and leave enough room for caret
+  white-space: nowrap;
+  padding-right: $caret-width + 2 * 8px;
+
+  cursor: pointer;
+  text-align: left;
+  user-select: none;
+
+  * {
+    vertical-align: middle;
+  }
+
+  label, span {
+    // Used to ensure overflow
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: inline-block;
+
+    font-size: 14px;
+    line-height: normal;
+
+    color: map_get($color-palette, button-dropdown-lightweight-color);
+  }
+
+  &:after {
+    @include size($caret-width, $caret-height);
+    content: "";
+    display: inline-block;
+    position: relative;
+    bottom: 1.5px;
+
+    // Make sure when label/span gets overflowed the caret gets pushed to the end
+    // instead of also overflowing
+    margin-left: 8px;
+    margin-right: -1*($caret-width + 2 * 8px);
+
+    background: transparent (map_get($icon-pack, caret-down)) no-repeat center center / $caret-width $caret-height;
+  }
+
+  &:hover {
+    &:after {
+      background: transparent map_get($icon-pack, caret-down-hover) no-repeat center center / $caret-width $caret-height;
+    }
+
+    label, span {
+      color: map_get($color-palette, button-dropdown-lightweight-color-hover);
+    }
+  }
+
+  &:active,
+  &.is-open {
+    label, span {
+      color: map_get($color-palette, button-dropdown-lightweight-color-active);
+    }
+    &:after {
+      background: transparent map_get($icon-pack, caret-down-alt-active) no-repeat center center / $caret-width $caret-height;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.select-button.readonly {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.select-button:disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.select-button.alternateStyle {
+  $caret-width: 11px;
+  $caret-height: 7px;
+
+  padding-right: $caret-width + 16px;
+
+  border-radius: 0;
+
+  @include gradientVertical(map_get($color-palette, button-standard-gradient-top), map_get($color-palette, button-standard-gradient-bottom));
+  color: map_get($color-palette, button-standard-color);
+  box-shadow: $button-standard-box-shadow;
+
+  label, span {
+    color: map_get($color-palette, button-dropdown-color);
+  }
+
+  &:after {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    margin-top: -3px;
+    margin-left: 3px;
+    margin-right: 0px;
+  }
+
+  &:hover {
+    @include gradientVertical(map_get($color-palette, button-standard-hover-gradient-top), map_get($color-palette, button-standard-hover-gradient-bottom));
+    box-shadow: $button-standard-hover-box-shadow;
+  }
+
+  &:active,
+  &.is-open {
+    &:after {
+      background: transparent (map_get($icon-pack, caret-down-hover)) no-repeat center center / $caret-width $caret-height;
+    }
+  }
+}
+
+.dropdown-overlay {
+  // Open below button (overlay)
+  position: absolute;
+  top: 100%;
+  margin-top: 3px;
+
+  // At least as wide as the button that opened it
+  min-width: 100%;
+
+  box-shadow: inset 0 1px 0 0 map_get($color-palette, menu-border-inset-active),
+                0 2px 6px 0 map_get($color-palette, menu-border-active);
+  background-color: map_get($color-palette, menu-title-active-bg);
+
+  ul {
+    overflow-y: auto;
+
+    list-style-type: none;
+    margin: 0;
+    user-select: none;
+
+    li {
+      white-space: nowrap;
+      position: relative;
+
+      label {
+        color: map_get($color-palette, menu-text-color);
+
+        padding-left: 40px;
+        padding-right: 40px;
+        line-height: 40px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        input[type="checkbox"] {
+          display: none;
+
+          & + span {
+            position: absolute;
+            left: 16px;
+            top: 0px;
+            bottom: 0px;
+            margin: auto;
+          }
+
+          &:checked + span {
+            $width: 12px;
+            $height: 10px;
+            @include size($width, $height);
+
+            background: transparent map_get($icon-pack, check) no-repeat center center / $width $height;
+          }
+        }
+      }
+
+      &:hover {
+        background-color: map_get($color-palette, menu-hover-bg);
+      }
+
+      &:active {
+        background-color: map_get($color-palette, menu-active-bg);
+      }
+    }
+    
+  }
+}
+
+.dropdown-overlay.dropdown-up {
+  // Align to top of button (overlay) to open above button
+  top: auto;
+  bottom: 100%;
+  margin-top: 0px;
+  margin-bottom: 3px;
+}
+
+.dropdown-overlay.dropdown-left {
+  right: 0;
+}
+
+.dropdown-cdk-pane {
+  // Disable pointer events so overlay over button is treated as
+  // part of the backdrop and allows overlay to close
+  pointer-events: none !important;
+  &,* {
+    pointer-events: auto;
+  }
+}
+
+.dropdown-overlay.dropdown-multiple {
+  ul li label {
+    $size: 14px;
+    span {
+      @include size($size);
+      background: transparent map_get($icon-pack, checkbox) no-repeat center center / $size;
+    }
+    
+    input[type="checkbox"]:checked + span {
+      @include size($size);
+      background: transparent map_get($icon-pack, checkbox-checked) no-repeat center center / $size;
+    }
+  }
+}
+
+.dropdown-overlay {
+  ul li.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+    label {
+      pointer-events: none;
+    }
+  }
+}
+
+.dropdown-search {
+  position: relative;
+  
+  input, input:focus {
+    background-color: map_get($color-palette, menu-title-active-bg);
+    color: map_get($color-palette, input-text-color);
+    font-size: 14px;
+
+    &::placeholder {
+      color: map_get($color-palette, input-text-color);
+      opacity: 0.5;
+      font-style: italic;
+    }
+
+    border: none;
+    box-shadow: none;
+    height: 40px;
+    padding-right: 38px;
+    padding-left: 18px;
+    margin: 0;
+  }
+
+  hr {
+    border-color: map_get($color-palette, menu-divider-color);
+    margin:0;
+  }
+
+  .alloy-ic-search {
+    position: absolute;
+    top: 10px; right: 10px;
+    width: 20px;
+    height: 20px;     
+  }
+}

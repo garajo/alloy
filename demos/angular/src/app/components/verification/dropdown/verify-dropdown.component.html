@@ -1,0 +1,425 @@
+<!-- Verification for alternate style dropdown -->
+<div class="row align-middle">
+    <hr class="column stretch">
+    <h4 class="column shrink">Dropdown Verification</h4>
+    <hr class="column stretch">
+</div>
+<div class="row align-middle">
+    <hr class="column shrink">
+    <label class="column shrink">Traditional Width</label>
+    <hr class="column stretch">
+</div>
+<div style="max-width: 75rem; margin: auto;">
+    <div>
+        <select alloy placeholder alloyLabel="Should be standard" alternateStyle=true>
+            <option [value]="0"> Option 0 </option>
+            <option [value]="1"> Option 1 </option>
+            <option [value]="2"> Option 2 </option>
+        </select>
+    </div>
+    <div>
+        <select alloy alloyLabel="w80" style="width:80px;" alternateStyle=true>
+            <option [value]="0"> Option 0 </option>
+            <option [value]="1"> Option 1 </option>
+            <option [value]="2"> Option 2 </option>
+        </select>
+    </div>
+    <div>
+        <select alloy alloyLabel="w160" style="width:160px;" alternateStyle=true>
+            <option [value]="0"> Option 0 </option>
+            <option [value]="1"> Option 1 </option>
+            <option [value]="2"> Option 2 </option>
+        </select>
+    </div>
+    <div>
+        <select alloy alloyLabel="w50%" style="width:50%;" alternateStyle=true>
+            <option [value]="0"> Option 0 </option>
+            <option [value]="1"> Option 1 </option>
+            <option [value]="2"> Option 2 </option>
+        </select>
+    </div>
+    <div>
+        <select alloy alloyLabel="w100%" style="width:100%;" alternateStyle=true>
+            <option [value]="0"> Option 0 </option>
+            <option [value]="1"> Option 1 </option>
+            <option [value]="2"> Option 2 </option>
+        </select>
+    </div>
+</div>
+<div class="row align-middle">
+    <hr class="column shrink">
+    <label class="columns shrink title">Foundation: Width (Note: Foundation 'column' overrides)</label>
+    <label class="column shrink border">row</label>
+    <label class="column shrink cell">cell</label>
+    <hr class="column stretch">
+</div>
+<div class="row align-middle border">
+    <input type="text" alloy class="column cell" value="default" readonly="true">
+    <input type="text" alloy class="column cell" value="width: auto" style="width: auto;" readonly="true">
+    <input type="text" alloy class="column cell" value="width: 100px" style="width: 100px;" readonly="true">
+    <input type="text" alloy class="column cell" value="width: 50%" style="width: 50%" readonly="true">
+    <input type="text" alloy class="column cell" value="width: 100%" style="width: 100%;" readonly="true">
+</div>
+<div class="row align-middle border">
+    <select alloy alloyLabel="default" class="column cell" alternateStyle=true>
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+    <select alloy alloyLabel="width: auto" class="column cell" style="width: auto;" alternateStyle=true>
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+    <select alloy alloyLabel="w100px" class="column cell" style="width: 100px;" alternateStyle=true>
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+    <select alloy alloyLabel="width: 50%" class="column cell" style="width: 50%" alternateStyle=true>
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+    <select alloy alloyLabel="width: 100%" class="column cell" style="width: 100%" alternateStyle=true>
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+</div>
+<div class="row align-middle">
+    <hr class="column shrink">
+    <label class="columns shrink title">Foundation: Height</label>
+    <hr class="column stretch">
+</div>
+<div class="row align-middle border">
+    <input type="text" alloy class="column cell small-6" value="default (32)" readonly="true">
+    <select alloy alloyLabel="default (32) small-6" class="column cell" alternateStyle=true>
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+</div>
+<div class="row align-middle border">
+    <input type="text" alloy class="column cell small-6" value="height: auto" style="height: auto;" readonly="true">
+    <select alloy alloyLabel="height: auto" class="column cell small-6" style="height: auto;" alternateStyle=true>
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+</div>
+<div class="row align-middle border">
+    <input type="text" alloy class="column cell small-6" value="height: 40px" style="height: 40px;" readonly="true">
+    <select alloy alloyLabel="height: 40px" class="column cell small-6" style="height: 40px;" alternateStyle=true>
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+</div>
+<div class="row align-middle">
+    <hr class="column shrink">
+    <label class="column shrink title">Foundation: Margin</label>
+    <hr class="column stretch">
+</div>
+<div class="row align-middle border">
+    <input type="text" alloy class="column cell small-2" value="m-top: 10px" style="margin-top: 10px" readonly="true">
+    <select alloy alloyLabel="m-top: 10px" class="column cell small-2" style="margin-top: 10px" alternateStyle=true>
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+    <input type="text" alloy class="column cell small-2" value="m-bottom: 10px" style="margin-bottom: 10px" readonly="true">
+    <select alloy alloyLabel="m-bottom: 10px" class="column cell small-2" style="margin-bottom: 10px" alternateStyle=true>
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+</div>
+<div class="row align-middle border">
+    <input type="text" alloy class="column cell small-2" value="m-left: 10px, small-2" style="margin-left: 10px;" readonly="true">
+</div>
+<div class="row align-middle border">
+    <select alloy alloyLabel="m-left: 10px, small-2" class="column cell small-2" style="margin-left: 10px" alternateStyle=true>
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+</div>
+<div class="row align-middle border">
+    <input type="text" alloy class="column cell small-2" value="m-right: 10px, small-2" style="margin-right: 10px;" readonly="true">
+</div>
+<div class="row align-middle border">
+    <select alloy alloyLabel="m-right: 10px, small-2" class="column cell small-2" style="margin-right: 10px" alternateStyle=true>
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+</div>
+
+<!-- Verification for lightweight dropdown -->
+<div class="row align-middle">
+    <hr class="column stretch">
+    <h4 class="column shrink">Dropdown Verification Lightweight</h4>
+    <hr class="column stretch">
+</div>
+<div class="row align-middle">
+    <hr class="column shrink">
+    <label class="column shrink">Traditional Width</label>
+    <hr class="column stretch">
+</div>
+<div style="max-width: 75rem; margin: auto;">
+    <div>
+        <select alloy alloyLabel="Should be standard">
+            <option [value]="0"> Option 0 </option>
+            <option [value]="1"> Option 1 </option>
+            <option [value]="2"> Option 2 </option>
+        </select>
+    </div>
+    <div>
+        <select alloy alloyLabel="w80" style="width:80px;">
+            <option [value]="0"> Option 0 </option>
+            <option [value]="1"> Option 1 </option>
+            <option [value]="2"> Option 2 </option>
+        </select>
+    </div>
+    <div>
+        <select alloy alloyLabel="w160" style="width:160px;">
+            <option [value]="0"> Option 0 </option>
+            <option [value]="1"> Option 1 </option>
+            <option [value]="2"> Option 2 </option>
+        </select>
+    </div>
+    <div>
+        <select alloy alloyLabel="w50%" style="width:50%;">
+            <option [value]="0"> Option 0 </option>
+            <option [value]="1"> Option 1 </option>
+            <option [value]="2"> Option 2 </option>
+        </select>
+    </div>
+    <div>
+        <select alloy alloyLabel="w100%" style="width:100%;">
+            <option [value]="0"> Option 0 </option>
+            <option [value]="1"> Option 1 </option>
+            <option [value]="2"> Option 2 </option>
+        </select>
+    </div>
+</div>
+<div class="row align-middle">
+    <hr class="column shrink">
+    <label class="columns shrink title">Foundation: Width (Note: Foundation 'column' overrides)</label>
+    <label class="column shrink border">row</label>
+    <label class="column shrink cell">cell</label>
+    <hr class="column stretch">
+</div>
+<div class="row align-middle border">
+    <input type="text" alloy class="column cell" value="default" readonly="true">
+    <input type="text" alloy class="column cell" value="width: auto" style="width: auto;" readonly="true">
+    <input type="text" alloy class="column cell" value="width: 100px" style="width: 100px;" readonly="true">
+    <input type="text" alloy class="column cell" value="width: 50%" style="width: 50%" readonly="true">
+    <input type="text" alloy class="column cell" value="width: 100%" style="width: 100%;" readonly="true">
+</div>
+<div class="row align-middle border">
+    <select alloy alloyLabel="default" class="column cell">
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+    <select alloy alloyLabel="width: auto" class="column cell" style="width: auto;">
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+    <select alloy alloyLabel="w100px" class="column cell" style="width: 100px;">
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+    <select alloy alloyLabel="width: 50%" class="column cell" style="width: 50%">
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+    <select alloy alloyLabel="width: 100%" class="column cell" style="width: 100%">
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+</div>
+<div class="row align-middle">
+    <hr class="column shrink">
+    <label class="columns shrink title">Foundation: Height</label>
+    <hr class="column stretch">
+</div>
+<div class="row align-middle border">
+    <input type="text" alloy class="column cell small-6" value="default (32)" readonly="true">
+    <select alloy alloyLabel="default (32) small-6" class="column cell">
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+</div>
+<div class="row align-middle border">
+    <input type="text" alloy class="column cell small-6" value="height: auto" style="height: auto;" readonly="true">
+    <select alloy alloyLabel="height: auto" class="column cell small-6" style="height: auto;">
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+</div>
+<div class="row align-middle border">
+    <input type="text" alloy class="column cell small-6" value="height: 40px" style="height: 40px;" readonly="true">
+    <select alloy alloyLabel="height: 40px" class="column cell small-6" style="height: 40px;">
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+</div>
+<div class="row align-middle">
+    <hr class="column shrink">
+    <label class="column shrink title">Foundation: Margin</label>
+    <hr class="column stretch">
+</div>
+<div class="row align-middle border">
+    <input type="text" alloy class="column cell small-2" value="m-top: 10px" style="margin-top: 10px" readonly="true">
+    <select alloy alloyLabel="m-top: 10px" class="column cell small-2" style="margin-top: 10px">
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+    <input type="text" alloy class="column cell small-2" value="m-bottom: 10px" style="margin-bottom: 10px" readonly="true">
+    <select alloy alloyLabel="m-bottom: 10px" class="column cell small-2" style="margin-bottom: 10px">
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+</div>
+<div class="row align-middle border">
+    <input type="text" alloy class="column cell small-2" value="m-left: 10px, small-2" style="margin-left: 10px;" readonly="true">
+</div>
+<div class="row align-middle border">
+    <select alloy alloyLabel="m-left: 10px, small-2" class="column cell small-2" style="margin-left: 10px">
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+</div>
+<div class="row align-middle border">
+    <input type="text" alloy class="column cell small-2" value="m-right: 10px, small-2" style="margin-right: 10px;" readonly="true">
+</div>
+<div class="row align-middle border">
+    <select alloy alloyLabel="m-right: 10px, small-2" class="column cell small-2" style="margin-right: 10px">
+        <option [value]="0"> Option 0 </option>
+        <option [value]="1"> Option 1 </option>
+        <option [value]="2"> Option 2 </option>
+    </select>
+</div>
+
+
+<!-- Used to test functionality and style of dropdown -->
+<div class="row align-middle">
+    <hr class="column stretch">
+    <h4 class="column shrink">Dropdown Verification "Tests"</h4>
+    <hr class="column stretch">
+</div>
+<div class="row border">
+    <div class="column cell small-4">
+        <select alloy [disabled]="disabledSwitch" alloyLabel="Disabled Test">
+            <option [value]="0"> Option test 0</option>
+            <option [value]="1"> Option test 1 </option>
+            <option [value]="2" [disabled]="disabledOption"> Option disabled </option>
+        </select>
+        <input type="checkbox" alloy [(ngModel)]="disabledSwitch" alloyLabel="Disabled select">
+        <input type="checkbox" alloy [(ngModel)]="disabledOption" alloyLabel="Disabled option">
+    </div>
+    <div class="column cell small-4">
+        <select alloy [readonly]="readonlySwitch" alloyLabel="Readonly Test">
+            <option [value]="0"> Option test 0</option>
+            <option [value]="1"> Option test 1 </option>
+            <option [value]="2"> Option test 2 </option>
+        </select>
+        <input type="checkbox" alloy [(ngModel)]="readonlySwitch" alloyLabel="Readonly select">
+    </div>
+    <div class="column cell small-4">
+        <select alloy [alternateStyle]="alternateSwitch" alloyLabel="Alternate Test">
+            <option [value]="0"> Option test 0</option>
+            <option [value]="1"> Option test 1 </option>
+            <option [value]="2"> Option test 2 </option>
+        </select>
+        <input type="checkbox" alloy [(ngModel)]="alternateSwitch" alloyLabel="Alternate Style select">
+    </div>
+</div>
+<div class="row border">
+    <div class="column cell small-4">
+        <select multiple alloy [filterable]="filterSwitch" [hasSelectAll]="selectAllSwitch" alloyLabel="Filter Select Test">
+            <option [value]="0"> Option test 0</option>
+            <option [value]="1"> Option test 1 </option>
+            <option [value]="2"> Option test 01 </option>
+        </select>
+        <input type="checkbox" alloy [(ngModel)]="filterSwitch" alloyLabel="Filterable">
+        <input type="checkbox" alloy [(ngModel)]="selectAllSwitch" alloyLabel="Select All option">
+    </div>
+     <div class="column cell small-4">
+        <select alloy [(ngModel)]="twoWayBinding" alloyLabel="Two way binding test">
+            <option [value]="0"> Option test 0</option>
+            <option [value]="1"> Option test 1 </option>
+        </select>
+        <input type="checkbox" alloy [(ngModel)]="bindCheck0" alloyLabel="Option 1">
+        <input type="checkbox" alloy [(ngModel)]="bindCheck1" alloyLabel="Option 2">
+    </div>
+    <div class="column cell small-4">
+        <select multiple alloy [(ngModel)]="multipleBinding" alloyLabel="Multiple binding test">
+            <option [value]="0"> Option test 0</option>
+            <option [value]="1"> Option test 1 </option>
+        </select>
+        <input type="checkbox" alloy [(ngModel)]="bindCheckM0" alloyLabel="Option 1">
+        <input type="checkbox" alloy [(ngModel)]="bindCheckM1" alloyLabel="Option 2">
+    </div>
+</div>
+<div class="row border">
+    <div class="column cell small-4">
+        <select alloy [placeholder]="placeholderTest">
+            <option [value]="0"> Option test 0</option>
+            <option [value]="1"> Option test 1 </option>
+        </select>
+        <input type="text" alloy [(ngModel)]="placeholderTest" style="max-width:200px;">
+    </div>
+    <div class="column cell small-2">
+        <select alloy alloyIcon="alloy-ic-tools" style="display:inline">
+            <option [value]="0"> Option test 0</option>
+            <option [value]="1"> Option test 1 </option>
+        </select>
+        <select alloy alloyIcon="alloy-ic-tools" alternateStyle style="display:inline">
+            <option [value]="0"> Option test 0</option>
+            <option [value]="1"> Option test 1 </option>
+        </select>
+    </div>
+    <div class="column cell small-3">
+        <select alloy filterable alloyLabel="Scrollable test">
+            <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" [value]="number">{{ number }}</option>
+        </select>
+    </div>
+    <div class="column cell small-3" style="position:relative">
+        <select alloy alloyLabel="Left hand test" style="position:absolute; right:0px;">
+            <option [value]="0"> Option test 0</option>
+            <option [value]="1"> Option test 1 </option>
+            <option [value]="2"> Option test 2 </option>
+        </select>
+    </div>
+</div>
+<div class="row border">
+    <div class="column cell small-4">
+        <select alloy placeholder="Overflow test" style="width:150px;">
+            <option [value]="0"> Small </option>
+            <option [value]="1"> Long option example </option>
+        </select>
+        <select alloy placeholder="Overflow test" alternateStyle style="width:150px;">
+            <option [value]="0"> Small </option>
+            <option [value]="1"> Long option example </option>
+        </select>
+    </div>
+    <div class="column cell small-4">
+        <select alloy alloyLabel="Label" alloyIcon="alloy-ic-tools" alternateStyle>
+            <option [value]="0"> Option</option>
+        </select>
+    </div>
+</div>
