@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { ElementFocusDirective } from './elementFocus.directive';
 import { AlloyCheckboxDirective } from './checkbox.directive';
+import { AlloyRadioDirective, AlloyRadioGroupDirective } from './radio.directive';
 import { AlloyTextboxDirective } from './textbox.directive';
 import { AlloyButtonDirective } from './button.directive';
 import { FocusMonitor } from '@angular/cdk/a11y';
@@ -23,6 +24,8 @@ import { AlloyDropdownOverlayModule } from '../dropdown-overlay/index';
         AlloyButtonDirective,
         AlloyCheckboxDirective,
         AlloyIdentityDirective,
+        AlloyRadioDirective,
+        AlloyRadioGroupDirective,
         AlloyTextboxDirective,
         AlloyToggleDirective,
         AlloySelectDirective
@@ -32,6 +35,8 @@ import { AlloyDropdownOverlayModule } from '../dropdown-overlay/index';
         AlloyButtonDirective,
         AlloyCheckboxDirective,
         AlloyIdentityDirective,
+        AlloyRadioDirective,
+        AlloyRadioGroupDirective,
         AlloyTextboxDirective,
         AlloyToggleDirective,
         AlloySelectDirective
@@ -47,8 +52,11 @@ export class AlloyDirectivesModule { }
 export { ElementFocusDirective } from './elementFocus.directive';
 export { AlloyButtonDirective } from './button.directive';
 export { AlloyCheckboxDirective } from './checkbox.directive';
+export { AlloyRadioDirective } from './radio.directive';
+export { AlloyRadioGroupDirective } from './radio.directive';
 export { AlloyIdentityDirective } from './identity.directive';
 export { AlloyTextboxDirective } from './textbox.directive';
 export { AlloyToggleDirective } from './toggle.directive';
 export { AlloySelectDirective } from './select.directive';
 export { ErrorDirective } from './error.directive';
+export { LabelWrapperDirective } from './labelWrapper.directive';

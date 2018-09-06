@@ -159,7 +159,9 @@ export class AlloyIdentityDirective {
             this.renderer.setStyle(this.iconElement, 'width', iconSize + 'px');
             this.renderer.setStyle(this.iconElement, 'background-size', iconSize + 'px');
         }
-        this.renderer.setStyle(this.parentElement, 'font-size', fontSize + 'px');
+        if (this.labelSpan) {
+            this.renderer.setStyle(this.labelSpan, 'font-size', fontSize + 'px');
+        }
     }
 
     /**

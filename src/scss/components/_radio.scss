@@ -1,0 +1,75 @@
+.alloy-radio-wrapper {
+    @include setIdentity(16px, 14px, 10px);
+    user-select: none;
+
+    * {
+        vertical-align: middle;
+    }
+
+    width: max-content;
+
+    // Must apply cursor to itself and all children or will not be applied
+    // to certain elements (like input) or in certain conditions (light theme)
+    cursor: pointer;
+    * {
+        cursor: pointer;
+    }
+
+    padding-left: 12px;
+    padding-right: 12px;
+
+    &.readonly {
+        pointer-events: none;
+        opacity: map_get($color-palette, control-default-readonly-opacity);
+    }
+
+    &.disabled {
+        pointer-events: none;
+        opacity: map_get($color-palette, control-default-disabled-opacity);
+    }
+
+    &:hover > .alloy-radio:enabled + span {
+        border-color: map_get($color-palette, radio-border-hover);
+    }
+}
+
+.alloy-radio {
+    display: none;
+
+    & + span {
+        @include size(16px);
+        display: inline-block;
+        position: relative;
+
+        border: 1px solid map_get($color-palette, radio-border);
+
+        &,
+        &:after {
+            border-radius: 50%;
+        }
+
+        & + .alloyLabel {
+            margin-left: 10px;
+        }
+
+        & + .alloyIcon {
+            margin-left: 10px;
+        }
+    }
+
+    &:checked + span {
+        &:after {
+            @include size(8px);
+            $offset: 3px;
+
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: $offset;
+            left: $offset;
+
+            border-radius: 50%;
+            background-color: map_get($color-palette, radio-checked-bg);
+        }
+    }
+}

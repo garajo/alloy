@@ -39,6 +39,7 @@ import { DropdownsPageComponent } from './components/dropdowns-page/dropdowns-pa
 import { NotificationIconPageComponent } from './components/notification-icon-page/notification-icon-page.component';
 import { ProgressBarPageComponent } from './components/progress-bar-page/progress-bar-page.component';
 import { PropertyEditorComponent } from './components/property-page/property-editor.component';
+import { RadioPageComponent } from './components/radio-page/radio-page.component';
 import { SwitcherPageComponent } from './components/switcher-page/switcher-page.component';
 import { TextareaPageComponent } from './components/textarea-page/textarea-page.component';
 import { TextboxPageComponent } from './components/textbox-page/textbox-page.component';
@@ -49,6 +50,7 @@ import { DataService } from './components/property-page/editors/services/data.se
 import { EditorService } from './components/property-page/editors/services/editor.service';
 import { VerifiyTextboxComponent } from './components/verification/textbox/verify-textbox.component';
 import { VerifyCheckboxComponent } from './components/verification/checkbox/verify-checkbox.component';
+import { VerifyRadioComponent } from './components/verification/radio/verify-radio.component';
 import { VerifyButtonComponent } from './components/verification/button/verify-button.component';
 import { IconPageComponent } from './components/icon-page/icon-page.component';
 import { VerifyDropdownComponent } from './components/verification/dropdown/verify-dropdown.component';
@@ -103,6 +105,7 @@ export class AlloyDemoModule { }
     NotificationIconPageComponent,
     ProgressBarPageComponent,
     PropertyEditorComponent,
+    RadioPageComponent,
     SwitcherPageComponent,
     TextfieldDynamicComponent,
     TextboxPageComponent,
@@ -111,6 +114,7 @@ export class AlloyDemoModule { }
     ContextmenuPageComponent,
     VerificationPageComponent,
     VerifyCheckboxComponent,
+    VerifyRadioComponent,
     VerifiyTextboxComponent,
     VerifyButtonComponent,
     IconPageComponent,

@@ -20,6 +20,13 @@
 
 // Label wrapper for a checkbox, handles clicks and general styling of children based on state
 .alloy-check-wrapper {
+    @include setIdentity(16px, 14px, 10px);
+    user-select: none;
+
+    * {
+        vertical-align: middle;
+    }
+
     width: max-content;
 
     $size: 14px;
@@ -49,7 +56,7 @@
         content: '';
         // The global .alloy-ic-error icon is invisible by default. Consumers need to turn it on.
         display: inline-block;
-        vertical-align: text-top;
+        vertical-align: middle;
     }
 
     &.readonly {
@@ -76,11 +83,8 @@
 // Actual alloy checkbox.  Input content cannot be styled, so we style a label wrapper.
 // Structure: <label> [span] <div (icon)> <span (text)> </label>
 .alloy-check {
-    position: absolute; // AJM: Remove the checkbox from the flow, also eliminates foundation concerns
+    display: none;
     $size: 14px;
-    @include size($size);
-    // cursor: pointer;
-    opacity: 0;         // Hide the ugly input
 
     // First span holds the actual check styling
     & + span {
@@ -88,20 +92,12 @@
 
         display: inline-block;      // Span is inline by default (no width)
         background: transparent map_get($icon-pack, checkbox) no-repeat center center / $size;
-        vertical-align: text-top;
-        margin-top: 1px;    // AJM: This manages the slight difference between equivalent text/check height
-    }
 
-    // The icon is defined as the background of a div
-    & ~ div {
-        @include iconSpec();
-        margin-left: 10px;
-        vertical-align: text-top;
-    }
+        & + .alloyLabel {
+            margin-left: 10px;
+        }
 
-    // Last span wraps the text allowing us to determine emptiness.  If not empty we need an inner margin.
-    & ~ span:last-of-type {
-        &:not(:empty) {
+        & + .alloyIcon {
             margin-left: 10px;
         }
     }

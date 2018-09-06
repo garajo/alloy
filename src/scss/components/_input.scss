@@ -15,16 +15,8 @@ input[type="number"] {
   }
 }
 
-input[type="checkbox"],
-input[type="radio"] {
 
-}
-
-input[type="radio"] + span {
-  display:inline-block;
-  vertical-align: top;
-}
-
+// DEPRECATED
 .radio {
   $size: 16px;
 
@@ -38,6 +30,7 @@ input[type="radio"] + span {
 
     &+ span {
       display: inline-block;
+      vertical-align:top;
 
       margin: 0;
       border: 1px solid map_get($color-palette, radio-border);

@@ -1,6 +1,6 @@
 <div class="row align-middle">
   <hr class="column stretch">
-  <h4 class="column shrink">Buttons Verification</h4>
+  <h4 class="column shrink">Radio Button Verification</h4>
   <hr class="column stretch">
 </div>
 <div class="row align-middle">
@@ -9,17 +9,16 @@
   <hr class="column stretch">
 </div>
 <div style="max-width: 75rem; margin: auto;">  <!-- match foundation page width-->
-  <div><button alloy alloyLabel="Should be standard"></button></div>
-  <div><button alloy standard alloyLabel="Should be standard"></button></div>
-  <div><button alloy standard alloyLabel="w80px" style="width:80px;"></button></div>
-  <div><button alloy standard alloyLabel="wMin" style="width:40px;"></button></div>
-  <div><button alloy standard alloyLabel="w160px" style="width:160px;"></button></div>
-  <div><button alloy standard alloyLabel="w50%" style="width:50%;"></button></div>
-  <div><button alloy standard alloyLabel="w100%" style="width:100%;"></button></div>
+  <input type="radio" alloy alloyLabel="default">
+  <input type="radio" alloy alloyLabel="width: 100px"  style="width: 100px;">
+  <input type="radio" alloy alloyLabel="width: auto" style="width: auto;">
+  <input type="radio" alloy alloyLabel="size=30" size="30">
+  <input type="radio" alloy alloyLabel="width: 100%" style="width: 100%">
+  <input type="radio" alloy alloyLabel="width: 50%"  style="width: 50%">
 </div>
 <div class="row align-middle">
   <hr class="column shrink">
-  <label class="columns shrink title">Foundation: Width (Note: Foundation 'column' overrides)</label>
+  <label class="columns shrink title">Foundation: Width (Note: Foundation overrides)</label>
   <label class="column shrink border">row</label>
   <label class="column shrink cell">cell</label>
   <hr class="column stretch">
@@ -32,11 +31,11 @@
   <input type="text" alloy class="column cell" value="width: 100%" style="width: 100%;" readonly="true">
 </div>
 <div class="row align-middle border">
-  <button alloy alloyLabel="default" class="column cell"></button>
-  <button alloy alloyLabel="width: auto" class="column cell" style="width: auto;"></button>
-  <button alloy alloyLabel="w100px" class="column cell" style="width: 100px;"></button>
-  <button alloy alloyLabel="width: 50%" class="column cell" style="width: 50%"></button>
-  <button alloy alloyLabel="width: 100%" class="column cell" style="width: 100%;"></button>
+  <input type="radio" alloy class="column cell" alloyLabel="default">
+  <input type="radio" alloy class="column cell" alloyLabel="width: auto" style="width: auto;">
+  <input type="radio" alloy class="column cell" alloyLabel="width: 100px" style="width: 100px;">
+  <input type="radio" alloy class="column cell" alloyLabel="width: 50%" style="width: 50%">
+  <input type="radio" alloy class="column cell" alloyLabel="width: 100%" style="width: 100%;">
 </div>
 <div class="row align-middle">
   <hr class="column shrink">
@@ -45,38 +44,38 @@
 </div>
 <div class="row align-middle border">
   <input type="text" alloy class="column cell" value="default (32)" readonly="true">
-  <button alloy alloyLabel="default (32)" class="column cell"></button>
+  <input type="radio" alloy class="column cell" alloyLabel="default (32)">
 </div>
 <div class="row align-middle border">
   <input type="text" alloy class="column cell" value="height: auto" style="height: auto;" readonly="true">
-  <button alloy alloyLabel="height: auto" class="column cell" style="height: auto;"></button>
+  <input type="radio" alloy class="column cell" alloyLabel="height: auto" style="height: auto;">
 </div>
 <div class="row align-middle border">
   <input type="text" alloy class="column cell" value="height: 40px" style="height: 40px;" readonly="true">
-  <button alloy alloyLabel="height: 40px" class="column cell" style="height: 40px;"></button>
+  <input type="radio" alloy class="column cell" alloyLabel="height: 40px (not a current use-case, but needs discussion)" style="height: 40px;">
 </div>
 <div class="row align-middle">
   <hr class="column shrink">
-  <label class="column shrink title">Foundation: Margin</label>
+  <label class="column shrink title">Foundation: Margin (Note: padding isn't particularly useful)</label>
   <hr class="column stretch">
 </div>
 <div class="row align-middle border">
   <!-- Rows -->
   <input type="text" alloy class="column cell small-2" value="m-top: 10px" style="margin-top: 10px" readonly="true">
-  <button alloy alloyLabel="m-top: 10px" class="column cell small-2" style="margin-top: 10px"></button>
+  <input type="radio" alloy class="column cell small-2" alloyLabel="m-top: 10px" style="margin-top: 10px">
   <input type="text" alloy class="column cell small-2" value="m-bottom: 10px" style="margin-bottom: 10px" readonly="true">
-  <button alloy alloyLabel="m-bottom: 10px" class="column cell small-2" style="margin-bottom: 10px"></button>
+  <input type="radio" alloy class="column cell small-2" alloyLabel="m-bottom: 10px" style="margin-bottom: 10px">
 </div>
 <!-- Columns -->
 <div class="row align-middle border">
   <input type="text" alloy class="column cell small-2" value="m-left: 10px, small-2" style="margin-left: 10px;" readonly="true">
 </div>
 <div class="row align-middle border">
-  <button alloy alloyLabel="m-left: 10px, small-2" class="column cell small-2" style="margin-left: 10px"></button>
+  <input type="radio" alloy class="column cell small-2" alloyLabel="m-left: 10px, small-2" style="margin-left: 10px;">
 </div>
 <div class="row align-middle border">
   <input type="text" alloy class="column cell small-2" value="m-right: 10px, small-2" style="margin-right: 10px;" readonly="true">
 </div>
 <div class="row align-middle border">
-  <button alloy alloyLabel="m-right: 10px, small-2" class="column cell small-2" style="margin-right: 10px"></button>
+  <input type="radio" alloy class="column cell small-2" alloyLabel="m-right: 10px, small-2" style="margin-right: 10px;">
 </div>
