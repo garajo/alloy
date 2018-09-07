@@ -12,6 +12,7 @@ import { AlloySelectDirective } from './select.directive';
 import { CommonModule } from '@angular/common';
 import { DropdownOverlay } from '../dropdown-overlay/dropdown-overlay';
 import { AlloyDropdownOverlayModule } from '../dropdown-overlay/index';
+import { LabelWrapperDirective } from './labelWrapper.directive';
 
 @NgModule({
     imports: [
@@ -39,7 +40,8 @@ import { AlloyDropdownOverlayModule } from '../dropdown-overlay/index';
         AlloyRadioGroupDirective,
         AlloyTextboxDirective,
         AlloyToggleDirective,
-        AlloySelectDirective
+        AlloySelectDirective,
+        LabelWrapperDirective
     ],
     providers: [FocusMonitor],
     entryComponents: [DropdownOverlay]
@@ -59,4 +61,3 @@ export { AlloyTextboxDirective } from './textbox.directive';
 export { AlloyToggleDirective } from './toggle.directive';
 export { AlloySelectDirective } from './select.directive';
 export { ErrorDirective } from './error.directive';
-export { LabelWrapperDirective } from './labelWrapper.directive';

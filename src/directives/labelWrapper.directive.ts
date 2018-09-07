@@ -4,7 +4,9 @@ import { ErrorDirective } from './error.directive';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { AlloyIdentityDirective } from './identity.directive';
 
-@Directive({})
+@Directive({
+    selector: '[labelWrapper]'
+})
 // TODO: AJM We could remove this as an extension if ErrorDirective can be a daisy-chained,
 // see ErrorDirective for more details, this still allows us to detect error capability:
 // if (widget instanceof ErrorDirective) widget.error = errorState;
