@@ -2,7 +2,6 @@ import { Component, Input, HostBinding } from '@angular/core';
 
 @Component({
     selector: `alloy-progress-bar`,
-    // styleUrls: ['progress-bar.scss'],    //TODO: Broken in Alloy right now
     templateUrl: 'progress-bar.html'
 })
 export class AlloyProgressBar {

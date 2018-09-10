@@ -17,7 +17,6 @@ const Styles = {
 };
 @Component({
     selector: `alloy-progress-ring`,
-    // styleUrls: ['progress-ring.scss'],  //TODO: Broken in alloy right now
     templateUrl: 'progress-ring.html'
 })
 export class AlloyProgressRing {

@@ -12,6 +12,7 @@ const
   cleanCSS = require('gulp-clean-css'),
   rename = require("gulp-rename"),
   sassImage = require('gulp-sass-image'),
+  tildeImporter = require('node-sass-tilde-importer'),
   gnf = require('gulp-npm-files'),
   del = require('del'),
   runSequence = require('run-sequence'),
@@ -30,18 +31,25 @@ const external = [
   '@angular/core',
   '@angular/common',
   '@angular/forms',
-  '@angular/cdk/keycodes',
-  '@angular/cdk/coercion',
   '@angular/cdk/a11y',
+  '@angular/cdk/coercion',
+  '@angular/cdk/keycodes',
   '@angular/cdk/overlay',
+  '@angular/cdk/portal',
   '@angular/material',
   '@angular/platform-browser',
   '@angular/platform-browser/animations',
   'ag-grid-angular/main',
   'ag-grid-angular/dist/aggrid.module',
   'ag-grid-angular/dist/interfaces',
+  'rxjs/observable/fromEvent',
   'rxjs/observable/merge',
+  'rxjs/operators/filter',
+  'rxjs/operators/startWith',
+  'rxjs/BehaviorSubject',
+  'rxjs/Observable',
   'rxjs/Subject',
+  'rxjs/Subscription',
   'ts-keycode-enum',
   'ngx-contextmenu'
 ]
@@ -209,7 +217,7 @@ gulp.task('rollup:umd', function() {
  */
 gulp.task('sass:build', function() {
   return gulp.src(`${tmpFolder}/scss/**/*.scss`)
-    .pipe(sass({ errLogToConsole: true }).on('error', sass.logError))
+    .pipe(sass({ importer: tildeImporter, errLogToConsole: true }).on('error', sass.logError))
     .pipe(gulp.dest(`${tmpFolder}/css`));
 });
 
@@ -338,11 +346,6 @@ gulp.task('update:manifest', function() {
  * Copy dependencies to build/node_modules/ by by
  * value in './package.json' file
  */
-gulp.task('copy:dependencies:tmp', function() {
-  return gulp
-    .src(gnf(null, `${srcFolder}/package.json`), {base:'./'})
-    .pipe(gulp.dest(tmpFolder));
-});
 gulp.task('copy:dependencies:dist', function() {
   return gulp
     .src(gnf(null, `${srcFolder}/package.json`), {base:'./'})
@@ -354,7 +357,6 @@ gulp.task('compile', function() {
     'sass:images',
     'clean:dist',
     'copy:source',
-    'copy:dependencies:tmp',
     'sass:build',
     'css:minify',
     'copy:css',

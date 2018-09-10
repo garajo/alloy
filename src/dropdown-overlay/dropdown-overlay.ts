@@ -3,7 +3,7 @@ import {
     QueryList, Output, EventEmitter, ChangeDetectorRef, HostListener
 } from '@angular/core';
 import { ViewportRuler } from '@angular/cdk/overlay';
-import { Observable } from 'rxjs';
+import { fromEvent } from 'rxjs/observable/fromEvent';
 
 @Component({
     templateUrl: './dropdown-overlay.html'
@@ -55,7 +55,7 @@ export class DropdownOverlay implements AfterViewInit {
 
         // Prevent scrolling if at the top or bottom of dropdown to prevent the window from scrolling
         // which would cause the dropdown to close
-        Observable.fromEvent(this.dropdown.nativeElement, 'wheel').subscribe((e: any) => {
+        fromEvent(this.dropdown.nativeElement, 'wheel').subscribe((e: any) => {
             if ((e.wheelDelta < 0 && this.dropdown.nativeElement.clientHeight ===
                     (this.dropdown.nativeElement.scrollHeight - this.dropdown.nativeElement.scrollTop)) ||
                     (e.wheelDelta > 0 && this.dropdown.nativeElement.scrollTop === 0)) {

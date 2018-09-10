@@ -25,7 +25,8 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { merge } from 'rxjs/observable/merge';
-import { filter, startWith } from 'rxjs/operators';
+import { filter } from 'rxjs/operators/filter';
+import { startWith } from 'rxjs/operators/startWith';
 
 import { ENTER, SPACE, UP_ARROW, DOWN_ARROW, HOME, END, ESCAPE } from '../core/keyboard/keycodes';
 import { AlloyOption, AlloyOptionSelectionChange } from '../core/option/index';

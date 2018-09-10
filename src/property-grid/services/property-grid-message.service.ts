@@ -2,7 +2,7 @@
  * Copyright Keysight Technologies 2017. All rights reserved.
  */
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()

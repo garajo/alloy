@@ -1,14 +1,14 @@
 //Since the Foundation _settings.scss file has a relative reference to the _util.scss file it looks like UPro pulled it out and directly referenced it here so the paths would work
-@import '../node_modules/foundation-sites/scss/util/util';
+@import "~foundation-sites/scss/util/util";
 //Then they copied the original Foundation _settings.scss file into the Alloy project and commented out the already fixed reference to _util.scss. See the only change in this the original Foundation settings.scss file on or around line #50
 @import '_settings.scss';
 
 //JEFF_IMPORTANT Need to have our new values for Foundation vars happen after the Alloy dark/light theming and component styling defs have happened
 @import '_settings_alloy_overrides.scss';
 
-@import '../node_modules/foundation-sites/scss/foundation.scss';
+@import '~foundation-sites/scss/foundation.scss';
 @import '_foundation.scss';
 
-@import '../node_modules/@angular/cdk/_overlay';
+@import '~@angular/cdk/_overlay';
 
 @include cdk-overlay();
