@@ -422,4 +422,10 @@
             <option [value]="0"> Option</option>
         </select>
     </div>
+    <div class="column cell small-4">
+        <select alloy alloyLabel="Open Test" (onOpen)="openDropdown()" (onClose)="closeDropdown()" alternateStyle>
+            <option [value]="0"> Option</option>
+        </select>
+        {{openClosed}}
+    </div>
 </div>

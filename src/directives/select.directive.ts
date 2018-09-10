@@ -1,5 +1,5 @@
 import {
-    Directive, ElementRef, Renderer2, Host, Optional, Input, HostListener, ComponentRef, AfterViewInit,
+    Directive, ElementRef, Renderer2, Host, Optional, Input, HostListener, ComponentRef, AfterViewInit, Output, EventEmitter,
 } from '@angular/core';
 import { AlloyIdentityDirective } from './identity.directive';
 import { Overlay, OverlayRef, OverlayConfig } from '@angular/cdk/overlay';
@@ -87,13 +87,19 @@ export class AlloySelectDirective implements AfterViewInit {
         }
     }
 
+    // Events for when dropdown is opened or closed
+    @Output() onOpen: EventEmitter<void> = new EventEmitter<void>();
+    @Output() onClose: EventEmitter<void> = new EventEmitter<void>();
+
     // Set styling for button based on if dropdown is open
     private get isOpen() { return this._isOpen; };
     private set isOpen(value: boolean) {
         this._isOpen = value;
         if (this._isOpen) {
+            this.onOpen.emit();
             this.renderer.addClass(this.buttonEl, 'is-open');
         } else {
+            this.onClose.emit();
             this.renderer.removeClass(this.buttonEl, 'is-open');
         }
     }
@@ -192,7 +198,7 @@ export class AlloySelectDirective implements AfterViewInit {
     // Close dropdown if the window scrolls
     @HostListener('window:scroll')
     private closeWindow() {
-        if (this.overlayRef) {
+        if (this.overlayRef && this.isOpen) {
             this.overlayRef.dispose();
             this.isOpen = false;
         }

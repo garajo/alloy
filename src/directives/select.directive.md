@@ -72,6 +72,13 @@ The select directive can be used to apply an icon or label shown in the dropdown
 </select>
 ```
 
+`onOpen` and `onClose` output events can be used to detect when the dropdown opens or closes.
+```html
+<select alloy (onOpen)="openFunc()" (onClose)="closeFunc()">
+    <option>Option 1</option>
+</select>
+```
+
 ## Behavior:
 
 When the dropdown opens it will attempt to open below and expand to the right. If there is not enough space it will switch to opening up and/or expanding to the left. If there is not enough room to open in either direction it will open in the directions with the most room and adjust the width/height to fit in the viewport.

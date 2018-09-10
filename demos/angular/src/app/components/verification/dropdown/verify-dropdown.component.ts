@@ -15,6 +15,7 @@ export class VerifyDropdownComponent {
   private twoWayBinding = '0';
   private multipleBinding: any = '[]';
   private placeholderTest = 'Placeholder';
+  public openClosed = 'closed';
 
   get bindCheck0(): boolean {
     return this.twoWayBinding === '0';
@@ -59,4 +60,13 @@ export class VerifyDropdownComponent {
   }
 
   constructor() { }
+
+  public openDropdown() {
+    this.openClosed = 'open';
+    console.log('opened');
+  }
+  public closeDropdown() {
+    this.openClosed = 'closed';
+    console.log('closed');
+  }
 }
