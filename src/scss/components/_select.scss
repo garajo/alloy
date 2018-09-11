@@ -1,6 +1,13 @@
 // Make sure select is never shown
 .select-button select {
-  display: none !important;
+    // Remove from flow, make invisible, but still clickable for testing
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+
+    // Ensure the select is the same size as the button
+    height: 100%;
+    width: 100%;
 }
 
 .select-button {
@@ -189,7 +196,7 @@
         background-color: map_get($color-palette, menu-active-bg);
       }
     }
-    
+
   }
 }
 
@@ -221,7 +228,7 @@
       @include size($size);
       background: transparent map_get($icon-pack, checkbox) no-repeat center center / $size;
     }
-    
+
     input[type="checkbox"]:checked + span {
       @include size($size);
       background: transparent map_get($icon-pack, checkbox-checked) no-repeat center center / $size;
@@ -241,7 +248,7 @@
 
 .dropdown-search {
   position: relative;
-  
+
   input, input:focus {
     background-color: map_get($color-palette, menu-title-active-bg);
     color: map_get($color-palette, input-text-color);
@@ -270,6 +277,6 @@
     position: absolute;
     top: 10px; right: 10px;
     width: 20px;
-    height: 20px;     
+    height: 20px;
   }
 }

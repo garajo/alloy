@@ -34,7 +34,9 @@
 }
 
 .alloy-radio {
-    display: none;
+    // Remove from flow, make invisible, but still clickable for testing
+    position: absolute;
+    opacity: 0;
 
     & + span {
         @include size(16px);

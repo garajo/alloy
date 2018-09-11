@@ -83,7 +83,9 @@
 // Actual alloy checkbox.  Input content cannot be styled, so we style a label wrapper.
 // Structure: <label> [span] <div (icon)> <span (text)> </label>
 .alloy-check {
-    display: none;
+    // Remove from flow, make invisible, but still clickable for testing
+    position: absolute;
+    opacity: 0;
     $size: 14px;
 
     // First span holds the actual check styling

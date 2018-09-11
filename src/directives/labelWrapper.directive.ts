@@ -1,8 +1,9 @@
 import { Directive, HostBinding, ElementRef, Renderer2, Input,
-    HostListener, AfterViewInit, OnDestroy, Optional, Host } from '@angular/core';
+    HostListener, AfterViewInit, OnDestroy, Optional, Host, OnInit } from '@angular/core';
 import { ErrorDirective } from './error.directive';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { AlloyIdentityDirective } from './identity.directive';
+import { ViewContainerRef } from '@angular/core';
 
 @Directive({
     selector: '[labelWrapper]'
@@ -11,7 +12,7 @@ import { AlloyIdentityDirective } from './identity.directive';
 // see ErrorDirective for more details, this still allows us to detect error capability:
 // if (widget instanceof ErrorDirective) widget.error = errorState;
 // The benefit is that bindings can automatically populate error state.
-export class LabelWrapperDirective extends ErrorDirective implements AfterViewInit, OnDestroy {
+export class LabelWrapperDirective extends ErrorDirective implements AfterViewInit, OnInit, OnDestroy {
 
     // If readonly or disabled we disable interation.  Value doesn't matter to add it, null removes it
     @HostBinding('attr.disabled') get disabledAttribute() { return this.isDisabled === true || this.isReadonly ? '' : null; }
@@ -86,35 +87,32 @@ export class LabelWrapperDirective extends ErrorDirective implements AfterViewIn
         let originalStyle = this.el.nativeElement.attributes['style'];
 
         // If we don't have a label wrapper, create one
-        this.labelElement = this.renderer.parentNode(el.nativeElement);
-        if (!(this.labelElement instanceof HTMLLabelElement)) {
-            const label = this.renderer.createElement('label');
-
-            // Inject wrapper then move native element (input) within it.
-            this.renderer.insertBefore(this.labelElement, label, this.el.nativeElement);
-            this.renderer.removeChild(this.labelElement, this.el.nativeElement);
-            this.renderer.appendChild(label, this.el.nativeElement);
-            this.labelElement = label;
-
-            // apply each of the classes to the parent, and remove them from the input
-            // ex: `column`: we want this to apply to the outermost element, label, not the inner input
-            // ex: 'margin-right:...': we want this to apply to the label not change space between box and label
-            // Is there ever a case we want to apply a class to the input?
-            if (originalClasses) {
-                originalClasses.split(' ').forEach(element => {
-                    this.renderer.addClass(this.labelElement, element);
-                    this.renderer.removeClass(this.el.nativeElement, element);
-                });
-            }
-
-            if (originalStyle) {
-                this.renderer.setAttribute(this.labelElement, originalStyle.name, originalStyle.value);
-                this.renderer.removeAttribute(this.el.nativeElement, originalStyle.name);   // Don't want these applied to the box
-            }
-        }
-
+        this.labelElement = this.renderer.createElement('label');
         // We must add the span because that's what actually gets the check styling
         this.styledElement = this.renderer.createElement('span');
+
+        // apply each of the classes to the parent, and remove them from the input
+        // ex: `column`: we want this to apply to the outermost element, label, not the inner input
+        // ex: 'margin-right:...': we want this to apply to the label not change space between box and label
+        // Is there ever a case we want to apply a class to the input?
+        if (originalClasses) {
+            originalClasses.split(' ').forEach(element => {
+                this.renderer.addClass(this.labelElement, element);
+                this.renderer.removeClass(this.el.nativeElement, element);
+            });
+        }
+
+        if (originalStyle) {
+            this.renderer.setAttribute(this.labelElement, originalStyle.name, originalStyle.value);
+            this.renderer.removeAttribute(this.el.nativeElement, originalStyle.name);   // Don't want these applied to the box
+        }
+    }
+
+    ngOnInit(): void {
+        // Inject wrapper then move native element (input) within it.
+        this.renderer.insertBefore(this.renderer.parentNode(this.el.nativeElement), this.labelElement, this.el.nativeElement);
+        this.renderer.removeChild(this.renderer.parentNode(this.el.nativeElement), this.el.nativeElement);
+        this.renderer.appendChild(this.labelElement, this.el.nativeElement);
         this.renderer.appendChild(this.labelElement, this.styledElement);
 
         // Since we're injecting a parent we need to supply it to the identity directive for it's injections to behave properly

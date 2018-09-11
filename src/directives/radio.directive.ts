@@ -190,6 +190,7 @@ export class AlloyRadioDirective extends LabelWrapperDirective {
     }
 
     ngOnInit() {
+        super.ngOnInit();
         if (this.radioGroup) {
           // If the radio is inside a radio group, determine if it should be checked
           this.el.nativeElement.checked = this.radioGroup.value === this.el.nativeElement.value;

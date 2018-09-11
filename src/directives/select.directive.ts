@@ -1,5 +1,5 @@
 import {
-    Directive, ElementRef, Renderer2, Host, Optional, Input, HostListener, ComponentRef, AfterViewInit, Output, EventEmitter,
+    Directive, ElementRef, Renderer2, Host, Optional, Input, HostListener, ComponentRef, AfterViewInit, Output, EventEmitter, OnInit
 } from '@angular/core';
 import { AlloyIdentityDirective } from './identity.directive';
 import { Overlay, OverlayRef, OverlayConfig } from '@angular/cdk/overlay';
@@ -10,7 +10,7 @@ import { DropdownOverlay } from '../dropdown-overlay/dropdown-overlay';
     selector: `select [alloy]`
 })
 
-export class AlloySelectDirective implements AfterViewInit {
+export class AlloySelectDirective implements AfterViewInit, OnInit {
 
     private _placeholder = '';
     private _isOpen = false;
@@ -114,13 +114,6 @@ export class AlloySelectDirective implements AfterViewInit {
         let originalStyle = this.el.nativeElement.attributes['style'];
 
         this.buttonEl = this.renderer.createElement('button');
-        this.renderer.insertBefore(this.renderer.parentNode(this.el.nativeElement), this.buttonEl, this.el.nativeElement);
-        this.renderer.appendChild(this.buttonEl, this.el.nativeElement);
-
-        if (!identityDirective) {
-            this.buttonLabelEl = this.renderer.createElement('label');
-            this.renderer.appendChild(this.buttonEl, this.buttonLabelEl);
-        }
         this.renderer.setAttribute(this.buttonEl, 'type', 'button');
         this.renderer.addClass(this.buttonEl, 'select-button');
 
@@ -138,7 +131,17 @@ export class AlloySelectDirective implements AfterViewInit {
         this.buttonEl.addEventListener('click', this.toggle.bind(this));
         // Update button on change of select element
         this.el.nativeElement.addEventListener('change', this.updateButton.bind(this));
-    };
+    }
+
+    ngOnInit(): void {
+        this.renderer.insertBefore(this.renderer.parentNode(this.el.nativeElement), this.buttonEl, this.el.nativeElement);
+        this.renderer.appendChild(this.buttonEl, this.el.nativeElement);
+
+        if (!this.identityDirective) {
+            this.buttonLabelEl = this.renderer.createElement('label');
+            this.renderer.appendChild(this.buttonEl, this.buttonLabelEl);
+        }
+    }
 
     ngAfterViewInit() {
         if (this.identityDirective) {
