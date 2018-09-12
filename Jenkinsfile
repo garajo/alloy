@@ -13,6 +13,7 @@ jennyPipeline{
         ],
         [
             nodeName: 'Windows',
+          	label: 'win10esx',
         ],
     ]
     projectConfig = [
