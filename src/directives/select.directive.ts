@@ -1,5 +1,6 @@
 import {
-    Directive, ElementRef, Renderer2, Host, Optional, Input, HostListener, ComponentRef, AfterViewInit, Output, EventEmitter, OnInit
+    Directive, ElementRef, Renderer2, Host, Optional, Input, HostListener, ComponentRef,
+    AfterViewInit, Output, EventEmitter, AfterViewChecked, OnInit
 } from '@angular/core';
 import { AlloyIdentityDirective } from './identity.directive';
 import { Overlay, OverlayRef, OverlayConfig } from '@angular/cdk/overlay';
@@ -10,7 +11,7 @@ import { DropdownOverlay } from '../dropdown-overlay/dropdown-overlay';
     selector: `select [alloy]`
 })
 
-export class AlloySelectDirective implements AfterViewInit, OnInit {
+export class AlloySelectDirective implements AfterViewInit, OnInit, AfterViewChecked {
 
     private _placeholder = '';
     private _isOpen = false;
@@ -138,7 +139,7 @@ export class AlloySelectDirective implements AfterViewInit, OnInit {
         this.renderer.appendChild(this.buttonEl, this.el.nativeElement);
 
         if (!this.identityDirective) {
-            this.buttonLabelEl = this.renderer.createElement('label');
+            this.buttonLabelEl = this.renderer.createElement('span');
             this.renderer.appendChild(this.buttonEl, this.buttonLabelEl);
         }
     }
@@ -147,7 +148,6 @@ export class AlloySelectDirective implements AfterViewInit, OnInit {
         if (this.identityDirective) {
             this.identityDirective.assignTo(this.buttonEl);
         }
-        this.updateButton();
 
         // Observe changes in child list of select element and trigger change detection so
         // if option is added or removed the binding updates
@@ -155,6 +155,10 @@ export class AlloySelectDirective implements AfterViewInit, OnInit {
             mutations.forEach((mutation) => { this.el.nativeElement.dispatchEvent(new CustomEvent('change')); });
         });
         observer.observe(this.el.nativeElement, { childList: true });
+    }
+
+    ngAfterViewChecked() {
+        this.updateButton();
     }
 
     // Update label for button to reflect what is selected
@@ -196,6 +200,14 @@ export class AlloySelectDirective implements AfterViewInit, OnInit {
         if (changed) {
             this.el.nativeElement.dispatchEvent(new CustomEvent('change'));
         }
+    }
+
+    // Prevent propogation of clicks from going to the parent button
+    // to prevent dropdown from opening during tests
+    @HostListener('click', ['$event'])
+    onClick(event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
     }
 
     // Close dropdown if the window scrolls

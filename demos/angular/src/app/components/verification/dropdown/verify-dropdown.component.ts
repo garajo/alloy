@@ -16,6 +16,7 @@ export class VerifyDropdownComponent {
   private multipleBinding: any = '[]';
   private placeholderTest = 'Placeholder';
   public openClosed = 'closed';
+  private initialBinding = '1';
 
   get bindCheck0(): boolean {
     return this.twoWayBinding === '0';

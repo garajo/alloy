@@ -1,13 +1,12 @@
 // Make sure select is never shown
 .select-button select {
-    // Remove from flow, make invisible, but still clickable for testing
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-
-    // Ensure the select is the same size as the button
-    height: 100%;
-    width: 100%;
+    // Make element not visible or physically clickable but still usable
+    // by tests because displayed and pointer events are not disabled
+    position: absolute !important;
+    height: 0 !important;
+    width: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
 }
 
 .select-button {
