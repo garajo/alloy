@@ -57,6 +57,11 @@ $color-palette: (
         secondary:                                $cornflower-blue,
         secondary-dark:                           $jacksons-purple,
 
+        // Typography (arbitrary)
+        // Most controls define/control their own font color/family etc. with their own control specific vars for flexibility. For arbitrary text uses these vars so as not to confuse/mix semantics
+        text-color-default:                       $french-gray,
+        text-color-alternate:                     $white,
+
         // Containers
         header-bg:                                $paynes-gray,
         header-text:                              $white,

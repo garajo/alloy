@@ -185,6 +185,18 @@ h5 {
 
 //JEFF_LABELS Added these classes to at least have a class/style for all the main Caranu spec defined text combinations
 
+// Provide a way for arbitrary text to have the higher contrast white/black versus the normal smoky/frenchgray. Title bar text usually or should use this.
+.alloy-alternate-font-color {
+  // white/black
+  color: map_get($color-palette, text-color-alternate);
+}
+
+// Although the Alloy default text color is already set to these there are times where it gets overwritten and devs need an explicit way to control their world.
+.alloy-default-font-color {
+    //french-gray/smoky
+    color: map_get($color-palette, text-color-default);
+}
+
 //See pages 26-27, 34-36, 48 of the Caranu spec.
 //Use this class for when you have a dialog or window titlebar scenario as described by the spec.
 .alloy-titlebar-font
@@ -192,6 +204,7 @@ h5 {
     font-family: 'Roboto Medium', sans-serif;
     font-size: 14px;
     font-weight: normal;
+    //color: not set to keep these "font" classes pure (not dictating color). Higher level constructs set the color as needed.
 }
 
 //See page 26 of the Caranu spec.
@@ -201,6 +214,7 @@ h5 {
     font-family: 'Roboto Medium', sans-serif;
     font-size: 15px;
     font-weight: normal;
+    //color: not set, by default will pick up the color value set for the body. Smoky for light color scheme. French Gray for dark color scheme.
 }
 
 //See the Caranu spec. Used for control group/header txt for expanders, group-box, property-panel & property grid etc.
@@ -210,23 +224,26 @@ h5 {
     font-family: 'Roboto Medium', sans-serif;
     font-size: 13px;
     font-weight: normal;
+    //color: not set, by default will pick up the color value set for the body. Smoky for light color scheme. French Gray for dark color scheme.
 }
 
-//See page 26 of the Caranu spec. 
+//See page 26 of the Caranu spec.
 //Use this class for when you have a "Body/Content Area" scenario as described by the spec.
 .alloy-body-content-font
 {
     font-family: 'Roboto', sans-serif;
     font-size: 13px;
     font-weight: normal;
+    //color: not set, by default will pick up the color value set for the body. Smoky for light color scheme. French Gray for dark color scheme.
 }
 
-//See the Caranu spec for all the various control definitions. Most are set to 14px Roboto regular/normal. 
+//See the Caranu spec for all the various control definitions. Most are set to 14px Roboto regular/normal.
 //We provide this class for all the scenarios where you have a custom control that needs correct font properties
-//matching essentially what all other controls are doing. 
+//matching essentially what all other controls are doing.
 .alloy-controls-font
 {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: normal;
+    //color: not set, by default will pick up the color value set for the body. Smoky for light color scheme. French Gray for dark color scheme.
 }
