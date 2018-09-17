@@ -12,8 +12,8 @@ export class IconPageComponent {
   icons = [
     /* Dark */
     'add-bookmark',
-    'arrow-down',
-    'arrow-up',
+    'arrow down',
+    'arrow up',
     'autorange',
     'autoscale-x',
     'autoscale-xy',
@@ -130,6 +130,7 @@ export class IconPageComponent {
     'settings-repair',
     'sound-muted',
     'sound',
+    'stations',
     'sweep-continuous',
     'sweep-single',
     'sync',
@@ -159,6 +160,7 @@ export class IconPageComponent {
     'digital-persistence',
     'error',
     'play',
+    'play_single_step',
     'record',
     'spectogram',
     'status-okay',

@@ -149,8 +149,8 @@ $prefix: alloy-ic-;
         @include icon-base(edit);
     }
 
-    &ellipses {
-        @include icon-base(ellipses);
+    &ellipsis {
+        @include icon-base(ellipsis);
     }
 
     // JEFF_TODO Would like deprecate this error class/state. It's being used in AlloyDropDown and kcs-navbar but both those should be updated to use the new error directive approach
@@ -386,6 +386,10 @@ $prefix: alloy-ic-;
         @include icon-base(orientation-xz);
     }
 
+    &orientation-yz {
+        @include icon-base(orientation-yz);
+    }
+
     &output {
         @include icon-base(output);
     }
@@ -412,6 +416,10 @@ $prefix: alloy-ic-;
 
     &play {
         @include icon-base(play);
+    }
+
+    &play_single_step {
+        @include icon-base(play_single_step);
     }
 
     &play-beginning {
@@ -533,6 +541,10 @@ $prefix: alloy-ic-;
 
     &stop {
         @include icon-base(stop);
+    }
+
+    &stations {
+        @include icon-base(stations);
     }
 
     &sweep-continuous {

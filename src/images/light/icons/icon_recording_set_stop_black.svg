@@ -3,7 +3,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" width="32" height="32" viewBox="0 0 32.00 32.00" enable-background="new 0 0 32.00 32.00" xml:space="preserve">
 	<line fill="none" stroke-width="2" stroke-linejoin="miter" stroke="#ED1C24" stroke-opacity="1" x1="1.99996" y1="8.99998" x2="30" y2="8.99998"/>
 	<path fill="#000000" fill-opacity="1" fill-rule="evenodd" stroke-width="0.2" stroke-linejoin="miter" d="M 27,5.49998L 23,5.49998L 23,12.5L 27,12.5L 27,5.49998"/>
-	<path fill="none" stroke-width="1.33333" stroke-linejoin="miter" stroke="#00A14B" stroke-opacity="1" d="M 8.5,18.8792L 8.5,21.5813L 8.5,24.0285L 8.5,26.4538L 10.5082,25.0944L 14.3136,22.5197L 15.888,21.4538L 14.3136,20.3879L 10.5082,17.8132L 8.5,16.4538L 8.5,18.8792 Z "/>
+	<path fill="#40B449" fill-opacity="1" stroke-width="1.33333" stroke-linejoin="miter" stroke="#40B449" stroke-opacity="1" d="M 8.5,18.8792L 8.5,21.5813L 8.5,24.0285L 8.5,26.4538L 10.5082,25.0944L 14.3136,22.5197L 15.888,21.4538L 14.3136,20.3879L 10.5082,17.8132L 8.5,16.4538L 8.5,18.8792 Z "/>
 	<path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="miter" d="M 21.4874,20.3778L 23.1994,20.3778L 24.9426,20.3778L 26.8654,20.3778L 28.5783,20.3778L 27.6279,18.7944L 25.7949,15.7395L 25.0324,14.4687"/>
 	<line fill="none" stroke-width="1.57576" stroke-linejoin="miter" stroke="#000000" stroke-opacity="1" x1="25.0328" y1="19.196" x2="25.0328" y2="27.4687"/>
 </svg>
