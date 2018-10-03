@@ -1,0 +1,10 @@
+
+// Humble beginning for expander control
+.expander-button
+{
+    cursor: pointer;
+    // Change the background of the expander button on a hover
+    &:hover {
+        background: map_get($color-palette, expander-button-bg-hover)
+    }
+}

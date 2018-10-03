@@ -57,6 +57,9 @@ $color-palette: (
         secondary:                                $cornflower-blue,
         secondary-dark:                           $jacksons-purple,
 
+        // Expanders
+        expander-button-bg-hover:                 rgba($glitter,$opacity-HEX14),
+
         // Typography (arbitrary)
         // Most controls define/control their own font color/family etc. with their own control specific vars for flexibility. For arbitrary text uses these vars so as not to confuse/mix semantics
         text-color-default:                       $french-gray,
@@ -369,7 +372,9 @@ $icon-pack: (
         ellipsis:                             inline-image("#{$dark-icons}/icon_ellipsis_white.svg"),
         exit:                                 inline-image("#{$dark-icons}/icon_exit_white.svg"),
         expand-all:                           inline-image("#{$dark-icons}/icon_expand_all_white.svg"),
+        expand-all-hover:                     inline-image("#{$dark-icons}/icon_expand_all_hover_white.svg"),
         expand:                               inline-image("#{$dark-icons}/icon_expand_white.svg"),
+        expand-hover:                         inline-image("#{$dark-icons}/icon_expand_hover_white.svg"),
         export:                               inline-image("#{$dark-icons}/icon_export_white.svg"),
         fast-forward:                         inline-image("#{$dark-icons}/icon_fast_forward_white.svg"),
         fast-rewind:                          inline-image("#{$dark-icons}/icon_fast_rewind_white.svg"),

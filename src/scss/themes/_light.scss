@@ -60,6 +60,9 @@ $color-palette: (
         secondary:                                $cornflower-blue,
         secondary-dark:                           $hawkes-blue,
 
+        // Expanders
+        expander-button-bg-hover:                 rgba($hover-blue,$opacity-HEX1E),
+
         // Typography (arbitrary)
         // Most controls define/control their own font color/family etc. with their own control specific vars for flexibility. For arbitrary text uses these vars so as not to confuse/mix semantics
         text-color-default:                       $smoky,
@@ -377,7 +380,9 @@ $icon-pack: (
         ellipsis:                             inline-image("#{$light-icons}/icon_ellipsis_black.svg"),
         exit:                                 inline-image("#{$light-icons}/icon_exit_black.svg"),
         expand-all:                           inline-image("#{$light-icons}/icon_expand_all_black.svg"),
+        expand-all-hover:                     inline-image("#{$light-icons}/icon_expand_all_hover_black.svg"),
         expand:                               inline-image("#{$light-icons}/icon_expand_black.svg"),
+        expand-hover:                         inline-image("#{$light-icons}/icon_expand_hover_black.svg"),
         export:                               inline-image("#{$light-icons}/icon_export_black.svg"),
         fast-forward:                         inline-image("#{$light-icons}/icon_fast_forward_black.svg"),
         fast-rewind:                          inline-image("#{$light-icons}/icon_fast_rewind_black.svg"),

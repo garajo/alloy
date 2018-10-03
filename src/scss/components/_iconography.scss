@@ -176,14 +176,54 @@ $prefix: alloy-ic-;
         @include icon-base(exit);
     }
 
-    // JEFF_TODO Double chevron. Does this replace the existing "caret" pngs
     &expand-all {
-        @include icon-base(expand-all);
+        @include icon-base(expand-all, 24px);
+        // The expand-all image points up, so we don't need to transform it
+    
+        &.right {
+            transform: rotate(90deg);
+        }
+
+        &.down {
+            transform: rotate(180deg);
+        }
+
+        &.left {
+            transform: rotate(-90deg);
+        }
+
+        // For expanders, Caranu specifies that hover & pressed state are the same color
+        &:hover,
+        &.is-hover,
+        &:active,
+        &.is-active {
+            @include icon-base(expand-all-hover, 24px);
+        }
     }
 
-    // JEFF_TODO Single chevron. Does this replace the existing "caret" pngs
     &expand {
-        @include icon-base(expand);
+        @include icon-base(expand, 24px);
+
+        // The expand image points up, so we don't need to transform it
+        &.right {
+            transform: rotate(90deg);
+        }
+    
+        &.down {
+            transform: rotate(180deg);
+        }
+
+        &.left {
+            transform: rotate(-90deg);
+        }
+
+        // For expanders, Caranu specifies that hover & pressed state are the same color
+        &:hover,
+        &.is-hover,
+        &:active,
+        &.is-active {
+            @include icon-base(expand-hover, 24px);
+        }
     }
 
     &export {

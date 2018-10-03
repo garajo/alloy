@@ -20,6 +20,7 @@
 @import "_misc";
 
 //Additional control styles that were added to Alloy
+@import "_expander";
 @import "label";                //Need to ensure this is after typography as it uses vars from there
 @import "_notification-icon";   //Style for notification-icon
 @import "_textbox";             //Style for textbox.

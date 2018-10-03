@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     templateUrl: './icon-page.component.html'
 })
 export class IconPageComponent {
-  // got frustrated with filesystem acces in Angular so...: ls -R | grep icon-*
+  // got frustrated with filesystem access in Angular so...: ls -R | grep icon-*
 
   iconPrefix = 'alloy-ic-'
   icons = [
@@ -45,8 +45,14 @@ export class IconPageComponent {
     'edit',
     'ellipsis',
     'exit',
-    'expand-all',
-    'expand',
+    'expand-all left',
+    'expand-all right',
+    'expand-all up',
+    'expand-all down',
+    'expand left',
+    'expand right',
+    'expand up',
+    'expand down',
     'export',
     'fast-forward',
     'fast-rewind',
