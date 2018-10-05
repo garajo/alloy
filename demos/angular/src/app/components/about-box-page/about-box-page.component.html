@@ -4,29 +4,57 @@
         <div class="row align-center">
             <div class="columns small-12">
                 <h3>About Box</h3>
-                <br>
+                <button type="button" alloy standard (click)='openAbout($event)'>Open About Dialog</button>
             </div>
         </div>
+        <hr>
         <div class="row align-center">
-            <div class="columns">
-            </div>
-            <div class="columns">
-                <div>
-                    <button type="button" (click)='openAbout($event)' class="button-standard">Open About Dialog</button>
-                </div>
+            <div class="columns columns small-5">
+                <p>Injected component</p>
+                <h5>Obtaining ALLOY_DIALOG_DATA</h5>
+<pre>
+@Inject(ALLOY_DIALOG_DATA) data: IAlloyDialogData    
+</pre>
+                <h5>Emitting data when dialog closes</h5>
+<pre>
+dialogRef.beforeClose().subscribe(() => {{ '{' }}
+    this.data.content.appName = '.....';
+{{ '}' }});
+</pre>
             </div>
             <div class="columns small-7">
-                <pre>
-dialog: MatDialog;
-dialogRef: MatDialogRef&lt;AlloyAboutBox&gt;;
-dialogRef = dialog.open(AlloyAboutBox);
-dialogRef.componentInstance.appName = &quot;{{appName}}&quot;;
-dialogRef.componentInstance.content = &quot;{{content}}&quot;;
-dialogRef.componentInstance.copyright = &quot;{{copyright}}&quot;;
-dialogRef.componentInstance.icon = &quot;{{iconSrc}}&quot;;
-dialogRef.componentInstance.title = &quot;{{title}}&quot;;
-dialogRef.componentInstance.version = &quot;{{version}}&quot;;
-                </pre>
+                <p>Caller component</p>
+                <h5>Dialog Configurations</h5>
+                    <pre>
+const ABOUT_DIALOG_CONFIG: AlloyDialogConfig = {{ '{' }}
+   panelClass: 'about-dialog',
+   id: 'alloy-about-id',
+   title: 'About Demo App',
+   data: new AlloyDialogItem(AlloyAboutBox, {{ '{' }}
+       appName: this.appName,
+       content: this.content,
+       ... injected custom data to pass into dialog ...
+   {{ '}' }}),
+   ...
+   draggable: true, 
+   resizable: true
+{{ '}' }};
+                    </pre>
+                <h5>Opening a dialog - Returns a dialog reference</h5>
+                    <pre>
+const dialogRef = dialogService.openDialog(ABOUT_DIALOG_CONFIG);
+                    </pre>
+                <h5>Closing a dialog - Emits optional data to caller</h5>
+                    <pre>
+dialogService.closeDialog('alloy-about-id', 'This is some optional data.');
+                    </pre>
+
+                <h5>Dialog afterClosed() - Returns an observable data</h5>
+                    <pre>
+dialogRef.afterClosed().subscribe((data: any) => {{ '{' }}
+    console.log(data); //Prints out 'This is some optional data.'
+{{ '}' }});
+                    </pre>
             </div>
             <div class="row align-center">
                 <div class="columns small-4">

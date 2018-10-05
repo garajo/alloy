@@ -1,26 +1,29 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
-import { AlloyDisplaySettingsDialog } from '@keysight/alloy';
+import { Component } from '@angular/core';
+import { AlloyDialogService, AlloyDialogConfig, AlloyDialogItem, AlloyDisplaySettingsDialog } from '@keysight/alloy';
 
 @Component({
     selector: 'app-display-settings-page',
     templateUrl: './display-settings-page.component.html'
 })
-export class DisplaySettingsPageComponent implements OnInit {
+export class DisplaySettingsPageComponent {
 
-    dialogRef: MatDialogRef<AlloyDisplaySettingsDialog>;
+    constructor(public dialogService: AlloyDialogService) { }
 
-    constructor(public dialog: MatDialog) { }
-
-    ngOnInit() {
-
-    }
-
-
-    openAbout(event: Event) {
+    openDisplay(event: Event) {
         event.preventDefault();
-        this.dialogRef = this.dialog.open(AlloyDisplaySettingsDialog);
-      }
 
+        const DISPLAY_DIALOG_CONFIG: AlloyDialogConfig = {
+            panelClass: 'display-dialog',
+            id: 'alloy-display-id',
+            title: 'Display Settings',
+            data: new AlloyDialogItem(AlloyDisplaySettingsDialog),
+            hasBackdrop: true,
+            disableClose: true,
+            draggable: true, // Optional parameter. Default disabled.
+            resizable: true // Optional parameter. Default disabled.
+        };
+
+        this.dialogService.openDialog(DISPLAY_DIALOG_CONFIG);
+    }
 
 }

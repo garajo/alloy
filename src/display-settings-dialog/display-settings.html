@@ -1,80 +1,46 @@
-<!-- Strange but this Alloy style only sets a min width/height. Seems a little underwhelming for such a prestigeously named class-->
-<!-- No need for hard coded dialog size. It is responsive given content and a reasonable flex size given screen size. See the vh/vw settings below. -->
-<!-- class="dialog" -->
-<div >
+<div>
+    <!-- Use Foundation wherever you can; it gets us cross-browser support-->
+    <!-- row = Foundation class indicating a Flexbox container row-->
+    <!-- collapse = Foundation class that removes the default gutter/padding on each of the child columns-->
+    <div class="row collapse">
+        <!-- Give our container column of the groupbox a reasonable width; small-6 will be inherited by any larger breakpoints-->
+        <!-- small-6 says use half the available width of the 12 column grid we are contained in as defined by the row declaration above-->
+        <!-- This will cause the contents of the dialog box to shrink and then vertically align if the dialog gets too narrow. -->
+        <!-- RESPONSIVE DESIGN: This is much better than the dialog simply clipping its content when it runs out of space-->
+        <div class="column small-6">
+            <!-- fieldset = Foundation type that extends HTML fieldset type (groups things together; Seems semnatically equivalent to a group box)-->
+            <!-- fieldset = Alloy class that extends the Foundation .fieldset class/styling to make it Caranu compliant; default is a gray group box. Alloy has customized it-->
+            <fieldset class="fieldset">
+                <!-- As long as you use the Alloy fieldset class your fieldset and your legend will be auto Caranu styled -->
+                <legend>Color Themes</legend>
 
-    <!-- Just use the already defined Alloy styling for the Foundation top-bar control which provides the title/caption look-->
-    <!-- Foundation top-bar has support for lef/right alignment via the top-bar-left and top-bar-right classes-->
-    <header class="top-bar" >
-
-        <!-- Just use the already defined Alloy styling for the Foundation title-bar portion of the top-bar-->
-        <div class="title-bar">
-            <!-- Just use the already defined Alloy styling for the title bar text -->
-            <div class="top-bar-title">
-                <!-- New Alloy style for modal dialog text, need to have the active state color. HINT: It's always Cornflower blue-->
-                <label class="modal-dialog-title-text">{{title}}</label>
-            </div>
-
-            <!-- Nothing next to the dialog name so no need for top-bar-left for now-->
-            <!-- <div class="top-bar-left">
-            </div> -->
-
-            <!-- Foundation class that does all the right things to right justify something in the title/caption bar-->
-            <!-- We should use foundation as much as we can as it provides a cross browser abstraction against all the major browsers-->
-            <div class="top-bar-right">
-                <button type="button" class="button-close-x" (click)='close()'></button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Use the existing Alloy class for dialog fonts/colors for the body.-->
-    <!-- Use the existing Alloy class for the inner padding around all window/dialogs (Caranu spec pg. 27-->
-    <div class="dialog-body caranu-window-padding">
-
-        <!-- Use Foundation wherever you can; it gets us cross-browser support-->
-        <!-- row = Foundation class indicating a Flexbox container row-->
-        <!-- collapse = Foundation class that removes the default gutter/padding on each of the child columns-->
-        <div class="row collapse">
-            <!-- Give our container column of the groupbox a reasonable width; small-6 will be inherited by any larger breakpoints-->
-            <!-- small-6 says use half the available width of the 12 column grid we are contained in as defined by the row declaration above-->
-            <!-- This will cause the contents of the dialog box to shrink and then vertically align if the dialog gets too narrow. -->
-            <!-- RESPONSIVE DESIGN: This is much better than the dialog simply clipping its content when it runs out of space-->
-            <div class="column small-6">
-
-                <!-- fieldset = Foundation type that extends HTML fieldset type (groups things together; Seems semnatically equivalent to a group box)-->
-                <!-- fieldset = Alloy class that extends the Foundation .fieldset class/styling to make it Caranu compliant; default is a gray group box. Alloy has customized it-->
-                <fieldset class="fieldset">
-                    <!-- As long as you use the Alloy fieldset class your fieldset and your legend will be auto Caranu styled -->
-                    <legend>Color Themes</legend>
-
-                    <!-- Always use Foundation for sizing/alignment/responsiveness needs-->
-                    <!-- row = Foundation class from the Flex grid that turns this into a Flexbox container-->
-                    <!-- align-left = Foundation class for horiztonal alignment of columns. Options are: left, center, right. Left is default, no need to specify -->
-                    <!-- align-middle = Foundation class for vertical alignments of columns. Options are: top, middle, bottom, stretch -->
-                    <div class="row align-middle">
-                        <div class="columns">
-                            <!-- One way binding via [checked] to keep UI state in sync. click event handler sets the theme and the backing variable-->
-                            <input type="radio" alloy name="themes" alloyLabel="Light" [checked]="isLightTheme" (click)="setTheme('light')">
-                            <input type="radio" alloy name="themes" alloyLabel="Dark" [checked]="!isLightTheme" (click)="setTheme('dark')">
-                        </div>
+                <!-- Always use Foundation for sizing/alignment/responsiveness needs-->
+                <!-- row = Foundation class from the Flex grid that turns this into a Flexbox container-->
+                <!-- align-left = Foundation class for horiztonal alignment of columns. Options are: left, center, right. Left is default, no need to specify -->
+                <!-- align-middle = Foundation class for vertical alignments of columns. Options are: top, middle, bottom, stretch -->
+                <div class="row align-middle">
+                    <div class="columns">
+                        <!-- One way binding via [checked] to keep UI state in sync. click event handler sets the theme and the backing variable-->
+                        <input type="radio" alloy name="themes" alloyLabel="Light" [checked]="isLightTheme" (click)="setTheme('light')">
+                        <input type="radio" alloy name="themes" alloyLabel="Dark" [checked]="!isLightTheme" (click)="setTheme('dark')">
                     </div>
-                </fieldset>
+                </div>
+            </fieldset>
 
-            </div>
         </div>
+    </div>
 
-        <!-- Just a spacer row to expand the dialog to give some space between the top content and the bottom close button. Otherwise those two groups of UI would be smooshed together-->
-        <!-- RESPONSIVE DESIGN: If the dialog gets shrunk vertically because of smaller screens this vertical dead space will actually shrink as well causing the contents to vertically scrunch together. Better than clipping. -->
-        <div class="row responsive-design-height">
-            <!-- RESPONSIVE DESIGN: If the dialog gets shrunk horizontally because of smaller screens this horizontal dead space will actually shrink as well causing the contents to scrunch together and start to stack vertically . Better than clipping. -->
-            <div class="column responsive-design-width"></div>
-        </div>
+    <!-- Just a spacer row to expand the dialog to give some space between the top content and the bottom close button. Otherwise those two groups of UI would be smooshed together-->
+    <!-- RESPONSIVE DESIGN: If the dialog gets shrunk vertically because of smaller screens this vertical dead space will actually shrink as well causing the contents to vertically scrunch together. Better than clipping. -->
+    <div class="row responsive-design-height">
+        <!-- RESPONSIVE DESIGN: If the dialog gets shrunk horizontally because of smaller screens this horizontal dead space will actually shrink as well causing the contents to scrunch together and start to stack vertically . Better than clipping. -->
+        <div class="column responsive-design-width"></div>
+    </div>
 
-        <!-- align-right = Foundation class to right justify the content found in the column of this row -->
-        <div class="row collapse align-right">
-            <div class="column shrink">
-                <button type="button" class="button-default" (click)='close()' elementFocus>Close</button>
-            </div>
+    <!-- align-right = Foundation class to right justify the content found in the column of this row -->
+    <div class="row collapse align-right">
+        <div class="column shrink">
+            <button type="button" alloy default (click)='close()'>Close</button>
         </div>
     </div>
 </div>

@@ -10,6 +10,7 @@ export * from './core';
 export * from './button/index';
 export * from './checkbox/index';
 export * from './contextmenu/index';
+export * from './dialog/index';
 export * from './display-settings-dialog/index';
 export * from './dropdown/index';
 export * from './icon/index';

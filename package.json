@@ -45,6 +45,7 @@
         "codelyzer": "~2.0.0",
         "core-js": "^2.4.1",
         "del": "^2.2.2",
+        "draggabilly": "^2.2.0",
         "filesize": "^3.5.10",
         "foundation-sites": "6.3.1",
         "gulp": "^3.9.1",

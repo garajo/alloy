@@ -1,0 +1,95 @@
+.dialog-resizer {
+    $resize-handle-size: 7px;
+    $resize-handle-size-corners: 7px;
+    $border-offset: -($resize-handle-size - 4px);
+
+    position: absolute;
+    top: $border-offset;
+    bottom: $border-offset;
+    left: $border-offset;
+    right: $border-offset;
+    pointer-events: none;
+    user-select: none;
+
+    %resize-border {
+        pointer-events: all;
+        position: absolute;
+        background-color: transparent;
+    }
+
+    %resize-border-ns {
+        @extend %resize-border;
+        height: $resize-handle-size;
+        left: $resize-handle-size;
+        right: $resize-handle-size;
+        cursor: ns-resize;
+    }
+
+    %resize-border-ew {
+        @extend %resize-border;
+        width: $resize-handle-size;
+        top: $resize-handle-size;
+        bottom: $resize-handle-size;
+        cursor: ew-resize;
+    }
+
+    %resize-border-corners {
+        @extend %resize-border;
+        width: $resize-handle-size-corners;
+        height: $resize-handle-size-corners;
+    }
+
+    %resize-border-nesw {
+        @extend %resize-border-corners;
+        cursor: nesw-resize;
+    }
+
+    %resize-border-nwse {
+        @extend %resize-border-corners;
+        cursor: nwse-resize;
+    }
+
+    .resize-n {
+        @extend %resize-border-ns;
+        top: 0;
+    }
+
+    .resize-ne {
+        @extend %resize-border-nesw;
+        top: 0;
+        right: 0;
+    }
+
+    .resize-e {
+        @extend %resize-border-ew;
+        right: 0;
+    }
+
+    .resize-se {
+        @extend %resize-border-nwse;
+        right: 0;
+        bottom: 0;
+    }
+
+    .resize-s {
+        @extend %resize-border-ns;
+        bottom: 0;
+    }
+
+    .resize-sw {
+        @extend %resize-border-nesw;
+        bottom: 0;
+        left: 0;
+    }
+
+    .resize-w {
+        @extend %resize-border-ew;
+        left: 0;
+    }
+
+    .resize-nw {
+        @extend %resize-border-nwse;
+        left: 0;
+        top: 0;
+    }
+}

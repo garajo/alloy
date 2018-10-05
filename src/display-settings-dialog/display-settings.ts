@@ -1,13 +1,12 @@
 import {
-  Input,
   Component,
   OnInit,
-  ViewEncapsulation
+  ViewEncapsulation,
+  Inject
 } from '@angular/core';
 
 import { AlloyThemingService, AlloyThemes } from '../app/services/index';
-
-import { MatDialogRef} from '@angular/material';
+import { AlloyDialogService, ALLOY_DIALOG_DATA, IAlloyDialogData } from './../dialog/index';
 
 @Component({
   moduleId: module.id,
@@ -19,13 +18,11 @@ import { MatDialogRef} from '@angular/material';
 export class AlloyDisplaySettingsDialog implements OnInit {
 
     /** Display settings dialog title */
-  private _title = 'Display Settings';
   public isLightTheme: boolean;
 
-  constructor(
-    public dialogRef: MatDialogRef<AlloyDisplaySettingsDialog>,
-    private alloyThemingService: AlloyThemingService) {
-      this.dialogRef.disableClose = true;
+  constructor(  private alloyDialogService: AlloyDialogService,
+                @Inject(ALLOY_DIALOG_DATA) public data: IAlloyDialogData,
+                private alloyThemingService: AlloyThemingService) {
   }
 
   ngOnInit() {
@@ -33,21 +30,14 @@ export class AlloyDisplaySettingsDialog implements OnInit {
     this.setTheme(this.alloyThemingService.theme);
   }
 
-  /** Display settings title to be shown */
-  @Input()
-  get title() { return this._title; }
-  set title(value: string) {
-    this._title = value;
-  }
-
   close() {
-    this.dialogRef.close();
+    this.alloyDialogService.closeDialog(this.data.dialogRef.id);
   }
 
   setTheme(theme: AlloyThemes): void {
     // Since the UI is bound to this method need to set whatever theme was selected
     this.alloyThemingService.theme = theme;
     // Update the backing variable so the UI can keep in sync
-    theme === AlloyThemes.Light ? this.isLightTheme = true : this.isLightTheme = false;
+    this.isLightTheme = theme === AlloyThemes.Light;
   }
 }

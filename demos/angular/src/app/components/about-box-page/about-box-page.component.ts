@@ -1,6 +1,5 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
-import { AlloyAboutBox } from '@keysight/alloy';
+import { Component, OnInit } from '@angular/core';
+import { AlloyDialogService, AlloyDialogConfig, AlloyDialogItem, AlloyAboutBox } from '@keysight/alloy';
 
 @Component({
     selector: 'app-about-box-page',
@@ -15,26 +14,37 @@ export class AboutBoxPageComponent implements OnInit {
     iconSrc = '../../assets/SignalStudioPro.png';
     content = 'Portions of this software are licensed by third parties.'
 
-    dialogRef: MatDialogRef<AlloyAboutBox>;
-
-    constructor(public dialog: MatDialog) { }
+    constructor(public dialogService: AlloyDialogService) { }
 
     ngOnInit() {
-
     }
-
 
     openAbout(event: Event) {
         event.preventDefault();
-        this.dialogRef = this.dialog.open(AlloyAboutBox);
 
-        this.dialogRef.componentInstance.appName = this.appName;
-        this.dialogRef.componentInstance.content = this.content;
-        this.dialogRef.componentInstance.copyright = this.copyright;
-        this.dialogRef.componentInstance.icon = this.iconSrc;
-        this.dialogRef.componentInstance.title = this.title;
-        this.dialogRef.componentInstance.version = this.version;
-      }
+        const ABOUT_DIALOG_CONFIG: AlloyDialogConfig = {
+            panelClass: 'about-dialog',
+            id: 'alloy-about-id',
+            title: this.title,
+            data: new AlloyDialogItem(AlloyAboutBox, {
+                appName: this.appName,
+                content: this.content,
+                copyright: this.copyright,
+                icon: this.iconSrc,
+                version: this.version,
+            }),
+            hasBackdrop: true,
+            disableClose: true,
+            draggable: true, // Optional parameter. Default disabled.
+            resizable: true // Optional parameter. Default disabled.
+        };
 
+        // Open dialog - Returns a dialog reference
+        const dialogRef = this.dialogService.openDialog(ABOUT_DIALOG_CONFIG);
 
+        // Dialog closed callback - Returns an observable data
+        dialogRef.afterClosed().subscribe((data: any) => {
+            console.log('About dialog closed. Received data:', data);
+        });
+    }
 }

@@ -1,35 +1,28 @@
-<div class="dialog">
-    <div class="dialog-title-bar">
-        <span class="dialog-title-bar-title">{{title}}</span>
-        <button type="button" id="close-button" class="dialog-button-close-x" (click)='close()'></button>
+<div class="size">
+    <div class="row collapse header">
+        <div class="column shrink app-icon" *ngIf="icon">
+            <img [src]=icon />
+        </div>
+        <div class="column shrink title">
+            <div>
+                <h3 class="app-name">{{ appName }}</h3>
+                <h3 *ngIf="descriptor" class="descriptor">{{ descriptor }}</h3>
+                <p class="copyright">&copy; {{ copyright }}</p>
+            </div>
+        </div>
     </div>
-    <div class="dialog-body">
-        <div class="row about-box-fullWidth about-box-header">
-            <div class="about-box-icon-column">
-                <img [src]=icon class="about-box-icon" />
-            </div>
-            <div class="about-box-header-title">
-                <h3 class="about-box-app-name" >{{appName}}</h3>
-                <p class="about-box-copyright" >&copy; {{copyright}}</p>
-            </div>
+    <div class="row collapse align-middle content">
+        <div class="column shrink align-self-middle">
+            <p> Version: {{ version }} </p>
+            <p> {{ content }} </p>
         </div>
-        <div class="row about-box-content">
-            <div class="small-9 medium-9 large-9 column">
-                <p>
-                    Version: {{version}}
-                </p>
-                <p>
-                    {{content}}
-                </p>
-            </div>
-            <div class="small-3 medium-3 large-3 column dialog-controls align-self-bottom">
-                <button type="button" class="button-default dialog-button-close" (click)='close()' elementFocus>Close</button>
-            </div>
+    </div>
+    <div class="column collapse footer">
+        <div class="row shrink align-right close-bar">
+            <button type="button" alloy default (click)='close()'>Close</button>
         </div>
-        <div class="about-box-footer row">
-            <div class="about-box-footer-floats">
-                <span class="alloy-ic-keysight-logo-signature"></span>
-            </div>
+        <div class="row align-right shrink">
+            <span class="alloy-ic-keysight-logo-signature signature"></span>
         </div>
     </div>
 </div>

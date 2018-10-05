@@ -1,73 +1,30 @@
 # Alloy About Box
 
-`<alloy-about-box>` is a component for adding an About Box Dialog, often accessed from the Help Menu.
+`<alloy-about-box>` is a component for adding an About Box Dialog that provides information about the application. 
+It is often accessed from the Help Menu.
+
+It is built extending the `alloy-dialog`
 
 ### Creating an About Box
 
-Because the AlloyAboutBox is a dialog, it is added by adding a dialog to the ts file. The component is not directly added to the html file.
-
-*my-comp.ts*
+1. Import Alloy Dialog Service and ALLOY_DIALOG_DATA.
 ```ts
-dialog: MatDialog;
-dialogRef: MatDialogRef<AlloyAboutBox>;
-this.dialogRef = this.dialog.open(AlloyAboutBox, {height: '300px', width: '550px', disableClose: true});
+import { AlloyDialogService, ALLOY_DIALOG_DATA } from './../dialog/index';
 ```
 
-### Setting the application name
-
-The application name appears at the top of the dialog box in large letters. You can set this value by setting the 'appName' variable.
-
-*my-comp.ts*
+2. Inject `ALLOY_DIALOG_DATA: IAlloyDialogData` and use the configuration settings from the configuration file in the template - application name, version, icon etc.
 ```ts
-dialogRef.componentInstance.appName = 'Application Name';
+    constructor(private alloyDialogService: AlloyDialogService,
+                @Inject(ALLOY_DIALOG_DATA) public data: IAlloyDialogData) {
+        this.appName = this.data.content.appName;
+        this.content = this.data.content.content;
+        this.copyright = this.data.content.copyright;
+        this.icon = this.data.content.icon;
+        this.version = this.data.content.version;
+    }
 ```
 
-### Setting the About Box content text
-
-The content text will be displayed in the About Box dialog. You can set this value by setting the 'content' variable.
-
-*my-comp.ts*
+3. Call `closeDialog(id: string, data: any)` method on the injected dialogRef. `id` is the dialog's id. `data` is an optional parameter to emit back to dialog opener.
 ```ts
-dialogRef.componentInstance.content = 'Content text';
+this.alloyDialogService.closeDialog(this.data.dialogRef.id);
 ```
-
-### Setting the copyright
-
-The copyright will be displayed in the About Box dialog. You can set this value by setting the 'copyright' variable.
-
-*my-comp.ts*
-```ts
-dialogRef.componentInstance.copyright = 'Keysight Technologies 2017';
-```
-
-
-### Setting the application icon
-
-The icon will be displayed in the About Box dialog. You can set this value by setting the 'icon' variable.
-
-*my-comp.ts*
-```ts
-dialogRef.componentInstance.icon = iconSrc.png;
-```
-
-
-### Setting the About Box title
-
-The title will be displayed at the top of the About Box dialog. You can set this value by setting the 'title' variable.
-
-*my-comp.ts*
-```ts
-dialogRef.componentInstance.title = 'title';
-```
-
-
-### Setting the application version
-
-The version will be displayed in the About Box dialog. You can set this value by setting the 'version' variable.
-
-*my-comp.ts*
-```ts
-dialogRef.componentInstance.version = '1.0.0';
-```
-
-

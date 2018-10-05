@@ -2,25 +2,28 @@
 
 `<alloy-display-settings-dialog>` is a component for common display setttings, supports color theme switching etc.
 
+It is built extending the `alloy-dialog`
+
 ### Creating a Display Settings Dialog
 
-Because the AlloyDisplaySettingsDialog is a dialog, it is added by adding a dialog to the ts file. The component is not directly added to the html file.
+1. Import Alloy Dialog Service and ALLOY_DIALOG_DATA.
 
-*my-comp.ts*
 ```ts
-dialog: MatDialog;
-dialogRef: MatDialogRef<AlloyDisplaySettingsDialog>;
-this.dialogRef = this.dialog.open(AlloyDisplaySettingsDialog, {height: '300px', width: '550px', disableClose: true});
+import { AlloyDialogService, ALLOY_DIALOG_DATA } from './../dialog/index';
 ```
 
+2. Inject `ALLOY_DIALOG_DATA: IAlloyDialogData` and use the configuration settings from the configuration file in the template - your custom data etc.
 
-### Setting the About Box title
-
-The title will be displayed at the top of the About Box dialog. You can set this value by setting the 'title' variable.
-
-*my-comp.ts*
 ```ts
-dialogRef.componentInstance.title = 'title';
+  constructor(private alloyDialogService: AlloyDialogService,
+              @Inject(ALLOY_DIALOG_DATA) public data: IAlloyDialogData,
+              private alloyThemingService: AlloyThemingService) {
+  }
+```
+
+3. Call `closeDialog(id: string, data: any)` method on the injected dialogRef. `id` is the dialog's id. `data` is an optional parameter to emit back to dialog opener.
+```ts
+this.alloyDialogService.closeDialog(this.data.dialogRef.id);
 ```
 
 

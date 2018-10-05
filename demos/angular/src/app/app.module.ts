@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatDialogModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
@@ -24,6 +23,8 @@ import {
   AlloyPropertyGridModule,
   AlloyPropertyGridMessageService,
   AlloySwitcherModule,
+  AlloyDialogModule,
+  AlloyDialogService
 } from '@keysight/alloy';
 
 import { AboutBoxPageComponent } from './components/about-box-page/about-box-page.component';
@@ -73,12 +74,12 @@ import { VerifyDropdownComponent } from './components/verification/dropdown/veri
     AlloyDirectivesModule,
     AlloyProgressBarModule,
     AlloyProgressRingModule,
+    AlloyDialogModule
   ],
   entryComponents: [
     AlloyAboutBox
   ],
   imports: [
-    MatDialogModule,
     BrowserAnimationsModule,
     AlloyButtonModule,
     AlloyIconModule,
@@ -136,7 +137,8 @@ export class AlloyDemoModule { }
   providers: [
     AlloyPropertyGridMessageService,
     DataService,
-    EditorService
+    EditorService,
+    AlloyDialogService
   ],
   bootstrap: [AppComponent]
 })

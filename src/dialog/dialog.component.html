@@ -1,0 +1,26 @@
+<div id="alloy-dialog" style="height: 100%">
+    <!-- Just use the already defined Alloy styling for the Foundation top-bar control which provides the title/caption look-->
+    <!-- Foundation top-bar has support for lef/right alignment via the top-bar-left and top-bar-right classes-->
+    <header class="top-bar">
+        <!-- Just use the already defined Alloy styling for the Foundation title-bar portion of the top-bar-->
+        <div class="title-bar align-middle">
+            <!-- Just use the already defined Alloy styling for the title bar text -->
+            <div class="top-bar-title">
+                <!-- New Alloy style for modal dialog text, need to have the active state color. HINT: It's always Cornflower blue-->
+                <label class="modal-dialog-title-text dialog-noselect">{{title}}</label>
+            </div>
+            <!-- Foundation class that does all the right things to right justify something in the title/caption bar-->
+            <!-- We should use foundation as much as we can as it provides a cross browser abstraction against all the major browsers-->
+            <div class="top-bar-right">
+                <button type="button" class="button-close-x" (click)="onClose()" tabindex="-1"></button>
+            </div>
+        </div>
+    </header>
+    <!-- Use the existing Alloy class for dialog fonts/colors for the body.-->
+    <!-- Use the existing Alloy class for the inner padding around all window/dialogs (Caranu spec pg. 27-->
+    <div class="dialog-body caranu-window-padding">
+        <ng-template dialog-host></ng-template>
+    </div>
+</div>
+
+<dialog-resizer></dialog-resizer>

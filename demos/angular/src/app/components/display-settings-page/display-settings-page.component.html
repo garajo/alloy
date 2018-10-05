@@ -9,17 +9,26 @@
         </div>
         <div class="row align-center">
             <div class="columns">
-            </div>
-            <div class="columns">
                 <div>
-                    <button type="button" (click)='openAbout($event)' class="button-standard">Open Display Settings Dialog</button>
+                    <button type="button" alloy standard (click)='openDisplay($event)'>Open Display Settings Dialog</button>
                 </div>
             </div>
             <div class="columns small-7">
                 <pre>
-dialog: MatDialog;
-dialogRef: MatDialogRef&lt;AlloyDisplaySettingsDialog&gt;;
-dialogRef = dialog.open(AlloyDisplaySettingsDialog);
+const DISPLAY_DIALOG_CONFIG: AlloyDialogConfig = {{ '{' }}
+   panelClass: 'display-dialog',
+   id: 'alloy-display-id',
+   title: 'Display Settings'
+   data: new AlloyDialogItem(AlloyDisplaySettingsDialog, {{ '{' }}
+       ...
+   {{ '}' }}),
+   ....
+   hasBackdrop: true,
+   draggable: true,
+   resizable: true,
+{{ '}' }};
+
+const dialogRef = dialogService.openDialog(DISPLAY_DIALOG_CONFIG);
                 </pre>
             </div>
             <div class="row align-center">

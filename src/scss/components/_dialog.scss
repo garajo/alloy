@@ -1,62 +1,46 @@
 .mat-dialog-container {
-    overflow: hidden !important;
-    border: 1px solid !important;
-    border-color: map_get($color-palette, dialog-border-color) !important;
+    background: transparent;
     padding: 0 !important;
-    box-shadow: 0 1px 86px 0 map_get($color-palette, dialog-box-shadow) !important;
-}
+    border: 1px solid !important;
+    overflow: hidden !important;
+    border-color: map_get($color-palette, window-border) !important; // rgba($glitter,$opacity-HEX28)
+    box-shadow: 0 1px 8px 0 map_get($color-palette, window-box-shadow) !important; // rgba($black,$opacity-HEX7F)
 
-.dialog {
-    min-width: 550px;
-    min-height: 300px;
-}
+    .alloy-dialog {
+        width: 100%;
+        height: 100%;
 
-.dialog-body {
-    // Use the right dialog specific vars to get the background color correct in the different color themes
-    background: map_get($color-palette, dialog-background-color);
-    // Use the right variable for the text color of the dialog content
-    color: map_get($color-palette, dialog-body-color);
-    // Just use the already existing Alloy classes to get the font correct
-    @extend .alloy-body-content-font
-}
+        #alloy-dialog {
+            width: 100%;
+            height: 100%;
 
-.dialog-controls {
-    vertical-align: bottom;
-    padding: 0;
-}
+            label.modal-dialog-title-text {
+                color:  map_get($color-palette, text-title-color); // $white
+                opacity: 1;
+            }
 
-.dialog-button-close {
-    float: right;
-    margin-right: 12px;
-    margin-bottom: 18px;
-}
+            .dialog-body {
+                width: 100%;
+                height: calc(100% - 32px);
 
-.dialog-title-bar {
-    background:  linear-gradient(90deg, map_get($color-palette, dialog-title-bar-gradient-top), map_get($color-palette, dialog-title-bar-gradient-bottom) );
-    // JEFF_TODO If it is a modeless inactive dialog the text shouldn't be blue - See pgs. 27/69 Caranu spec for correct colors
-    color: map_get($color-palette, dialog-title-bar-color);
-    height: 32px;
-    // JEFF_TODO If it is a modeless inactive dialog the text shouldn't be blue - See pgs. 27/69 Caranu spec for correct colors
-    border-color: map_get($color-palette, dialog-title-bar-border-bottom);
+                // Use the right dialog specific vars to get the background color correct in the different color themes
+                background: map_get($color-palette, dialog-background-color);
+                // Use the right variable for the text color of the dialog content
+                color: map_get($color-palette, dialog-body-color);
 
-    // Just use the classes already provided in typography to get things correct and keep them in sync
-    @extend .alloy-titlebar-font
-}
+                // Just use the already existing Alloy classes to get the font correct
+                @extend .alloy-body-content-font
+            }
+        }
+    }
 
-.dialog-title-bar-title {
-    float: left;
-    margin-top: 6px;
-    margin-left: 12px;
-    color: map_get($color-palette, dialog-title-bar-color);
-}
+    &:focus-within, &:active, &:focus {
+        border-color: map_get($color-palette, dialog-border-color) !important; // $cornflower-blue
+        box-shadow: 0 1px 8px 0 map_get($color-palette, dialog-box-shadow) !important; // rgba(#0D1E40, $opacity-HEXB2)
 
-.dialog-button-close-x {
-    @extend .button-close-x;
-    float: right;
-    margin-top: 0;
-}
-
-/*Change the default button styling when it's focused.*/
-.button-default:focus {
-    border: solid 1px map_get($color-palette, button-default-border-inset);
+        #alloy-dialog label.modal-dialog-title-text {
+            color:  map_get($color-palette, dialog-title-bar-color); // $cornflower-blue
+            opacity: 1;
+        }
+    }
 }

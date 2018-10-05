@@ -1,48 +1,76 @@
-.about-box-header-title {
-    padding-top: 18px;
+.header {
+    padding-top: 6px;
 }
 
-.about-box-copyright {
+/* Sri- This is required to pin the footer (Close button and Keysight signature icon to the bottom*/
+/* Foundation align-self-bottom/ align-bottom does not work */
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-bottom: 16px;
+    padding-right: 16px;
+}
+
+.title {
+    margin-left: 12px;
+    max-height: 64px;
+}
+
+.app-icon {
+    width: 64px;
+    height: 64px;
+}
+
+.app-name {
+    font-family: 'Keysight Condensed Bold', sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0px;
+}
+
+.descriptor {
+    font-family: 'Keysight Condensed Regular', sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0px;
+}
+
+.copyright {
+    font-family: 'Keysight Condensed Regular', sans-serif;
+    font-size: 10px;
+    font-weight: normal;
     margin-top: 20px;
 }
 
-.about-box-icon {
-    margin: 18px 12px;
-    float: left;
+.content {
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
-.about-box-content {
-    height: 118px;
+.close-bar {
+    margin-bottom: 12px;
 }
 
-.about-box-header {
-    height: 100px;
-    width: 100%;
+.signature {
+    width: 102px;
+    padding-bottom: 6px;
+    margin: 0;
 }
 
-.about-box-fullWidth {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: initial;
- }
-
-.about-box-icon-column {
-     padding: 0px;
- }
-
-.about-box-app-name {
-    margin-top: -6px;
-    font-size: 24px;
+.about-height {
+    min-height: 300px;
 }
 
-.about-box-footer-floats {
-    width:100%;
+.about-width {
+    min-width: 550px;
 }
 
-.about-box-footer {
-   height: 50px;
-   background: map_get($color-palette, dialog-background-color);
-   width:100%;
+/* Minimum size requirements for the about-box after which the dialog is responsive to resize */
+.size {
+    min-width: 550px;
+    min-height: 300px;
+    height: 10vh;
+    width: 25vh;
 }
-
