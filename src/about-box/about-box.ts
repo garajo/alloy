@@ -18,6 +18,7 @@ export class AlloyAboutBox {
     copyright: string;
     icon: string;
     version: string;
+    descriptor: string;
 
     constructor(private alloyDialogService: AlloyDialogService,
                 @Inject(ALLOY_DIALOG_DATA) public data: IAlloyDialogData) {
@@ -26,6 +27,7 @@ export class AlloyAboutBox {
         this.copyright = this.data.content.copyright;
         this.icon = this.data.content.icon;
         this.version = this.data.content.version;
+        this.descriptor = this.data.content.descriptor;
     }
 
     close() {
