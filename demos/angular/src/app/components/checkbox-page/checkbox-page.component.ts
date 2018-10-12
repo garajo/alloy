@@ -8,6 +8,8 @@ declare function require(name: string): string;
     templateUrl: './checkbox-page.component.html'
 })
 export class CheckboxPageComponent implements OnInit {
+  private rotator = 0;
+  indeterminate = true;
 
     checkedSimple = false;
     checkedLabel = false;
@@ -29,6 +31,7 @@ export class CheckboxPageComponent implements OnInit {
     placeholder = 'Checkbox';
 
     @ViewChild('focusCheckBox') focusCheckBox: FocusableOption;
+    @ViewChild('indeterminate') indeterminateCheckBox;
 
     constructor() { }
 
@@ -65,12 +68,18 @@ export class CheckboxPageComponent implements OnInit {
     }
 
     ngOnInit() {
+      this.indeterminateCheckBox.indeterminate = true;
     }
 
-    isNumberKey(event){
+    isNumberKey(event) {
         const inputChar = String.fromCharCode(event.keyCode);
         if (['0','1','2','3','4','5','6','7','8','9'].indexOf(inputChar) === -1) {
             event.preventDefault();
         }
     }
+
+    // onIndeterminateClick($event) {
+    //   this.rotator++;
+    //   (<CheckboxElement>event.srcElement).indeterminate = this.rotator % 3 === 0;
+    // }
 }

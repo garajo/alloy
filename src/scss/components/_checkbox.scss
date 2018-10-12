@@ -69,14 +69,28 @@
         }
     }
 
-    // TODO: AJM: We're missing checked/hover & checked/hover/error
-    &:hover > .alloy-check:not(:disabled):not(:checked) + span {
-        background: transparent map_get($icon-pack, checkbox-hover) no-repeat center center / $size;
-    }
+    &:hover > .alloy-check:not(:disabled) {
+        & + span {
+            background: transparent map_get($icon-pack, checkbox-hover) no-repeat center center / $size;
+        }
 
-    // TODO: AJM: This hover effect is barely noticeable
-    &:hover > .alloy-check.has-error:not(:disabled):not(:checked) + span{
-        background: transparent map_get($icon-pack, checkbox-hover-error) no-repeat center center / $size;
+        &:checked + span {
+            // TODO: Need this hover state
+            background: transparent map_get($icon-pack, checkbox-checked) no-repeat center center / $size;
+        }
+
+        &:indeterminate + span {
+            background: transparent map_get($icon-pack, checkbox-ind-hover) no-repeat center center / $size;
+        }
+
+        &.has-error + span {
+            background: transparent map_get($icon-pack, checkbox-hover-error) no-repeat center center / $size;
+        }
+
+        &:checked.has-error + span {
+            // TODO: Need this hover state
+            background: transparent map_get($icon-pack, checkbox-checked-error) no-repeat center center / $size;
+        }
     }
 }
 
@@ -106,6 +120,10 @@
 
     &:checked + span {
         background: transparent map_get($icon-pack, checkbox-checked) no-repeat center center / $size;
+    }
+
+    &:indeterminate + span {
+        background: transparent map_get($icon-pack, checkbox-ind) no-repeat center center / $size;
     }
 
     &.has-error + span {
