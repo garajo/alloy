@@ -3,21 +3,20 @@
  * Keysight Confidential
  */
 import { Injectable } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
-import { Subject } from 'rxjs';
-import { IDialogComponent } from '../models/dialog';
+import { Subject } from 'rxjs/Subject';
+import { AlloyDialogRef } from '../models/dialog';
 
 export interface IDialogParam {
-    dialogRef: MatDialogRef<IDialogComponent>;
+    dialogRef: AlloyDialogRef;
     item: any; // tslint:disable-line:no-any
 }
 
 @Injectable()
 export class DialogUtility {
-    public setFocus = new Subject<MatDialogRef<IDialogComponent>>();
+    public setFocus = new Subject<AlloyDialogRef>();
     public closeDialog = new Subject<IDialogParam>();
 
-    public notifyFocus(dialogRef: MatDialogRef<IDialogComponent>): void {
+    public notifyFocus(dialogRef: AlloyDialogRef): void {
         this.setFocus.next(dialogRef);
     }
 

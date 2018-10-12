@@ -203,7 +203,7 @@
         </div>
         <div class="row align-center">
             <div class="columns">
-                <select alloy [(ngModel)]="label_selectedValue" alloyLabel="Settings">
+                <select alloy [(ngModel)]="selectedValue" alloyLabel="Settings">
                     <option *ngFor="let module of icon_modules" [value]="module.value">
                         {{ module.name }}
                     </option>
@@ -212,7 +212,7 @@
             <div class="columns">
                 <div>
                     <h6>Selected value</h6>
-                    <span>"{{label_selectedValue}}"</span>
+                    <span>"{{selectedValue}}"</span>
                 </div>
             </div>
             <div class="columns small-7">

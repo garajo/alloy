@@ -1,14 +1,13 @@
 # Alloy Dialog
 
 `<alloy-dialog>` is a fully-featured generic dialog component that is built using angular material dialog.
-This base dialog comes with a title bar and can render any cuustom component given as it's content template.
+This base dialog comes with a title bar and can render any custom component(component: Type<any>) and data(content: any) given as it's content template.
 In addition to the material dialog configuration settings, the dialog also offers options to make the dialog draggable and resizable.
 
 ## Usage example
 
-In order to use the alloy dialog to create your custom dialog
-
-* Create your custom component for the dialog's content and construct an `AlloyDialogItem`
+### AlloyDialogItem
+Constructing `AlloyDialogItem`. This contains your custom component and data.
 
 ```ts
 export class AlloyDialogItem {
@@ -21,8 +20,8 @@ export class AlloyDialogItem {
 
 `content` - Custom data to be injected into Dialog which can be retrieved via `IAlloyDialogData` inside injected component.
 
-### Settings
-Configuration settings for `AlloyDialogConfig`
+### AlloyDialogConfig
+Configuration settings for your dialog.
 * `panelClass: string`     -  (Required) Custom class for overlay pane. Mandatory when draggable is enabled.
 * `id?: string`            -  ID for the dialog. If omitted, a unique one will be generated.
 * `title: string`          -  (Required) Dialog title informaton.
@@ -49,32 +48,38 @@ const CUSTOM_DIALOG_CONFIG: AlloyDialogConfig = {
 };
 ```
 
-Use `AlloyDialogService` to open the dialog.
+Use `AlloyDialogService` to open the dialog. Returns `AlloyDialogRef`.
 ```ts
-AlloyDialogService.openDialog(CUSTOM_DIALOG_CONFIG);
+const dialogRef: AlloyDialogRef = AlloyDialogService.openDialog(CUSTOM_DIALOG_CONFIG);
 ```
 
-### Obtaining injected data from AlloyDialogItem
-Inject `ALLOY_DIALOG_DATA: IAlloyDialogData` in their constructor parameter.
+### Obtaining injected data
+Inject `ALLOY_DIALOG_DATA: IAlloyDialogData` in your injected component's constructor.
 ```ts
 @Inject(ALLOY_DIALOG_DATA) data: IAlloyDialogData
 ```
+Your data will be stored in `IAlloyDialogData.content`.
+```ts
+console.log(data.content.color); // ['red', 'blue']
+console.log(data.content.fruits); // { a: pear, b: apple }
+```
 
-### Obtaining Dialog Reference
+### Obtaining Dialog Reference: AlloyDialogRef
+Dialog Reference allows you to use native dialog APIs such as listening to `beforeClose()` / `afterClosed()` callback event and more. More info can be found in AlloyDialogRef class.
 1) Directly from `IAlloyDialogData`
 ```ts
-IAlloyDialogData.dialogRef
+console.log(data.dialogRef); // Instance of AlloyDialogRef
 ```
 
 2) Through API `AlloyDialogService.getDialogRefById(id: string)`
 ```ts
-const dialogRef = AlloyDialogService.getDialogRefById('custom-id')
+const dialogRef: AlloyDialogRef = AlloyDialogService.getDialogRefById('custom-id')
 ```
 
 ### Opening a Dialog
 `openDialog(config: AlloyDialogConfig)` opens a dialog with the given config and returns a dialog reference.
 ```ts
-const dialogRef = AlloyDialogService.openDialog(CUSTOM_DIALOG_CONFIG);
+const dialogRef: AlloyDialogRef = AlloyDialogService.openDialog(CUSTOM_DIALOG_CONFIG);
 ```
 
 ### Closing a Dialog

@@ -1,32 +1,25 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-import { AlloyDisplaySettingsDialog } from './display-settings';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+
+import { AlloyDialogModule } from '../dialog/index';
 import { AlloyDirectivesModule } from '../directives/index';
-import { AlloyCheckboxModule } from '../checkbox/index';
+import { AlloyDisplaySettingsDialog } from './display-settings';
 import { AlloyThemingServiceModule } from '../app/services/index';
 
 @NgModule({
     imports: [
-        AlloyCheckboxModule,
+        AlloyDialogModule.withComponents([AlloyDisplaySettingsDialog]),
         AlloyDirectivesModule,
         AlloyThemingServiceModule,
         BrowserAnimationsModule,
         CommonModule,
-        MatDialogModule,
     ],
     exports: [
-        AlloyCheckboxModule,
         // Exporting this here (via the Angular export list) allows consumers to use the selector when they import this module
         AlloyDisplaySettingsDialog,
         AlloyThemingServiceModule,
-        MatDialogModule,
         BrowserAnimationsModule
-    ],
-    entryComponents: [
-        AlloyDisplaySettingsDialog
     ],
     declarations: [
         AlloyDisplaySettingsDialog

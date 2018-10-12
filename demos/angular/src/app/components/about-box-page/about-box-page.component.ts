@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlloyDialogService, AlloyDialogConfig, AlloyDialogItem, AlloyAboutBox } from '@keysight/alloy';
+import { AlloyDialogService, AlloyDialogConfig, AlloyDialogItem, AlloyAboutBox, AlloyDialogRef } from '@keysight/alloy';
 
 @Component({
     selector: 'app-about-box-page',
@@ -40,7 +40,7 @@ export class AboutBoxPageComponent implements OnInit {
         };
 
         // Open dialog - Returns a dialog reference
-        const dialogRef = this.dialogService.openDialog(ABOUT_DIALOG_CONFIG);
+        const dialogRef: AlloyDialogRef = this.dialogService.openDialog(ABOUT_DIALOG_CONFIG);
 
         // Dialog closed callback - Returns an observable data
         dialogRef.afterClosed().subscribe((data: any) => {

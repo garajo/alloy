@@ -8,8 +8,7 @@ import { Component, OnDestroy, ElementRef } from '@angular/core';
 import * as Draggabilly from 'draggabilly';
 
 import { DialogUtility } from '../services/dialog-utility.service';
-import { MatDialogRef } from '@angular/material';
-import { IDialogComponent } from '../models/dialog';
+import { AlloyDialogRef } from '../models/dialog';
 
 @Component({
     selector: 'dialog-resizer', // tslint:disable-line:component-selector
@@ -51,7 +50,7 @@ export class ResizerComponent implements OnDestroy {
         }
     }
 
-    public attach(dialogRef: MatDialogRef<IDialogComponent>): void {
+    public attach(dialogRef: AlloyDialogRef): void {
         const { dialogConfig } = dialogRef.componentInstance;
         const panelClass = '.' + dialogConfig.panelClass;
 

@@ -3,8 +3,8 @@
  * Keysight Confidential
  */ // tslint:disable:max-classes-per-file
 import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
-import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
-import { Dialog, IDialogComponent, AlloyDialogConfig } from '../models/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Dialog, AlloyDialogConfig, AlloyDialogRef } from '../models/dialog';
 import { DialogComponent } from '../dialog.component';
 import { DialogUtility, IDialogParam } from './dialog-utility.service';
 
@@ -21,7 +21,7 @@ export class AlloyDialogService {
         // Service is designed not to use Angular Renderer2. Use rendererFactory to manually create a Renderer instead.
         this.renderer = rendererFactory.createRenderer(null, null); // tslint:disable-line:no-null-keyword
 
-        this.dialogUtility.setFocus.subscribe((dialogRef: MatDialogRef<IDialogComponent>) => {
+        this.dialogUtility.setFocus.subscribe((dialogRef: AlloyDialogRef) => {
             this.setFocus(dialogRef);
         });
 
@@ -53,9 +53,9 @@ export class AlloyDialogService {
      *
      * `resizable?: boolean` — Whether the user can resize the dialog.
      *
-     * @returns `dialogRef` — Reference to the newly-opened dialog.
+     * @returns `AlloyDialogRef` — Reference to the newly-opened dialog.
      */
-    public openDialog(config?: AlloyDialogConfig): MatDialogRef<IDialogComponent> {
+    public openDialog(config?: AlloyDialogConfig): AlloyDialogRef {
         let dialogRef = this.dialog.getDialogById(config.id);
         if (!dialogRef) {
             // Open new dialog with the defined dialog id
@@ -92,7 +92,7 @@ export class AlloyDialogService {
      * @param `dialogRef` - Required.
      * @param `data` (Optional) - data to return to the dialog opener on dialog close.
      */
-    public closeDialogByRef(dialogRef: MatDialogRef<IDialogComponent>, data?: any): void { // tslint:disable-line:no-any
+    public closeDialogByRef(dialogRef: AlloyDialogRef, data?: any): void { // tslint:disable-line:no-any
         this.removeDialog(dialogRef);
         dialogRef.close(data || dialogRef.componentInstance.dialogConfig.data.content);
         // Shift focus to last opened dialog
@@ -130,9 +130,9 @@ export class AlloyDialogService {
     /**
      * Query for DialogRef with its ID.
      * @param `id` - Required.
-     * @returns `DialogRef`.
+     * @returns `AlloyDialogRef`.
      */
-    public getDialogRefById(id: string): MatDialogRef<IDialogComponent> {
+    public getDialogRefById(id: string): AlloyDialogRef {
         return this.dialogs.find((dialog) => {
             return dialog.dialogRef.id === id;
         }).dialogRef;
@@ -142,9 +142,9 @@ export class AlloyDialogService {
      * Set focus on one active dialog and put other dialogs in the background.
      *
      * By default, AlloyDialogService already handles dialog focus. Use this only if you really need to overwrite the original behavior.
-     * @param `dialogRef` (Required) - Pass in a DialogRef to set focus.
+     * @param `AlloyDialogRef` (Required) - Pass in AlloyDialogRef to set focus.
      */
-    public setFocus(dialogRef: MatDialogRef<IDialogComponent>): void {
+    public setFocus(dialogRef: AlloyDialogRef): void {
         dialogRef.componentInstance.focus();
         // LOUIS: Issue with setting z-index in SCSS. This is the angular approach workaround. Not an elegant way for UI events.
         this.dialogs.forEach((dialog) => {
@@ -166,10 +166,10 @@ export class AlloyDialogService {
         });
     }
 
-    private addDialog(dialogRef: MatDialogRef<IDialogComponent>): void {
+    private addDialog(dialogRef: AlloyDialogRef): void {
         this.dialogs.push(new Dialog(dialogRef, false));
     }
-    private removeDialog(dialogRef: MatDialogRef<IDialogComponent>): void {
+    private removeDialog(dialogRef: AlloyDialogRef): void {
         this.dialogs = this.dialogs.filter((item) => item.dialogRef.id !== dialogRef.id);
     }
 }

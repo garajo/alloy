@@ -4,10 +4,10 @@
   "license": "",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --poll=20000 --dev",
+    "start": "ng serve --poll=20000 --aot --prod",
+    "startNonProd": "ng serve --poll=20000 --dev",
     "prep": "npm install ../../src",
     "live": "ng serve --dev",
-    "startNonProd": "ng serve --poll=20000 --aot",
     "build": "ng build --aot --prod",
     "build:watch": "ng build --poll=20000 --aot --prod",
     "test": "ng test",
@@ -36,7 +36,7 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "^1.2.1",
+    "@angular/cli": "=1.7.4",
     "@angular/compiler": "^4.3.1",
     "@angular/compiler-cli": "^4.3.1",
     "@angular/language-service": "^4.3.1",

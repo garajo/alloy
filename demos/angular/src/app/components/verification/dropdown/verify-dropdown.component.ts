@@ -6,17 +6,17 @@ import { Component } from '@angular/core';
     templateUrl: './verify-dropdown.component.html'
 })
 export class VerifyDropdownComponent {
-  private disabledSwitch = true;
-  private disabledOption = true;
-  private readonlySwitch = true;
-  private alternateSwitch = true;
-  private filterSwitch = true;
-  private selectAllSwitch = true;
-  private twoWayBinding = '0';
-  private multipleBinding: any = '[]';
-  private placeholderTest = 'Placeholder';
+  public disabledSwitch = true;
+  public disabledOption = true;
+  public readonlySwitch = true;
+  public alternateSwitch = true;
+  public filterSwitch = true;
+  public selectAllSwitch = true;
+  public twoWayBinding = '0';
+  public multipleBinding: any = '[]';
+  public placeholderTest = 'Placeholder';
   public openClosed = 'closed';
-  private initialBinding = '1';
+  public initialBinding = '1';
 
   get bindCheck0(): boolean {
     return this.twoWayBinding === '0';

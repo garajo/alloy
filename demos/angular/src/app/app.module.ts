@@ -23,8 +23,7 @@ import {
   AlloyPropertyGridModule,
   AlloyPropertyGridMessageService,
   AlloySwitcherModule,
-  AlloyDialogModule,
-  AlloyDialogService
+  AlloyDialogModule
 } from '@keysight/alloy';
 
 import { AboutBoxPageComponent } from './components/about-box-page/about-box-page.component';
@@ -137,8 +136,7 @@ export class AlloyDemoModule { }
   providers: [
     AlloyPropertyGridMessageService,
     DataService,
-    EditorService,
-    AlloyDialogService
+    EditorService
   ],
   bootstrap: [AppComponent]
 })

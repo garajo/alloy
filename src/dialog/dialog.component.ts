@@ -4,7 +4,7 @@
  */
 import { Component, Inject, OnInit, ComponentFactoryResolver, ViewChild,
         HostListener, ElementRef, AfterViewInit, ReflectiveInjector } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { DialogHostDirective } from './directives/dialog-host.directive';
 import { DialogUtility } from './services/dialog-utility.service';
 import { ResizerComponent } from './resizer/resizer.component';

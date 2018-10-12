@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlloyDialogService, AlloyDialogConfig, AlloyDialogItem, AlloyDisplaySettingsDialog } from '@keysight/alloy';
+import { AlloyDialogService, AlloyDialogConfig, AlloyDialogItem, AlloyDisplaySettingsDialog, AlloyDialogRef } from '@keysight/alloy';
 
 @Component({
     selector: 'app-display-settings-page',
@@ -23,7 +23,7 @@ export class DisplaySettingsPageComponent {
             resizable: true // Optional parameter. Default disabled.
         };
 
-        this.dialogService.openDialog(DISPLAY_DIALOG_CONFIG);
+        const dialogRef: AlloyDialogRef = this.dialogService.openDialog(DISPLAY_DIALOG_CONFIG);
     }
 
 }

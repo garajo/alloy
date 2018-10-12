@@ -10,6 +10,7 @@ export class ButtonPageComponent {
     get showDisabled() {return this.disabled; }
     set showDisabled(value: boolean) { this.disabled = value; }
 
+    switchState = true;
     showChecked = false;
     showLabel = false;
     showIcon = false;

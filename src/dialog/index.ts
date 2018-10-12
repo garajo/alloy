@@ -16,6 +16,9 @@ import { DialogComponent } from './dialog.component';
 import { ResizerComponent } from './resizer/resizer.component';
 // Services
 import { DialogUtility } from './services/dialog-utility.service';
+import { AlloyDialogService } from './services/dialog.service';
+// Tokens
+import { DialogDataProvider } from './tokens/dialog.token';
 
 @NgModule({
     imports: [
@@ -23,7 +26,7 @@ import { DialogUtility } from './services/dialog-utility.service';
         BrowserAnimationsModule,
         MatDialogModule
     ],
-    exports: [
+    exports: [ // Exporting this here (via the Angular export list) allows consumers to use this selector when they import this module
         DialogComponent,
         MatDialogModule
     ],
@@ -33,7 +36,9 @@ import { DialogUtility } from './services/dialog-utility.service';
         ResizerComponent
     ],
     providers: [
-        DialogUtility
+        AlloyDialogService,
+        DialogUtility,
+        DialogDataProvider
     ],
     entryComponents: [
         DialogComponent
@@ -52,7 +57,12 @@ export class AlloyDialogModule {
     }
 }
 
-// exports for consumers to import
-export { AlloyDialogService } from './services/dialog.service';
-export { AlloyDialogConfig, AlloyDialogItem, IAlloyDialogData } from './models/dialog';
-export { ALLOY_DIALOG_DATA } from './tokens/dialog.token';
+// Those specific export names help to remove Consumer side's "ng build --aot=true" warning errors
+// Exporting the same component here via the typescript/js "export" allows consumers access to the type directly
+export * from './dialog.component';
+export * from './directives/dialog-host.directive';
+export * from './models/dialog';
+export * from './resizer/resizer.component';
+export * from './services/dialog-utility.service';
+export * from './services/dialog.service';
+export * from './tokens/dialog.token';

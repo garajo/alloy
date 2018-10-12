@@ -6,9 +6,9 @@ import { Type } from '@angular/core';
 import { MatDialogRef, MatDialogConfig } from '@angular/material/dialog';
 
 export class Dialog {
-    public dialogRef: MatDialogRef<IDialogComponent>;
+    public dialogRef: AlloyDialogRef;
     public isFocused: boolean;
-    constructor(dialogRef: MatDialogRef<IDialogComponent>, isFocused: boolean) { // tslint:disable-line:no-empty
+    constructor(dialogRef: AlloyDialogRef, isFocused: boolean) { // tslint:disable-line:no-empty
         this.dialogRef = dialogRef;
         this.isFocused = isFocused;
     }
@@ -45,7 +45,7 @@ export interface IAlloyDialogData {
     /**
      * @param `dialogRef` - A reference on the opened Dialog.
      */
-    dialogRef: MatDialogRef<IDialogComponent>;
+    dialogRef: AlloyDialogRef;
 }
 
 export interface IDialogComponent {
@@ -53,4 +53,8 @@ export interface IDialogComponent {
     dialogConfig: AlloyDialogConfig;
     focus(): void;
     onClose(): void;
+}
+
+export class AlloyDialogRef extends MatDialogRef<IDialogComponent> {
+    // wrapper
 }

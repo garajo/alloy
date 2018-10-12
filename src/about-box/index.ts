@@ -1,25 +1,22 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatDialogModule } from '@angular/material';
 
 import { AlloyAboutBox } from './about-box';
+import { AlloyDialogModule } from '../dialog/index';
 import { AlloyDirectivesModule } from '../directives/index';
 
 @NgModule({
     imports: [
+        AlloyDialogModule.withComponents([AlloyAboutBox]),
         AlloyDirectivesModule,
         BrowserAnimationsModule,
-        CommonModule,
-        MatDialogModule
+        CommonModule
     ],
     exports: [
         // Exporting this here (via the Angular export list) allows consumers to use the selector when they import this module
         AlloyAboutBox,
-        BrowserAnimationsModule,
-    ],
-    entryComponents: [
-        AlloyAboutBox
+        BrowserAnimationsModule
     ],
     declarations: [
         AlloyAboutBox,
