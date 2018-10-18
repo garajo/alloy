@@ -102,11 +102,8 @@ export class AlloyIdentityDirective {
         this.reconstructor();
     }
 
-    /**
-     * Handles constructing the DOM for the identity based on changes to the features (icon or label)
-     */
-    reconstructor() {
-        // Cleanup old versions
+    // Cleanup prior DOM injections if needed
+    cleanupChildren() {
         if (this.labelSpan) {
             this.renderer.removeChild(this.parentElement, this.labelSpan);
             this.labelSpan = null;
@@ -116,6 +113,14 @@ export class AlloyIdentityDirective {
             this.renderer.removeChild(this.parentElement, this.iconElement);
             this.iconElement = null;
         }
+    }
+
+    /**
+     * Handles constructing the DOM for the identity based on changes to the features (icon or label)
+     */
+    reconstructor() {
+        // Cleanup old versions
+        this.cleanupChildren();
 
         // Construct the label (span)
         if (this.label) {
@@ -171,13 +176,7 @@ export class AlloyIdentityDirective {
      */
     assignTo(parentNativeElement: any) {
         // Cleanup prior DOM injections if needed
-        if (this.labelSpan) {
-            this.renderer.removeChild(this.parentElement, this.labelSpan);
-        }
-
-        if (this.iconElement) {
-            this.renderer.removeChild(this.parentElement, this.iconElement);
-        }
+        this.cleanupChildren();
 
         // Setup directive for new parent
         this.parentElement = parentNativeElement;
