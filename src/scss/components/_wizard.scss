@@ -1,0 +1,171 @@
+$alloy-stepper-label-min-width: 50px !default;
+$alloy-tab-height: 56px;
+
+%alloy-wizard-step {
+    &:hover {
+        .alloy-wizard-step-edge,
+        .alloy-wizard-step-button {
+            background-color: map_get($color-palette, wizard-tab-hover);
+        }
+    }
+}
+
+.alloy-wizard-footer {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: flex-end;
+    justify-self: flex-end;
+    grid-column: span 2;
+    border-top: solid 1px  map_get($color-palette, wizard-footer-top-border);
+    padding-right: 12px;
+
+    & > button {
+        margin:4px;
+    }
+}
+
+.alloy-stepper-vertical,
+.alloy-stepper-horizontal {
+  display: block;
+}
+
+.alloy-wizard-step-edge {
+    background-color: map_get($color-palette, wizard-tab-edge-normal);
+}
+
+.alloyWizardVertical {
+    display: flex;
+    flex-direction: row;
+
+    .alloy-step-tabs {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 1;
+
+        margin-right: 30px;
+    }
+
+    .alloy-wizard-step {
+        @extend %alloy-wizard-step;
+        display: flex;
+        flex-direction: row;
+
+        margin-bottom: 4px;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    .alloy-wizard-step-edge {
+        width: 4px;
+    }
+
+    alloy-step-header {
+        height: $alloy-tab-height;
+
+        width: 176px;
+        margin-left: 4px;
+        text-align: center;
+        line-height: 56px;
+        font-size: 16px;
+    }
+}
+
+.alloyWizardHorizontal {
+    display: flex;
+    flex-direction: column;
+
+    .alloy-step-tabs {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 30px;
+    }
+
+    .alloy-wizard-step {
+        @extend %alloy-wizard-step;
+        display: flex;
+        flex-direction: column;
+
+        // Even columns
+        flex-basis: 0;
+        flex-grow: 1;
+
+        margin-right: 8px;
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+
+    .alloy-wizard-step-edge {
+        height: 4px;
+    }
+
+    alloy-step-header {
+        height: $alloy-tab-height;
+
+        margin-top: 4px;
+        text-align: center;
+        line-height: 56px;
+        font-size: 16px;
+    }
+}
+
+.alloy-step-content {
+    height: 100%;
+    width: 100%;
+}
+
+// Step Header component styling
+.alloy-step-header {
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+    box-sizing: content-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.alloy-step-label {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: $alloy-stepper-label-min-width;
+    vertical-align: middle;
+}
+
+.alloy-step-text-label {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.alloy-wizard {
+    display: flex;
+    min-height: 568px;
+    min-width: 900px;
+    height: 568px;
+    width: 900px;
+    flex-direction: column;
+}
+
+.alloy-wizard-content {
+    flex-grow: 1;
+    padding: 16px;
+}
+
+.alloy-wizard-step-active {
+    background-color:  map_get($color-palette, wizard-tab-active);
+    color: map_get($color-palette, wizard-tab-text-active);
+}
+
+.alloy-wizard-step-button-visited {
+    background-color: map_get($color-palette, wizard-tab-button-visited);
+}
+
+.alloy-wizard-step-edge-visited {
+    background-color:  map_get($color-palette, wizard-tab-edge-visited);
+}
+
+div.dialog-body.caranu-window-padding {
+    padding: 0 !important; //TODO: remove this.
+}

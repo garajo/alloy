@@ -26,3 +26,4 @@ export * from './dropdown-overlay/index';
 // Make available any/all services & directives that Alloy may proffer
 export * from './app/services/index';
 export * from './directives/index';
+export * from './wizard/index';

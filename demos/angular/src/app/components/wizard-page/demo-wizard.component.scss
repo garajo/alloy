@@ -1,0 +1,154 @@
+.properties {
+    display: flex;
+  }
+
+  .propertiesLine {
+    opacity: 0.3;
+    height: 2px;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  .properties label {
+    color: #ffffff;
+  }
+
+  .pad {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .offset-x {
+    transform: translate(20px);
+  }
+
+  .offset-x2 {
+    transform: translate(80px);
+  }
+
+  .offset-x3 {
+    transform: translate(138px);
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(#E5EEFF,0.16); // TODO:WSM - Hardcode dark theme color
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  .body {
+    height: 100%;
+    width: 100%;
+    transform: translateX(1PX) !important; // Temporary fix until ION-1123 is done.
+  }
+
+  .pad {
+    margin: 0;
+    padding: 5px
+  }
+
+  .no-pad {
+    padding: 0;
+    align-items: right;
+  }
+
+  .top-pad {
+    padding-top: 15px;
+  }
+
+  .title {
+    color: #4c8eff;
+  }
+
+  .description {
+    font-size:13px;
+  }
+
+  .diagram {
+    align-items:center;
+    user-select:none;
+    height:200px;
+  }
+
+  .block-label {
+    text-align:center;
+    font-size:13px;
+    color: rgb(255,255,255);
+  }
+
+  .source-block {
+    height:75px;
+    width:75px;
+    padding:20px;
+    border:1px;
+    border-style:solid;
+    border-radius: 4px;
+  }
+
+  .connection {
+    stroke:rgb(255,255,255);
+    stroke-width:2.5px;
+  }
+
+  .dash-line {
+    stroke:rgb(255,255,255);
+    stroke-width:2.5px;
+    stroke-dasharray:17 10;
+  }
+
+  .connection-top-label {
+    text-align:center;
+    line-height:60px;
+    font-size:13px;
+  }
+
+  .connection-center-label {
+    width:300px;
+    height:56px;
+    line-height:56px;
+    text-align:center;
+    border:1px;
+    border-style:solid;
+    border-radius: 4px;
+    font-size:12px;
+    font-style: italic;
+  }
+
+  .connection-bottom-label {
+    line-height:60px;
+    font-style:italic;
+    font-size:13px;
+  }
+
+  .device-block {
+    height:40px;
+    width:54px;
+    padding:20px;
+    border:1px;
+    border-style:solid;
+    border-radius: 4px;
+    margin-bottom: 2px;
+    margin-left: 20px;
+  }
+
+  .device-label {
+    margin-left: -5px;
+  }
+
+  .device-bottom-label {
+    width: 105px;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: -24px;
+  }
+
+  .last-block {
+    margin-left: -20px;
+  }
+
+  .nested-config {
+    background: #2A2A30; // TODO:WSM - Hard-coded jaguar from dark theme
+  }

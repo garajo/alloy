@@ -36,3 +36,4 @@
 @import "_property-grid";       //**IMPORTANT** This style needs to come last. It is a complex control that overrides styles of basic controls as well as inserting its styling
                                 // into the ag-grid control style system. For example putting textbox (or others) would clobber it's "tweaks" to have borderless textboxes when textboxes
                                 // are instantiated in the context of a property grid
+@import "_wizard"

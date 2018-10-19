@@ -328,6 +328,15 @@ $color-palette: (
         notification-icon-body:                   $black,
         notification-icon-ellipse:                $cornflower-blue,
 
+        // Wizard
+        wizard-tab-edge-normal:                   rgba($bunting,$opacity-HEX26),
+        wizard-tab-active:                        $cornflower-blue,
+        wizard-tab-text-active:                   $black,
+        wizard-tab-button-visited:                rgba($bunting,$opacity-HEX26),
+        wizard-tab-edge-visited:                  $cornflower-blue,
+        wizard-tab-hover:                         rgba($hover-blue,$opacity-HEX33),
+        wizard-footer-top-border:                 rgba($bunting,$opacity-HEX26),
+
         // Default properties and values that are shared by many/most controls
         control-default-focus-color:              $cornflower-blue,
         control-default-disabled-opacity:         $opacity-DEC52,

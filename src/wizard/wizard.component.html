@@ -1,0 +1,18 @@
+<div class="alloy-wizard">
+    <div class="alloy-wizard-content">
+        <ng-content></ng-content>
+    </div>
+    <div class="alloy-wizard-footer">
+        <button alloy standard alloyLabel="Back" alloyIcon="alloy-ic-caret left"
+            (click)="onBackClick()"
+            [disabled]="stepper.selectedIndex === 0"></button>
+        <button alloy default alloyLabel="Next" alloyIcon="alloy-ic-caret right" alloyFlip
+            (click)="onNextClick()"
+            [disabled]="stepper.selectedIndex === stepper.numSteps - 1 || !stepper.isCurrentValid"></button>
+        <button alloy standard alloyLabel="Cancel"
+            (click)="onCancelClick()"></button>
+        <button alloy standard alloyLabel="Finish"
+            (click)="onFinishClick()"
+            [disabled]="stepper.selectedIndex !== stepper.numSteps - 1 || !stepper.isCurrentValid"></button>
+    </div>
+<div>

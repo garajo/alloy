@@ -23,7 +23,8 @@ import {
   AlloyPropertyGridModule,
   AlloyPropertyGridMessageService,
   AlloySwitcherModule,
-  AlloyDialogModule
+  AlloyDialogModule,
+  AlloyWizardModule
 } from '@keysight/alloy';
 
 import { AboutBoxPageComponent } from './components/about-box-page/about-box-page.component';
@@ -54,6 +55,8 @@ import { VerifyRadioComponent } from './components/verification/radio/verify-rad
 import { VerifyButtonComponent } from './components/verification/button/verify-button.component';
 import { IconPageComponent } from './components/icon-page/icon-page.component';
 import { VerifyDropdownComponent } from './components/verification/dropdown/verify-dropdown.component';
+import { WizardPageComponent } from './components/wizard-page/wizard-page.component';
+import { WizardDemoComponent } from './components/wizard-page/demo-wizard.component';
 
 /**
  * NgModule that includes all Alloy modules that are required to serve the demo app.
@@ -73,10 +76,12 @@ import { VerifyDropdownComponent } from './components/verification/dropdown/veri
     AlloyDirectivesModule,
     AlloyProgressBarModule,
     AlloyProgressRingModule,
-    AlloyDialogModule
+    AlloyDialogModule,
+    AlloyWizardModule
   ],
   entryComponents: [
-    AlloyAboutBox
+    AlloyAboutBox,
+    WizardDemoComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -86,7 +91,8 @@ import { VerifyDropdownComponent } from './components/verification/dropdown/veri
     AlloyContextmenuModule,
     AlloyDirectivesModule,
     AlloyProgressBarModule,
-    AlloyProgressRingModule
+    AlloyProgressRingModule,
+    AlloyWizardModule
   ]
 })
 export class AlloyDemoModule { }
@@ -118,7 +124,9 @@ export class AlloyDemoModule { }
     VerifiyTextboxComponent,
     VerifyButtonComponent,
     IconPageComponent,
-    VerifyDropdownComponent
+    VerifyDropdownComponent,
+    WizardPageComponent,
+    WizardDemoComponent
   ],
   imports: [
     AlloyDemoModule,

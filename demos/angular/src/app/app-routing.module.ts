@@ -21,6 +21,7 @@ import { VerifyRadioComponent } from './components/verification/radio/verify-rad
 import { VerifyButtonComponent } from './components/verification/button/verify-button.component';
 import { IconPageComponent } from './components/icon-page/icon-page.component';
 import { VerifyDropdownComponent } from './components/verification/dropdown/verify-dropdown.component';
+import { WizardPageComponent } from './components/wizard-page/wizard-page.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'dropdowns', pathMatch: 'full' },
@@ -39,6 +40,7 @@ const routes: Routes = [
     { path: 'switcher', component: SwitcherPageComponent},
     { path: 'textarea', component: TextareaPageComponent },
     { path: 'textbox', component: TextboxPageComponent},
+    { path: 'wizard', component: WizardPageComponent},
     { path: 'verification', component: VerificationPageComponent,
         children: [
           { path: '', component: VerifiyTextboxComponent},

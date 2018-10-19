@@ -1,0 +1,196 @@
+<alloy-wizard (onFinish)="onFinish($event)">
+    <alloy-vertical-stepper *ngIf="!orientationHorizontal" linear>
+      <alloy-step [stepControl]="overviewFormGroup" label="Overview">
+          <div class="body">
+              <div class="row top-pad">
+                <h6>
+                  Measure external corrections block
+                </h6>
+                <div class="column small-10 align-self-middle no-pad description">
+                  This wizard will guide you through the simple process of measuring an external network of cables,
+                  connectors and other passive components connected between this source and the device under test.
+                </div>
+              </div>
+              <div class="row diagram">
+                <div>
+                  <label class="block-label">M9384A</label>
+                  <img src="./assets/keysight-source.svg" class="source-block">
+                  <label class="block-label">Output 1</label>
+                </div>
+                <svg height="124px" width="30px">
+                  <line x1="0px" y1="62px" x2="30px" y2="62px" class="connection" />
+                </svg>
+                <div>
+                  <label class="connection-center-label">Cables/Connectors/Fixtures to be characterized</label>
+                </div>
+                <div class="last-connection">
+                  <svg height="124px" width="30px">
+                    <line x1="0px" y1="62px" x2="30px" y2="62px" class="connection" />
+                  </svg>
+                </div>
+                <div class="last-block">
+                  <label class="block-label device-label">Power Sensor</label>
+                  <label class="device-block"></label>
+                  <div class="device-label device-bottom-label">Power meter, spectrum analyzer or network analyzer</div>
+                </div>
+              </div>
+              <div class="row top-pad">
+                <div class="column small-10 align-self-middle no-pad description">
+                  Connect the power sensor (power meter, spectrum analyzer or network analyzer) as shown in the
+                  diagram above. Once the desired topology has been characterized, its effects can be removed
+                  from the output signal, moving the effective reference plane to the point at which the power sensor
+                  was connected.
+                </div>
+              </div>
+            </div>
+        </alloy-step>
+      <alloy-step [stepControl]="configureFormGroup" label="Configure Sensor">
+        <form #configureSensor="ngForm" [formGroup]="configureFormGroup">
+          <div class="row align-middle pad">
+            <label>Configure the power sensor hardware that will be used for this measurement</label>
+          </div>
+          <div id="PowerSensor" class="row align-middle pad">
+            <label for="powerMeter" class="small-4">Power Sensor Hardware</label>
+            <select class="small-3" id="power" name="powerMeter" alloy formControlName="power">
+              <option value="Power Meter">
+                Power Meter
+              </option>
+              <option value="Spectrum Analyzer">
+                Spectrum Analyzer
+              </option>
+              <option value="Network Analyzer">
+                Network Analyzer
+              </option>
+            </select>
+          </div>
+          <div class="row pad">
+            <div class="columns small-6">
+              <div class="row align-middle">
+                <label for="startFrequency" class="small-3">Start Freq</label>
+                <input alloy class="small-6" name="startFrequency" type="text" required placeholder="1.000 0000 000 GHz" formControlName="startFreq">
+              </div>
+            </div>
+            <div class="columns small-6">
+              <div class="row align-middle offset-x">
+                <label for="stopFrequency" class="small-3">Stop Freq</label>
+                <input alloy class="small-6" name="stopFrequency" type="text" required placeholder="6.000 0000 000 GHz" formControlName="stopFreq">
+              </div>
+            </div>
+          </div>
+          <div class="row pad">
+            <div class="columns small-6">
+              <div class="row align-middle">
+                <label for="numberSteps" class="small-3">Num Steps</label>
+                <input alloy class="small-6" name="numberSteps" type="number" required placeholder='5' formControlName="numSteps">
+              </div>
+            </div>
+          </div>
+          <div class="row align-middle pad">
+            <div class="properties">
+              <label for="properties">{{configureSensor.form.value.power}} Properties</label>
+            </div>
+            <div class="columns divider" style="max-width:70%;"></div>
+          </div>
+          <div class="row align-middle offset-x">
+            <label for="correctionType" class="small-3">Correction Type</label>
+            <select class="small-3" name="correctionType" alloy formControlName="correctionType">
+              <option value="VXI-11">
+                VXI-11
+              </option>
+            </select>
+          </div>
+          <div class="row align-middle offset-x">
+            <div class="properties">
+              <label>{{configureSensor.form.value.correctionType}} Connection Details</label>
+            </div>
+            <div class="columns divider" style="max-width:27%;"></div>
+          </div>
+          <div class="row offset-x2 pad">
+            <div class="columns small-6">
+              <div class="row align-middle">
+                <label for="ipAddress" class="small-4">Address</label>
+                <input alloy class="small-6" name="ipAddress" type="text" required placeholder="128.128.0.1" formControlName="ipAddress">
+              </div>
+            </div>
+          </div>
+          <div class="row align-middle offset-x2 pad">
+            <div class="columns small-6">
+              <div class="row align-middle">
+                <label for="deviceName" class="small-4">Device Name</label>
+                <input alloy class="small-6" name="deviceName" type="text" required placeholder="instr0" formControlName="deviceName">
+              </div>
+            </div>
+            <div class="columns small-6">
+              <div class="row align-middle">
+                <div [ngSwitch]="configureSensor.form.value.power">
+                  <div *ngSwitchCase="'Power Meter'">
+                    <button class="offset-x2" style="min-width: 135px; height: 40px" alloy alloyLabel="Calibrate Sensor"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div [ngSwitch]="configureSensor.form.value.power">
+            <div *ngSwitchCase="'Power Meter'">
+              <div class="row align-middle offset-x pad">
+                <div class="columns small-6">
+                  <div class="row align-middle">
+                    <label class="small-6">Power Meter Channel</label>
+                    <select class="small-6" alloy formControlName="powerMeterChannel">
+                      <option value="A">
+                        A
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="columns small-6">
+                  <div class="row align-middle">
+                    <button class="small-4 offset-x3" style="min-width: 135px; height: 40px" alloy alloyLabel="Zero Sensor"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </alloy-step>
+      <alloy-step [stepControl]="measureFormGroup" label="Measure Corrections">
+        <form [formGroup]="measureFormGroup">
+          <div>When ready, use the button below to measure the correction data.</div>
+          <button alloy (click)="onMeasure()">Measure Correction Data</button>
+          <label>{{status}}</label>
+          <alloy-progress-bar [value]="progressValue"></alloy-progress-bar>
+          <input hidden="true" type="checkbox" formControlName="complete"> <!-- invisible form hook for progress -->
+        </form>
+      </alloy-step>
+      <alloy-step [stepControl]="saveFormGroup" label="Save Corrections">
+          <form [formGroup]="saveFormGroup">
+              <input type="text" class="small-4" alloy placeholder="save" formControlName="save" required>
+          </form>
+      </alloy-step>
+    </alloy-vertical-stepper>
+
+
+
+
+    <alloy-horizontal-stepper *ngIf="orientationHorizontal" linear>
+        <alloy-step [stepControl]="overviewFormGroup" label="Overview">
+            <form [formGroup]="overviewFormGroup">
+                <label>Pay no attention to the man behind the curtain!</label>
+            </form>
+          </alloy-step>
+        <alloy-step [stepControl]="measureFormGroup" label="Measure Corrections">
+          <form [formGroup]="measureFormGroup">
+            <div>When ready, use the button below to measure the correction data.</div>
+            <button alloy (click)="onMeasure()">Measure Correction Data</button>
+            <label>{{status}}</label>
+            <alloy-progress-bar [value]="progressValue"></alloy-progress-bar>
+            <input hidden="true" type="checkbox" formControlName="complete"> <!-- invisible form hook for progress -->
+          </form>
+        </alloy-step>
+        <alloy-step [stepControl]="saveFormGroup" label="Save Corrections">
+            <form [formGroup]="saveFormGroup">
+                <input type="text" class="small-4" alloy placeholder="save" formControlName="save" required>
+            </form>
+        </alloy-step>
+    </alloy-horizontal-stepper>
+  </alloy-wizard>

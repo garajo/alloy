@@ -1,0 +1,23 @@
+<div class="alloyWizardVertical">
+    <div class="alloy-step-tabs">
+        <div class="alloy-wizard-step" *ngFor="let step of _steps; let i = index; let isLast = last">
+            <div class="alloy-wizard-step-edge" [ngClass]="{'alloy-wizard-step-edge-visited': selectedIndex === i,'alloy-wizard-step-active': selectedIndex > i}"></div>
+            <alloy-step-header  class="alloy-wizard-step-button"
+                [ngClass]="{'alloy-wizard-step-active': selectedIndex === i, 'alloy-wizard-step-button-visited': selectedIndex > i}"
+                (click)="step.select()"
+                (keydown)="_onKeydown($event)"
+                [tabIndex]="_focusIndex == i ? 0 : -1"
+                [id]="_getStepLabelId(i)"
+                [index]="i"
+                [label]="step.stepLabel || step.label"
+                [selected]="selectedIndex === i"
+                [active]="step.completed || selectedIndex === i || !linear"
+                [optional]="step.optional"
+                [errorMessage]="step.errorMessage">
+            </alloy-step-header>
+        </div>
+    </div>
+    <div class="alloy-step-content">
+        <ng-container [ngTemplateOutlet]="currentContent"></ng-container>
+    </div>
+</div>
