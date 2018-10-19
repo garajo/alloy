@@ -3,10 +3,10 @@
         <div class="row align-center">
             <div class="columns small-12">
                 <h3>Radio</h3>
-                <button id="checked" alloy standard toggle (click)="toggleChecked()">Check 1</button>
-                <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled()" [ngClass]="{'is-pressed': disabled}">Disabled</button>
-                <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly()" [ngClass]="{'is-pressed': readonly}">Readonly</button>
-                <button id="errors" type="button" class="button-standard" (click)="toggleError()" [ngClass]="{'is-pressed': error}">Error</button>
+                <button id="checked" alloy toggle (click)="toggleChecked()">Check 1</button>
+                <button id="disabled" alloy toggle (click)="toggleDisabled()" [ngClass]="{'is-pressed': disabled}">Disabled</button>
+                <button id="readonly" alloy toggle (click)="toggleReadonly()" [ngClass]="{'is-pressed': readonly}">Readonly</button>
+                <button id="errors" alloy toggle (click)="toggleError()" [ngClass]="{'is-pressed': error}">Error</button>
                 <label><i>Experimental</i> Radio Size (px):</label><input type="text" alloy [(ngModel)]="size" (keypress)="isNumberKey($event)" (focus)="addSizeStyle()" (blur)="removeSizeStyle()" maxlength="2">
                 <br>
             </div>
@@ -29,84 +29,88 @@
           </div>
         </div>
     </div>
-        <!-- New Bare Radio -->
-        <div class="content-container">
-          <div class="row align-center">
-              <div class="columns small-12">
-                  <h5>New Bare Radio</h5>
-              </div>
-          </div>
-          <div class="row align-center">
-              <div class="columns">
-                  <input type="radio" name="radioSimple" alloy
-                    [size]="size"
-                    [disabled]="disabled"
-                    [checked]="checkedSimple"
-                    [readonly]="readonly"
-                    [error]="error"/>
-                  <input type="radio" name="radioSimple" alloy
-                    [size]="size"
-                    [disabled]="disabled"
-                    [readonly]="readonly"
-                    [error]="error"/>
-              </div>
-          </div>
-      </div>
-        <!-- New Radio -->
-        <div class="content-container">
-          <div class="row align-center">
-              <div class="columns small-12">
-                  <h5>New Radio ([alloyLabel]="string")</h5>
-              </div>
-          </div>
-          <div class="row align-center">
-              <div class="columns">
-                  <input type="radio" name="radioLabel" alloy
-                    [size]="size"
-                    [disabled]="disabled"
-                    [checked]="checkedLabel"
-                    [readonly]="readonly"
-                    alloyLabel="Radio 1"
-                    [error]="error"
-                    [errorMessage]="errorMessage">
-                  <input type="radio" name="radioLabel" alloy
-                    [size]="size"
-                    [disabled]="disabled"
-                    [readonly]="readonly"
-                    alloyLabel="Radio 2"
-                    [error]="error"
-                    [errorMessage]="errorMessage">
-              </div>
-          </div>
-      </div>
-      <!-- New Icon Radio -->
-      <div class="content-container">
-          <div class="row align-center">
-              <div class="columns small-12">
-                  <h5>New Icon Radio ([alloyIcon]="className")</h5>
-              </div>
-          </div>
-          <div class="row align-center">
-              <div class="columns">
-                  <input type="radio" name="radioIcon" alloy
-                    [size]="size"
-                    [disabled]="disabled"
-                    [checked]="checkedIcon"
-                    [readonly]="readonly"
-                    alloyIcon="alloy-ic-user-profile"
-                    [error]="error"
-                    [errorMessage]="errorMessage">
-                  <input type="radio" name="radioIcon" alloy
-                    [size]="size"
-                    [disabled]="disabled"
-                    [readonly]="readonly"
-                    alloyIcon="alloy-ic-search"
-                    [error]="error"
-                    [errorMessage]="errorMessage">
-              </div>
-          </div>
-      </div>
-          <!-- New Mixed Radio -->
+
+    <!-- New Bare Radio -->
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h5>New Bare Radio</h5>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <input type="radio" name="radioSimple" alloy
+                [size]="size"
+                [disabled]="disabled"
+                [checked]="checkedSimple"
+                [readonly]="readonly"
+                [error]="error"/>
+                <input type="radio" name="radioSimple" alloy
+                [size]="size"
+                [disabled]="disabled"
+                [readonly]="readonly"
+                [error]="error"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Radio -->
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h5>New Radio ([alloyLabel]="string")</h5>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <input type="radio" name="radioLabel" alloy
+                [size]="size"
+                [disabled]="disabled"
+                [checked]="checkedLabel"
+                [readonly]="readonly"
+                alloyLabel="Radio 1"
+                [error]="error"
+                [errorMessage]="errorMessage">
+                <input type="radio" name="radioLabel" alloy
+                [size]="size"
+                [disabled]="disabled"
+                [readonly]="readonly"
+                alloyLabel="Radio 2"
+                [error]="error"
+                [errorMessage]="errorMessage">
+            </div>
+        </div>
+    </div>
+
+    <!-- New Icon Radio -->
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h5>New Icon Radio ([alloyIcon]="className")</h5>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <input type="radio" name="radioIcon" alloy
+                [size]="size"
+                [disabled]="disabled"
+                [checked]="checkedIcon"
+                [readonly]="readonly"
+                alloyIcon="alloy-ic-user-profile"
+                [error]="error"
+                [errorMessage]="errorMessage">
+                <input type="radio" name="radioIcon" alloy
+                [size]="size"
+                [disabled]="disabled"
+                [readonly]="readonly"
+                alloyIcon="alloy-ic-search"
+                [error]="error"
+                [errorMessage]="errorMessage">
+            </div>
+        </div>
+    </div>
+
+    <!-- New Mixed Radio -->
     <div class="content-container">
         <div class="row align-center">
             <div class="columns small-12">
@@ -134,37 +138,37 @@
                     [errorMessage]="errorMessage">
             </div>
         </div>
-      </div>
+    </div>
 
-      <div class="content-container">
-        <div class="row align-center">
-          <div class="columns small-12">
-            <h5>Radio Group</h5>
-          </div>
+    <div class="content-container">
+    <div class="row align-center">
+        <div class="columns small-12">
+        <h5>Radio Group</h5>
         </div>
-        <div class="row align-center">
-          <div class="columns" >
-            <alloy-radio-group name="groupName"
-              [(value)]="groupValue"
-              [disabled]="disabled"
-              [readonly]="readonly"
-              [error]="error"
-              [errorMessage]="errorMessage">
-              <input type="radio" alloy
-                [size]="size"
-                alloyLabel="GroupRadio1"
-                value="GroupRadio1">
-              <input type="radio" alloy
-                [size]="size"
-                alloyLabel="GroupRadio2"
-                value="GroupRadio2">
-              <input type="radio" alloy
-                [size]="size"
-                alloyLabel="GroupRadio3"
-                value="GroupRadio3">
-              <label>Group value: {{groupValue}}</label>
-            </alloy-radio-group>
-          </div>
+    </div>
+    <div class="row align-center">
+        <div class="columns" >
+        <alloy-radio-group name="groupName"
+            [(value)]="groupValue"
+            [disabled]="disabled"
+            [readonly]="readonly"
+            [error]="error"
+            [errorMessage]="errorMessage">
+            <input type="radio" alloy
+            [size]="size"
+            alloyLabel="GroupRadio1"
+            value="GroupRadio1">
+            <input type="radio" alloy
+            [size]="size"
+            alloyLabel="GroupRadio2"
+            value="GroupRadio2">
+            <input type="radio" alloy
+            [size]="size"
+            alloyLabel="GroupRadio3"
+            value="GroupRadio3">
+            <label>Group value: {{groupValue}}</label>
+        </alloy-radio-group>
         </div>
+    </div>
     </div>
 </div>

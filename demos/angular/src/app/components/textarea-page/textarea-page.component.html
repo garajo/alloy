@@ -17,28 +17,28 @@
                         [wrap]="wrapSimple" [value]="valueSimple" [(ngModel)]="textValue">
                     </textarea>
                 </form>
-                <input type="submit" class="button-standard" form="myform">
+                <button type="submit" alloy alloyLabel="Submit" form="myform" ></button>
                 <h6>Display input text below:</h6>
                 <p>{{textValue}}</p>
             </div>
-            <div class="columns small-3">  
+            <div class="columns small-3">
                 <div class="row">
                     <h6>Textarea Attributes</h6>
                 </div><br>
                 <div class="row">
                     <div class="columns small-6">
-                        <button id="required" type="button" class="button-standard" (click)="toggleRequired()" [ngClass]="{'is-pressed': requiredSimple}">Required</button>   
+                        <button id="required" alloy toggle (click)="toggleRequired()" [ngClass]="{'is-pressed': requiredSimple}">Required</button>
                     </div>
                     <div class="columns small-6">
-                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled()" [ngClass]="{'is-pressed': disabledSimple}">Disabled</button>
+                        <button id="disabled" alloy toggle (click)="toggleDisabled()" [ngClass]="{'is-pressed': disabledSimple}">Disabled</button>
                     </div>
                 </div><br>
                 <div class="row">
                     <div class="columns small-6"> 
-                        <button id="spellcheck" type="button" class="button-standard" (click)="toggleSpellcheck()" [ngClass]="{'is-pressed': spellcheckSimple}">Spellcheck</button>                                                                                                                                                                                                                                         
+                        <button id="spellcheck" alloy toggle (click)="toggleSpellcheck()" [ngClass]="{'is-pressed': spellcheckSimple}">Spellcheck</button>
                     </div>  
                     <div class="columns small-6">
-                        <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly()" [ngClass]="{'is-pressed': readonlySimple}">Readonly</button>                        
+                        <button id="readonly" alloy toggle (click)="toggleReadonly()" [ngClass]="{'is-pressed': readonlySimple}">Readonly</button>
                     </div>
                 </div><br>
                 <div class="row ">

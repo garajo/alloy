@@ -50,20 +50,20 @@
                 <div>
                     <h6>Toggle Input Box Disabled State</h6>
                     <div>
-                        <button id="disabled" type="button" class="button-standard" (click)="toggleDisabledSimple()" [ngClass]="{'is-pressed': disabledSimple}">Disable</button>
+                        <button id="disabled" alloy toggle (click)="toggleDisabledSimple()" [ngClass]="{'is-pressed': disabledSimple}">Disable</button>
                         <br>
                     </div>
                 </div>
                 <div>
                     <h6>Toggle Input Box ReadOnly State</h6>
                     <div>
-                        <button id="readonly" type="button" class="button-standard" (click)="toggleReadOnlySimple()" [ngClass]="{'is-pressed': readonlySimple}">ReadOnly</button>
+                        <button id="readonly" alloy toggle (click)="toggleReadOnlySimple()" [ngClass]="{'is-pressed': readonlySimple}">ReadOnly</button>
                     </div>
                 </div>
                 <div>
                     <h6>Toggle Input Box Error State</h6>
                     <div>
-                        <button id="error" type="button" class="button-standard" (click)="toggleErrorSimple()" [ngClass]="{'is-pressed': errorSimple}">Error</button>
+                        <button id="error" alloy toggle (click)="toggleErrorSimple()" [ngClass]="{'is-pressed': errorSimple}">Error</button>
                     </div>
                 </div>
             </div>
@@ -91,11 +91,11 @@
                 <form id="myform" ngNativeValidate>
                     <input type="text" alloy [required]="requiredSimple">
                 </form>
-                <input type="submit" class="button-standard" form="myform">
+                <button type="submit" alloy alloyLabel="Submit" form="myform"></button>
             </div>
             <div class="columns small-3">
                 <div>
-                    <button id="required" type="button" class="button-standard" (click)="toggleRequiredSimple()" [ngClass]="{'is-pressed': requiredSimple}">Required</button>
+                    <button id="required" alloy toggle (click)="toggleRequiredSimple()" [ngClass]="{'is-pressed': requiredSimple}">Required</button>
                 </div>
             </div>
             <div class="columns small-6">
@@ -116,7 +116,7 @@
                 <form id="myform2" ngNativeValidate>
                     <input type="text" alloy [pattern]="regexPattern">
                 </form>
-                <input type="submit" class="button-standard" form="myform2">
+                <button type="submit" alloy alloyLabel="Submit" form="myform2"></button>
             </div>
             <div class="columns small-3">
                 <div>

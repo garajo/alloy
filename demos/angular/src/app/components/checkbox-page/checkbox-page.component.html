@@ -1,18 +1,19 @@
 <div class="tabs-panel is-active">
+
     <div class="content-container">
         <div class="row align-center">
             <div class="columns small-12">
                 <h3>Checkbox</h3>
-                <button id="checked" alloy standard toggle (click)="toggleChecked()">Checked</button>
-                <button id="disabled" type="button" class="button-standard" (click)="toggleDisabled()" [ngClass]="{'is-pressed': disabled}">Disabled</button>
-                <button id="readonly" type="button" class="button-standard" (click)="toggleReadonly()" [ngClass]="{'is-pressed': readonly}">Readonly</button>
-                <button id="errors" type="button" class="button-standard" (click)="toggleError()" [ngClass]="{'is-pressed': error}">Error</button>
+                <button id="checked" alloy toggle (click)="toggleChecked()">Checked</button>
+                <button id="disabled" alloy toggle (click)="toggleDisabled()" [ngClass]="{'is-pressed': disabled}">Disabled</button>
+                <button id="readonly" alloy toggle (click)="toggleReadonly()" [ngClass]="{'is-pressed': readonly}">Readonly</button>
+                <button id="errors" alloy toggle (click)="toggleError()" [ngClass]="{'is-pressed': error}">Error</button>
                 <label><i>Experimental</i> Checkbox Size (px):</label><input type="text" alloy [(ngModel)]="size" (keypress)="isNumberKey($event)" (focus)="addSizeStyle()" (blur)="removeSizeStyle()" maxlength="2">
                 <br>
             </div>
         </div>
         <div class="row">
-          <div class="columns small-6">
+            <div class="columns small-6">
             <h3>Angular</h3>
             <hr class="row stretch">
             <h6>
@@ -26,68 +27,72 @@
                 <span [ngStyle]=" {'color': sizeStyle} ">[size]="number"</span><br>&nbsp;&nbsp;
                 <span [ngStyle]=" {'color': errorStyle} ">[error]="boolean" [errorMessage]="string"</span>&gt;
             </h6>
-          </div>
+            </div>
         </div>
     </div>
-        <!-- New Bare Checkbox -->
-        <div class="content-container">
-          <div class="row align-center">
-              <div class="columns small-12">
-                  <h5>New Bare Checkbox</h5>
-              </div>
-          </div>
-          <div class="row align-center">
-              <div class="columns">
-                  <input type="checkbox" alloy
-                    [size]="size"
-                    [disabled]="disabled"
-                    [checked]="checkedSimple"
-                    [readonly]="readonly"
-                    [error]="error"/>
-              </div>
-          </div>
-      </div>
-        <!-- New Checkbox -->
-        <div class="content-container">
-          <div class="row align-center">
-              <div class="columns small-12">
-                  <h5>New Checkbox ([alloyLabel]="string")</h5>
-              </div>
-          </div>
-          <div class="row align-center">
-              <div class="columns">
-                  <input type="checkbox" alloy
-                    [size]="size"
-                    [disabled]="disabled"
-                    [checked]="checkedLabel"
-                    [readonly]="readonly"
-                    alloyLabel="Checkbox"
-                    [error]="error"
-                    [errorMessage]="errorMessage">
-              </div>
-          </div>
-      </div>
-      <!-- New Icon Checkbox -->
-      <div class="content-container">
-          <div class="row align-center">
-              <div class="columns small-12">
-                  <h5>New Icon Checkbox ([alloyIcon]="className")</h5>
-              </div>
-          </div>
-          <div class="row align-center">
-              <div class="columns">
-                  <input type="checkbox" alloy
-                    [size]="size"
-                    [disabled]="disabled"
-                    [checked]="checkedIcon"
-                    [readonly]="readonly"
-                    alloyIcon="alloy-ic-user-profile"
-                    [error]="error"
-                    [errorMessage]="errorMessage">
-              </div>
-          </div>
-      </div>
-          <!-- New Mixed Checkbox -->
+
+    <!-- New Bare Checkbox -->
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h5>New Bare Checkbox</h5>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <input type="checkbox" alloy
+                [size]="size"
+                [disabled]="disabled"
+                [checked]="checkedSimple"
+                [readonly]="readonly"
+                [error]="error"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Checkbox -->
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h5>New Checkbox ([alloyLabel]="string")</h5>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <input type="checkbox" alloy
+                [size]="size"
+                [disabled]="disabled"
+                [checked]="checkedLabel"
+                [readonly]="readonly"
+                alloyLabel="Checkbox"
+                [error]="error"
+                [errorMessage]="errorMessage">
+            </div>
+        </div>
+    </div>
+
+    <!-- New Icon Checkbox -->
+    <div class="content-container">
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h5>New Icon Checkbox ([alloyIcon]="className")</h5>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <input type="checkbox" alloy
+                [size]="size"
+                [disabled]="disabled"
+                [checked]="checkedIcon"
+                [readonly]="readonly"
+                alloyIcon="alloy-ic-user-profile"
+                [error]="error"
+                [errorMessage]="errorMessage">
+            </div>
+        </div>
+    </div>
+
+    <!-- New Mixed Checkbox -->
     <div class="content-container">
         <div class="row align-center">
             <div class="columns small-12">
@@ -108,22 +113,26 @@
             </div>
         </div>
     </div>
+
     <!-- Indeterminate Checkbox -->
     <div class="content-container">
-      <div class="row align-center">
-          <div class="columns small-12">
-              <h5>New Mixed Checkbox</h5>
-          </div>
-      </div>
-      <div class="row align-center">
-          <div class="columns">
-              <input type="checkbox" alloy #indeterminate
-                  [size]="size"
-                  [disabled]="disabled"
-                  [readonly]="readonly"
-                  alloyLabel="Indeterminate"
-                  [indeterminate] = "indeterminate">
-          </div>
-      </div>
-  </div>
+        <div class="row align-center">
+            <div class="columns small-12">
+                <h5>New Indeterminate Checkbox</h5>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="columns">
+                <input type="checkbox" alloy #indeterminate
+                    [size]="size"
+                    [disabled]="disabled"
+                    [readonly]="readonly"
+                    alloyLabel="Indeterminate"
+                    [indeterminate] = "indeterminate"
+                    [error]="error"
+                    [errorMessage]="errorMessage">
+            </div>
+        </div>
+    </div>
+
 </div>

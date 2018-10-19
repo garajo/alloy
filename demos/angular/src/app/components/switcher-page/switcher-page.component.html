@@ -23,10 +23,10 @@
                 </div><br>
                 <div class="row">
                     <div class="columns small-6">
-                        <button type="button" class="button-standard" (click)="onSwitch(false)" [ngClass]="{'is-pressed': !switchStatus}">Dark</button>
+                        <button alloy toggle (click)="onSwitch(false)" [ngClass]="{'is-pressed': !switchStatus}">Dark</button>
                     </div>
                     <div class="columns small-6">
-                        <button type="button" class="button-standard" (click)="onSwitch(true)" [ngClass]="{'is-pressed': switchStatus}">Light</button>                           
+                        <button alloy toggle (click)="onSwitch(true)" [ngClass]="{'is-pressed': switchStatus}">Light</button>
                     </div>                    
                 </div><br>
                 <div class="row">
@@ -37,7 +37,7 @@
                 </div><br>
                 <div class="row">
                     <div class="columns small-6">
-                        <button type="button" class="button-standard" (click)="disabled()" [ngClass]="{'is-pressed': switchDisabled}">Disable</button>                           
+                        <button alloy toggle (click)="disabled()" [ngClass]="{'is-pressed': switchDisabled}">Disable</button>
                     </div>
                 </div><br>
                 <div class="row">

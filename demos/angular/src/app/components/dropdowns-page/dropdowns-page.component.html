@@ -37,28 +37,28 @@
                 <div>
                     <h6>Error State</h6>
                     <div class="input-group">
-                        <button alloy-button standard (click)="toggleErrorState()" [ngClass]="{'is-pressed': errorState}">Error</button>
+                        <button alloy standard toggle (click)="toggleErrorState()" [ngClass]="{'is-pressed': errorState}">Error</button>
                     </div>
                 </div>
                 <br>
                 <div>
                     <h6>Read-only State</h6>
                     <div class="input-group">
-                        <button alloy-button standard (click)="toggleReadonlyState()" [ngClass]="{'is-pressed': readOnlyState}">Read-only</button>
+                        <button alloy standard toggle (click)="toggleReadonlyState()" [ngClass]="{'is-pressed': readOnlyState}">Read-only</button>
                     </div>
                 </div>
                 <br>
                 <div>
                     <h6>Disabled State</h6>
                     <div class="input-group">
-                        <button alloy-button standard (click)="toggleDisabledState()" [ngClass]="{'is-pressed': disabledState}">Disabled</button>
+                        <button alloy standard toggle (click)="toggleDisabledState()" [ngClass]="{'is-pressed': disabledState}">Disabled</button>
                     </div>
                 </div>
                 <br>
                 <div>
                     <h6>Filtering</h6>
                     <div class="input-group">
-                        <button alloy-button standard (click)="toggleFiltering()" [ngClass]="{'is-pressed': filterState}">filterable</button>
+                        <button alloy standard toggle (click)="toggleFiltering()" [ngClass]="{'is-pressed': filterState}">filterable</button>
                     </div>
                 </div>
                 <br>
@@ -258,7 +258,7 @@
                 <div>
                     <h6>SelectAll State</h6>
                     <div class="input-group">
-                        <button type="button" class="button-standard" (click)="toggleSelectAllOption()" [ngClass]="{'is-pressed': selectAllOptionState}">Select All</button>
+                        <button alloy (click)="toggleSelectAllOption()" [ngClass]="{'is-pressed': selectAllOptionState}">Select All</button>
                     </div>
                 </div>
             </div>
