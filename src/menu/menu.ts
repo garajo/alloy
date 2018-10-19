@@ -8,7 +8,7 @@ import { OverlayOrigin } from '@angular/cdk/overlay';
     selector: 'alloy-menu-item',
     template: `
         <li>
-            <button #button (mouseover)="mouseItem()" (click)="clickButton()" [disabled]="disabled">{{label}}</button>
+            <button #button (mouseover)="mouseItem()" (click)="clickButton()" [disabled]="disabled"></button>
         </li>`
 })
 export class AlloyMenuItem implements AfterViewInit {
@@ -53,7 +53,7 @@ export class AlloyMenuItem implements AfterViewInit {
     template: `
         <li>
             <button (mouseover)="mouseItem()" #button class="submenu" [ngClass]="{'hover': showHover()}"
-                [disabled]="disabled">{{label}}</button>
+                [disabled]="disabled"></button>
             <dropdown-overlay-menu (mouseover)="mouseItem()" *ngIf="showOverlayWrap()" side="true" [zIndex]="zIndex">
                 <ng-content></ng-content>
             </dropdown-overlay-menu>
