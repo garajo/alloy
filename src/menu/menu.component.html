@@ -1,0 +1,19 @@
+<button *ngIf="!externalOrigin" alloy toolbar #button #identity type="button" 
+        [ngClass]="{'menu-is-open':isOpen}"
+        (click)="isOpen=!isOpen;" [disabled]="disabled">
+</button>
+<ng-template *ngIf="showOverlayWrap()" cdk-connected-overlay
+        [width]="overlayOrigin.elementRef.nativeElement.clientWidth"
+        [height]="overlayOrigin.elementRef.nativeElement.clientHeight"
+        hasBackdrop
+        [open]="true"
+        [positions]="[{originX:'start',originY:'top',overlayX:'start',overlayY:'top'}]"
+        (backdropClick)="isOpen=false"
+        backdropClass="cdk-overlay-transparent-backdrop"
+        [origin]="overlayOrigin"
+        (detach)="isOpen=false">
+    <button style="width:100%;height:100%" (click)="isOpen=false"></button>
+    <dropdown-overlay-menu (menuClick)="isOpen = false">
+        <ng-content></ng-content>
+    </dropdown-overlay-menu>
+</ng-template>

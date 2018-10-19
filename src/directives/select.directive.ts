@@ -5,7 +5,7 @@ import {
 import { AlloyIdentityDirective } from './identity.directive';
 import { Overlay, OverlayRef, OverlayConfig } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { DropdownOverlay } from '../dropdown-overlay/dropdown-overlay';
+import { DropdownOverlaySelect } from '../dropdown-overlay/dropdown-overlay-select';
 
 @Directive({
     selector: `select [alloy]`
@@ -148,13 +148,6 @@ export class AlloySelectDirective implements AfterViewInit, OnInit, AfterViewChe
         if (this.identityDirective) {
             this.identityDirective.assignTo(this.buttonEl);
         }
-
-        // Observe changes in child list of select element and trigger change detection so
-        // if option is added or removed the binding updates
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => { this.el.nativeElement.dispatchEvent(new CustomEvent('change')); });
-        });
-        observer.observe(this.el.nativeElement, { childList: true });
     }
 
     ngAfterViewChecked() {
@@ -181,19 +174,17 @@ export class AlloySelectDirective implements AfterViewInit, OnInit, AfterViewChe
     }
 
     // Update select/option elements when value is selected
-    select(selected: number, value: boolean) {
-        // Ability to close window without changing anything
-        if (selected === -1) {
-            this.closeWindow();
-            return;
+    select(selected: number[]) {
+        let changed = false;
+        for (let item of selected) {
+            if (this.el.nativeElement.options[item]) {
+                changed = true;
+                this.el.nativeElement.options[item].selected = !this.el.nativeElement.options[item].selected;
+            }
         }
-        const changed = this.el.nativeElement.options[selected].selected !== value;
 
-        if (!this._multiple) {
-            this.toggle();
-            this.el.nativeElement.options[selected].selected = true;
-        } else {
-            this.el.nativeElement.options[selected].selected = value;
+        if (selected === [] || !this.el.nativeElement.multiple) {
+            this.closeWindow();
         }
 
         // Check if value changed and dispach event so ngModel knows to update
@@ -235,15 +226,18 @@ export class AlloySelectDirective implements AfterViewInit, OnInit, AfterViewChe
         config.panelClass = 'dropdown-cdk-pane';
 
         this.overlayRef = this.overlay.create(config);
-        const dropdownPortal = new ComponentPortal(DropdownOverlay);
-        const compRef: ComponentRef<DropdownOverlay> = this.overlayRef.attach(dropdownPortal);
+        const dropdownPortal = new ComponentPortal(DropdownOverlaySelect);
+        const compRef: ComponentRef<DropdownOverlaySelect> = this.overlayRef.attach(dropdownPortal);
 
         compRef.instance.options = this.el.nativeElement.options;
         compRef.instance.hasSelectAll = this._hasSelectAll;
         compRef.instance.multiple = this._multiple;
         compRef.instance.filterable = this._filterable;
-        compRef.instance.onSelect.subscribe((selected: [number, boolean]) => { this.select(selected[0], selected[1]); });
+        compRef.instance.onSelect.subscribe((selected: number[]) => {
+            this.select(selected);
+        });
 
+        this.el.nativeElement.addEventListener('change', compRef.instance.itemsChanged.bind(compRef.instance));
         this.overlayRef.backdropClick().subscribe(() => this.closeWindow());
 
         this.isOpen = true;

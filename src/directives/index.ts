@@ -10,7 +10,7 @@ import { AlloyToggleDirective } from './toggle.directive';
 import { AlloyIdentityDirective } from './identity.directive';
 import { AlloySelectDirective } from './select.directive';
 import { CommonModule } from '@angular/common';
-import { DropdownOverlay } from '../dropdown-overlay/dropdown-overlay';
+import { DropdownOverlaySelect } from '../dropdown-overlay/dropdown-overlay-select';
 import { AlloyDropdownOverlayModule } from '../dropdown-overlay/index';
 import { LabelWrapperDirective } from './labelWrapper.directive';
 
@@ -44,7 +44,7 @@ import { LabelWrapperDirective } from './labelWrapper.directive';
         LabelWrapperDirective
     ],
     providers: [FocusMonitor],
-    entryComponents: [DropdownOverlay]
+    entryComponents: [DropdownOverlaySelect]
 
 
 })

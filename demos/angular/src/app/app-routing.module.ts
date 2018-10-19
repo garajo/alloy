@@ -22,6 +22,7 @@ import { VerifyButtonComponent } from './components/verification/button/verify-b
 import { IconPageComponent } from './components/icon-page/icon-page.component';
 import { VerifyDropdownComponent } from './components/verification/dropdown/verify-dropdown.component';
 import { WizardPageComponent } from './components/wizard-page/wizard-page.component';
+import { MenuPageComponent } from './components/menu-page/menu-page.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'dropdowns', pathMatch: 'full' },
@@ -32,6 +33,7 @@ const routes: Routes = [
     { path: 'display-settings', component: DisplaySettingsPageComponent },
     { path: 'dropdowns', component: DropdownsPageComponent },
     { path: 'icons', component: IconPageComponent },
+    { path: 'menu', component: MenuPageComponent },
     { path: 'notification-icon', component: NotificationIconPageComponent },
     { path: 'progress-bar', component: ProgressBarPageComponent },
     { path: 'propertygrid', component: PropertyEditorComponent },

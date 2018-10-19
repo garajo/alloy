@@ -140,13 +140,19 @@
   // At least as wide as the button that opened it
   min-width: 100%;
 
+  display: flex;
+  flex-direction: column;
+
   box-shadow: inset 0 1px 0 0 map_get($color-palette, menu-border-inset-active),
                 0 2px 6px 0 map_get($color-palette, menu-border-active);
   background-color: map_get($color-palette, menu-title-active-bg);
 
-  ul {
-    overflow-y: auto;
+  hr {
+    border-color: map_get($color-palette, menu-divider-color);
+    margin:8px 0 8px 0;
+  }
 
+  ul {
     list-style-type: none;
     margin: 0;
     user-select: none;
@@ -155,47 +161,59 @@
       white-space: nowrap;
       position: relative;
 
-      label {
+      button {
         color: map_get($color-palette, menu-text-color);
 
         padding-left: 40px;
         padding-right: 40px;
         line-height: 40px;
+        font-size: 14px;
+        width: 100%;
 
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
 
-        input[type="checkbox"] {
-          display: none;
+        text-align: left;
 
-          & + span {
-            position: absolute;
-            left: 16px;
-            top: 0px;
-            bottom: 0px;
-            margin: auto;
-          }
+        & + span {
+          position: absolute;
+          left: 16px;
+          top: 0px;
+          bottom: 0px;
+          margin: auto;
+        }
 
-          &:checked + span {
-            $width: 12px;
-            $height: 10px;
-            @include size($width, $height);
+        &.selected + span {
+          $width: 12px;
+          $height: 10px;
+          @include size($width, $height);
 
-            background: transparent map_get($icon-pack, check) no-repeat center center / $width $height;
-          }
+          background: transparent map_get($icon-pack, check) no-repeat center center / $width $height;
+        }
+
+        .alloyIcon {
+          position: absolute;
+          left: 0;
+          top: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 40px;
+          width: 40px;
+          pointer-events: none;
+        }
+
+        &.hover,
+        &:hover {
+          background-color: map_get($color-palette, menu-hover-bg);
+        }
+  
+        &:active {
+          background-color: map_get($color-palette, menu-active-bg);
         }
       }
-
-      &:hover {
-        background-color: map_get($color-palette, menu-hover-bg);
-      }
-
-      &:active {
-        background-color: map_get($color-palette, menu-active-bg);
-      }
     }
-
   }
 }
 
@@ -211,6 +229,23 @@
   right: 0;
 }
 
+.dropdown-overlay.dropdown-side {
+  margin: 0 0 0 1px;
+  left: 100%;
+  right: auto;
+  top: 0 !important;
+  min-width: 0 !important;
+  &.dropdown-left {
+    margin: 0 1px 0 0;
+    left: auto;
+    right: 100%;
+  }
+  &.dropdown-up {
+    top: auto !important;
+    bottom: 0 !important;
+  }
+}
+
 .dropdown-cdk-pane {
   // Disable pointer events so overlay over button is treated as
   // part of the backdrop and allows overlay to close
@@ -221,14 +256,14 @@
 }
 
 .dropdown-overlay.dropdown-multiple {
-  ul li label {
+  ul li {
     $size: 14px;
     span {
       @include size($size);
       background: transparent map_get($icon-pack, checkbox) no-repeat center center / $size;
     }
 
-    input[type="checkbox"]:checked + span {
+    button.selected + span {
       @include size($size);
       background: transparent map_get($icon-pack, checkbox-checked) no-repeat center center / $size;
     }
@@ -236,10 +271,11 @@
 }
 
 .dropdown-overlay {
-  ul li.disabled {
+  ul li button:disabled {
     opacity: 0.3;
     pointer-events: none;
-    label {
+    & + span {
+      opacity: 0.3;
       pointer-events: none;
     }
   }
@@ -277,5 +313,30 @@
     top: 10px; right: 10px;
     width: 20px;
     height: 20px;
+  }
+}
+
+// Additional styling for menu component
+.menu-is-open {
+  background-color: map_get($color-palette, button-toolbar-hover-bg);
+}
+
+.dropdown-overlay ul li button {
+  &:active.submenu {
+    background-color: map_get($color-palette, menu-hover-bg);
+  }
+
+  &.submenu:after {
+    $size: 12px;
+    @include size($size);
+    content: "";
+    background: transparent map_get($icon-pack, caret-down) no-repeat center center / $size;
+    transform: rotate(-90deg);
+    position: absolute;
+    right: 12px;
+    left: auto;
+    top: 0;
+    bottom: 0;
+    margin: auto;
   }
 }

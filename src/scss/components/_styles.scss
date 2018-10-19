@@ -5,7 +5,6 @@
 @import "_iconography";
 @import "_buttons";
 @import "_dropdowns";
-@import "_select";
 @import "_menus";
 @import "_tabs";
 @import "_toolbars";
@@ -32,6 +31,7 @@
 @import "_about-box";
 @import "_dialog";
 @import "_groupbox";
+@import "_select";
 @import "_resizer";
 @import "_property-grid";       //**IMPORTANT** This style needs to come last. It is a complex control that overrides styles of basic controls as well as inserting its styling
                                 // into the ag-grid control style system. For example putting textbox (or others) would clobber it's "tweaks" to have borderless textboxes when textboxes

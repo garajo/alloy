@@ -1,24 +1,9 @@
 <div #dropdownDiv class="dropdown-overlay">
-    <div *ngIf="filterable" class="dropdown-search">
-        <input type="text" placeholder="Search" (keyup)="onFilterKeyUp($event)" (blur)="focusFilter()" #filterInput>
-        <span class="alloy-ic-search"></span>
-        <hr>
-    </div>
     <ul #dropdown class="vertical">
-        <li *ngIf="hasSelectAll && !noMatch">
-            <label style="padding-left:18px;">{{selectAllLabel}}
-                <input #allCheckbox (change)="selectAll($event.target.checked)" type="checkbox"/>
-            </label>
-        </li>
-        <li *ngIf="noMatch" style="pointer-events: none">
-            <label style="pointer-events: none">No match found!</label>
-        </li>
-        <ng-container *ngFor="let option of options; let i = index">
-            <li *ngIf="!this.filterList[i]" [ngClass]="{'disabled':option.disabled}" [hidden]="option.hidden">
-                <label>{{option.label}}
-                    <input #checkbox (change)="checked(i, $event.target.checked)" type="checkbox" [checked]="option.selected" [hidden]="option.hidden" [disabled]="option.disabled"/>
-                    <span></span>
-                </label>
+        <ng-container *ngFor="let item of items; let i = index">
+            <li [hidden]="item.hidden">
+                <button #button (click)="itemClicked(i)" [disabled]="item.disabled">{{item.label}}</button>
+                <span></span>
             </li>
         </ng-container>
     </ul>

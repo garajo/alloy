@@ -23,6 +23,7 @@ import {
   AlloyPropertyGridModule,
   AlloyPropertyGridMessageService,
   AlloySwitcherModule,
+  AlloyMenuModule,
   AlloyDialogModule,
   AlloyWizardModule
 } from '@keysight/alloy';
@@ -57,6 +58,7 @@ import { IconPageComponent } from './components/icon-page/icon-page.component';
 import { VerifyDropdownComponent } from './components/verification/dropdown/verify-dropdown.component';
 import { WizardPageComponent } from './components/wizard-page/wizard-page.component';
 import { WizardDemoComponent } from './components/wizard-page/demo-wizard.component';
+import { MenuPageComponent } from './components/menu-page/menu-page.component';
 
 /**
  * NgModule that includes all Alloy modules that are required to serve the demo app.
@@ -76,6 +78,7 @@ import { WizardDemoComponent } from './components/wizard-page/demo-wizard.compon
     AlloyDirectivesModule,
     AlloyProgressBarModule,
     AlloyProgressRingModule,
+    AlloyMenuModule,
     AlloyDialogModule,
     AlloyWizardModule
   ],
@@ -92,7 +95,8 @@ import { WizardDemoComponent } from './components/wizard-page/demo-wizard.compon
     AlloyDirectivesModule,
     AlloyProgressBarModule,
     AlloyProgressRingModule,
-    AlloyWizardModule
+    AlloyWizardModule,
+    AlloyMenuModule
   ]
 })
 export class AlloyDemoModule { }
@@ -108,6 +112,7 @@ export class AlloyDemoModule { }
     DisplaySettingsPageComponent,
     DropdownDynamicComponent,
     DropdownsPageComponent,
+    MenuPageComponent,
     NotificationIconPageComponent,
     ProgressBarPageComponent,
     PropertyEditorComponent,

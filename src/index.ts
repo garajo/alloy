@@ -22,6 +22,7 @@ export * from './property-grid/index';
 export * from './textbox/index';
 export * from './switcher/index';
 export * from './dropdown-overlay/index';
+export * from './menu/index';
 
 // Make available any/all services & directives that Alloy may proffer
 export * from './app/services/index';
