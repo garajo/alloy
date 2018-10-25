@@ -1,76 +1,78 @@
-.header {
-    padding-top: 6px;
-}
+alloy-about-box {
+    .header {
+        padding-top: 6px;
+    }
 
-/* Sri- This is required to pin the footer (Close button and Keysight signature icon to the bottom*/
-/* Foundation align-self-bottom/ align-bottom does not work */
-.footer {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding-bottom: 16px;
-    padding-right: 16px;
-}
+    /* Sri- This is required to pin the footer (Close button and Keysight signature icon to the bottom*/
+    /* Foundation align-self-bottom/ align-bottom does not work */
+    .footer {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding-bottom: 16px;
+        padding-right: 16px;
+    }
 
-.title {
-    margin-left: 12px;
-    max-height: 64px;
-}
+    .title {
+        margin-left: 12px;
+        max-height: 64px;
+    }
 
-.app-icon {
-    width: 64px;
-    height: 64px;
-}
+    .app-icon {
+        width: 64px;
+        height: 64px;
+    }
 
-.app-name {
-    font-family: 'Keysight Condensed Bold', sans-serif;
-    font-size: 24px;
-    font-weight: normal;
-    margin: 0px;
-}
+    .app-name {
+        font-family: 'Keysight Condensed Bold', sans-serif;
+        font-size: 24px;
+        font-weight: normal;
+        margin: 0px;
+    }
 
-.descriptor {
-    font-family: 'Keysight Condensed Regular', sans-serif;
-    font-size: 18px;
-    font-weight: normal;
-    margin: 0px;
-}
+    .descriptor {
+        font-family: 'Keysight Condensed Regular', sans-serif;
+        font-size: 18px;
+        font-weight: normal;
+        margin: 0px;
+    }
 
-.copyright {
-    font-family: 'Keysight Condensed Regular', sans-serif;
-    font-size: 10px;
-    font-weight: normal;
-    margin-top: 20px;
-}
+    .copyright {
+        font-family: 'Keysight Condensed Regular', sans-serif;
+        font-size: 10px;
+        font-weight: normal;
+        margin-top: 20px;
+    }
 
-.content {
-    margin-top: 12px;
-    margin-bottom: 12px;
-}
+    .content {
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
 
-.close-bar {
-    margin-bottom: 12px;
-}
+    .close-bar {
+        margin-bottom: 12px;
+    }
 
-.signature {
-    width: 102px;
-    padding-bottom: 6px;
-    margin: 0;
-}
+    .signature {
+        width: 102px;
+        padding-bottom: 6px;
+        margin: 0;
+    }
 
-.about-height {
-    min-height: 300px;
-}
+    .about-height {
+        min-height: 300px;
+    }
 
-.about-width {
-    min-width: 550px;
-}
+    .about-width {
+        min-width: 550px;
+    }
 
-/* Minimum size requirements for the about-box after which the dialog is responsive to resize */
-.size {
-    min-width: 550px;
-    min-height: 300px;
-    height: 10vh;
-    width: 25vh;
+    /* Minimum size requirements for the about-box after which the dialog is responsive to resize */
+    .size {
+        min-width: 550px;
+        min-height: 300px;
+        height: 10vh;
+        width: 25vh;
+    }
 }
