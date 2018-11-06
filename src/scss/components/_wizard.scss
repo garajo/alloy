@@ -150,7 +150,7 @@ $alloy-tab-height: 56px;
 
 .alloy-wizard-content {
     flex-grow: 1;
-    padding: 16px;
+    padding: 0px;
 }
 
 .alloy-wizard-step-active {
@@ -164,8 +164,4 @@ $alloy-tab-height: 56px;
 
 .alloy-wizard-step-edge-visited {
     background-color:  map_get($color-palette, wizard-tab-edge-visited);
-}
-
-div.dialog-body.caranu-window-padding {
-    padding: 0 !important; //TODO: remove this.
 }
