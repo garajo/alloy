@@ -6,6 +6,10 @@ $alloy-tab-height: 56px;
         .alloy-wizard-step-edge,
         .alloy-wizard-step-button {
             background-color: map_get($color-palette, wizard-tab-hover);
+
+            &.alloy-wizard-step-active {
+                background-color: map_get($color-palette, wizard-tab-active-hover);
+            }
         }
     }
 }
