@@ -323,7 +323,7 @@ $color-palette: (
         // Wizard
         wizard-tab-edge-normal:                   rgba($glitter,$opacity-HEX28),
         wizard-tab-active:                        $cornflower-blue,
-        wizard-tab-active-hover:                  #7AABFF,  // AJM: Missing state in spec, slight white bias to cornflower-blue
+        wizard-tab-active-hover:                  $cornflower-blue,  // AJM: No state, click would have no effect
         wizard-tab-text-active:                   $black,
         wizard-tab-button-visited:                rgba($glitter,$opacity-HEX28),
         wizard-tab-edge-visited:                  $cornflower-blue,
