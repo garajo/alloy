@@ -179,7 +179,13 @@ export class AlloySelectDirective implements AfterViewInit, OnInit, AfterViewChe
         for (let item of selected) {
             if (this.el.nativeElement.options[item]) {
                 changed = true;
-                this.el.nativeElement.options[item].selected = !this.el.nativeElement.options[item].selected;
+                if (this.el.nativeElement.multiple) {
+                    // For multiple select we toggle
+                    this.el.nativeElement.options[item].selected = !this.el.nativeElement.options[item].selected;
+                } else {
+                    // otherwise, just set selected and let select do it's thing
+                    this.el.nativeElement.options[item].selected = true;
+                }
             }
         }
 

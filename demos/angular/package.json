@@ -28,7 +28,6 @@
     "@angular/platform-browser": "^4.3.1",
     "@angular/platform-browser-dynamic": "^4.3.1",
     "@angular/router": "^4.3.1",
-    "@keysight/alloy": "file:../../src",
     "clean-css": "^4.1.11",
     "core-js": "^2.4.1",
     "rxjs": "^5.1.0",
