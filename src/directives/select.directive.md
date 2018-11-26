@@ -86,3 +86,17 @@ When the dropdown opens it will attempt to open below and expand to the right. I
 If there is no room for the button to expand to fit the content then the content will overflow with elipses instead over overflowing to the next line. Styling can be set for width or max width to force overflow.
 
 Any styling applied to the element is applied to the button that is created to open the dropdown so the behavior of styling will be the same as a button.
+
+**Please Note: `select` does _not_ respond to css `select` selector due to the highly customized nature.  Please use classes for _all_ styling.**  ie:
+
+```css
+~~DO~~
+.fill {
+    width: 100%;
+}
+
+~~DON'T~~
+select {
+    width: 100%;
+}
+```

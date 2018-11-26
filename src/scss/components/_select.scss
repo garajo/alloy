@@ -81,6 +81,13 @@
       transform: rotate(180deg);
     }
   }
+
+    // AJM: Custom focus styling applies even when clicked which is a poor UX.  FocusMonitor adds modality to focus.
+    // This won't support focus in html.  There's a bug that fires mouse events as 'program' for nested labels right now.
+    // So for now we support only keyboard, uncomment 'program' if fixed.
+    &.cdk-keyboard-focused/* , &.cdk-program-focused */ {
+        outline: 2px dashed map_get($color-palette, control-default-focus-color) /*another foundation wart -->*/!important;
+    }
 }
 
 .select-button.readonly {
@@ -208,7 +215,7 @@
         &:hover {
           background-color: map_get($color-palette, menu-hover-bg);
         }
-  
+
         &:active {
           background-color: map_get($color-palette, menu-active-bg);
         }

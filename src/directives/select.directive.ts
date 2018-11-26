@@ -1,17 +1,20 @@
 import {
     Directive, ElementRef, Renderer2, Host, Optional, Input, HostListener, ComponentRef,
-    AfterViewInit, Output, EventEmitter, AfterViewChecked, OnInit
+    AfterViewInit, Output, EventEmitter, AfterViewChecked, OnInit, OnDestroy, HostBinding
 } from '@angular/core';
 import { AlloyIdentityDirective } from './identity.directive';
 import { Overlay, OverlayRef, OverlayConfig } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { DropdownOverlaySelect } from '../dropdown-overlay/dropdown-overlay-select';
+import { FocusMonitor } from '@angular/cdk/a11y';
 
 @Directive({
     selector: `select [alloy]`
 })
 
-export class AlloySelectDirective implements AfterViewInit, OnInit, AfterViewChecked {
+export class AlloySelectDirective implements AfterViewInit, OnInit, AfterViewChecked, OnDestroy {
+    // We want to focus on the button, not the invisible select.
+    @HostBinding('attr.tabindex') get noFocus() { return -1; }
 
     private _placeholder = '';
     private _isOpen = false;
@@ -109,6 +112,7 @@ export class AlloySelectDirective implements AfterViewInit, OnInit, AfterViewChe
         private el: ElementRef,
         private renderer: Renderer2,
         private overlay: Overlay,
+        protected focusMonitor: FocusMonitor,
         @Host() @Optional() private identityDirective: AlloyIdentityDirective) {
 
         let originalClasses = this.el.nativeElement.className as string;
@@ -148,10 +152,15 @@ export class AlloySelectDirective implements AfterViewInit, OnInit, AfterViewChe
         if (this.identityDirective) {
             this.identityDirective.assignTo(this.buttonEl);
         }
+        this.focusMonitor.monitor(this.buttonEl, this.renderer, false);
     }
 
     ngAfterViewChecked() {
         this.updateButton();
+    }
+
+    ngOnDestroy() {
+        this.focusMonitor.stopMonitoring(this.buttonEl);
     }
 
     // Update label for button to reflect what is selected
@@ -255,5 +264,12 @@ export class AlloySelectDirective implements AfterViewInit, OnInit, AfterViewChe
         } else {
             this.openWindow();
         }
+    }
+
+    /**
+     * Due to 'program' bug in focusMonitor we reroute programmatic as 'keyboard' to allow focus ring
+     */
+    focus(): void {
+        this.focusMonitor.focusVia(this.buttonEl, 'keyboard');
     }
 }
