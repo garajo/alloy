@@ -22,7 +22,7 @@ export class AlloyProgressBar {
     /** Transforms the width of the progress indicator */
     // tslint:disable-next-line:no-unused-variable
     private progressTransform() {
-        const scale = this.value / 100;
+        const scale = Math.min(this.value, 100) / 100;
         return { transform: `scaleX(${scale})` };
     }
 }

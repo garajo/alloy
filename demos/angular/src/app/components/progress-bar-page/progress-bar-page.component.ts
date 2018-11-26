@@ -14,11 +14,7 @@ export class ProgressBarPageComponent {
     constructor() { }
 
     increment() {
-      if (this.value > 90) {
-        this.value = 0;
-      } else {
         this.value += 10;
-      }
     }
 
     // Automatically generates an HTML preview for a clicked button.
