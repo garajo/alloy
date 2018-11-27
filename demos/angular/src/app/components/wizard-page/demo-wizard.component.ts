@@ -63,4 +63,8 @@ export class WizardDemoComponent implements OnInit {
   onFinish(data: any) {
     console.log(`data blob: ${JSON.stringify(data)}`);
   }
+
+  onCancel() {
+    console.log(`wizard cancelled`);
+  }
 }

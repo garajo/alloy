@@ -1,4 +1,4 @@
-<alloy-wizard (onFinish)="onFinish($event)">
+<alloy-wizard (finished)="onFinish($event)" (canceled)="onCancel()">
     <alloy-vertical-stepper *ngIf="!orientationHorizontal" linear>
       <alloy-step [stepControl]="overviewFormGroup" label="Overview">
           <div class="body">

@@ -16,8 +16,8 @@ export class AlloyWizard {
 
     @ContentChild(AlloyStepper) stepper: AlloyStepper;
 
-    @Output() onFinish: EventEmitter<any> = new EventEmitter<any>();
-    @Output() onCancel: EventEmitter<void> = new EventEmitter<void>();
+    @Output() finished: EventEmitter<any> = new EventEmitter<any>();
+    @Output() canceled: EventEmitter<void> = new EventEmitter<void>();
 
     constructor(
         private alloyDialogService: AlloyDialogService,
@@ -40,11 +40,13 @@ export class AlloyWizard {
             result[step.label] = step.stepControl.value;
         });
         this.data.content.result = result;
+        this.finished.emit(result);
         this.alloyDialogService.closeDialog(this.data.dialogRef.id);
       }
     }
 
     onCancelClick() {
+        this.canceled.emit();
         this.alloyDialogService.closeDialog(this.data.dialogRef.id);
   }
 }
